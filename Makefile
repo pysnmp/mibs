@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: all
+.PHONY: all vendor
 #RFC=$(notdir $(wildcard mibs/*))
 RFC=$(wildcard src/standard/*)
 
