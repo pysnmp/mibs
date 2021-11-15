@@ -8,7 +8,7 @@ python-versions = "*"
 
 [[package]]
 name = "pysnmp-pysmi"
-version = "1.0.6"
+version = "1.0.7"
 description = ""
 category = "main"
 optional = false
@@ -28,6 +28,6 @@ ply = [
     {file = "ply-3.11.tar.gz", hash = "sha256:00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"},
 ]
 pysnmp-pysmi = [
-    {file = "pysnmp-pysmi-1.0.6.tar.gz", hash = "sha256:e47e13bb9dd1405d681dc44a74970bee860662f2a69829c6d9fef86951d8cbd5"},
-    {file = "pysnmp_pysmi-1.0.6-py3-none-any.whl", hash = "sha256:e5323210e651b2107d68918ff55c27ed3e26e100130fa7fc507804e7755d36b2"},
+    {file = "pysnmp-pysmi-1.0.7.tar.gz", hash = "sha256:b21464ece517b562ac49fe0e9b6834db5f38a1c21321ecf8234b864b1ec07077"},
+    {file = "pysnmp_pysmi-1.0.7-py3-none-any.whl", hash = "sha256:d9eb0ba8a66005fc9351c71f9732ca34a7d9d0056b98b5e0b20044e45b674c66"},
 ]
