@@ -11,12 +11,13 @@ command_exists "grep"
 command_exists "sed"
 
 echo from inside index.sh
+grep -v
 grep -Eo 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
 	| sed 's|.*/notexts/||' \
 	| sed 's|, |.|g' \
 	| sed 's|.py:ModuleIdentity((|,|' \
 	| sed 's|))||' >index.csv
-cat index.csv
+
 while IFS=, read -r one two; do 
     d=$(echo $two | sed 's|\.|/|g')
     mkdir -p output/index/$d
