@@ -29,6 +29,7 @@ compilerfc: $(RFC)
 
 index: compilerfc ##generate index
 	@# Generate index
+	touch output/.nojekyll
 	grep -Eo 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
 	| sed 's|output/notexts/||' \
 	| sed 's|, |.|g' \
