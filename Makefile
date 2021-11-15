@@ -9,7 +9,7 @@ RFC=$(wildcard mibs/*)
 # 	  --no-parent --no-host-directories http://mibs.snmplabs.com/asn1/
 # 	rm -rf asn1/index.html*
 
-output/asn1/$(notdir $(RFC)): $(RFC)
+compilerfc: $(RFC)
 	@# Compile mibs
 #Compile with notexts	
 	poetry run mibdump.py \
@@ -26,9 +26,6 @@ output/asn1/$(notdir $(RFC)): $(RFC)
 	$(notdir $(RFC))
 	
 	for u in $(RFC); do echo $$u; cp -f $$u output/asn1/; done
-
-#compilerfc: mibs/$(RFC) ## Compile all MIBs into .py files
-compilerfc: output/asn1/$(notdir $(RFC)) #mibs/$(RFC)
 
 index: compilerfc ##generate index
 	@# Generate index
