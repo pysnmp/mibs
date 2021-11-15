@@ -12,7 +12,7 @@ command_exists "sed"
 
 echo from inside index.sh
 grep -v
-grep -Eo 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
+grep -Po 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
 	| sed 's|.*/notexts/||' \
 	| sed 's|, |.|g' \
 	| sed 's|.py:ModuleIdentity((|,|' \
