@@ -65,6 +65,7 @@ snmpCommunityMIB MODULE-IDENTITY
                   Email:      bwijnen@lucent.com
                   Phone:      +31-348-407-775
                  "
+
         DESCRIPTION
             "This MIB module defines objects to help support coexistence
              between SNMPv1, SNMPv2c, and SNMPv3."
@@ -82,7 +83,6 @@ snmpCommunityMIBConformance OBJECT IDENTIFIER ::= { snmpCommunityMIB 2 }
 --
 -- The snmpCommunityTable contains a database of community strings.
 -- This table provides mappings between community strings, and the
-
 -- parameters required for View-based Access Control.
 --
 
@@ -180,7 +180,6 @@ snmpCommunityTransportTag OBJECT-TYPE
          the request is deemed unauthentic.
 
          The transports identified by this object are specified
-
          in the snmpTargetAddrTable.  Entries in that table
          whose snmpTargetAddrTagList contains this tag value
          are identified.
@@ -229,7 +228,6 @@ snmpTargetAddrExtTable OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The table of mask and mms values associated with the
-
          snmpTargetAddrTable.
 
          The snmpTargetAddrExtTable augments the
@@ -352,7 +350,7 @@ snmpCommunityMIBCompliance MODULE-COMPLIANCE
          implement the SNMP-COMMUNITY-MIB."
 
     MODULE       -- this module
-        MANDATORY-GROUPS { snmpCommunityGroup }
+        MANDATORY-GROUPS { snmpCommunityTableGroup }
 
         OBJECT           snmpCommunityName
         MIN-ACCESS       read-only
@@ -381,6 +379,7 @@ snmpCommunityMIBCompliance MODULE-COMPLIANCE
         OBJECT           snmpCommunityStatus
         MIN-ACCESS       read-only
         DESCRIPTION     "Write access is not required."
+
     ::= { snmpCommunityMIBCompliances 1 }
 
 snmpProxyTrapForwardCompliance MODULE-COMPLIANCE
@@ -394,7 +393,7 @@ snmpProxyTrapForwardCompliance MODULE-COMPLIANCE
         MANDATORY-GROUPS { snmpProxyTrapForwardGroup }
     ::= { snmpCommunityMIBCompliances 2 }
 
-snmpCommunityGroup OBJECT-GROUP
+snmpCommunityTableGroup OBJECT-GROUP
     OBJECTS {
         snmpCommunityName,
         snmpCommunitySecurityName,
@@ -422,7 +421,6 @@ snmpProxyTrapForwardGroup OBJECT-GROUP
         "Objects which are used by proxy forwarding applications
          when translating traps between SNMP versions.  These are
          used to preserve SNMPv1-specific information when
-
          translating to SNMPv2c or SNMPv3."
     ::= { snmpCommunityMIBGroups 3 }
 

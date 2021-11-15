@@ -1,0 +1,165 @@
+#
+# PySNMP MIB module RUGGEDCOM-SYS-INFO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ros/RUGGEDCOM-SYS-INFO-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 19:58:44 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ruggedcomMgmt, = mibBuilder.importSymbols("RUGGEDCOM-MIB", "ruggedcomMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ObjectIdentity, Unsigned32, MibIdentifier, Gauge32, IpAddress, iso, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, Counter32, NotificationType, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "MibIdentifier", "Gauge32", "IpAddress", "iso", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "Counter32", "NotificationType", "Bits")
+TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
+rcSysInfo = ModuleIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 2))
+rcSysInfo.setRevisions(('2014-10-08 17:00', '2012-08-30 17:00', '2012-06-01 17:00', '2011-04-05 10:00', '2010-09-16 13:00', '2009-05-17 13:00', '2008-12-17 13:00', '2008-10-09 10:00', '2008-09-12 14:00', '2008-02-15 14:00', '2006-09-06 14:00',))
+if mibBuilder.loadTexts: rcSysInfo.setLastUpdated('201410081700Z')
+if mibBuilder.loadTexts: rcSysInfo.setOrganization('RuggedCom')
+class RcHardwareStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("notPresent", 1), ("functional", 2), ("notFunctional", 3), ("notConnected", 4))
+
+class RcFanStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("notPresent", 1), ("failed", 2), ("standby", 3), ("off", 4), ("on", 5))
+
+class RcHotswapModuleSlot(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+    namedValues = NamedValues(("pm1", 1), ("lm1", 2), ("lm2", 3), ("lm3", 4), ("cm", 5), ("sm", 6), ("lm4", 7), ("lm5", 8), ("lm6", 9), ("pm2", 10), ("main", 11), ("em", 12))
+
+class RcHotswapModuleState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 255))
+    namedValues = NamedValues(("empty", 1), ("disabled", 2), ("resetting", 3), ("operating", 4), ("failed", 5), ("unknown", 255))
+
+class RcMainBoard(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 61, 62, 63, 64, 65, 66, 67, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265))
+    namedValues = NamedValues(("rsMCPU2", 1), ("rs400revB2", 2), ("rmc30", 3), ("rs900revB1F", 4), ("rs900revB1noF", 5), ("rs1600M", 6), ("rs400revC1", 7), ("rsG2100", 8), ("rs900G", 9), ("rsG2200", 10), ("rs969", 11), ("rs900v2F", 12), ("rs900v2noF", 13), ("rs416", 15), ("rsRMC30Ksz80001", 16), ("rs930", 17), ("rs969v2", 18), ("rs910", 19), ("rs920", 20), ("rs940G", 21), ("rsi80x", 22), ("rsG2300", 23), ("rs416v2", 24), ("rsg2288", 25), ("rp110", 26), ("rs900GP", 27), ("rs900M", 28), ("rs950G", 29), ("rsG2488", 61), ("rsG2488v2", 62), ("rsG2488v3", 63), ("rmc8388A", 64), ("rmc8388B", 65), ("rmc8388C", 66), ("rsG920P", 67), ("rsMCPU", 255), ("rx1000", 256), ("rx1100", 257), ("rx1500", 258), ("rx1501", 259), ("rx1510", 260), ("rx1511", 261), ("rx1512", 262), ("rx5000", 263), ("mx5000", 264), ("rx1400", 265))
+
+rcSysInfoConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5))
+rcSysInfoGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2))
+rcDeviceError = ObjectIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1))
+if mibBuilder.loadTexts: rcDeviceError.setStatus('current')
+rcDeviceStatus = ObjectIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2))
+if mibBuilder.loadTexts: rcDeviceStatus.setStatus('current')
+rcDeviceInfo = ObjectIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3))
+if mibBuilder.loadTexts: rcDeviceInfo.setStatus('current')
+rcDeviceCommands = ObjectIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 2, 4))
+if mibBuilder.loadTexts: rcDeviceCommands.setStatus('current')
+rcDeviceErrBootupError = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrBootupError.setStatus('current')
+rcDeviceErrWatchdogReset = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrWatchdogReset.setStatus('current')
+rcDeviceErrConfigurationFailure = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrConfigurationFailure.setStatus('current')
+rcDeviceErrCrashLogCreated = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrCrashLogCreated.setStatus('current')
+rcDeviceErrStackOverflow = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrStackOverflow.setStatus('current')
+rcDeviceErrHeapError = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrHeapError.setStatus('current')
+rcDeviceErrDateAndTimeSetFailed = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrDateAndTimeSetFailed.setStatus('current')
+rcDeviceErrNtpServerUnreachable = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrNtpServerUnreachable.setStatus('current')
+rcDeviceErrBootPTftpTrFailed = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrBootPTftpTrFailed.setStatus('current')
+rcDeviceErrRadiusServerUnreachable = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrRadiusServerUnreachable.setStatus('current')
+rcDeviceErrTacacsServerUnreachable = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 1, 11), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceErrTacacsServerUnreachable.setStatus('current')
+rcDeviceStsCpuUsage = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 1), Integer32()).setUnits('tenths of percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsCpuUsage.setStatus('current')
+rcDeviceStsAvailableRam = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsAvailableRam.setStatus('current')
+rcDeviceStsTemperature = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 3), Integer32()).setUnits('Celsius degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsTemperature.setStatus('current')
+rcDeviceStsPowerSupply1 = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 4), RcHardwareStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsPowerSupply1.setStatus('current')
+rcDeviceStsPowerSupply2 = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 5), RcHardwareStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsPowerSupply2.setStatus('current')
+rcDeviceStsCpuUsagePercent = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 6), Integer32()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsCpuUsagePercent.setStatus('current')
+rcDeviceStsFailSafeRelay = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("energized", 1), ("deEnergized", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsFailSafeRelay.setStatus('current')
+rcDeviceStsErrorAlarm = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsErrorAlarm.setStatus('current')
+rcDeviceStsNoOfActiveAlarms = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsNoOfActiveAlarms.setStatus('current')
+rcDeviceStsFanBank1 = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 10), RcFanStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsFanBank1.setStatus('current')
+rcDeviceStsFanBank2 = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 11), RcFanStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsFanBank2.setStatus('current')
+rcDeviceStsPwdsWeak = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 12), Bits().clone(namedValues=NamedValues(("adminPwd", 0), ("operPwd", 1), ("guestPwd", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsPwdsWeak.setStatus('current')
+rcDeviceStsKeysDflt = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 2, 13), Bits().clone(namedValues=NamedValues(("sshDfltKeys", 0), ("sslDfltKeys", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceStsKeysDflt.setStatus('current')
+rcDeviceInfoSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoSerialNumber.setStatus('current')
+rcDeviceInfoBootSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoBootSwVersion.setStatus('current')
+rcDeviceInfoMainSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoMainSwVersion.setStatus('current')
+rcDeviceInfoMainBoardType = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 4), RcMainBoard()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoMainBoardType.setStatus('current')
+rcDeviceInfoTotalRam = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoTotalRam.setStatus('current')
+rcDeviceInfoPendingBootSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoPendingBootSwVersion.setStatus('current')
+rcDeviceInfoPendingMainSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoPendingMainSwVersion.setStatus('current')
+rcDeviceInfoCfgRevision = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoCfgRevision.setStatus('current')
+rcDeviceInfoMinBootSwVer = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 3, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDeviceInfoMinBootSwVer.setStatus('current')
+rcDeviceCommReset = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 4, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDeviceCommReset.setStatus('current')
+rcDeviceCommLoadDefaultCfg = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 4, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDeviceCommLoadDefaultCfg.setStatus('current')
+rcDeviceCommClearAlarms = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 4, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDeviceCommClearAlarms.setStatus('current')
+rcDeviceCommClearSyslog = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 4, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDeviceCommClearSyslog.setStatus('current')
+rcDeviceCommClearLogs = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 4, 5), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDeviceCommClearLogs.setStatus('current')
+rcDeviceCommIdentify = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 2, 4, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDeviceCommIdentify.setStatus('current')
+rcSysErrObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 1)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrBootupError"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrWatchdogReset"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrConfigurationFailure"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrCrashLogCreated"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrStackOverflow"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrHeapError"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrDateAndTimeSetFailed"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrNtpServerUnreachable"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrBootPTftpTrFailed"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrRadiusServerUnreachable"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceErrTacacsServerUnreachable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysErrObjectsGroup = rcSysErrObjectsGroup.setStatus('current')
+rcSysStsObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 2)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsCpuUsage"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsCpuUsagePercent"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsAvailableRam"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysStsObjectsGroup = rcSysStsObjectsGroup.setStatus('current')
+rcSysStsObjectsTemperatureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 3)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsTemperature"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysStsObjectsTemperatureGroup = rcSysStsObjectsTemperatureGroup.setStatus('current')
+rcSysStsPowerSupplyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 4)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsPowerSupply1"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsPowerSupply2"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysStsPowerSupplyGroup = rcSysStsPowerSupplyGroup.setStatus('current')
+rcSysInfoDeviceInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 5)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoMainBoardType"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoTotalRam"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoBootSwVersion"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoMainSwVersion"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoPendingBootSwVersion"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoPendingMainSwVersion"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoCfgRevision"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoSerialNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysInfoDeviceInfoGroup = rcSysInfoDeviceInfoGroup.setStatus('current')
+rcSysDeviceCommGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 6)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceCommReset"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceCommLoadDefaultCfg"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceCommClearAlarms"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceCommClearSyslog"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceCommClearLogs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysDeviceCommGroup = rcSysDeviceCommGroup.setStatus('current')
+rcSysDeviceCommIdentifyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 7)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceCommIdentify"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysDeviceCommIdentifyGroup = rcSysDeviceCommIdentifyGroup.setStatus('current')
+rcSysStsObjectsGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 8)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsCpuUsage"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsCpuUsagePercent"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsAvailableRam"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsErrorAlarm"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsFailSafeRelay"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsNoOfActiveAlarms"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysStsObjectsGroup1 = rcSysStsObjectsGroup1.setStatus('current')
+rcSysStsFanBankGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 9)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsFanBank1"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsFanBank2"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysStsFanBankGroup = rcSysStsFanBankGroup.setStatus('current')
+rcSysDeviceSecurityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 10)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsPwdsWeak"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysDeviceSecurityGroup = rcSysDeviceSecurityGroup.setStatus('current')
+rcSysDeviceSecurityGroup01 = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 2, 5, 2, 11)).setObjects(("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsPwdsWeak"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceStsKeysDflt"), ("RUGGEDCOM-SYS-INFO-MIB", "rcDeviceInfoMinBootSwVer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcSysDeviceSecurityGroup01 = rcSysDeviceSecurityGroup01.setStatus('current')
+mibBuilder.exportSymbols("RUGGEDCOM-SYS-INFO-MIB", rcSysStsObjectsGroup=rcSysStsObjectsGroup, rcDeviceStsCpuUsagePercent=rcDeviceStsCpuUsagePercent, rcDeviceErrNtpServerUnreachable=rcDeviceErrNtpServerUnreachable, rcDeviceCommClearLogs=rcDeviceCommClearLogs, rcDeviceStsFanBank1=rcDeviceStsFanBank1, rcDeviceErrCrashLogCreated=rcDeviceErrCrashLogCreated, rcDeviceCommLoadDefaultCfg=rcDeviceCommLoadDefaultCfg, rcSysInfo=rcSysInfo, rcDeviceStsTemperature=rcDeviceStsTemperature, rcDeviceCommands=rcDeviceCommands, RcHardwareStatus=RcHardwareStatus, rcSysInfoDeviceInfoGroup=rcSysInfoDeviceInfoGroup, PYSNMP_MODULE_ID=rcSysInfo, rcDeviceErrStackOverflow=rcDeviceErrStackOverflow, RcMainBoard=RcMainBoard, rcDeviceStsCpuUsage=rcDeviceStsCpuUsage, rcDeviceStsPwdsWeak=rcDeviceStsPwdsWeak, rcDeviceStsPowerSupply2=rcDeviceStsPowerSupply2, rcDeviceError=rcDeviceError, rcDeviceInfoCfgRevision=rcDeviceInfoCfgRevision, rcSysDeviceSecurityGroup=rcSysDeviceSecurityGroup, rcSysDeviceSecurityGroup01=rcSysDeviceSecurityGroup01, rcDeviceCommIdentify=rcDeviceCommIdentify, RcHotswapModuleState=RcHotswapModuleState, rcDeviceErrHeapError=rcDeviceErrHeapError, rcDeviceErrRadiusServerUnreachable=rcDeviceErrRadiusServerUnreachable, rcDeviceCommClearAlarms=rcDeviceCommClearAlarms, rcSysStsObjectsTemperatureGroup=rcSysStsObjectsTemperatureGroup, rcSysStsPowerSupplyGroup=rcSysStsPowerSupplyGroup, rcDeviceInfoMinBootSwVer=rcDeviceInfoMinBootSwVer, rcDeviceInfo=rcDeviceInfo, rcDeviceStsNoOfActiveAlarms=rcDeviceStsNoOfActiveAlarms, rcSysDeviceCommGroup=rcSysDeviceCommGroup, rcDeviceCommClearSyslog=rcDeviceCommClearSyslog, rcSysDeviceCommIdentifyGroup=rcSysDeviceCommIdentifyGroup, rcDeviceStatus=rcDeviceStatus, rcDeviceInfoMainBoardType=rcDeviceInfoMainBoardType, rcDeviceStsErrorAlarm=rcDeviceStsErrorAlarm, rcDeviceErrTacacsServerUnreachable=rcDeviceErrTacacsServerUnreachable, rcDeviceErrBootPTftpTrFailed=rcDeviceErrBootPTftpTrFailed, rcDeviceStsKeysDflt=rcDeviceStsKeysDflt, RcHotswapModuleSlot=RcHotswapModuleSlot, rcDeviceInfoTotalRam=rcDeviceInfoTotalRam, rcDeviceErrDateAndTimeSetFailed=rcDeviceErrDateAndTimeSetFailed, rcDeviceInfoSerialNumber=rcDeviceInfoSerialNumber, rcDeviceCommReset=rcDeviceCommReset, rcDeviceStsFanBank2=rcDeviceStsFanBank2, rcDeviceStsPowerSupply1=rcDeviceStsPowerSupply1, rcDeviceStsFailSafeRelay=rcDeviceStsFailSafeRelay, rcDeviceErrConfigurationFailure=rcDeviceErrConfigurationFailure, rcSysInfoConformance=rcSysInfoConformance, rcDeviceErrBootupError=rcDeviceErrBootupError, rcDeviceStsAvailableRam=rcDeviceStsAvailableRam, rcDeviceInfoBootSwVersion=rcDeviceInfoBootSwVersion, rcDeviceInfoPendingMainSwVersion=rcDeviceInfoPendingMainSwVersion, rcSysStsFanBankGroup=rcSysStsFanBankGroup, rcSysErrObjectsGroup=rcSysErrObjectsGroup, RcFanStatus=RcFanStatus, rcDeviceErrWatchdogReset=rcDeviceErrWatchdogReset, rcDeviceInfoMainSwVersion=rcDeviceInfoMainSwVersion, rcSysStsObjectsGroup1=rcSysStsObjectsGroup1, rcDeviceInfoPendingBootSwVersion=rcDeviceInfoPendingBootSwVersion, rcSysInfoGroups=rcSysInfoGroups)

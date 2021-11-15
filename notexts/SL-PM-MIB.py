@@ -1,0 +1,95 @@
+#
+# PySNMP MIB module SL-PM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-PM-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 20:06:16 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
+slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
+XpdrServiceType, = mibBuilder.importSymbols("SL-XPDR-MIB", "XpdrServiceType")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+transmission, Counter32, TimeTicks, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, Counter64, MibIdentifier, Integer32, IpAddress, NotificationType, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "Counter32", "TimeTicks", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "Counter64", "MibIdentifier", "Integer32", "IpAddress", "NotificationType", "ModuleIdentity", "Gauge32")
+DateAndTime, TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString", "TruthValue")
+slPmMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25))
+if mibBuilder.loadTexts: slPmMib.setLastUpdated('201105170000Z')
+if mibBuilder.loadTexts: slPmMib.setOrganization('PacketLight Networks Ltd.')
+class SlPmType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
+    namedValues = NamedValues(("native", 1))
+
+class SlPmL2Type(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("rxPackets", 1), ("txPackets", 2), ("rxBytes", 3), ("txBytes", 4), ("rxCrc", 5), ("txCrc", 6))
+
+class SlPmDirectionType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("near", 1), ("far", 2))
+
+class SlPmIntervalType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("fifteen", 1), ("day", 2))
+
+slPmIntervals = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1))
+slPmL2Intervals = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2))
+slPmIntervalTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1), )
+if mibBuilder.loadTexts: slPmIntervalTable.setStatus('current')
+slPmIntervalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "SL-PM-MIB", "slPmType"), (0, "SL-PM-MIB", "slPmDirectionType"), (0, "SL-PM-MIB", "slPmIntervalType"), (0, "SL-PM-MIB", "slPmIntervalNumber"))
+if mibBuilder.loadTexts: slPmIntervalEntry.setStatus('current')
+slPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 1), SlPmType())
+if mibBuilder.loadTexts: slPmType.setStatus('current')
+slPmDirectionType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 2), SlPmDirectionType())
+if mibBuilder.loadTexts: slPmDirectionType.setStatus('current')
+slPmIntervalType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 3), SlPmIntervalType())
+if mibBuilder.loadTexts: slPmIntervalType.setStatus('current')
+slPmIntervalNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 96)))
+if mibBuilder.loadTexts: slPmIntervalNumber.setStatus('current')
+slPmIntervalCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 5), PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalCVs.setStatus('current')
+slPmIntervalESs = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 6), PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalESs.setStatus('current')
+slPmIntervalSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 7), PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalSESs.setStatus('current')
+slPmIntervalSEFSs = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 8), PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalSEFSs.setStatus('current')
+slPmIntervalUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 9), PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalUASs.setStatus('current')
+slPmIntervalValidData = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalValidData.setStatus('current')
+slPmIntervalTcaFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 11), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalTcaFlag.setStatus('current')
+slPmIntervalReset = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 12), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slPmIntervalReset.setStatus('current')
+slPmIntervalStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 13), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmIntervalStartTime.setStatus('current')
+slPmServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 1, 1, 1, 14), XpdrServiceType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmServiceType.setStatus('current')
+slPmL2Table = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1), )
+if mibBuilder.loadTexts: slPmL2Table.setStatus('current')
+slPmL2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "SL-PM-MIB", "slPmL2CounterType"), (0, "SL-PM-MIB", "slPmL2IntervalType"), (0, "SL-PM-MIB", "slPmL2IntervalNumber"))
+if mibBuilder.loadTexts: slPmL2Entry.setStatus('current')
+slPmL2CounterType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 1), SlPmL2Type())
+if mibBuilder.loadTexts: slPmL2CounterType.setStatus('current')
+slPmL2IntervalType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 2), SlPmIntervalType())
+if mibBuilder.loadTexts: slPmL2IntervalType.setStatus('current')
+slPmL2IntervalNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 96)))
+if mibBuilder.loadTexts: slPmL2IntervalNumber.setStatus('current')
+slPmL2Count = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmL2Count.setStatus('current')
+slPmL2ValidData = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmL2ValidData.setStatus('current')
+slPmL2Reset = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slPmL2Reset.setStatus('current')
+slPmL2StartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmL2StartTime.setStatus('current')
+slPmL2ServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 8), XpdrServiceType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slPmL2ServiceType.setStatus('current')
+mibBuilder.exportSymbols("SL-PM-MIB", slPmIntervalTcaFlag=slPmIntervalTcaFlag, slPmIntervalCVs=slPmIntervalCVs, slPmL2ValidData=slPmL2ValidData, slPmIntervalNumber=slPmIntervalNumber, slPmL2IntervalNumber=slPmL2IntervalNumber, slPmDirectionType=slPmDirectionType, slPmL2Entry=slPmL2Entry, slPmL2IntervalType=slPmL2IntervalType, slPmL2Count=slPmL2Count, slPmIntervalSESs=slPmIntervalSESs, SlPmIntervalType=SlPmIntervalType, slPmL2Table=slPmL2Table, slPmL2Intervals=slPmL2Intervals, SlPmL2Type=SlPmL2Type, PYSNMP_MODULE_ID=slPmMib, slPmIntervalSEFSs=slPmIntervalSEFSs, SlPmType=SlPmType, SlPmDirectionType=SlPmDirectionType, slPmIntervalType=slPmIntervalType, slPmIntervalESs=slPmIntervalESs, slPmIntervalValidData=slPmIntervalValidData, slPmIntervalEntry=slPmIntervalEntry, slPmIntervalStartTime=slPmIntervalStartTime, slPmL2Reset=slPmL2Reset, slPmL2StartTime=slPmL2StartTime, slPmL2CounterType=slPmL2CounterType, slPmMib=slPmMib, slPmType=slPmType, slPmIntervalUASs=slPmIntervalUASs, slPmIntervalTable=slPmIntervalTable, slPmL2ServiceType=slPmL2ServiceType, slPmIntervals=slPmIntervals, slPmIntervalReset=slPmIntervalReset, slPmServiceType=slPmServiceType)

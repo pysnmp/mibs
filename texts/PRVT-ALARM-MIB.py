@@ -1,0 +1,46 @@
+#
+# PySNMP MIB module PRVT-ALARM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-ALARM-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 19:59:49 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+software, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "software")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Integer32, Gauge32, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, IpAddress, TimeTicks, NotificationType, ModuleIdentity, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "Gauge32", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "IpAddress", "TimeTicks", "NotificationType", "ModuleIdentity", "Bits", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+prvtAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 111, 4))
+prvtAlarmMIB.setRevisions(('2013-03-25 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: prvtAlarmMIB.setRevisionsDescriptions(('Initial implementation.',))
+if mibBuilder.loadTexts: prvtAlarmMIB.setLastUpdated('201303250000Z')
+if mibBuilder.loadTexts: prvtAlarmMIB.setOrganization('BATM Advanced Communication')
+if mibBuilder.loadTexts: prvtAlarmMIB.setContactInfo('BATM/Telco Systems Support team\n         Email:\n         For North America: techsupport@telco.com\n         For North Europe: support@batm.de, info@batm.de\n         For the rest of the world: techsupport@telco.com')
+if mibBuilder.loadTexts: prvtAlarmMIB.setDescription('Information for current snmp allarms')
+prvtAlarmMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1))
+prvtUpdatedCurrentAlarmCounter = MibScalar((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtUpdatedCurrentAlarmCounter.setStatus('current')
+if mibBuilder.loadTexts: prvtUpdatedCurrentAlarmCounter.setDescription('Last updated alarm counter')
+prvtAlarmCurrentTable = MibTable((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2), )
+if mibBuilder.loadTexts: prvtAlarmCurrentTable.setStatus('current')
+if mibBuilder.loadTexts: prvtAlarmCurrentTable.setDescription('This table contains current alarms.')
+prvtAlarmCurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2, 1), ).setIndexNames((0, "PRVT-ALARM-MIB", "prvtAlarmCurrentCounter"))
+if mibBuilder.loadTexts: prvtAlarmCurrentEntry.setStatus('current')
+if mibBuilder.loadTexts: prvtAlarmCurrentEntry.setDescription('Entry in prvtAlarmCurrentTable containing the info of a \n         current RAISED trap.')
+prvtAlarmCurrentCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtAlarmCurrentCounter.setStatus('current')
+if mibBuilder.loadTexts: prvtAlarmCurrentCounter.setDescription('A running counter of open alarms, the counter\n         is incremented on every new alarm. It is cleared after reset.')
+prvtAlarmCurrentRaisedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtAlarmCurrentRaisedTime.setStatus('current')
+if mibBuilder.loadTexts: prvtAlarmCurrentRaisedTime.setDescription('The raised time of this alarm.\n         Time in seconds since January 1, 1970 00:00 UTC.')
+prvtAlarmCurrentSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 99))).clone(namedValues=NamedValues(("clear", 0), ("event", 1), ("warning", 2), ("minor", 3), ("major", 4), ("critical", 5), ("unknown", 99)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtAlarmCurrentSeverity.setStatus('current')
+if mibBuilder.loadTexts: prvtAlarmCurrentSeverity.setDescription('The current alarm severity')
+prvtAlarmCurrentDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtAlarmCurrentDescription.setStatus('current')
+if mibBuilder.loadTexts: prvtAlarmCurrentDescription.setDescription('The alarm description.')
+mibBuilder.exportSymbols("PRVT-ALARM-MIB", prvtAlarmMIBObjects=prvtAlarmMIBObjects, prvtAlarmCurrentDescription=prvtAlarmCurrentDescription, prvtAlarmCurrentRaisedTime=prvtAlarmCurrentRaisedTime, prvtAlarmCurrentCounter=prvtAlarmCurrentCounter, prvtAlarmCurrentTable=prvtAlarmCurrentTable, prvtUpdatedCurrentAlarmCounter=prvtUpdatedCurrentAlarmCounter, PYSNMP_MODULE_ID=prvtAlarmMIB, prvtAlarmCurrentSeverity=prvtAlarmCurrentSeverity, prvtAlarmCurrentEntry=prvtAlarmCurrentEntry, prvtAlarmMIB=prvtAlarmMIB)

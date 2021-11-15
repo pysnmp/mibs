@@ -1,0 +1,188 @@
+#
+# PySNMP MIB module Juniper-ROUTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-ROUTER-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 20:11:05 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+JuniIpPolicyExtendedCommunity, JuniIpPolicyName = mibBuilder.importSymbols("Juniper-IP-POLICY-MIB", "JuniIpPolicyExtendedCommunity", "JuniIpPolicyName")
+juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
+JuniName, = mibBuilder.importSymbols("Juniper-TC", "JuniName")
+SnmpEngineID, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpEngineID")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Gauge32, ObjectIdentity, iso, Integer32, Unsigned32, Counter32, ModuleIdentity, TimeTicks, Bits, MibIdentifier, Counter64, IpAddress, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "iso", "Integer32", "Unsigned32", "Counter32", "ModuleIdentity", "TimeTicks", "Bits", "MibIdentifier", "Counter64", "IpAddress", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TruthValue", "TextualConvention")
+juniRouterMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32))
+juniRouterMIB.setRevisions(('2004-05-06 20:30', '2003-09-24 17:31', '2003-05-22 15:52', '2003-05-10 20:54', '2003-04-24 13:25', '2002-05-10 18:16', '2001-01-24 18:25', '2000-01-21 00:00',))
+if mibBuilder.loadTexts: juniRouterMIB.setLastUpdated('200405062030Z')
+if mibBuilder.loadTexts: juniRouterMIB.setOrganization('Juniper Networks, Inc.')
+class JuniNextRouterIndex(TextualConvention, Unsigned32):
+    status = 'current'
+
+class JuniRouterProtocolIndex(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32))
+    namedValues = NamedValues(("ip", 1), ("osi", 2), ("icmp", 3), ("igmp", 4), ("tcp", 5), ("udp", 6), ("bgp", 7), ("ospf", 8), ("isis", 9), ("rip", 10), ("snmp", 11), ("ntp", 12), ("generator", 13), ("localAddressServer", 14), ("dhcpProxy", 15), ("dhcpRelay", 16), ("nameResolver", 17), ("policyManager", 18), ("sscClient", 19), ("cops", 20), ("mgtm", 21), ("dvmrp", 22), ("pim", 23), ("msdp", 24), ("mpls", 25), ("radius", 26), ("mplsMgr", 27), ("dhcpLocalServer", 28), ("tacacsPlus", 29), ("radiusDisconnect", 30), ("dhcpv6LocalServer", 31), ("radiusProxy", 32))
+
+juniRouterObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1))
+juniRouterSummaryCounts = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 6))
+juniRouterSummaryScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 6, 1))
+juniRouterSummaryNonParentVRsConfigured = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterSummaryNonParentVRsConfigured.setStatus('current')
+juniRouterSummaryParentVRsConfigured = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 6, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterSummaryParentVRsConfigured.setStatus('current')
+juniRouterSummaryVRFsConfigured = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterSummaryVRFsConfigured.setStatus('current')
+juniRouterSummaryTotalConfigured = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterSummaryTotalConfigured.setStatus('current')
+juniRouterNextRouterIndex = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 1), JuniNextRouterIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterNextRouterIndex.setStatus('current')
+juniRouterTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2), )
+if mibBuilder.loadTexts: juniRouterTable.setStatus('current')
+juniRouterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1), ).setIndexNames((0, "Juniper-ROUTER-MIB", "juniRouterIndex"))
+if mibBuilder.loadTexts: juniRouterEntry.setStatus('current')
+juniRouterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: juniRouterIndex.setStatus('current')
+juniRouterName = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1, 2), JuniName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterName.setStatus('current')
+juniRouterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterRowStatus.setStatus('current')
+juniRouterVrf = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterVrf.setStatus('current')
+juniRouterContextName = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(7, 14))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterContextName.setStatus('current')
+juniRouterContextEngineID = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1, 6), SnmpEngineID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterContextEngineID.setStatus('current')
+juniRouterSummaryVRFCount = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRouterSummaryVRFCount.setStatus('current')
+juniRouterProtocolTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 3), )
+if mibBuilder.loadTexts: juniRouterProtocolTable.setStatus('current')
+juniRouterProtocolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 3, 1), ).setIndexNames((0, "Juniper-ROUTER-MIB", "juniRouterProtocolRouterIndex"), (0, "Juniper-ROUTER-MIB", "juniRouterProtocolProtocolIndex"))
+if mibBuilder.loadTexts: juniRouterProtocolEntry.setStatus('current')
+juniRouterProtocolRouterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: juniRouterProtocolRouterIndex.setStatus('current')
+juniRouterProtocolProtocolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 3, 1, 2), JuniRouterProtocolIndex())
+if mibBuilder.loadTexts: juniRouterProtocolProtocolIndex.setStatus('current')
+juniRouterProtocolRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRouterProtocolRowStatus.setStatus('current')
+juniRouterVrfTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4), )
+if mibBuilder.loadTexts: juniRouterVrfTable.setStatus('current')
+juniRouterVrfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1), ).setIndexNames((0, "Juniper-ROUTER-MIB", "juniRouterVrfRouterIndex"), (0, "Juniper-ROUTER-MIB", "juniRouterVrfRouterVrfIndex"))
+if mibBuilder.loadTexts: juniRouterVrfEntry.setStatus('current')
+juniRouterVrfRouterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: juniRouterVrfRouterIndex.setStatus('current')
+juniRouterVrfRouterVrfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: juniRouterVrfRouterVrfIndex.setStatus('current')
+juniRouterVrfIpv4UnicastImportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 3), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv4UnicastImportRouteMap.setStatus('current')
+juniRouterVrfIpv4UnicastExportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 4), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv4UnicastExportRouteMap.setStatus('current')
+juniRouterVrfRouteDistinguisher = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 5), JuniIpPolicyExtendedCommunity()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfRouteDistinguisher.setStatus('current')
+juniRouterVrfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfRowStatus.setStatus('current')
+juniRouterVrfRouterName = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 8), JuniName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfRouterName.setStatus('current')
+juniRouterVrfRouterDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfRouterDescription.setStatus('current')
+juniRouterVrfIpv4UnicastGlobalExportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 10), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv4UnicastGlobalExportRouteMap.setStatus('current')
+juniRouterVrfIpv4UnicastExportRouteMapFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 11), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv4UnicastExportRouteMapFilter.setStatus('current')
+juniRouterVrfIpv6UnicastImportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 12), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv6UnicastImportRouteMap.setStatus('current')
+juniRouterVrfIpv6UnicastExportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 13), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv6UnicastExportRouteMap.setStatus('current')
+juniRouterVrfIpv6UnicastGlobalExportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 14), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv6UnicastGlobalExportRouteMap.setStatus('current')
+juniRouterVrfIpv6UnicastExportRouteMapFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 15), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv6UnicastExportRouteMapFilter.setStatus('current')
+juniRouterVrfIpv4UnicastGlobalImportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 16), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv4UnicastGlobalImportRouteMap.setStatus('current')
+juniRouterVrfIpv4UnicastGlobalImportMaxRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 17), Unsigned32().clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv4UnicastGlobalImportMaxRoutes.setStatus('current')
+juniRouterVrfIpv6UnicastGlobalImportRouteMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 18), JuniIpPolicyName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv6UnicastGlobalImportRouteMap.setStatus('current')
+juniRouterVrfIpv6UnicastGlobalImportMaxRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 4, 1, 19), Unsigned32().clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfIpv6UnicastGlobalImportMaxRoutes.setStatus('current')
+juniRouterVrfRouteTargetTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5), )
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetTable.setStatus('current')
+juniRouterVrfRouteTargetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5, 1), ).setIndexNames((0, "Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetRouterIndex"), (0, "Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetRouterVrfIndex"), (0, "Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetAddrFormat"), (0, "Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetRouteTarget"))
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetEntry.setStatus('current')
+juniRouterVrfRouteTargetRouterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetRouterIndex.setStatus('current')
+juniRouterVrfRouteTargetRouterVrfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetRouterVrfIndex.setStatus('current')
+juniRouterVrfRouteTargetAddrFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("routeTargetFormatAsn", 0), ("routeTargetFormateIp", 1))))
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetAddrFormat.setStatus('current')
+juniRouterVrfRouteTargetRouteTarget = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5, 1, 4), JuniIpPolicyExtendedCommunity())
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetRouteTarget.setStatus('current')
+juniRouterVrfRouteTargetType = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("routeTargetInvalid", 0), ("routeTargetImport", 1), ("routeTargetExport", 2), ("routeTargetBoth", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetType.setStatus('current')
+juniRouterVrfRouteTargetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 1, 5, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRouterVrfRouteTargetRowStatus.setStatus('current')
+juniRouterConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4))
+juniRouterCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1))
+juniRouterGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2))
+juniRouterCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1, 1)).setObjects(("Juniper-ROUTER-MIB", "juniRouterGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterCompliance = juniRouterCompliance.setStatus('obsolete')
+juniRouterCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1, 2)).setObjects(("Juniper-ROUTER-MIB", "juniRouterGroup2"), ("Juniper-ROUTER-MIB", "juniRouterVrfGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterCompliance2 = juniRouterCompliance2.setStatus('obsolete')
+juniRouterCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1, 3)).setObjects(("Juniper-ROUTER-MIB", "juniRouterGroup3"), ("Juniper-ROUTER-MIB", "juniRouterVrfGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterCompliance3 = juniRouterCompliance3.setStatus('obsolete')
+juniRouterCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1, 4)).setObjects(("Juniper-ROUTER-MIB", "juniRouterGroup4"), ("Juniper-ROUTER-MIB", "juniRouterVrfGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterCompliance4 = juniRouterCompliance4.setStatus('obsolete')
+juniRouterCompliance5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1, 5)).setObjects(("Juniper-ROUTER-MIB", "juniRouterGroup4"), ("Juniper-ROUTER-MIB", "juniRouterVrfGroup3"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterCompliance5 = juniRouterCompliance5.setStatus('obsolete')
+juniRouterCompliance6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1, 7)).setObjects(("Juniper-ROUTER-MIB", "juniRouterGroup5"), ("Juniper-ROUTER-MIB", "juniRouterSummaryScalarsGroup"), ("Juniper-ROUTER-MIB", "juniRouterVrfGroup3"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterCompliance6 = juniRouterCompliance6.setStatus('obsolete')
+juniRouterCompliance7 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 1, 8)).setObjects(("Juniper-ROUTER-MIB", "juniRouterGroup5"), ("Juniper-ROUTER-MIB", "juniRouterSummaryScalarsGroup"), ("Juniper-ROUTER-MIB", "juniRouterVrfGroup4"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterCompliance7 = juniRouterCompliance7.setStatus('current')
+juniRouterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 1)).setObjects(("Juniper-ROUTER-MIB", "juniRouterNextRouterIndex"), ("Juniper-ROUTER-MIB", "juniRouterName"), ("Juniper-ROUTER-MIB", "juniRouterRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterProtocolRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterGroup = juniRouterGroup.setStatus('obsolete')
+juniRouterGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 2)).setObjects(("Juniper-ROUTER-MIB", "juniRouterNextRouterIndex"), ("Juniper-ROUTER-MIB", "juniRouterName"), ("Juniper-ROUTER-MIB", "juniRouterRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrf"), ("Juniper-ROUTER-MIB", "juniRouterProtocolRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterGroup2 = juniRouterGroup2.setStatus('obsolete')
+juniRouterVrfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 3)).setObjects(("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastImportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteDistinguisher"), ("Juniper-ROUTER-MIB", "juniRouterVrfRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouterName"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetType"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterVrfGroup = juniRouterVrfGroup.setStatus('obsolete')
+juniRouterGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 4)).setObjects(("Juniper-ROUTER-MIB", "juniRouterNextRouterIndex"), ("Juniper-ROUTER-MIB", "juniRouterName"), ("Juniper-ROUTER-MIB", "juniRouterRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrf"), ("Juniper-ROUTER-MIB", "juniRouterProtocolRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterContextName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterGroup3 = juniRouterGroup3.setStatus('obsolete')
+juniRouterVrfGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 5)).setObjects(("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastImportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteDistinguisher"), ("Juniper-ROUTER-MIB", "juniRouterVrfRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouterName"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouterDescription"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetType"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterVrfGroup2 = juniRouterVrfGroup2.setStatus('obsolete')
+juniRouterGroup4 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 6)).setObjects(("Juniper-ROUTER-MIB", "juniRouterNextRouterIndex"), ("Juniper-ROUTER-MIB", "juniRouterName"), ("Juniper-ROUTER-MIB", "juniRouterRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrf"), ("Juniper-ROUTER-MIB", "juniRouterProtocolRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterContextName"), ("Juniper-ROUTER-MIB", "juniRouterContextEngineID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterGroup4 = juniRouterGroup4.setStatus('obsolete')
+juniRouterVrfGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 7)).setObjects(("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastImportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteDistinguisher"), ("Juniper-ROUTER-MIB", "juniRouterVrfRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouterName"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouterDescription"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastGlobalExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastExportRouteMapFilter"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetType"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterVrfGroup3 = juniRouterVrfGroup3.setStatus('obsolete')
+juniRouterGroup5 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 8)).setObjects(("Juniper-ROUTER-MIB", "juniRouterNextRouterIndex"), ("Juniper-ROUTER-MIB", "juniRouterName"), ("Juniper-ROUTER-MIB", "juniRouterRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrf"), ("Juniper-ROUTER-MIB", "juniRouterProtocolRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterContextName"), ("Juniper-ROUTER-MIB", "juniRouterContextEngineID"), ("Juniper-ROUTER-MIB", "juniRouterSummaryVRFCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterGroup5 = juniRouterGroup5.setStatus('current')
+juniRouterSummaryScalarsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 9)).setObjects(("Juniper-ROUTER-MIB", "juniRouterSummaryNonParentVRsConfigured"), ("Juniper-ROUTER-MIB", "juniRouterSummaryParentVRsConfigured"), ("Juniper-ROUTER-MIB", "juniRouterSummaryVRFsConfigured"), ("Juniper-ROUTER-MIB", "juniRouterSummaryTotalConfigured"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterSummaryScalarsGroup = juniRouterSummaryScalarsGroup.setStatus('current')
+juniRouterVrfGroup4 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 32, 4, 2, 10)).setObjects(("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastImportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteDistinguisher"), ("Juniper-ROUTER-MIB", "juniRouterVrfRowStatus"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouterName"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouterDescription"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastGlobalExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastExportRouteMapFilter"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv6UnicastImportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv6UnicastExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv6UnicastGlobalExportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv6UnicastExportRouteMapFilter"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastGlobalImportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv4UnicastGlobalImportMaxRoutes"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv6UnicastGlobalImportRouteMap"), ("Juniper-ROUTER-MIB", "juniRouterVrfIpv6UnicastGlobalImportMaxRoutes"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetType"), ("Juniper-ROUTER-MIB", "juniRouterVrfRouteTargetRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRouterVrfGroup4 = juniRouterVrfGroup4.setStatus('current')
+mibBuilder.exportSymbols("Juniper-ROUTER-MIB", juniRouterProtocolRowStatus=juniRouterProtocolRowStatus, juniRouterVrfRouterIndex=juniRouterVrfRouterIndex, juniRouterSummaryTotalConfigured=juniRouterSummaryTotalConfigured, juniRouterGroup4=juniRouterGroup4, juniRouterCompliance3=juniRouterCompliance3, juniRouterGroup=juniRouterGroup, juniRouterRowStatus=juniRouterRowStatus, juniRouterName=juniRouterName, juniRouterCompliance4=juniRouterCompliance4, juniRouterVrfRouterDescription=juniRouterVrfRouterDescription, juniRouterVrfRouteTargetRouterIndex=juniRouterVrfRouteTargetRouterIndex, juniRouterVrfRouterVrfIndex=juniRouterVrfRouterVrfIndex, juniRouterConformance=juniRouterConformance, juniRouterIndex=juniRouterIndex, juniRouterSummaryParentVRsConfigured=juniRouterSummaryParentVRsConfigured, juniRouterObjects=juniRouterObjects, juniRouterVrfRowStatus=juniRouterVrfRowStatus, juniRouterVrfRouteTargetTable=juniRouterVrfRouteTargetTable, juniRouterCompliances=juniRouterCompliances, juniRouterVrfIpv4UnicastGlobalImportRouteMap=juniRouterVrfIpv4UnicastGlobalImportRouteMap, juniRouterSummaryVRFsConfigured=juniRouterSummaryVRFsConfigured, juniRouterSummaryCounts=juniRouterSummaryCounts, juniRouterCompliance5=juniRouterCompliance5, juniRouterVrf=juniRouterVrf, juniRouterContextEngineID=juniRouterContextEngineID, juniRouterVrfIpv4UnicastImportRouteMap=juniRouterVrfIpv4UnicastImportRouteMap, juniRouterSummaryVRFCount=juniRouterSummaryVRFCount, juniRouterVrfRouteTargetRouterVrfIndex=juniRouterVrfRouteTargetRouterVrfIndex, juniRouterVrfRouteTargetEntry=juniRouterVrfRouteTargetEntry, juniRouterVrfRouteTargetType=juniRouterVrfRouteTargetType, juniRouterProtocolProtocolIndex=juniRouterProtocolProtocolIndex, juniRouterCompliance7=juniRouterCompliance7, JuniRouterProtocolIndex=JuniRouterProtocolIndex, juniRouterNextRouterIndex=juniRouterNextRouterIndex, juniRouterVrfIpv6UnicastGlobalImportRouteMap=juniRouterVrfIpv6UnicastGlobalImportRouteMap, juniRouterProtocolTable=juniRouterProtocolTable, juniRouterVrfIpv6UnicastExportRouteMapFilter=juniRouterVrfIpv6UnicastExportRouteMapFilter, juniRouterVrfIpv6UnicastExportRouteMap=juniRouterVrfIpv6UnicastExportRouteMap, juniRouterVrfGroup4=juniRouterVrfGroup4, juniRouterCompliance2=juniRouterCompliance2, juniRouterProtocolEntry=juniRouterProtocolEntry, juniRouterVrfIpv4UnicastExportRouteMapFilter=juniRouterVrfIpv4UnicastExportRouteMapFilter, juniRouterGroup3=juniRouterGroup3, juniRouterVrfGroup3=juniRouterVrfGroup3, juniRouterVrfTable=juniRouterVrfTable, juniRouterVrfRouterName=juniRouterVrfRouterName, juniRouterTable=juniRouterTable, juniRouterGroups=juniRouterGroups, juniRouterVrfIpv6UnicastGlobalImportMaxRoutes=juniRouterVrfIpv6UnicastGlobalImportMaxRoutes, PYSNMP_MODULE_ID=juniRouterMIB, juniRouterVrfRouteTargetRowStatus=juniRouterVrfRouteTargetRowStatus, juniRouterProtocolRouterIndex=juniRouterProtocolRouterIndex, juniRouterVrfIpv4UnicastGlobalExportRouteMap=juniRouterVrfIpv4UnicastGlobalExportRouteMap, juniRouterVrfIpv6UnicastImportRouteMap=juniRouterVrfIpv6UnicastImportRouteMap, juniRouterGroup2=juniRouterGroup2, juniRouterVrfRouteTargetRouteTarget=juniRouterVrfRouteTargetRouteTarget, juniRouterVrfIpv4UnicastExportRouteMap=juniRouterVrfIpv4UnicastExportRouteMap, JuniNextRouterIndex=JuniNextRouterIndex, juniRouterContextName=juniRouterContextName, juniRouterSummaryNonParentVRsConfigured=juniRouterSummaryNonParentVRsConfigured, juniRouterVrfIpv4UnicastGlobalImportMaxRoutes=juniRouterVrfIpv4UnicastGlobalImportMaxRoutes, juniRouterSummaryScalarsGroup=juniRouterSummaryScalarsGroup, juniRouterVrfEntry=juniRouterVrfEntry, juniRouterGroup5=juniRouterGroup5, juniRouterVrfRouteTargetAddrFormat=juniRouterVrfRouteTargetAddrFormat, juniRouterEntry=juniRouterEntry, juniRouterCompliance=juniRouterCompliance, juniRouterVrfIpv6UnicastGlobalExportRouteMap=juniRouterVrfIpv6UnicastGlobalExportRouteMap, juniRouterVrfGroup=juniRouterVrfGroup, juniRouterMIB=juniRouterMIB, juniRouterVrfGroup2=juniRouterVrfGroup2, juniRouterVrfRouteDistinguisher=juniRouterVrfRouteDistinguisher, juniRouterSummaryScalars=juniRouterSummaryScalars, juniRouterCompliance6=juniRouterCompliance6)

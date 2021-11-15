@@ -1,0 +1,65 @@
+#
+# PySNMP MIB module RADLAN-PHY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-PHY-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 20:12:46 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationType, MibIdentifier, ModuleIdentity, Counter32, Gauge32, Unsigned32, IpAddress, ObjectIdentity, TimeTicks, Counter64, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibIdentifier", "ModuleIdentity", "Counter32", "Gauge32", "Unsigned32", "IpAddress", "ObjectIdentity", "TimeTicks", "Counter64", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32")
+TextualConvention, DisplayString, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TimeStamp")
+rlPhy = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 90))
+rlPhy.setRevisions(('2002-09-30 00:24', '2003-09-21 00:24',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: rlPhy.setRevisionsDescriptions(('Initial revision', 'Added MODULE-IDENTITY and TEXTUAL-CONVENTION IMPORTS.',))
+if mibBuilder.loadTexts: rlPhy.setLastUpdated('200209300024Z')
+if mibBuilder.loadTexts: rlPhy.setOrganization('Radlan Computer Communication Ltd.')
+if mibBuilder.loadTexts: rlPhy.setContactInfo('radlan.com')
+if mibBuilder.loadTexts: rlPhy.setDescription("The MIB module describes the private MIB for testing Layer1 interfaces supported\n               by Radlan's software and products.")
+class RlPhyTestType(TextualConvention, Integer32):
+    description = 'A value indicating the test to perform.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24))
+    namedValues = NamedValues(("rlPhyTestTableNoTest", 1), ("rlPhyTestTableCableStatus", 2), ("rlPhyTestTableCableFault", 3), ("rlPhyTestTableCableLength", 4), ("rlPhyTestTableTransceiverTemp", 5), ("rlPhyTestTableTransceiverSupply", 6), ("rlPhyTestTableTxBias", 7), ("rlPhyTestTableTxOutput", 8), ("rlPhyTestTableRxOpticalPower", 9), ("rlPhyTestTableDataReady", 10), ("rlPhyTestTableLOS", 11), ("rlPhyTestTableTxFault", 12), ("rlPhyTestTableCableChannel1", 13), ("rlPhyTestTableCableChannel2", 14), ("rlPhyTestTableCableChannel3", 15), ("rlPhyTestTableCableChannel4", 16), ("rlPhyTestTableCablePolarity1", 17), ("rlPhyTestTableCablePolarity2", 18), ("rlPhyTestTableCablePolarity3", 19), ("rlPhyTestTableCablePolarity4", 20), ("rlPhyTestTableCablePairSkew1", 21), ("rlPhyTestTableCablePairSkew2", 22), ("rlPhyTestTableCablePairSkew3", 23), ("rlPhyTestTableCablePairSkew4", 24))
+
+rlPhyTest = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 90, 1))
+rlPhyTestSetTable = MibTable((1, 3, 6, 1, 4, 1, 89, 90, 1, 1), )
+if mibBuilder.loadTexts: rlPhyTestSetTable.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestSetTable.setDescription('')
+rlPhyTestSetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 90, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlPhyTestSetEntry.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestSetEntry.setDescription('An entry containing objects for invoking tests on an interface.')
+rlPhyTestSetType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 1, 1, 1), RlPhyTestType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlPhyTestSetType.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestSetType.setDescription('A control variable used to start operator initiated interface\n             tests.1 indicates that no test has been initiated. Only\n             operator initiated interface tests can be set to this variable.')
+rlPhyTestGetTable = MibTable((1, 3, 6, 1, 4, 1, 89, 90, 1, 2), )
+if mibBuilder.loadTexts: rlPhyTestGetTable.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetTable.setDescription('')
+rlPhyTestGetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "RADLAN-PHY-MIB", "rlPhyTestGetType"))
+if mibBuilder.loadTexts: rlPhyTestGetEntry.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetEntry.setDescription('An entry containing results of tests on an interface.')
+rlPhyTestGetType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 1), RlPhyTestType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPhyTestGetType.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetType.setDescription('A control variable used to, 1 to indicate that this test can be\n            done on the specified port, 2 to initiate the test whenever the\n            user wishes')
+rlPhyTestGetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 1), ("success", 2), ("inProgress", 3), ("notSupported", 4), ("unAbleToRun", 5), ("aborted", 6), ("failed", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPhyTestGetStatus.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetStatus.setDescription('This object contains the status of the most recently\n        requested test for operator initiated tests or the value\n        none(1) if no tests have been requested since the last\n        reset. For non operator initiated tests the value is always\n        none(1).\n        Note that this facility provides no provision for saving\n        the results of one test when starting another, as could\n        be required if used by multiple managers concurrently.')
+rlPhyTestGetResult = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPhyTestGetResult.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetResult.setDescription('This object holds the test result')
+rlPhyTestGetUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19))).clone(namedValues=NamedValues(("integer", 1), ("boolean", 2), ("downUP", 3), ("reverseNormal", 4), ("mdiMdix", 5), ("meter", 6), ("degree", 7), ("microVolt", 8), ("microOham", 9), ("microAmper", 10), ("microWatt", 11), ("millisecond", 12), ("alaskaPhyLength", 13), ("alaskaPhyStatus", 14), ("dbm", 15), ("decidbm", 16), ("milidbm", 17), ("abcd", 18), ("nanosecond", 19)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPhyTestGetUnits.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetUnits.setDescription('The test result unit of measure. The units can be standard unit or special units\n         that are designed for special test.\n\n         The alaskaPhyLength unit is design for the VCT diagnostic and its values are:\n         less_than_50M(1), 50-80M(2), 80-110M(3), 110-140M(4), more_than_140M(5).\n\n         The alaskaPhyStatus unit is design for the VCT diagnostic and its values are:\n         4_pair_cable(1), 2_pair_cable(2), no_cable(3), open_cable(4), short_cable(5), bad_cable(6), impedance_mismatch(7).')
+rlPhyTestGetAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notRelevant", 1), ("noAlarmSet", 2), ("lowWarning", 3), ("highWarning", 4), ("lowAlarm", 5), ("highAlarm", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPhyTestGetAlarm.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetAlarm.setDescription('This object hold the Alarm for this Entry. only Test that have can have alarms\n          use this field, other holds the Value notRelevant(1) ')
+rlPhyTestGetTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPhyTestGetTimeStamp.setStatus('current')
+if mibBuilder.loadTexts: rlPhyTestGetTimeStamp.setDescription('The time in string (formated DD-MMM-YYYY HH:MM:SS e.g\n         14-Apr-2002 10:33:31)')
+mibBuilder.exportSymbols("RADLAN-PHY-MIB", rlPhyTestSetType=rlPhyTestSetType, rlPhyTestSetTable=rlPhyTestSetTable, PYSNMP_MODULE_ID=rlPhy, rlPhyTest=rlPhyTest, rlPhyTestGetResult=rlPhyTestGetResult, rlPhyTestGetType=rlPhyTestGetType, rlPhy=rlPhy, rlPhyTestGetTable=rlPhyTestGetTable, rlPhyTestGetTimeStamp=rlPhyTestGetTimeStamp, rlPhyTestSetEntry=rlPhyTestSetEntry, rlPhyTestGetEntry=rlPhyTestGetEntry, rlPhyTestGetStatus=rlPhyTestGetStatus, rlPhyTestGetUnits=rlPhyTestGetUnits, rlPhyTestGetAlarm=rlPhyTestGetAlarm, RlPhyTestType=RlPhyTestType)

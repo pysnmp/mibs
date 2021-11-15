@@ -1,0 +1,47 @@
+#
+# PySNMP MIB module SENSATRONICS-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sensatronics/SENSATRONICS-SMI
+# Produced by pysmi-1.1.0 at Mon Nov 15 19:56:08 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, Gauge32, ModuleIdentity, Counter64, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, Unsigned32, enterprises, NotificationType, ObjectIdentity, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Gauge32", "ModuleIdentity", "Counter64", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "Unsigned32", "enterprises", "NotificationType", "ObjectIdentity", "iso", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+sensatronics = ModuleIdentity((1, 3, 6, 1, 4, 1, 16174))
+sensatronics.setRevisions(('2004-04-20 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: sensatronics.setRevisionsDescriptions(('Initial version of this MIB module.',))
+if mibBuilder.loadTexts: sensatronics.setLastUpdated('200404200000Z')
+if mibBuilder.loadTexts: sensatronics.setOrganization('Sensatronics LLC')
+if mibBuilder.loadTexts: sensatronics.setContactInfo('\n     \t \t\tSensatronics LLC\n  \t\t\tPostal: 20A Dunklee Rd\n \t\t\tBow, NH 03304\n \t\t\tUSA\n  \t\t      Tel: +1 603 224 0617\n    \t\t\tE-mail: dthompson@sensatronics.com')
+if mibBuilder.loadTexts: sensatronics.setDescription('The Structure of Management Information for the\n \t\tSensatronics enterprise.')
+consumerProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 1))
+if mibBuilder.loadTexts: consumerProducts.setStatus('current')
+if mibBuilder.loadTexts: consumerProducts.setDescription('consumerProducts is the subtree root for consumer products developed\n             by Sensatronics')
+envMonitors = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 1, 1))
+if mibBuilder.loadTexts: envMonitors.setStatus('current')
+if mibBuilder.loadTexts: envMonitors.setDescription('envMonitors is the subtree root for all Sensatronics products designed\n             for environmental monitoring')
+consumerTools = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 2))
+if mibBuilder.loadTexts: consumerTools.setStatus('current')
+if mibBuilder.loadTexts: consumerTools.setDescription('consumerTools is the main subtree for tool development.')
+customProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 3))
+if mibBuilder.loadTexts: customProducts.setStatus('current')
+if mibBuilder.loadTexts: customProducts.setDescription('customProducts is the root OID for custom products produced by Sensatronics.')
+customTools = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 4))
+if mibBuilder.loadTexts: customTools.setStatus('current')
+if mibBuilder.loadTexts: customTools.setDescription('customTools provides a root object identifier \t\n      \tfor custom tools produced by Sensatronics for other companies.')
+productITTM = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 1, 1, 1))
+if mibBuilder.loadTexts: productITTM.setStatus('current')
+if mibBuilder.loadTexts: productITTM.setDescription('ITTM root')
+productCRYO = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 1, 1, 2))
+if mibBuilder.loadTexts: productCRYO.setStatus('current')
+if mibBuilder.loadTexts: productCRYO.setDescription('Cryomonitor root')
+productEM1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 1, 1, 3))
+if mibBuilder.loadTexts: productEM1.setStatus('current')
+if mibBuilder.loadTexts: productEM1.setDescription('Environmental Monitor 1 root')
+mibBuilder.exportSymbols("SENSATRONICS-SMI", consumerTools=consumerTools, consumerProducts=consumerProducts, PYSNMP_MODULE_ID=sensatronics, productCRYO=productCRYO, productEM1=productEM1, envMonitors=envMonitors, customProducts=customProducts, productITTM=productITTM, sensatronics=sensatronics, customTools=customTools)

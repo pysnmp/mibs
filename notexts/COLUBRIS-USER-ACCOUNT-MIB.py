@@ -1,0 +1,52 @@
+#
+# PySNMP MIB module COLUBRIS-USER-ACCOUNT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-USER-ACCOUNT-MIB.my
+# Produced by pysmi-1.1.0 at Mon Nov 15 19:58:00 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Counter32, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, Integer32, NotificationType, IpAddress, Bits, Unsigned32, ModuleIdentity, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "Integer32", "NotificationType", "IpAddress", "Bits", "Unsigned32", "ModuleIdentity", "TimeTicks", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+colubrisUserAccountMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 35))
+if mibBuilder.loadTexts: colubrisUserAccountMIB.setLastUpdated('200704180000Z')
+if mibBuilder.loadTexts: colubrisUserAccountMIB.setOrganization('Colubris Networks, Inc.')
+colubrisUserAccountMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1))
+coUserAccountStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1))
+coUserAccountStatusTable = MibTable((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1), )
+if mibBuilder.loadTexts: coUserAccountStatusTable.setStatus('current')
+coUserAccountStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1), ).setIndexNames((0, "COLUBRIS-USER-ACCOUNT-MIB", "coUserAccIndex"))
+if mibBuilder.loadTexts: coUserAccountStatusEntry.setStatus('current')
+coUserAccIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: coUserAccIndex.setStatus('current')
+coUserAccUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccUserName.setStatus('current')
+coUserAccPlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccPlanName.setStatus('current')
+coUserAccRemainingOnlineTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 4), Integer32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccRemainingOnlineTime.setStatus('current')
+coUserAccFirstLoginTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccFirstLoginTime.setStatus('current')
+coUserAccRemainingSessionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 6), Integer32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccRemainingSessionTime.setStatus('current')
+coUserAccStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccStatus.setStatus('current')
+coUserAccExpirationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8744, 5, 35, 1, 1, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccExpirationTime.setStatus('current')
+colubrisUserAccountMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 35, 2))
+colubrisUserAccountMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 35, 2, 0))
+colubrisUserAccountMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 35, 3))
+colubrisUserAccountMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 35, 3, 1))
+colubrisUserAccountMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 35, 3, 2))
+colubrisUserAccountMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 8744, 5, 35, 3, 1, 1)).setObjects(("COLUBRIS-USER-ACCOUNT-MIB", "colubrisUserAccountStatusMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    colubrisUserAccountMIBCompliance = colubrisUserAccountMIBCompliance.setStatus('current')
+colubrisUserAccountStatusMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 35, 3, 2, 1)).setObjects(("COLUBRIS-USER-ACCOUNT-MIB", "coUserAccUserName"), ("COLUBRIS-USER-ACCOUNT-MIB", "coUserAccPlanName"), ("COLUBRIS-USER-ACCOUNT-MIB", "coUserAccRemainingOnlineTime"), ("COLUBRIS-USER-ACCOUNT-MIB", "coUserAccFirstLoginTime"), ("COLUBRIS-USER-ACCOUNT-MIB", "coUserAccRemainingSessionTime"), ("COLUBRIS-USER-ACCOUNT-MIB", "coUserAccStatus"), ("COLUBRIS-USER-ACCOUNT-MIB", "coUserAccExpirationTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    colubrisUserAccountStatusMIBGroup = colubrisUserAccountStatusMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("COLUBRIS-USER-ACCOUNT-MIB", colubrisUserAccountMIBConformance=colubrisUserAccountMIBConformance, colubrisUserAccountMIBNotifications=colubrisUserAccountMIBNotifications, coUserAccountStatusTable=coUserAccountStatusTable, coUserAccFirstLoginTime=coUserAccFirstLoginTime, colubrisUserAccountMIBCompliances=colubrisUserAccountMIBCompliances, colubrisUserAccountMIB=colubrisUserAccountMIB, coUserAccIndex=coUserAccIndex, coUserAccExpirationTime=coUserAccExpirationTime, PYSNMP_MODULE_ID=colubrisUserAccountMIB, coUserAccRemainingSessionTime=coUserAccRemainingSessionTime, colubrisUserAccountStatusMIBGroup=colubrisUserAccountStatusMIBGroup, coUserAccStatus=coUserAccStatus, coUserAccountStatusGroup=coUserAccountStatusGroup, colubrisUserAccountMIBGroups=colubrisUserAccountMIBGroups, coUserAccUserName=coUserAccUserName, coUserAccRemainingOnlineTime=coUserAccRemainingOnlineTime, colubrisUserAccountMIBObjects=colubrisUserAccountMIBObjects, colubrisUserAccountMIBCompliance=colubrisUserAccountMIBCompliance, colubrisUserAccountMIBNotificationPrefix=colubrisUserAccountMIBNotificationPrefix, coUserAccountStatusEntry=coUserAccountStatusEntry, coUserAccPlanName=coUserAccPlanName)

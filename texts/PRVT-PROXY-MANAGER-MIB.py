@@ -1,0 +1,185 @@
+#
+# PySNMP MIB module PRVT-PROXY-MANAGER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-PROXY-MANAGER-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 19:59:45 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ipSwitch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "ipSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, iso, Integer32, ModuleIdentity, TimeTicks, MibIdentifier, ObjectIdentity, IpAddress, Counter64, NotificationType, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "iso", "Integer32", "ModuleIdentity", "TimeTicks", "MibIdentifier", "ObjectIdentity", "IpAddress", "Counter64", "NotificationType", "Unsigned32")
+DisplayString, TextualConvention, MacAddress, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "MacAddress", "RowStatus")
+prvtProxyManager = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 6, 6))
+prvtProxyManager.setRevisions(('2009-01-16 00:00', '2007-11-13 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: prvtProxyManager.setRevisionsDescriptions(('Added prvtProxySecurityEnabled, prvtProxyAcceptInforms,\nprvtProxyManMappingAuthenticated, prvtProxyManagerUnauthenticatedDevice', 'Initial version',))
+if mibBuilder.loadTexts: prvtProxyManager.setLastUpdated('200901160000Z')
+if mibBuilder.loadTexts: prvtProxyManager.setOrganization('BATM Advanced Communication')
+if mibBuilder.loadTexts: prvtProxyManager.setContactInfo(' BATM/Telco Systems Support team\nEmail:\nFor North America: techsupport@telco.com\nFor North Europe: support@batm.de, info@batm.de\nFor the rest of the world: techsupport@telco.com')
+if mibBuilder.loadTexts: prvtProxyManager.setDescription('The MIB module for management of the PRVT-PROXY-MANAGER product.')
+prvtProxyManNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 0))
+prvtProxyManObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1))
+class PrvtProxyManStates(TextualConvention, Integer32):
+    description = 'The the switch on/off states of the Proxy Manager\nmodes.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("enable", 1), ("disable", 2))
+
+class PrvtProxyManProtocols(TextualConvention, Integer32):
+    description = 'The the switch on/off states of the Proxy Manager\nmodes.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("unknown", 0), ("snmp-udp", 1), ("snmptrap-udp", 2), ("telnet-tcp", 3), ("ssh-tcp", 4), ("tftp-udp", 5), ("syslog-udp", 6))
+
+class PrvtProxyManPortTypes(TextualConvention, Integer32):
+    description = 'The the switch on/off states of the Proxy Manager\nmodes.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("unknown", 0), ("tcp", 1), ("udp", 2))
+
+class PrvtProxyManDirection(TextualConvention, Integer32):
+    description = 'Specifices the traffic flow direction '
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("noDirection", 0), ("inbound", 1), ("outbound", 2))
+
+class PrvtProxyManAuthentication(TextualConvention, Integer32):
+    description = 'Authenticated state of Managed device'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("authenticated", 0), ("unauthenticated", 1))
+
+class PrvtProxySecurity(TextualConvention, Integer32):
+    description = 'State of Proxy Security'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("securityEnabled", 0), ("securityDisabled", 1))
+
+class PrvtProxyAcceptInformsType(TextualConvention, Integer32):
+    description = 'State of Proxy Inform Accept'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("informsEnabled", 0), ("informsDisabled", 1))
+
+prvtProxyManDeviceAddress = MibScalar((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 1), MacAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: prvtProxyManDeviceAddress.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManDeviceAddress.setDescription('The object represents the discovered device address.\nIt is used only for topology change notifications.')
+prvtProxyManConfigTable = MibTable((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2), )
+if mibBuilder.loadTexts: prvtProxyManConfigTable.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManConfigTable.setDescription('The table of containing the global configuration of the Proxy Manager instance.')
+prvtProxyManConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1), ).setIndexNames((0, "PRVT-PROXY-MANAGER-MIB", "prvtProxyManIndex"))
+if mibBuilder.loadTexts: prvtProxyManConfigEntry.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManConfigEntry.setDescription('Each entry represents configuration for a ProxyManager instance.')
+prvtProxyManIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: prvtProxyManIndex.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManIndex.setDescription('The index of this prvtProxyManConfigEntry. This is the\ninstance index of the ProxyManager.\n\nCurrently only one instance is supported.')
+prvtProxyManStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 2), PrvtProxyManStates()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManStatus.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManStatus.setDescription('The object indicates whether the Proxy manger is enabled(1)\nor disabled(2). In order to enable the Proxy Manager,\nprvtProxyManIpRangeEnd, prvtProxyManIpRangeStart,\nprvtProxyManIpMask, prvtProxyManIpAddr, prvtProxyManVlan, must\nbe correctly set and consistent.\n\nIn order to enable the manager prvtProxyManRowStatus should be active.\n')
+prvtProxyManAutoMapMode = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 3), PrvtProxyManStates().clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManAutoMapMode.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManAutoMapMode.setDescription('The object indicates whether the devices will be configured\nautomatically - enabled(1) or manually - disabled(2).\n\nIf the object is set to disable, the configuration can be\nmanaged via prvtProxyManMappingTable')
+prvtProxyManVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManVlan.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManVlan.setDescription('The vlan of the network specified for proxy managment.\n\nThis field is mandatory for the Proxy Manager in order\nto work correctly')
+prvtProxyManIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManIpAddr.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManIpAddr.setDescription('The ip address of the device manged by the Proxy\nManager.\n\nThis field is mandatory for the Proxy Manager in order\nto work correctly')
+prvtProxyManIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManIpMask.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManIpMask.setDescription('The bit mask of the network where the proxy manager resides.\n\nThis field is mandatory for the Proxy Manager in order\nto work correctly')
+prvtProxyManIpRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 7), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManIpRangeStart.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManIpRangeStart.setDescription('The start of the ip address range, used by DHCP to provide\nip addresses for the discuvered devices\n\nThis field is mandatory for the Proxy Manager in order\nto work correctly')
+prvtProxyManIpRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 8), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManIpRangeEnd.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManIpRangeEnd.setDescription('The end of the ip address range, used by DHCP to provide\nip addresses for the discuvered devices\n\nThis field is mandatory for the Proxy Manager in order\nto work correctly')
+prvtProxyManLeasePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 9), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManLeasePeriod.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManLeasePeriod.setDescription('The period for which the mapped devices are available in\nthe proxy manager. After it expire, the mapped device\ncan request new lease again. Valid range is <0-604800> seconds. Default value is 300.')
+prvtProxyManRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: prvtProxyManRowStatus.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManRowStatus.setDescription('This object indicates the state of the configuration entry. It\nis read-only and can not be used to create or destroy or manually change\nthe state. Only one configuration entry is supported.\nThe only valid values are:\n- notReady(3) - the ProxyManger is not correctly configured and there are some field inconsistencies.\n- acitive(1) - the ProxyManger is configured and the proxy manager is ready to be enabled.\n\nThe objects which are checked for consistency are:\nprvtProxyManIpRangeEnd - the ip range should be in the network, defined by the ip address/mask objects\nprvtProxyManIpRangeStart - the ip range should be in the network defined by the ip address/mask objects\nprvtProxyManIpMask - shoudl be valid ip mask\nprvtProxyManIpAddr - should be valid ip address.\nprvtProxyManVlan - the vlan should exists')
+prvtProxySecurityEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 11), PrvtProxySecurity()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxySecurityEnabled.setStatus('current')
+if mibBuilder.loadTexts: prvtProxySecurityEnabled.setDescription('The attribute is used to specify the proxy security, The default is securityDisabled(1).')
+prvtProxyAcceptInforms = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 2, 1, 12), PrvtProxyAcceptInformsType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyAcceptInforms.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyAcceptInforms.setDescription('The attribute is used to specify the accept policy for DHCP Informs messaged. The default if informsDisabled(1).')
+prvtProxyManProtoTable = MibTable((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3), )
+if mibBuilder.loadTexts: prvtProxyManProtoTable.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoTable.setDescription('The table of containing all supported protocols,\nwhich will be processed by an active ProxyManager\ninstance\n\nThis table is read-only.\n')
+prvtProxyManProtoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3, 1), ).setIndexNames((0, "PRVT-PROXY-MANAGER-MIB", "prvtProxyManProtoIndex"))
+if mibBuilder.loadTexts: prvtProxyManProtoEntry.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoEntry.setDescription('Each entry represents a hardcoded protocol supported by Proxy Manager.')
+prvtProxyManProtoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3, 1, 1), PrvtProxyManProtocols())
+if mibBuilder.loadTexts: prvtProxyManProtoIndex.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoIndex.setDescription('The index of prvtProxyManProtoTable. It is an enumeration\nrepresenting all supported protocols by Proxy Manager')
+prvtProxyManProtoSvcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtProxyManProtoSvcPort.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoSvcPort.setDescription('The object represents the number of the port for the supported standard protocol.')
+prvtProxyManProtoSvcPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3, 1, 3), PrvtProxyManPortTypes()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtProxyManProtoSvcPortType.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoSvcPortType.setDescription('The object represents the type of the managed standard port in the\ntransport porotocol.')
+prvtProxyManProtoSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtProxyManProtoSrcPort.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoSrcPort.setDescription('TBD')
+prvtProxyManProtoDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3, 1, 5), PrvtProxyManDirection()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtProxyManProtoDirection.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoDirection.setDescription('The object identifies direction of the traffic flow (noDirection/inbound/outbound).')
+prvtProxyManProtoStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 3, 1, 6), PrvtProxyManStates()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManProtoStatus.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManProtoStatus.setDescription('This object indicates whether the protocol is to be\nmanaged by Proxy manager - enable(1) or not - disable(2).')
+prvtProxyManMappingTable = MibTable((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4), )
+if mibBuilder.loadTexts: prvtProxyManMappingTable.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingTable.setDescription('The table show the mapping between the deiscoverd devices and the ports they are mapped by the proxy manager.\nIt is also used to create mannual mappings between devices and ports if the prvtProxyManAutoMapMode is disabled')
+prvtProxyManMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1), ).setIndexNames((0, "PRVT-PROXY-MANAGER-MIB", "prvtProxyManMappingDevice"), (0, "PRVT-PROXY-MANAGER-MIB", "prvtProxyManMappingIndex"), (0, "PRVT-PROXY-MANAGER-MIB", "prvtProxyManMappingProto"))
+if mibBuilder.loadTexts: prvtProxyManMappingEntry.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingEntry.setDescription('Each entry represents a mapped device to a port.')
+prvtProxyManMappingDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: prvtProxyManMappingDevice.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingDevice.setDescription('The object represents the id of the deiscovered device in the LAN.\nIt is index in the prvtProxyManMappingTable')
+prvtProxyManMappingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: prvtProxyManMappingIndex.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingIndex.setDescription('The object represents the index of the mapping entry.\nIt is unique per device and is index in the prvtProxyManMappingTable')
+prvtProxyManMappingProto = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 3), PrvtProxyManProtocols())
+if mibBuilder.loadTexts: prvtProxyManMappingProto.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingProto.setDescription('The object represents the protocol, which will be processed.\nIt is index in prvtProxyManMappingTable. ')
+prvtProxyManMappingDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 4), PrvtProxyManDirection()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtProxyManMappingDirection.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingDirection.setDescription('The object identifies the traffic flow direction.(inbound/outbound).')
+prvtProxyManMappingGlobalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManMappingGlobalPort.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingGlobalPort.setDescription('TBD')
+prvtProxyManMappingLocalSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManMappingLocalSrcPort.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingLocalSrcPort.setDescription('TBD ')
+prvtProxyManMappingLocalDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManMappingLocalDstPort.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingLocalDstPort.setDescription('TBD')
+prvtProxyManMappingRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: prvtProxyManMappingRowStatus.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingRowStatus.setDescription('Indicates the state of the mapping entry.\n- notReady(3) - the mapping entry is not configured yet\n- notInService(3) - the mapping entry is configured but the configuration is not applied yet\n- acitive(3) - the mapping entry is configured and the configuration is applied\n\nThe objects which need to be configured in order\nto apply the cinfiguration are:\nprvtProxyManMappingMAC\nprvtProxyManMappingPort')
+prvtProxyManMappingMAC = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 9), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtProxyManMappingMAC.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingMAC.setDescription('The mac address of the managed device.\n\nThis field is manadatory')
+prvtProxyManMappingIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtProxyManMappingIfIndex.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingIfIndex.setDescription('This object shows the ifIndex associated with the managed device.')
+prvtProxyManMappingAuthenticated = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 1, 4, 1, 11), PrvtProxyManAuthentication()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prvtProxyManMappingAuthenticated.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManMappingAuthenticated.setDescription('This object shows the authenticated state of the managed device.')
+prvtProxyManagerNewDevice = NotificationType((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 0, 1)).setObjects(("PRVT-PROXY-MANAGER-MIB", "prvtProxyManDeviceAddress"))
+if mibBuilder.loadTexts: prvtProxyManagerNewDevice.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManagerNewDevice.setDescription("This notification is triggered, when a new managed device is descovered\nand added in the proxy manager's list")
+prvtProxyManagerRemovedDevice = NotificationType((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 0, 2)).setObjects(("PRVT-PROXY-MANAGER-MIB", "prvtProxyManDeviceAddress"))
+if mibBuilder.loadTexts: prvtProxyManagerRemovedDevice.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManagerRemovedDevice.setDescription("This notification is triggered, when a managed device is removed from\nthe proxy manager's list")
+prvtProxyManagerUnauthenticatedDevice = NotificationType((1, 3, 6, 1, 4, 1, 738, 1, 6, 6, 0, 3)).setObjects(("PRVT-PROXY-MANAGER-MIB", "prvtProxyManDeviceAddress"))
+if mibBuilder.loadTexts: prvtProxyManagerUnauthenticatedDevice.setStatus('current')
+if mibBuilder.loadTexts: prvtProxyManagerUnauthenticatedDevice.setDescription("This notification is triggered, when a managed device failed to be authenticated from\nthe proxy manager's list")
+mibBuilder.exportSymbols("PRVT-PROXY-MANAGER-MIB", prvtProxyManMappingAuthenticated=prvtProxyManMappingAuthenticated, prvtProxyManProtoEntry=prvtProxyManProtoEntry, prvtProxyManConfigTable=prvtProxyManConfigTable, PrvtProxyManDirection=PrvtProxyManDirection, PYSNMP_MODULE_ID=prvtProxyManager, prvtProxyManIndex=prvtProxyManIndex, prvtProxyManDeviceAddress=prvtProxyManDeviceAddress, prvtProxyManProtoSvcPort=prvtProxyManProtoSvcPort, prvtProxyManagerUnauthenticatedDevice=prvtProxyManagerUnauthenticatedDevice, prvtProxyManProtoSvcPortType=prvtProxyManProtoSvcPortType, prvtProxyManLeasePeriod=prvtProxyManLeasePeriod, prvtProxyManMappingLocalSrcPort=prvtProxyManMappingLocalSrcPort, prvtProxyManStatus=prvtProxyManStatus, prvtProxyManProtoTable=prvtProxyManProtoTable, prvtProxyManMappingDevice=prvtProxyManMappingDevice, prvtProxyManObjects=prvtProxyManObjects, prvtProxyManRowStatus=prvtProxyManRowStatus, prvtProxyManIpRangeStart=prvtProxyManIpRangeStart, prvtProxyManMappingDirection=prvtProxyManMappingDirection, prvtProxyManNotifications=prvtProxyManNotifications, prvtProxyManagerRemovedDevice=prvtProxyManagerRemovedDevice, prvtProxyManProtoSrcPort=prvtProxyManProtoSrcPort, prvtProxyManProtoIndex=prvtProxyManProtoIndex, PrvtProxyManAuthentication=PrvtProxyManAuthentication, prvtProxyManager=prvtProxyManager, prvtProxyManMappingLocalDstPort=prvtProxyManMappingLocalDstPort, prvtProxySecurityEnabled=prvtProxySecurityEnabled, prvtProxyManConfigEntry=prvtProxyManConfigEntry, prvtProxyManAutoMapMode=prvtProxyManAutoMapMode, PrvtProxyManProtocols=PrvtProxyManProtocols, prvtProxyManProtoDirection=prvtProxyManProtoDirection, prvtProxyManMappingRowStatus=prvtProxyManMappingRowStatus, prvtProxyManProtoStatus=prvtProxyManProtoStatus, prvtProxyManMappingEntry=prvtProxyManMappingEntry, prvtProxyManMappingIndex=prvtProxyManMappingIndex, prvtProxyManIpMask=prvtProxyManIpMask, prvtProxyManMappingProto=prvtProxyManMappingProto, PrvtProxySecurity=PrvtProxySecurity, prvtProxyManMappingTable=prvtProxyManMappingTable, prvtProxyManMappingIfIndex=prvtProxyManMappingIfIndex, prvtProxyManMappingMAC=prvtProxyManMappingMAC, prvtProxyManagerNewDevice=prvtProxyManagerNewDevice, prvtProxyManIpAddr=prvtProxyManIpAddr, prvtProxyManIpRangeEnd=prvtProxyManIpRangeEnd, PrvtProxyManPortTypes=PrvtProxyManPortTypes, prvtProxyManVlan=prvtProxyManVlan, PrvtProxyManStates=PrvtProxyManStates, prvtProxyManMappingGlobalPort=prvtProxyManMappingGlobalPort, PrvtProxyAcceptInformsType=PrvtProxyAcceptInformsType, prvtProxyAcceptInforms=prvtProxyAcceptInforms)

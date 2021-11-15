@@ -1,0 +1,48 @@
+#
+# PySNMP MIB module WAYSTREAM-COPY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-COPY-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 20:10:55 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationType, iso, Integer32, IpAddress, Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32, Counter64, Gauge32, MibIdentifier, ObjectIdentity, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "Integer32", "IpAddress", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32", "Counter64", "Gauge32", "MibIdentifier", "ObjectIdentity", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+wsExperiment, = mibBuilder.importSymbols("WAYSTREAM-SMI", "wsExperiment")
+wsCopy = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303, 3, 2))
+wsCopy.setRevisions(('2017-02-10 11:00', '2011-01-11 17:35', '2009-03-23 11:17', '2008-09-10 15:38',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: wsCopy.setRevisionsDescriptions(('Company name change:\n\t In October 2015 PacketFront Network Products was renamed Waystream.\n\t In this update all PacketFront were changed to Waystream and all\n\t pf* to ws*.', 'Updated company name', 'Updated telephone information in contact-info', 'Initial - moved pfCopy from PACKETFRONT-MIB',))
+if mibBuilder.loadTexts: wsCopy.setLastUpdated('201702101100Z')
+if mibBuilder.loadTexts: wsCopy.setOrganization('Waystream AB')
+if mibBuilder.loadTexts: wsCopy.setContactInfo('Waystream AB\n         Customer Service\n\n         Mail : Farogatan 33\n                SE-164 51 Kista\n                Sweden\n\n         Tel  : +46 8 5626 9450\n\n         E-mail: info@waystream.com\n         Web   : http://www.waystream.com')
+if mibBuilder.loadTexts: wsCopy.setDescription('MIB describing the file copy functions available on Waystream ASRs')
+wsCopyNextState = MibScalar((1, 3, 6, 1, 4, 1, 9303, 3, 2, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wsCopyNextState.setStatus('current')
+if mibBuilder.loadTexts: wsCopyNextState.setDescription('Generate a unique filehandle. The filehandle is\n                         used with the other objects in the wsCopy branch\n                         to set the source and destination and commence\n                         file transfer activities.')
+wsCopyTable = MibTable((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2), )
+if mibBuilder.loadTexts: wsCopyTable.setStatus('current')
+if mibBuilder.loadTexts: wsCopyTable.setDescription('A list of current copy sessions. The next available entry is\n\t\t\t given by the value of wsCopyNextState.')
+wsCopyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1), ).setIndexNames((0, "WAYSTREAM-COPY-MIB", "wsCopyIndex"))
+if mibBuilder.loadTexts: wsCopyEntry.setStatus('current')
+if mibBuilder.loadTexts: wsCopyEntry.setDescription('An entry for a copy session.')
+wsCopyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wsCopyIndex.setStatus('current')
+if mibBuilder.loadTexts: wsCopyIndex.setDescription('A unique value for each copy session.')
+wsCopySource = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wsCopySource.setStatus('current')
+if mibBuilder.loadTexts: wsCopySource.setDescription('The source URL for a filhandle. The string \n                         provided must match an acceptable URL as \n                         typed in the command line interface copy command.')
+wsCopyDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wsCopyDestination.setStatus('current')
+if mibBuilder.loadTexts: wsCopyDestination.setDescription('The destination filename for a filehandle. The\n                                 string provided must match an acceptable destination\n                                 as typed in the command line interface copy command.')
+wsCopyStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("notused", 0), ("start", 1), ("stop", 2), ("destroy", 3), ("init", 4), ("inprogress", 5), ("failed", 6), ("finished", 7)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wsCopyStatus.setStatus('current')
+if mibBuilder.loadTexts: wsCopyStatus.setDescription('The status of a filehandle\n\n                         notused - Get: The filehandle has not been used during the last 24 hours\n                                   Set: Not possible\n                         start - Get: Not possible\n                                 Set: Start filetransfer\n                         stop - Get: Not possible\n                                Set: Stop filetransfer in progress\n                         destroy - Get: Not possible\n                                   Set: Remove source and destination entries for filehandle\n                         init - Get: Filtransfer started\n                                Set: Not possible\n                         inprogress - Get: Filetransfer in progress\n                                      Set: Not possible\n                         failed - Get: A failure occured during last filetransfer\n                                  Set: Not possible\n                         finished - Get: The file was successfully transferred and stored \n                                    Set: not possible\n                        ')
+wsCopyError = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wsCopyError.setStatus('current')
+if mibBuilder.loadTexts: wsCopyError.setDescription("A textual description of the filehandle last\n                         error status. If the filehandle does not exist or\n                         has not been used for the last 24 hours, a 'No Error'\n                         message is returned.")
+mibBuilder.exportSymbols("WAYSTREAM-COPY-MIB", wsCopyError=wsCopyError, PYSNMP_MODULE_ID=wsCopy, wsCopyDestination=wsCopyDestination, wsCopyEntry=wsCopyEntry, wsCopySource=wsCopySource, wsCopyTable=wsCopyTable, wsCopy=wsCopy, wsCopyStatus=wsCopyStatus, wsCopyNextState=wsCopyNextState, wsCopyIndex=wsCopyIndex)

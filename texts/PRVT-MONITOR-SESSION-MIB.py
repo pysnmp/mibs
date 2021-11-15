@@ -1,0 +1,85 @@
+#
+# PySNMP MIB module PRVT-MONITOR-SESSION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-MONITOR-SESSION-MIB
+# Produced by pysmi-1.1.0 at Mon Nov 15 19:59:45 2021
+# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, Gauge32, iso, Integer32, ModuleIdentity, TimeTicks, Unsigned32, MibIdentifier, ObjectIdentity, IpAddress, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Gauge32", "iso", "Integer32", "ModuleIdentity", "TimeTicks", "Unsigned32", "MibIdentifier", "ObjectIdentity", "IpAddress", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+prvtMonitorSessionMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000))
+prvtMonitorSessionMib.setRevisions(('2011-05-23 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: prvtMonitorSessionMib.setRevisionsDescriptions(('Initial version.',))
+if mibBuilder.loadTexts: prvtMonitorSessionMib.setLastUpdated('201105230000Z')
+if mibBuilder.loadTexts: prvtMonitorSessionMib.setOrganization('BATM Advanced Communication')
+if mibBuilder.loadTexts: prvtMonitorSessionMib.setContactInfo('BATM/Telco Systems Support team\nEmail: \nFor North America: techsupport@telco.com\nFor North Europe: support@batm.de, info@batm.de\nFor the rest of the world: techsupport@telco.com')
+if mibBuilder.loadTexts: prvtMonitorSessionMib.setDescription('This MIB contains manageable objects  for\nencapsulating Switched Port Analyzer(SPAN) feature.')
+class Direction(TextualConvention, Integer32):
+    description = 'Monitor direction:\n     tx- Transmit\n     rx- Receive'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("rx", 1), ("tx", 2))
+
+prvtMonitorSessionNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 0))
+prvtMonitorSessionObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1))
+prvtMonitorSessionConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 2))
+prvtMonitorSessionTable = MibTable((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 1), )
+if mibBuilder.loadTexts: prvtMonitorSessionTable.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionTable.setDescription('This table contains object for enable and configure Enable Switched Port Analyzer.')
+prvtMonitorSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 1, 1), ).setIndexNames((0, "PRVT-MONITOR-SESSION-MIB", "prvtMonitorSessionDirection"))
+if mibBuilder.loadTexts: prvtMonitorSessionEntry.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionEntry.setDescription('An entry in the table will describe all parameteres of Switched Port Analyzer per each direction Rx or Tx ')
+prvtMonitorSessionDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 1, 1, 1), Direction())
+if mibBuilder.loadTexts: prvtMonitorSessionDirection.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionDirection.setDescription('Direction recived/trasmitted of the monitored traffic.')
+prvtMonitorSessionSource = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 1, 1, 2), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtMonitorSessionSource.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionSource.setDescription('Monitored source list representing the ports to be mirrored.')
+prvtMonitorSessionDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtMonitorSessionDestination.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionDestination.setDescription('Analyzer port.')
+prvtAnalyzerVLANTagTable = MibTable((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 2), )
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagTable.setStatus('current')
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagTable.setDescription('This table contains object for enable and configure Remote Analyzer VLAN Tag')
+prvtAnalyzerVLANTagEntry = MibTableRow((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 2, 1), ).setIndexNames((0, "PRVT-MONITOR-SESSION-MIB", "prvtMonitorSessionDirection"))
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagEntry.setStatus('current')
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagEntry.setDescription('An entry in the table will describe all parameteres of Remote Analyzer VLAN Tag per each direction Rx or Tx ')
+prvtAnalyzerVLANTagEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagEnable.setStatus('current')
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagEnable.setDescription('Enable Remote Analyzer VLAN Tag.')
+prvtAnalyzerVLANTagVID = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagVID.setStatus('current')
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagVID.setDescription('The VLAN ID of the VLAN tag added to packet forwarded to Analyzer.')
+prvtAnalyzerVLANTagEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 2, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagEtherType.setStatus('current')
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagEtherType.setDescription('The Vlan ether type of the VLAN tag added to packet forwarded to Analyzer.')
+prvtAnalyzerVLANTagCFI = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("clear", 0), ("set", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagCFI.setStatus('current')
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagCFI.setDescription('The CFI of the VLAN tag added to packet forwarded to Analyzer.')
+prvtAnalyzerVLANTagVPT = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("vpt-value0", 0), ("vpt-value1", 1), ("vpt-value2", 2), ("vpt-value3", 3), ("vpt-value4", 4), ("vpt-value5", 5), ("vpt-value6", 6), ("vpt-value7", 7), ("undefined", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagVPT.setStatus('current')
+if mibBuilder.loadTexts: prvtAnalyzerVLANTagVPT.setDescription('The VPT of the VLAN tag added to packet forwarded to Analyzer.')
+prvtMonitorSessionCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 2, 1))
+prvtMonitorSessionGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 2, 2))
+prvtMonitorSessionCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 2, 1, 1)).setObjects(("PRVT-MONITOR-SESSION-MIB", "prvtMonitorSessionMirroredGroup"), ("PRVT-MONITOR-SESSION-MIB", "prvtMonitorSessionAnalyzerGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    prvtMonitorSessionCompliance = prvtMonitorSessionCompliance.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionCompliance.setDescription('The compliance statement for Switched Port Analyzer.')
+prvtMonitorSessionMirroredGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 2, 2, 1)).setObjects(("PRVT-MONITOR-SESSION-MIB", "prvtMonitorSessionSource"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    prvtMonitorSessionMirroredGroup = prvtMonitorSessionMirroredGroup.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionMirroredGroup.setDescription('The group of objects dedicated to mirrored source.')
+prvtMonitorSessionAnalyzerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000, 2, 2, 2)).setObjects(("PRVT-MONITOR-SESSION-MIB", "prvtMonitorSessionDestination"), ("PRVT-MONITOR-SESSION-MIB", "prvtAnalyzerVLANTagEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    prvtMonitorSessionAnalyzerGroup = prvtMonitorSessionAnalyzerGroup.setStatus('current')
+if mibBuilder.loadTexts: prvtMonitorSessionAnalyzerGroup.setDescription('The group of objects dedicated to analyzer.')
+mibBuilder.exportSymbols("PRVT-MONITOR-SESSION-MIB", prvtMonitorSessionTable=prvtMonitorSessionTable, prvtAnalyzerVLANTagVID=prvtAnalyzerVLANTagVID, prvtMonitorSessionCompliances=prvtMonitorSessionCompliances, prvtMonitorSessionObjects=prvtMonitorSessionObjects, prvtMonitorSessionCompliance=prvtMonitorSessionCompliance, prvtAnalyzerVLANTagEtherType=prvtAnalyzerVLANTagEtherType, prvtAnalyzerVLANTagVPT=prvtAnalyzerVLANTagVPT, prvtMonitorSessionAnalyzerGroup=prvtMonitorSessionAnalyzerGroup, prvtMonitorSessionMirroredGroup=prvtMonitorSessionMirroredGroup, prvtAnalyzerVLANTagEnable=prvtAnalyzerVLANTagEnable, prvtMonitorSessionDirection=prvtMonitorSessionDirection, prvtMonitorSessionGroups=prvtMonitorSessionGroups, prvtMonitorSessionMib=prvtMonitorSessionMib, prvtAnalyzerVLANTagTable=prvtAnalyzerVLANTagTable, prvtMonitorSessionNotification=prvtMonitorSessionNotification, Direction=Direction, PYSNMP_MODULE_ID=prvtMonitorSessionMib, prvtAnalyzerVLANTagCFI=prvtAnalyzerVLANTagCFI, prvtMonitorSessionEntry=prvtMonitorSessionEntry, prvtMonitorSessionSource=prvtMonitorSessionSource, prvtAnalyzerVLANTagEntry=prvtAnalyzerVLANTagEntry, prvtMonitorSessionDestination=prvtMonitorSessionDestination, prvtMonitorSessionConformance=prvtMonitorSessionConformance)

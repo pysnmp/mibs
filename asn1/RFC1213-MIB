@@ -10,6 +10,7 @@ IMPORTS
 --  This MIB module uses the extended OBJECT-TYPE macro as
 --  defined in [14];
 
+
 --  MIB-II (same prefix as MIB-I)
 
 mib-2      OBJECT IDENTIFIER ::= { mgmt 1 }
@@ -31,6 +32,7 @@ PhysAddress ::=
 -- types of media, this will be in a binary representation.
 -- For example, an ethernet address would be represented as
 -- a string of 6 octets.
+
 
 -- groups in MIB-II
 
@@ -56,6 +58,7 @@ egp          OBJECT IDENTIFIER ::= { mib-2 8 }
 transmission OBJECT IDENTIFIER ::= { mib-2 10 }
 
 snmp         OBJECT IDENTIFIER ::= { mib-2 11 }
+
 
 -- the System group
 
@@ -177,6 +180,7 @@ ifNumber OBJECT-TYPE
             "The number of network interfaces (regardless of
             their current state) present on this system."
     ::= { interfaces 1 }
+
 
 -- the Interfaces table
 
@@ -355,7 +359,6 @@ ifPhysAddress OBJECT-TYPE
             "The interface's address at the protocol layer
             immediately `below' the network layer in the
             protocol stack.  For interfaces which do not have
-
             such an address (e.g., a serial line), this object
             should contain an octet string of zero length."
     ::= { ifEntry 6 }
@@ -500,7 +503,6 @@ ifOutDiscards OBJECT-TYPE
     STATUS  mandatory
     DESCRIPTION
             "The number of outbound packets which were chosen
-
             to be discarded even though no errors had been
             detected to prevent their being transmitted.  One
             possible reason for discarding such a packet could
@@ -542,6 +544,7 @@ ifSpecific OBJECT-TYPE
             implementation of ASN.1 and BER must be able to
             generate and recognize this value."
     ::= { ifEntry 22 }
+
 
 -- the Address Translation group
 
@@ -646,6 +649,7 @@ atNetAddress OBJECT-TYPE
             corresponding to the media-dependent `physical'
             address."
     ::= { atEntry 3 }
+
 
 -- the IP group
 
@@ -788,7 +792,6 @@ ipOutDiscards OBJECT-TYPE
     STATUS  mandatory
     DESCRIPTION
             "The number of output IP datagrams for which no
-
             problem was encountered to prevent their
             transmission to their destination, but which were
             discarded (e.g., for lack of buffer space).  Note
@@ -1219,7 +1222,6 @@ ipRouteMask OBJECT-TYPE
                  255.0.0.0      class-A
                  255.255.0.0    class-B
                  255.255.255.0  class-C
-
             If the value of the ipRouteDest is 0.0.0.0 (a
             default route), then the mask value is also
             0.0.0.0.  It should be noted that all IP routing
@@ -1253,6 +1255,7 @@ ipRouteInfo OBJECT-TYPE
             conformant implementation of ASN.1 and BER must be
             able to generate and recognize this value."
     ::= { ipRouteEntry 13 }
+
 
 -- the IP Address Translation table
 
@@ -1351,6 +1354,7 @@ ipNetToMediaType OBJECT-TYPE
             ipNetToMediaType object."
     ::= { ipNetToMediaEntry 4 }
 
+
 -- additional IP objects
 
 ipRoutingDiscards OBJECT-TYPE
@@ -1362,9 +1366,9 @@ ipRoutingDiscards OBJECT-TYPE
             to be discarded even though they are valid.  One
             possible reason for discarding such an entry could
             be to free-up buffer space for other routing
-
             entries."
     ::= { ip 23 }
+
 
 -- the ICMP group
 
@@ -1505,7 +1509,6 @@ icmpOutErrors OBJECT-TYPE
     DESCRIPTION
             "The number of ICMP messages which this entity did
             not send due to problems discovered within ICMP
-
             such as a lack of buffers.  This value should not
             include errors discovered outside the ICMP layer
             such as the inability of IP to route the resultant
@@ -1554,7 +1557,6 @@ icmpOutRedirects OBJECT-TYPE
     STATUS  mandatory
     DESCRIPTION
             "The number of ICMP Redirect messages sent.  For a
-
             host, this object will always be zero, since hosts
             do not send redirects."
     ::= { icmp 20 }
@@ -1611,6 +1613,7 @@ icmpOutAddrMaskReps OBJECT-TYPE
             sent."
     ::= { icmp 26 }
 
+
 -- the TCP group
 
 -- Implementation of the TCP group is mandatory for all
@@ -1650,6 +1653,7 @@ tcpRtoMin OBJECT-TYPE
             an object of this type has the semantics of the
             LBOUND quantity described in RFC 793."
     ::= { tcp 2 }
+
 
 tcpRtoMax OBJECT-TYPE
     SYNTAX  INTEGER
@@ -1762,6 +1766,7 @@ tcpRetransSegs OBJECT-TYPE
             octets."
     ::= { tcp 12 }
 
+
 -- the TCP Connection table
 
 -- The TCP connection table contains information about this
@@ -1840,7 +1845,6 @@ tcpConnState OBJECT-TYPE
             connection.
 
             As an implementation-specific option, a RST
-
             segment may be sent from the managed node to the
             other TCP endpoint (note however that RST segments
             are not sent reliably)."
@@ -1882,6 +1886,7 @@ tcpConnRemPort OBJECT-TYPE
             "The remote port number for this TCP connection."
     ::= { tcpConnEntry 5 }
 
+
 -- additional TCP objects
 
 tcpInErrs OBJECT-TYPE
@@ -1901,6 +1906,7 @@ tcpOutRsts OBJECT-TYPE
             "The number of TCP segments sent containing the
             RST flag."
     ::= { tcp 15 }
+
 
 -- the UDP group
 
@@ -1945,6 +1951,7 @@ udpOutDatagrams OBJECT-TYPE
             entity."
     ::= { udp 4 }
 
+
 -- the UDP Listener table
 
 -- The UDP listener table contains information about this
@@ -1983,7 +1990,6 @@ udpLocalAddress OBJECT-TYPE
     STATUS  mandatory
     DESCRIPTION
             "The local IP address for this UDP listener.  In
-
             the case of a UDP listener which is willing to
             accept datagrams for any IP interface associated
             with the node, the value 0.0.0.0 is used."
@@ -1996,6 +2002,7 @@ udpLocalPort OBJECT-TYPE
     DESCRIPTION
             "The local port number for this UDP listener."
     ::= { udpEntry 2 }
+
 
 -- the EGP group
 
@@ -2038,6 +2045,7 @@ egpOutErrors OBJECT-TYPE
             sent due to resource limitations within an EGP
             entity."
     ::= { egp 4 }
+
 
 -- the EGP Neighbor table
 
@@ -2222,7 +2230,6 @@ egpNeighIntervalPoll OBJECT-TYPE
     STATUS  mandatory
     DESCRIPTION
             "The interval between EGP poll command
-
             retransmissions (in hundredths of a second).  This
             represents the t3 timer as defined in RFC 904."
     ::= { egpNeighEntry 13 }
@@ -2260,6 +2267,7 @@ egpNeighEventTrigger OBJECT-TYPE
             otherwise."
     ::= { egpNeighEntry 15 }
 
+
 -- additional EGP objects
 
 egpAs OBJECT-TYPE
@@ -2292,6 +2300,7 @@ egpAs OBJECT-TYPE
 -- where "type" is the symbolic value used for the media in
 -- the ifType column of the ifTable object, and "number" is
 -- the actual integer value corresponding to the symbol.
+
 
 -- the SNMP group
 
@@ -2414,7 +2423,6 @@ snmpInReadOnlys OBJECT-TYPE
             contains the value `readOnly' in the error-status
             field, as such this object is provided as a means
             of detecting incorrect implementations of the
-
             SNMP."
     ::= { snmp 11 }
 
@@ -2611,3 +2619,4 @@ snmpEnableAuthenTraps OBJECT-TYPE
     ::= { snmp 30 }
 
 END
+
