@@ -11,7 +11,6 @@ command_exists "grep"
 command_exists "sed"
 
 echo from inside index.sh
-grep -v
 grep -Po 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
 	| sed 's|.*/notexts/||' \
 	| sed 's|, |.|g' \
