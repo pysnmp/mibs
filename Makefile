@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := help
 .PHONY: all
-RFC=$(notdir $(wildcard mibs/*))
+#RFC=$(notdir $(wildcard mibs/*))
+RFC=$(wildcard mibs/*)
 
 # fetch:  ## Download all mibs from the source
 # 	@# Wget recursive
@@ -8,28 +9,35 @@ RFC=$(notdir $(wildcard mibs/*))
 # 	  --no-parent --no-host-directories http://mibs.snmplabs.com/asn1/
 # 	rm -rf asn1/index.html*
 
-compilerfc: ## Compile all MIBs into .py files
+output/asn1/$(notdir $(RFC)): $(RFC)
 	@# Compile mibs
 #Compile with notexts	
 	poetry run mibdump.py \
 	--no-python-compile \
 	--mib-source=file://$$(pwd)/mibs/ \
 	--destination-directory=./output/notexts \
-	$(RFC)
+	$(notdir $(RFC))
 #Compile with notext	
 	poetry run mibdump.py \
 	--no-python-compile \
 	--mib-source=file://$$(pwd)/mibs/ \
 	--destination-directory=./output/texts \
 	--generate-mib-texts --keep-texts-layout \
-	$(RFC)
+	$(notdir $(RFC))
+	
+	for u in $(RFC); do echo $$u; cp -f $$u output/asn1/; done
 
-	poetry run mibdump.py \
-	--no-python-compile \
-	--mib-source=file://$$(pwd)/mibs/ \
-	--destination-format=json --destination-directory=./output/json \
-	--mib-borrower=file:///output/fulltexts/@mib@ \
-	$(RFC)
+#compilerfc: mibs/$(RFC) ## Compile all MIBs into .py files
+compilerfc: output/asn1/$(notdir $(RFC)) #mibs/$(RFC)
+
+index: compilerfc ##generate index
+	@# Generate index
+	grep -Eo 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
+	| sed 's|output/notexts/||' \
+	| sed 's|, |.|g' \
+	| sed 's|.py:ModuleIdentity((|,|' \
+	| sed 's|))||' \
+	| sponge output/index.csv
 
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
