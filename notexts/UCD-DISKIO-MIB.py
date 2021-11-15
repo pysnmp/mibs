@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module UCD-DISKIO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/UCD-DISKIO-MIB
-# Produced by pysmi-1.1.0 at Mon Nov 15 18:16:04 2021
-# On host fv-az36-522 platform Linux version 5.11.0-1020-azure by user runner
+# Produced by pysmi-1.1.0 at Mon Nov 15 18:43:32 2021
+# On host fv-az135-192 platform Linux version 5.11.0-1020-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Counter64, Integer32, Counter32, NotificationType, Gauge32, ObjectIdentity, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Counter64", "Integer32", "Counter32", "NotificationType", "Gauge32", "ObjectIdentity", "Unsigned32", "ModuleIdentity")
+Bits, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, TimeTicks, IpAddress, MibIdentifier, Counter64, Gauge32, NotificationType, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "TimeTicks", "IpAddress", "MibIdentifier", "Counter64", "Gauge32", "NotificationType", "Integer32", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ucdExperimental, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdExperimental")
 ucdDiskIOMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 13, 15))
@@ -44,4 +44,4 @@ diskIONWrittenX = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 13), Cou
 if mibBuilder.loadTexts: diskIONWrittenX.setStatus('current')
 diskIOBusyTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 14), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: diskIOBusyTime.setStatus('current')
-mibBuilder.exportSymbols("UCD-DISKIO-MIB", diskIODevice=diskIODevice, diskIONReadX=diskIONReadX, diskIONWritten=diskIONWritten, diskIOReads=diskIOReads, diskIOWrites=diskIOWrites, ucdDiskIOMIB=ucdDiskIOMIB, diskIONWrittenX=diskIONWrittenX, diskIOLA15=diskIOLA15, diskIOEntry=diskIOEntry, diskIOIndex=diskIOIndex, diskIONRead=diskIONRead, diskIOLA1=diskIOLA1, diskIOTable=diskIOTable, diskIOBusyTime=diskIOBusyTime, diskIOLA5=diskIOLA5, PYSNMP_MODULE_ID=ucdDiskIOMIB)
+mibBuilder.exportSymbols("UCD-DISKIO-MIB", diskIONWrittenX=diskIONWrittenX, diskIODevice=diskIODevice, diskIOLA5=diskIOLA5, diskIONReadX=diskIONReadX, PYSNMP_MODULE_ID=ucdDiskIOMIB, diskIOIndex=diskIOIndex, diskIOLA15=diskIOLA15, diskIONRead=diskIONRead, ucdDiskIOMIB=ucdDiskIOMIB, diskIOWrites=diskIOWrites, diskIOLA1=diskIOLA1, diskIOReads=diskIOReads, diskIONWritten=diskIONWritten, diskIOEntry=diskIOEntry, diskIOTable=diskIOTable, diskIOBusyTime=diskIOBusyTime)
