@@ -31,7 +31,10 @@ compilerfc: dirs $(RFC)
 	
 	for u in $(RFC); do echo $$u; cp -f $$u output/asn1/; done
 
-index: compilerfc ##generate index
+vendor:
+	./scripts/vendor.sh
+
+index: compilerfc vendor ##generate index
 	@# Generate index
 	touch output/.nojekyll
 	./scripts/index.sh
