@@ -1,5 +1,6 @@
     
-    mib=$(basename $1)
+    #mib=$(basename $1)
+    mib=$(find $1 -type f  | sed 's|$1/||g')
     d=$(dirname $1)
     poetry run mibdump \
             --no-python-compile \
@@ -12,4 +13,4 @@
     --destination-directory=./output/texts \
     --generate-mib-texts --keep-texts-layout $mib
 
-    cp -f $1 output/asn1/
+    cp -f $1/* output/asn1/
