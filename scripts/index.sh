@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo from inside index.sh
 grep -Eo 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
 	| sed 's|output/notexts/||' \
 	| sed 's|, |.|g' \
