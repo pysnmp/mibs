@@ -18,6 +18,7 @@ jobs:
         uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: 1.1.11
+      - run: make install
       - run: mkdir -p output/asn1
       - run: make index
       - name: Deploy
