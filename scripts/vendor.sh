@@ -1,4 +1,5 @@
-
+#!/usr/bin/env bash
+#!/usr/bin/env bash
 cust_func(){
     mib=$(basename $1)
     d=$(dirname $1)
