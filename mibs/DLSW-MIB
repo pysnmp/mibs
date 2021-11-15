@@ -1,20 +1,24 @@
+
+-- WinAgents MIB Extraction Wizard
+-- Extracted from rfc2024.txt 16.03.2005 20:21:44
+
 DLSW-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
         DisplayString, RowStatus,
         RowPointer, TruthValue,
         TEXTUAL-CONVENTION                FROM SNMPv2-TC
-        Counter32, Gauge32, TimeTicks,
+
+        Counter32, Gauge32, TimeTicks, mib-2,
         OBJECT-TYPE, MODULE-IDENTITY,
         NOTIFICATION-TYPE                 FROM SNMPv2-SMI
         MODULE-COMPLIANCE, OBJECT-GROUP,
         NOTIFICATION-GROUP                FROM SNMPv2-CONF
-        mib-2                             FROM RFC1213-MIB
         ifIndex                           FROM IF-MIB
         sdlcLSAddress                     FROM SNA-SDLC-MIB;
 
 dlsw MODULE-IDENTITY
-LAST-UPDATED  "200509230000Z"
+    LAST-UPDATED  "9606040900Z"
     ORGANIZATION  "AIW DLSw MIB RIGLET and IETF DLSw MIB Working Group"
     CONTACT-INFO
                   "David D. Chen
@@ -26,8 +30,6 @@ LAST-UPDATED  "200509230000Z"
    DESCRIPTION
         "This MIB module contains objects to manage Data Link
          Switches."
-   REVISION   "200509230000Z"    -- 23 September 2005
-   DESCRIPTION "Juniper fix for syntax error"
 ::= { mib-2 46 }
 
 dlswMIB         OBJECT IDENTIFIER ::= { dlsw 1 }
@@ -55,6 +57,7 @@ MacAddressNC ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
        "Represents an 802 MAC address represented in
+
         non-canonical format.  That is, the most significant
         bit will be transmitted first.  If this information
         is not available, the value is a zero length string."
@@ -103,6 +106,7 @@ LFSize  ::= TEXTUAL-CONVENTION
     SYNTAX  INTEGER  {
                lfs516(516), lfs635(635), lfs754(754), lfs873(873),
                lfs993(993), lfs1112(1112), lfs1231(1231),
+
                lfs1350(1350), lfs1470(1470), lfs1542(1542),
                lfs1615(1615), lfs1688(1688), lfs1761(1761),
                lfs1833(1833), lfs1906(1906), lfs1979(1979),
@@ -124,7 +128,7 @@ LFSize  ::= TEXTUAL-CONVENTION
                lfs59551(59551), lfs65535(65535)
             }
 
--- null OBJECT IDENTIFIER ::= { 0 0 }
+null OBJECT IDENTIFIER ::= { 0 0 }
 
 
 -- *******************************************************************
@@ -150,6 +154,8 @@ DlswTCPAddress ::= TEXTUAL-CONVENTION
 -- *******************************************************************
 -- DLSw MIB Definition
 -- *******************************************************************
+
+
 -- The DLSw MIB module contains an object part and a conformance part.
 -- Object part is organized in the following groups:
 -- (1) dlswNode      - information about this DLSw
@@ -166,13 +172,13 @@ dlswDirectory   OBJECT IDENTIFIER ::= { dlswMIB 4 }
 dlswCircuit     OBJECT IDENTIFIER ::= { dlswMIB 5 }
 dlswSdlc        OBJECT IDENTIFIER ::= { dlswMIB 6 }  -- SDLC
 
--- 
+-- *******************************************************************
 -- THE NODE GROUP
--- 
+-- *******************************************************************
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- DLSw Node Identity
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswNodeVersion  OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE (2))
     MAX-ACCESS read-only
@@ -198,6 +204,7 @@ dlswNodeVendorID  OBJECT-TYPE
         This information is reported in DLSw Capabilities
         Exchange."
     REFERENCE
+
        "DLSW: Switch-to-Switch Protocol RFC 1795"
     ::= { dlswNode 2 }
 
@@ -213,9 +220,9 @@ dlswNodeVersionString  OBJECT-TYPE
        "DLSW: Switch-to-Switch Protocol RFC 1795"
     ::= { dlswNode 3 }
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- DLSw Code Capability
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswNodeStdPacingSupport  OBJECT-TYPE
     SYNTAX     INTEGER  {
        none              (1),  -- does not support DLSw
@@ -240,12 +247,13 @@ dlswNodeStdPacingSupport  OBJECT-TYPE
         scheme but never varies its receive window size."
     ::= { dlswNode 4 }
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- DLSw Node Operational Objects
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswNodeStatus  OBJECT-TYPE
     SYNTAX     INTEGER  {
         active        (1),
+
         inactive      (2)
     }
     MAX-ACCESS read-write
@@ -294,6 +302,7 @@ dlswNodeVirtualSegmentLFSize  OBJECT-TYPE
 
         This value will affect the LF size of circuits during circuit
         creation.  The LF size of an existing circuit can be found in
+
         the RIF (Routing Information Field)."
     DEFVAL  { lfs65535 }
     ::= { dlswNode 7 }
@@ -341,9 +350,10 @@ dlswNodeResourceMacExclusivity  OBJECT-TYPE
 -- TRANSPORT CONNECTION (aka: PARTNER DLSW)
 -- *******************************************************************
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 -- Transport Connection Statistics Objects
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswTConnStat    OBJECT IDENTIFIER ::= { dlswTConn 1 }
 
 dlswTConnStatActiveConnections  OBJECT-TYPE
@@ -376,9 +386,9 @@ dlswTConnStatCloseBusys  OBJECT-TYPE
         this means the transport connection failed unexpectedly."
     ::= { dlswTConnStat 3 }
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Transport Connection Configuration Table
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswTConnConfigTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnConfigEntry
     MAX-ACCESS not-accessible
@@ -390,6 +400,7 @@ dlswTConnConfigTable  OBJECT-TYPE
         definition for a collection of transport
         connections by a conceptual row.  For a
         specific transport connection, there may
+
         be multiple of conceptual rows match the
         transport address.  The `best' match will
         the one to determine the characteristics
@@ -424,8 +435,7 @@ DlswTConnConfigEntry ::= SEQUENCE {
 
 dlswTConnConfigIndex  OBJECT-TYPE
     SYNTAX     INTEGER (0..2147483647)
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The index to the conceptual row of the table.
@@ -442,7 +452,7 @@ dlswTConnConfigIndex  OBJECT-TYPE
 
 dlswTConnConfigTDomain  OBJECT-TYPE
     SYNTAX     OBJECT IDENTIFIER
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The object identifier which indicates the transport
@@ -451,7 +461,7 @@ dlswTConnConfigTDomain  OBJECT-TYPE
 
 dlswTConnConfigLocalTAddr  OBJECT-TYPE
     SYNTAX     TAddress
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The local transport address for this conceptual row
@@ -460,7 +470,7 @@ dlswTConnConfigLocalTAddr  OBJECT-TYPE
 
 dlswTConnConfigRemoteTAddr  OBJECT-TYPE
     SYNTAX     TAddress
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The remote transport address.  Together with
@@ -488,11 +498,12 @@ dlswTConnConfigLastModifyTime  OBJECT-TYPE
 
 dlswTConnConfigEntryType  OBJECT-TYPE
     SYNTAX     INTEGER  {
+
         individual     (1),
         global         (2),
         group          (3)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The object instance signifies the type of entry in the
@@ -511,7 +522,7 @@ dlswTConnConfigEntryType  OBJECT-TYPE
 
 dlswTConnConfigGroupDefinition OBJECT-TYPE
     SYNTAX     RowPointer
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "For conceptual rows of `individual' and `global' as
@@ -530,12 +541,13 @@ dlswTConnConfigSetupType  OBJECT-TYPE
         passive            (4),
         excluded           (5)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This value of the instance of a conceptual row
         identifies the behavior of the collection of
         transport connections that this conceptual row
+
         defines.  The value of activePersistent, activeOnDemand
         and passive means this DLSw will accept any transport
         connections, initiated by partner DLSw nodes, which
@@ -557,7 +569,7 @@ dlswTConnConfigSetupType  OBJECT-TYPE
 
 dlswTConnConfigSapList  OBJECT-TYPE
     SYNTAX     OCTET STRING  (SIZE(16))
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The SAP list indicates which SAPs are advertised to
@@ -584,13 +596,14 @@ dlswTConnConfigSapList  OBJECT-TYPE
         When to start the run-time capabilities exchange is
         implementation-specific.
 
+
         The DEFVAL below indicates support for SAPs 0, 4, 8, and C."
     DEFVAL  { 'AA000000000000000000000000000000'H }
     ::= { dlswTConnConfigEntry 9 }
 
 dlswTConnConfigAdvertiseMacNB  OBJECT-TYPE
     SYNTAX     TruthValue
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The value of true indicates that any defined local MAC
@@ -611,7 +624,7 @@ dlswTConnConfigAdvertiseMacNB  OBJECT-TYPE
 dlswTConnConfigInitCirRecvWndw  OBJECT-TYPE
     SYNTAX     INTEGER (0..65535)
     UNITS      "SSP messages"
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The initial circuit receive pacing window size, in the unit
@@ -632,6 +645,7 @@ dlswTConnConfigInitCirRecvWndw  OBJECT-TYPE
 dlswTConnConfigOpens  OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
+
     STATUS     current
     DESCRIPTION
        "Number of times transport connections entered
@@ -641,7 +655,7 @@ dlswTConnConfigOpens  OBJECT-TYPE
 
 dlswTConnConfigRowStatus  OBJECT-TYPE
     SYNTAX     RowStatus
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This object is used by the manager to create
@@ -651,15 +665,15 @@ dlswTConnConfigRowStatus  OBJECT-TYPE
         row definition out of use."
     ::= { dlswTConnConfigEntry 13 }
 
--- *******************************************************************
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Transport Connection Operation Table
--- *******************************************************************
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- (1) At most one transport connection can be connected between
 --     this DLSw and one of its DLSw partners at a given time.
 -- (2) Multiple transport types are supported.
 -- (3) Since the entries may be reused, dlswTConnOperEntryTime
 --     needs to be consulted for the possibility of counter reset.
--- *******************************************************************
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 dlswTConnOperTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnOperEntry
@@ -680,6 +694,7 @@ dlswTConnOperEntry  OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
        ""
     INDEX   { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr }
     ::= { dlswTConnOperTable 1 }
@@ -728,14 +743,14 @@ DlswTConnOperEntry ::= SEQUENCE {
     dlswTConnOperNQexRcvds                Counter32,
     dlswTConnOperNRexSents                Counter32,
 
+
     dlswTConnOperCirCreates               Counter32,
     dlswTConnOperCircuits                 Gauge32
     }
 
 dlswTConnOperTDomain  OBJECT-TYPE
     SYNTAX     OBJECT IDENTIFIER
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The object identifier indicates the transport domain
@@ -755,8 +770,7 @@ dlswTConnOperLocalTAddr  OBJECT-TYPE
 
 dlswTConnOperRemoteTAddr  OBJECT-TYPE
     SYNTAX     TAddress
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The remote transport address of this transport connection."
@@ -778,6 +792,7 @@ dlswTConnOperEntryTime  OBJECT-TYPE
 
 dlswTConnOperConnectTime  OBJECT-TYPE
     SYNTAX     TimeTicks
+
     UNITS      "hundredths of a second"
     MAX-ACCESS read-only
     STATUS     current
@@ -826,6 +841,7 @@ dlswTConnOperState  OBJECT-TYPE
     ::= { dlswTConnOperEntry 6 }
 
 dlswTConnOperConfigIndex  OBJECT-TYPE
+
     SYNTAX     INTEGER (0..2147483647)
     MAX-ACCESS read-only
     STATUS     current
@@ -874,6 +890,7 @@ dlswTConnOperFlowCntlMode  OBJECT-TYPE
 
 dlswTConnOperPartnerVersion  OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE (0 | 2))
+
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -922,6 +939,7 @@ dlswTConnOperPartnerVersionStr  OBJECT-TYPE
         A string of zero length is returned before a Capabilities
         Exchange message is received, if one is never received, or
         if one is received but it does not contain a version string.
+
         If an implementation chooses to keep dlswTConnOperEntrys in
         the `disconnected' state, this value should remain unchanged."
     REFERENCE
@@ -970,6 +988,7 @@ dlswTConnOperPartnerNBExcl  OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
+
        "The value of true signifies that the NetBIOS names received
         from this partner in the NetBIOS name list in its capabilities
         exchange message are the only NetBIOS names reachable by
@@ -1067,6 +1086,7 @@ dlswTConnOperDiscReason  OBJECT-TYPE
         other              (1),
         capExFailed        (2),
         transportLayerDisc (3),
+
         operatorCommand    (4),
         lastCircuitDiscd   (5),
         protocolError      (6)
@@ -1115,6 +1135,7 @@ dlswTConnOperOutDataPkts  OBJECT-TYPE
        "The number of Switch-to-Switch Protocol (SSP) messages of
         type DGRMFRAME, DATAFRAME, or INFOFRAME transmitted on this
         transport connection."
+
     ::= { dlswTConnOperEntry 22 }
 
 dlswTConnOperInDataOctets  OBJECT-TYPE
@@ -1162,8 +1183,10 @@ dlswTConnOperOutCntlPkts  OBJECT-TYPE
         transmitted on this transport connection which were not of
         type DGRMFRAME, DATAFRAME, or INFOFRAME."
     ::= { dlswTConnOperEntry 26 }
+
+
 -- ...................................................................
--- (2) Director activities (Explorer messages)
+-- (2) Directory activities (Explorer messages)
 -- ...................................................................
 
 dlswTConnOperCURexSents  OBJECT-TYPE
@@ -1210,6 +1233,7 @@ dlswTConnOperNQexSents  OBJECT-TYPE
     STATUS     current
     DESCRIPTION
        "The number of NetBIOS_NQ_ex (NetBIOS Name Query-explorer)
+
         messages sent on this transport connection."
     ::= { dlswTConnOperEntry 31 }
 
@@ -1258,18 +1282,19 @@ dlswTConnOperCircuits  OBJECT-TYPE
     STATUS     current
     DESCRIPTION
        "The number of currently active circuits on this transport
+
         connection, where `active' means not in `disconnected' state."
     ::= { dlswTConnOperEntry 36 }
 
 
--- *******************************************************************
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Transport Connection Specific
--- *******************************************************************
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswTConnSpecific OBJECT IDENTIFIER ::= { dlswTConn 4 }
 dlswTConnTcp      OBJECT IDENTIFIER ::= { dlswTConnSpecific 1 }
 
 -- ...................................................................
--- TCP Transport Connection Specific -  Configuration
+-- TCP Transport Connection Specific - Configuration
 -- ...................................................................
 dlswTConnTcpConfigTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnTcpConfigEntry
@@ -1301,18 +1326,19 @@ DlswTConnTcpConfigEntry ::= SEQUENCE {
 dlswTConnTcpConfigKeepAliveInt  OBJECT-TYPE
     SYNTAX     INTEGER (0..1800)
     UNITS      "seconds"
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The time in seconds between TCP keepAlive messages when
         no traffic is flowing.  Zero signifies no keepAlive protocol.
+
         Changes take effect only for new TCP connections."
     DEFVAL  { 0 }
     ::= { dlswTConnTcpConfigEntry 1 }
 
 dlswTConnTcpConfigTcpConnections  OBJECT-TYPE
     SYNTAX     INTEGER (1..16)
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This is our preferred number of TCP connections within a
@@ -1325,7 +1351,7 @@ dlswTConnTcpConfigTcpConnections  OBJECT-TYPE
 dlswTConnTcpConfigMaxSegmentSize  OBJECT-TYPE
     SYNTAX     INTEGER (0..65535)
     UNITS      "packets"
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This is the number of bytes that this node is
@@ -1336,7 +1362,7 @@ dlswTConnTcpConfigMaxSegmentSize  OBJECT-TYPE
 
 
 -- ...................................................................
--- TCP Transport Connection Specific -  Operation
+-- TCP Transport Connection Specific - Operation
 -- ...................................................................
 dlswTConnTcpOperTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnTcpOperEntry
@@ -1354,6 +1380,7 @@ dlswTConnTcpOperTable  OBJECT-TYPE
 
 dlswTConnTcpOperEntry  OBJECT-TYPE
     SYNTAX     DlswTConnTcpOperEntry
+
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
@@ -1402,6 +1429,7 @@ dlswTConnTcpOperTcpConnections  OBJECT-TYPE
 -- *******************************************************************
 
 dlswIfTable  OBJECT-TYPE
+
     SYNTAX     SEQUENCE OF DlswIfEntry
     MAX-ACCESS not-accessible
     STATUS     current
@@ -1426,7 +1454,7 @@ DlswIfEntry ::= SEQUENCE {
 
 dlswIfRowStatus  OBJECT-TYPE
     SYNTAX     RowStatus
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This object is used by the manager to create
@@ -1436,7 +1464,7 @@ dlswIfRowStatus  OBJECT-TYPE
 
 dlswIfVirtualSegment  OBJECT-TYPE
     SYNTAX     INTEGER (0..4095 | 65535)
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The segment number that uniquely identifies the virtual
@@ -1453,7 +1481,7 @@ dlswIfVirtualSegment  OBJECT-TYPE
 
 dlswIfSapList  OBJECT-TYPE
     SYNTAX     OCTET STRING  (SIZE(16))
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The SAP list indicates which SAPs are allowed to be
@@ -1482,9 +1510,9 @@ dlswIfSapList  OBJECT-TYPE
 -- transport address of the DLSw partner is cached.
 -- *******************************************************************
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Directory Related Statistical Objects
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswDirStat     OBJECT IDENTIFIER ::= { dlswDirectory 1 }
 
 dlswDirMacEntries  OBJECT-TYPE
@@ -1499,6 +1527,7 @@ dlswDirMacCacheHits  OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
        "The number of times a cache search for a particular MAC address
         resulted in success."
@@ -1547,6 +1576,7 @@ dlswDirNBCacheMisses  OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
        "The number of times a cache search for a particular NetBIOS
         name resulted in failure."
@@ -1566,9 +1596,9 @@ dlswDirNBCacheNextIndex  OBJECT-TYPE
         create new rows."
     ::= { dlswDirStat 8 }
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Directory Cache
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswDirCache     OBJECT IDENTIFIER ::= { dlswDirectory 2 }
 
 -- ...................................................................
@@ -1576,7 +1606,7 @@ dlswDirCache     OBJECT IDENTIFIER ::= { dlswDirectory 2 }
 -- All Possible combinations of values of these objects.
 --
 --     EntryType   LocationType       Location        Status
---  ______________ ____________ __________________ ______________
+--  - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - -
 --  userConfigured    local     ifEntry or 0.0     reachable, or
 --                                                 notReachable, or
 --                                                 unknown
@@ -1595,6 +1625,7 @@ dlswDirMacTable  OBJECT-TYPE
     DESCRIPTION
        "This table contains locations of MAC addresses.
         They could be either verified or not verified,
+
         local or remote, and configured locally or learned
         from either Capabilities Exchange messages or
         directory searches."
@@ -1623,8 +1654,7 @@ DlswDirMacEntry ::= SEQUENCE {
 
 dlswDirMacIndex  OBJECT-TYPE
     SYNTAX     INTEGER (0..2147483647)
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "Uniquely identifies a conceptual row of this table."
@@ -1632,7 +1662,7 @@ dlswDirMacIndex  OBJECT-TYPE
 
 dlswDirMacMac  OBJECT-TYPE
     SYNTAX     MacAddressNC
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The MAC address, together with the dlswDirMacMask,
@@ -1642,8 +1672,9 @@ dlswDirMacMac  OBJECT-TYPE
 
 dlswDirMacMask  OBJECT-TYPE
     SYNTAX     MacAddressNC
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
+
     DESCRIPTION
        "The MAC address mask, together with the dlswDirMacMac,
         specifies a set of MAC addresses that are defined or
@@ -1659,7 +1690,7 @@ dlswDirMacEntryType  OBJECT-TYPE
         partnerCapExMsg          (4),
         dynamic                  (5)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The cause of the creation of this conceptual row.
@@ -1687,11 +1718,12 @@ dlswDirMacLocationType  OBJECT-TYPE
         local                 (2),
         remote                (3)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The location of the resource (or a collection of
         resources using a mask) of this conceptual row
+
         is either (1) local - the resource is reachable
         via an interface, or (2) remote - the resource
         is reachable via a partner DLSw node (or a set
@@ -1701,14 +1733,14 @@ dlswDirMacLocationType  OBJECT-TYPE
 
 dlswDirMacLocation  OBJECT-TYPE
     SYNTAX     RowPointer
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "Points to either the ifEntry, dlswTConnConfigEntry,
         dlswTConnOperEntry, 0.0, or something that is implementation
         specific.  It identifies the location of the MAC address
         (or the collection of MAC addresses.)"
-    DEFVAL { zeroDotZero }
+    DEFVAL { null }
     ::= { dlswDirMacEntry 6 }
 
 dlswDirMacStatus  OBJECT-TYPE
@@ -1717,7 +1749,7 @@ dlswDirMacStatus  OBJECT-TYPE
         reachable             (2),
         notReachable          (3)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This object specifies whether DLSw currently believes
@@ -1730,7 +1762,7 @@ dlswDirMacStatus  OBJECT-TYPE
 
 dlswDirMacLFSize  OBJECT-TYPE
     SYNTAX     LFSize
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The largest size of the MAC INFO field (LLC header and data)
@@ -1740,7 +1772,8 @@ dlswDirMacLFSize  OBJECT-TYPE
 
 dlswDirMacRowStatus  OBJECT-TYPE
     SYNTAX     RowStatus
-  MAX-ACCESS read-create
+
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This object is used by the manager to create
@@ -1753,7 +1786,7 @@ dlswDirMacRowStatus  OBJECT-TYPE
 -- All Possible combinations of values of these objects.
 --
 --     EntryType   LocationType       Location        Status
---  ______________ ____________ __________________ ______________
+--  -------------- ------------ ------------------ --------------
 --  userConfigured    local     ifEntry or 0.0     reachable, or
 --                                                 notReachable, or
 --                                                 unknown
@@ -1788,6 +1821,7 @@ dlswDirNBEntry  OBJECT-TYPE
 
 DlswDirNBEntry ::= SEQUENCE {
     dlswDirNBIndex           INTEGER,
+
     dlswDirNBName            NBName,
     dlswDirNBNameType        INTEGER,
     dlswDirNBEntryType       INTEGER,
@@ -1800,8 +1834,7 @@ DlswDirNBEntry ::= SEQUENCE {
 
 dlswDirNBIndex  OBJECT-TYPE
     SYNTAX     INTEGER (0..2147483647)
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "Uniquely identifies a conceptual row of this table."
@@ -1809,7 +1842,7 @@ dlswDirNBIndex  OBJECT-TYPE
 
 dlswDirNBName  OBJECT-TYPE
     SYNTAX     NBName
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The NetBIOS name (including `any char' and `wildcard'
@@ -1824,7 +1857,7 @@ dlswDirNBNameType  OBJECT-TYPE
         individual    (2),
         group         (3)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "Whether dlswDirNBName represents an (or a set of) individual
@@ -1837,10 +1870,11 @@ dlswDirNBEntryType  OBJECT-TYPE
         other                    (1),
         userConfiguredPublic     (2),
         userConfiguredPrivate    (3),
+
         partnerCapExMsg          (4),
         dynamic                  (5)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The cause of the creation of this conceptual row.
@@ -1869,7 +1903,7 @@ dlswDirNBLocationType  OBJECT-TYPE
         local                 (2),
         remote                (3)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The location of the resource (or a collection of resources
@@ -1882,14 +1916,15 @@ dlswDirNBLocationType  OBJECT-TYPE
 
 dlswDirNBLocation  OBJECT-TYPE
     SYNTAX     RowPointer
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
+
        "Points to either the ifEntry, dlswTConnConfigEntry,
         dlswTConnOperEntry, 0.0, or something that is implementation
         specific.  It identifies the location of the NetBIOS name
         or the set of NetBIOS names."
-    DEFVAL { zeroDotZero }
+    DEFVAL { null }
     ::= { dlswDirNBEntry 6 }
 
 dlswDirNBStatus  OBJECT-TYPE
@@ -1898,7 +1933,7 @@ dlswDirNBStatus  OBJECT-TYPE
         reachable             (2),
         notReachable          (3)
     }
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This object specifies whether DLSw currently believes
@@ -1911,7 +1946,7 @@ dlswDirNBStatus  OBJECT-TYPE
 
 dlswDirNBLFSize  OBJECT-TYPE
     SYNTAX     LFSize
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The largest size of the MAC INFO field (LLC header and data)
@@ -1921,7 +1956,7 @@ dlswDirNBLFSize  OBJECT-TYPE
 
 dlswDirNBRowStatus  OBJECT-TYPE
     SYNTAX     RowStatus
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This object is used by manager to create
@@ -1930,9 +1965,10 @@ dlswDirNBRowStatus  OBJECT-TYPE
     ::= { dlswDirNBEntry 9 }
 
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Resource Locations
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 dlswDirLocate       OBJECT IDENTIFIER ::= { dlswDirectory 3 }
 
 -- ...................................................................
@@ -1970,8 +2006,7 @@ DlswDirLocateMacEntry ::= SEQUENCE {
 
 dlswDirLocateMacMac  OBJECT-TYPE
     SYNTAX     MacAddressNC
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The MAC address to be located."
@@ -1979,10 +2014,10 @@ dlswDirLocateMacMac  OBJECT-TYPE
 
 dlswDirLocateMacMatch  OBJECT-TYPE
     SYNTAX     INTEGER (1..255)
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
        "The order of the entries of dlswDirMacTable
         that match dlswDirLocateMacMac.  A value of
         one represents the entry that best matches the
@@ -2031,10 +2066,10 @@ DlswDirLocateNBEntry ::= SEQUENCE {
     dlswDirLocateNBLocation       RowPointer
     }
 
+
 dlswDirLocateNBName  OBJECT-TYPE
     SYNTAX     NBName
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The NetBIOS name to be located (no any char or wildcards)."
@@ -2042,8 +2077,7 @@ dlswDirLocateNBName  OBJECT-TYPE
 
 dlswDirLocateNBMatch  OBJECT-TYPE
     SYNTAX     INTEGER (1..255)
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The order of the entries of dlswDirNBTable
@@ -2072,15 +2106,16 @@ dlswDirLocateNBLocation  OBJECT-TYPE
 -- station that receives the initiation.
 -- *******************************************************************
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Statistics Related to Circuits
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswCircuitStat      OBJECT IDENTIFIER ::= { dlswCircuit 1 }
 
 dlswCircuitStatActives  OBJECT-TYPE
     SYNTAX     Gauge32
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
        "The current number of circuits in dlswCircuitTable that are
         not in the disconnected state."
@@ -2096,7 +2131,7 @@ dlswCircuitStatCreates  OBJECT-TYPE
     ::= { dlswCircuitStat 2 }
 
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- Circuit Table
 --
 -- This table is the DLSw entity's view of circuits.  There will be
@@ -2123,12 +2158,13 @@ dlswCircuitStatCreates  OBJECT-TYPE
 --
 -- Most of statistics related to circuits can be collected
 -- from LLC-2 Link Station Table.
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 dlswCircuitTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswCircuitEntry
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
        "This table is the circuit representation in the DLSw
         entity. Virtual data links are used to represent any internal
         end stations.  There is a conceptual row associated with
@@ -2177,6 +2213,7 @@ DlswCircuitEntry ::= SEQUENCE {
     dlswCircuitS1DlcType            DlcType,
     dlswCircuitS1RouteInfo          OCTET STRING,
     dlswCircuitS1CircuitId          OCTET STRING,
+
     dlswCircuitS1Dlc                RowPointer,
 
     dlswCircuitS2Mac                MacAddressNC,
@@ -2214,8 +2251,7 @@ DlswCircuitEntry ::= SEQUENCE {
 -- ...................................................................
 dlswCircuitS1Mac  OBJECT-TYPE
     SYNTAX     MacAddressNC
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The MAC Address of End Station 1 (S1) used for this circuit."
@@ -2223,10 +2259,10 @@ dlswCircuitS1Mac  OBJECT-TYPE
 
 dlswCircuitS1Sap  OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE(1))
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
        "The SAP at End Station 1 (S1) used for this circuit."
     ::= { dlswCircuitEntry 2 }
 
@@ -2275,6 +2311,7 @@ dlswCircuitS1Dlc  OBJECT-TYPE
     SYNTAX     RowPointer
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
        "Points to a conceptual row of the underlying DLC MIB,
         which could either be the standard MIBs (e.g., the SDLC),
@@ -2286,8 +2323,7 @@ dlswCircuitS1Dlc  OBJECT-TYPE
 -- ...................................................................
 dlswCircuitS2Mac  OBJECT-TYPE
     SYNTAX     MacAddressNC
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The MAC Address of End Station 2 (S2) used for this circuit."
@@ -2295,8 +2331,7 @@ dlswCircuitS2Mac  OBJECT-TYPE
 
 dlswCircuitS2Sap  OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE(1))
---  MAX-ACCESS not-accessible
-    MAX-ACCESS accessible-for-notify
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
        "The SAP at End Station 2 (S2) used for this circuit."
@@ -2324,6 +2359,7 @@ dlswCircuitS2TDomain  OBJECT-TYPE
         transport protocol the circuit is running
         over.  Otherwise, the value is 0.0."
     ::= { dlswCircuitEntry 11 }
+
 
 dlswCircuitS2TAddress  OBJECT-TYPE
     SYNTAX     TAddress
@@ -2373,6 +2409,7 @@ dlswCircuitEntryTime  OBJECT-TYPE
         circuit table conceptual row was created."
     ::= { dlswCircuitEntry 15 }
 
+
 dlswCircuitStateTime  OBJECT-TYPE
     SYNTAX     TimeTicks
     UNITS      "hundredths of a second"
@@ -2421,6 +2458,7 @@ dlswCircuitState  OBJECT-TYPE
     ::= { dlswCircuitEntry 17 }
 
 dlswCircuitPriority  OBJECT-TYPE
+
     SYNTAX     INTEGER  {
         unsupported     (1),
         low             (2),
@@ -2468,6 +2506,7 @@ dlswCircuitFCSendCurrentWndw  OBJECT-TYPE
         increase the number of messages it is authorized to send, if
         it were to receive a flow control indication with the bits
         specifying `repeat window'.
+
 
         The value zero should be returned if this circuit is not
         running the DLSw pacing protocol."
@@ -2517,6 +2556,7 @@ dlswCircuitFCLargestRecvGranted  OBJECT-TYPE
     ::= { dlswCircuitEntry 23 }
 
 dlswCircuitFCLargestSendGranted  OBJECT-TYPE
+
     SYNTAX     Gauge32
     MAX-ACCESS read-only
     STATUS     current
@@ -2564,6 +2604,7 @@ dlswCircuitFCHalveWndwRcvds  OBJECT-TYPE
         The value zero should be returned if this circuit is not
         running the DLSw pacing protocol."
     ::= { dlswCircuitEntry 27 }
+
 
 dlswCircuitFCResetOpRcvds  OBJECT-TYPE
     SYNTAX     Counter32
@@ -2613,6 +2654,7 @@ dlswCircuitDiscReasonRemote  OBJECT-TYPE
     DESCRIPTION
        "The generic reason code why this circuit was last
         disconnected, as reported by the DLSw partner in a HALT_DL
+
         or HALT_DL_NOACK.  If the partner does not send a reason
         code in these messages, or the DLSw implementation does
         not report receiving one, the value `unknown' is returned.
@@ -2661,6 +2703,7 @@ dlswSdlcLsTable  OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
        "The table defines the virtual MAC addresses for those
         SDLC link stations that participate in data link switching."
     ::= { dlswSdlc 2 }
@@ -2688,7 +2731,7 @@ DlswSdlcLsEntry ::= SEQUENCE {
 
 dlswSdlcLsLocalMac    OBJECT-TYPE
     SYNTAX     MacAddressNC
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The virtual MAC address used to represent the SDLC-attached
@@ -2697,7 +2740,7 @@ dlswSdlcLsLocalMac    OBJECT-TYPE
 
 dlswSdlcLsLocalSap    OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE(1))
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The SAP used to represent this link station."
@@ -2705,10 +2748,11 @@ dlswSdlcLsLocalSap    OBJECT-TYPE
 
 dlswSdlcLsLocalIdBlock OBJECT-TYPE
     SYNTAX     DisplayString  (SIZE (0 | 3))
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The block number is the first three digits of the node_id,
+
         if available.  These 3 hexadecimal digits identify the
         product."
     DEFVAL { ''H }
@@ -2716,7 +2760,7 @@ dlswSdlcLsLocalIdBlock OBJECT-TYPE
 
 dlswSdlcLsLocalIdNum OBJECT-TYPE
     SYNTAX     DisplayString  (SIZE (0 | 5))
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The ID number is the last 5 digits of the node_id, if
@@ -2729,7 +2773,7 @@ dlswSdlcLsLocalIdNum OBJECT-TYPE
 
 dlswSdlcLsRemoteMac    OBJECT-TYPE
     SYNTAX     MacAddressNC
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The MAC address to which DLSw should attempt to connect
@@ -2740,7 +2784,7 @@ dlswSdlcLsRemoteMac    OBJECT-TYPE
 
 dlswSdlcLsRemoteSap    OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE (0 | 1))
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "The SAP of the remote station to which this link
@@ -2752,11 +2796,12 @@ dlswSdlcLsRemoteSap    OBJECT-TYPE
 
 dlswSdlcLsRowStatus    OBJECT-TYPE
     SYNTAX     RowStatus
-  MAX-ACCESS read-create
+    MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
        "This object is used by the manager to create
         or delete the row entry in the dlswSdlcLsTable
+
         following the RowStatus textual convention."
     ::= { dlswSdlcLsEntry 7 }
 
@@ -2805,6 +2850,7 @@ dlswTrapCntlTConn  OBJECT-TYPE
     MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION
+
        "Indicates whether the DLSw is permitted to emit transport
         connection up and down traps.  With the value of `enabled'
         the DLSw will emit traps when connections enter `connected'
@@ -2842,7 +2888,7 @@ dlswTrapCntlCircuit  OBJECT-TYPE
 -- *******************************************************************
 dlswTraps              OBJECT IDENTIFIER ::= { dlswMIB 0 }
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- This section defines the well-known notifications sent by
 -- DLSW agents.
 -- Care must be taken to insure that no particular notification
@@ -2853,12 +2899,14 @@ dlswTraps              OBJECT IDENTIFIER ::= { dlswMIB 0 }
 -- (1) Partner rejected (capEx rejection, not in partner list, etc.)
 -- (2) DLSw protocol violation (e.g., window size violation, etc.)
 -- (3) Transport connection up/down
+
 -- (4) Circuit up/down
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 --
 
 dlswTrapTConnPartnerReject NOTIFICATION-TYPE
-    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr }
+    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr
+    }
     STATUS     current
     DESCRIPTION
        "This trap is sent each time a transport connection
@@ -2868,7 +2916,8 @@ dlswTrapTConnPartnerReject NOTIFICATION-TYPE
     ::= { dlswTraps 1 }
 
 dlswTrapTConnProtViolation NOTIFICATION-TYPE
-    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr }
+    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr
+    }
     STATUS     current
     DESCRIPTION
        "This trap is sent each time a protocol violation is
@@ -2877,7 +2926,8 @@ dlswTrapTConnProtViolation NOTIFICATION-TYPE
     ::= { dlswTraps 2 }
 
 dlswTrapTConnUp NOTIFICATION-TYPE
-    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr }
+    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr
+    }
     STATUS     current
     DESCRIPTION
        "This trap is sent each time a transport connection
@@ -2886,7 +2936,8 @@ dlswTrapTConnUp NOTIFICATION-TYPE
     ::= { dlswTraps 3 }
 
 dlswTrapTConnDown NOTIFICATION-TYPE
-    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr }
+    OBJECTS { dlswTConnOperTDomain, dlswTConnOperRemoteTAddr
+    }
     STATUS     current
     DESCRIPTION
        "This trap is sent each time a transport connection
@@ -2897,6 +2948,7 @@ dlswTrapTConnDown NOTIFICATION-TYPE
 dlswTrapCircuitUp NOTIFICATION-TYPE
     OBJECTS { dlswCircuitS1Mac, dlswCircuitS1Sap,
               dlswCircuitS2Mac, dlswCircuitS2Sap
+
     }
     STATUS     current
     DESCRIPTION
@@ -2925,9 +2977,9 @@ dlswConformance        OBJECT IDENTIFIER ::= { dlsw 3 }
 dlswCompliances        OBJECT IDENTIFIER ::= { dlswConformance 1 }
 dlswGroups             OBJECT IDENTIFIER ::= { dlswConformance 2 }
 
--- *******************************************************************
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- COMPLIANCE STATEMENTS
--- *******************************************************************
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 -- ...................................................................
 -- Core compliance for all DLSw entities
@@ -2945,6 +2997,7 @@ dlswCoreCompliance MODULE-COMPLIANCE
                 dlswInterfaceGroup,
                 dlswCircuitGroup,
                 dlswCircuitStatGroup,
+
                 dlswNotificationGroup }
 
         GROUP dlswNodeNBGroup
@@ -2992,6 +3045,7 @@ dlswCoreCompliance MODULE-COMPLIANCE
             MIN-ACCESS  read-only
             DESCRIPTION
                 "Write access is not required."
+
 
         OBJECT  dlswTrapCntlCircuit
             MIN-ACCESS  read-only
@@ -3041,6 +3095,7 @@ dlswCoreCompliance MODULE-COMPLIANCE
         OBJECT  dlswTConnConfigInitCirRecvWndw
             MIN-ACCESS  read-only
             DESCRIPTION
+
                 "Write access is not required."
 
         OBJECT  dlswTConnConfigRowStatus
@@ -3089,6 +3144,7 @@ dlswTConnTcpCompliance MODULE-COMPLIANCE
                 dlswTConnTcpOperGroup }
 
         OBJECT  dlswTConnTcpConfigKeepAliveInt
+
             MIN-ACCESS  read-only
             DESCRIPTION
                 "Write access is not required."
@@ -3136,6 +3192,7 @@ dlswDirCompliance MODULE-COMPLIANCE
             MIN-ACCESS  read-only
             DESCRIPTION
                 "Write access is not required."
+
 
         OBJECT  dlswDirMacLocationType
             MIN-ACCESS  read-only
@@ -3185,6 +3242,7 @@ dlswDirCompliance MODULE-COMPLIANCE
         OBJECT  dlswDirNBLocation
             MIN-ACCESS  read-only
             DESCRIPTION
+
                 "Write access is not required."
 
         OBJECT  dlswDirNBStatus
@@ -3233,6 +3291,7 @@ dlswSdlcCompliance MODULE-COMPLIANCE
        "Compliance for DLSw nodes that support SDLC."
     MODULE
         MANDATORY-GROUPS  {
+
                 dlswSdlcGroup }
 
         OBJECT  dlswSdlcLsLocalMac
@@ -3272,15 +3331,16 @@ dlswSdlcCompliance MODULE-COMPLIANCE
 
     ::= { dlswCompliances 5 }
 
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -- CONFORMANCE GROUPS
--- 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 -- ...................................................................
 -- Node Conformance Group
 -- ...................................................................
 dlswNodeGroup  OBJECT-GROUP
     OBJECTS  {
+
         dlswNodeVersion,
         dlswNodeVendorID,
         dlswNodeVersionString,
@@ -3329,6 +3389,7 @@ dlswTConnConfigGroup  OBJECT-GROUP
         dlswTConnConfigTDomain,
         dlswTConnConfigLocalTAddr,
         dlswTConnConfigRemoteTAddr,
+
         dlswTConnConfigLastModifyTime,
         dlswTConnConfigEntryType,
         dlswTConnConfigGroupDefinition,
@@ -3377,6 +3438,7 @@ dlswTConnOperGroup  OBJECT-GROUP
         dlswTConnOperCirCreates,
         dlswTConnOperCircuits
         }
+
     STATUS current
     DESCRIPTION
        "Conformance group for operation information for
@@ -3424,6 +3486,7 @@ dlswTConnTcpOperGroup  OBJECT-GROUP
        "Conformance group for operation information for
         transport connections using TCP."
     ::= { dlswGroups 8 }
+
 
 -- ...................................................................
 dlswInterfaceGroup  OBJECT-GROUP
@@ -3473,6 +3536,7 @@ dlswDirNBGroup  OBJECT-GROUP
         dlswDirNBLocation,
         dlswDirNBStatus,
         dlswDirNBLFSize,
+
         dlswDirNBRowStatus
         }
     STATUS current
@@ -3521,6 +3585,7 @@ dlswCircuitGroup  OBJECT-GROUP
         dlswCircuitS1DlcType,
         dlswCircuitS1RouteInfo,
         dlswCircuitS1CircuitId,
+
         dlswCircuitS1Dlc,
         dlswCircuitS2Location,
         dlswCircuitS2TDomain,
@@ -3569,6 +3634,7 @@ dlswSdlcGroup  OBJECT-GROUP
 
 -- ...................................................................
 dlswNotificationGroup  NOTIFICATION-GROUP
+
     NOTIFICATIONS  {
         dlswTrapTConnPartnerReject,
         dlswTrapTConnProtViolation,

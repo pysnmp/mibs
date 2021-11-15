@@ -8,8 +8,12 @@ RFC=$(wildcard mibs/*)
 # 	wget --recursive --reject-regex 'index.html*' \
 # 	  --no-parent --no-host-directories http://mibs.snmplabs.com/asn1/
 # 	rm -rf asn1/index.html*
+dirs:
+	mkdir -p output/asn1/ || true
+	mkdir -p output/texts/ || true
+	mkdir -p output/notexts/ || true
 
-compilerfc: $(RFC)
+compilerfc: dirs $(RFC)
 	@# Compile mibs
 #Compile with notexts	
 	poetry run mibdump \
