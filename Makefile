@@ -38,8 +38,7 @@ index: compilerfc ##generate index
 	| sed 's|output/notexts/||' \
 	| sed 's|, |.|g' \
 	| sed 's|.py:ModuleIdentity((|,|' \
-	| sed 's|))||' \
-	| sponge output/index.csv
+	| sed 's|))||' >output/index.csv
 
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
