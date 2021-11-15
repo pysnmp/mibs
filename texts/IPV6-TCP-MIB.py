@@ -1,0 +1,61 @@
+#
+# PySNMP MIB module IPV6-TCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-TCP-MIB
+# Produced by pysmi-1.0.7 at Mon Nov 15 16:21:31 2021
+# On host fv-az121-789 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+Ipv6Address, Ipv6IfIndexOrZero = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address", "Ipv6IfIndexOrZero")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Integer32, experimental, mib_2, IpAddress, NotificationType, ModuleIdentity, Gauge32, Counter32, TimeTicks, Counter64, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Integer32", "experimental", "mib-2", "IpAddress", "NotificationType", "ModuleIdentity", "Gauge32", "Counter32", "TimeTicks", "Counter64", "ObjectIdentity", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ipv6TcpMIB = ModuleIdentity((1, 3, 6, 1, 3, 86))
+ipv6TcpMIB.setRevisions(('2017-02-22 00:00', '1998-01-29 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: ipv6TcpMIB.setRevisionsDescriptions(('Obsoleting this MIB module; it has been replaced by\n        the revised TCP-MIB (RFC 4022).', 'First revision, published as RFC 2452',))
+if mibBuilder.loadTexts: ipv6TcpMIB.setLastUpdated('201702220000Z')
+if mibBuilder.loadTexts: ipv6TcpMIB.setOrganization('IETF IPv6 MIB Working Group')
+if mibBuilder.loadTexts: ipv6TcpMIB.setContactInfo('       Mike Daniele\n\n                Postal: Compaq Computer Corporation\n                        110 Spitbrook Rd\n                        Nashua, NH 03062.\n                        US\n\n                Phone:  +1 603 884 1423\n                Email:  daniele@zk3.dec.com')
+if mibBuilder.loadTexts: ipv6TcpMIB.setDescription("The obsolete MIB module for entities implementing TCP\n        over IPv6.  Use the TCP-MIB instead.\n\n        Copyright (c) 2017 IETF Trust and the persons identified\n        as authors of the code.  All rights reserved.\n\n        Redistribution and use in source and binary forms, with\n        or without modification, is permitted pursuant to, and\n        subject to the license terms contained in, the Simplified\n        BSD License set forth in Section 4.c of the IETF Trust's\n        Legal Provisions Relating to IETF Documents\n        (http://trustee.ietf.org/license-info).")
+tcp = MibIdentifier((1, 3, 6, 1, 2, 1, 6))
+ipv6TcpConnTable = MibTable((1, 3, 6, 1, 2, 1, 6, 16), )
+if mibBuilder.loadTexts: ipv6TcpConnTable.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnTable.setDescription('A table containing TCP connection-specific information,\n         for only those connections whose endpoints are IPv6 addresses.\n\n         This table is obsoleted by TCP-MIB::tcpConnectionTable.')
+ipv6TcpConnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 6, 16, 1), ).setIndexNames((0, "IPV6-TCP-MIB", "ipv6TcpConnLocalAddress"), (0, "IPV6-TCP-MIB", "ipv6TcpConnLocalPort"), (0, "IPV6-TCP-MIB", "ipv6TcpConnRemAddress"), (0, "IPV6-TCP-MIB", "ipv6TcpConnRemPort"), (0, "IPV6-TCP-MIB", "ipv6TcpConnIfIndex"))
+if mibBuilder.loadTexts: ipv6TcpConnEntry.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnEntry.setDescription('A conceptual row of the ipv6TcpConnTable containing\n         information about a particular current TCP connection.\n         Each row of this table is transient, in that it ceases to\n         exist when (or soon after) the connection makes the transition\n         to the CLOSED state.\n\n         Note that conceptual rows in this table require an additional\n         index object compared to tcpConnTable, since IPv6 addresses\n         are not guaranteed to be unique on the managed node.\n\n         This entry is obsoleted by TCP-MIB::tcpConnectionEntry.')
+ipv6TcpConnLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 6, 16, 1, 1), Ipv6Address())
+if mibBuilder.loadTexts: ipv6TcpConnLocalAddress.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnLocalAddress.setDescription('The local IPv6 address for this TCP connection.  In\n         the case of a connection in the listen state which\n         is willing to accept connections for any IPv6\n         address associated with the managed node, the value\n         ::0 is used.\n\n         This object is obsoleted by\n         TCP-MIB::tcpConnectionLocalAddressType.')
+ipv6TcpConnLocalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 6, 16, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: ipv6TcpConnLocalPort.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnLocalPort.setDescription('The local port number for this TCP connection.\n\n        This object is obsoleted by TCP-MIB::tcpConnectionLocalPort.')
+ipv6TcpConnRemAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 6, 16, 1, 3), Ipv6Address())
+if mibBuilder.loadTexts: ipv6TcpConnRemAddress.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnRemAddress.setDescription('The remote IPv6 address for this TCP connection.\n\n        This object is obsoleted by TCP-MIB::tcpConnectionRemAddress.')
+ipv6TcpConnRemPort = MibTableColumn((1, 3, 6, 1, 2, 1, 6, 16, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: ipv6TcpConnRemPort.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnRemPort.setDescription('The remote port number for this TCP connection.\n\n        This object is obsoleted by TCP-MIB::tcpConnectionRemPort.')
+ipv6TcpConnIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 6, 16, 1, 5), Ipv6IfIndexOrZero())
+if mibBuilder.loadTexts: ipv6TcpConnIfIndex.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnIfIndex.setDescription("An index object used to disambiguate conceptual rows in\n         the table, since the connection 4-tuple may not be unique.\n\n         If the connection's remote address (ipv6TcpConnRemAddress)\n         is a link-local address and the connection's local address\n         (ipv6TcpConnLocalAddress) is not a link-local address, this\n         object identifies a local interface on the same link as\n         the connection's remote link-local address.\n\n         Otherwise, this object identifies the local interface that\n         is associated with the ipv6TcpConnLocalAddress for this\n         TCP connection.  If such a local interface cannot be\n         determined, this object should take on the value 0.\n         (A possible example of this would be if the value of\n         ipv6TcpConnLocalAddress is ::0.)\n\n         The interface identified by a particular non-0 value of this\n         index is the same interface as identified by the same value\n         of ipv6IfIndex.\n\n         The value of this object must remain constant during the life\n         of the TCP connection.\n\n         This object is obsoleted by the zone identifier in\n         an InetAddressIPv6z address in either\n         TCP-MIB::tcpConnectionLocalAddress or\n         TCP-MIB::tcpConnectionRemAddress.")
+ipv6TcpConnState = MibTableColumn((1, 3, 6, 1, 2, 1, 6, 16, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("closed", 1), ("listen", 2), ("synSent", 3), ("synReceived", 4), ("established", 5), ("finWait1", 6), ("finWait2", 7), ("closeWait", 8), ("lastAck", 9), ("closing", 10), ("timeWait", 11), ("deleteTCB", 12)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipv6TcpConnState.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpConnState.setDescription("The state of this TCP connection.\n\n         The only value which may be set by a management station is\n         deleteTCB(12).  Accordingly, it is appropriate for an agent\n         to return an error response ('badValue' for SNMPv1,\n         'wrongValue' for SNMPv2) if a management station attempts\n         to set this object to any other value.\n\n         If a management station sets this object to the value\n         deleteTCB(12), then this has the effect of deleting the TCB\n         (as defined in RFC 793) of the corresponding connection on\n         the managed node, resulting in immediate termination of the\n         connection.\n\n         As an implementation-specific option, a RST segment may be\n         sent from the managed node to the other TCP endpoint (note\n         however that RST segments are not sent reliably).\n\n         This object is obsoleted by TCP-MIB::tcpConnectionState.")
+ipv6TcpConformance = MibIdentifier((1, 3, 6, 1, 3, 86, 2))
+ipv6TcpCompliances = MibIdentifier((1, 3, 6, 1, 3, 86, 2, 1))
+ipv6TcpGroups = MibIdentifier((1, 3, 6, 1, 3, 86, 2, 2))
+ipv6TcpCompliance = ModuleCompliance((1, 3, 6, 1, 3, 86, 2, 1, 1)).setObjects(("IPV6-TCP-MIB", "ipv6TcpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipv6TcpCompliance = ipv6TcpCompliance.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpCompliance.setDescription('The compliance statement for SNMPv2 entities which\n         implement TCP over IPv6.\n\n         This compliance statement is obsoleted by\n         TCP-MIB::tcpMIBCompliance2.')
+ipv6TcpGroup = ObjectGroup((1, 3, 6, 1, 3, 86, 2, 2, 1)).setObjects(("IPV6-TCP-MIB", "ipv6TcpConnState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipv6TcpGroup = ipv6TcpGroup.setStatus('obsolete')
+if mibBuilder.loadTexts: ipv6TcpGroup.setDescription('The group of objects providing management of\n         TCP over IPv6.\n\n         This group is obsoleted by several groups in TCP-MIB.')
+mibBuilder.exportSymbols("IPV6-TCP-MIB", ipv6TcpConnEntry=ipv6TcpConnEntry, ipv6TcpGroup=ipv6TcpGroup, tcp=tcp, ipv6TcpConnLocalPort=ipv6TcpConnLocalPort, PYSNMP_MODULE_ID=ipv6TcpMIB, ipv6TcpConnRemAddress=ipv6TcpConnRemAddress, ipv6TcpConnRemPort=ipv6TcpConnRemPort, ipv6TcpConnIfIndex=ipv6TcpConnIfIndex, ipv6TcpConformance=ipv6TcpConformance, ipv6TcpCompliances=ipv6TcpCompliances, ipv6TcpGroups=ipv6TcpGroups, ipv6TcpConnState=ipv6TcpConnState, ipv6TcpMIB=ipv6TcpMIB, ipv6TcpConnLocalAddress=ipv6TcpConnLocalAddress, ipv6TcpCompliance=ipv6TcpCompliance, ipv6TcpConnTable=ipv6TcpConnTable)

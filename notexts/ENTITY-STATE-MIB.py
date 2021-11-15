@@ -1,0 +1,55 @@
+#
+# PySNMP MIB module ENTITY-STATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ENTITY-STATE-MIB
+# Produced by pysmi-1.0.7 at Mon Nov 15 16:21:25 2021
+# On host fv-az121-789 platform Linux version 5.11.0-1020-azure by user runner
+# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+EntityOperState, EntityStandbyStatus, EntityUsageState, EntityAlarmStatus, EntityAdminState = mibBuilder.importSymbols("ENTITY-STATE-TC-MIB", "EntityOperState", "EntityStandbyStatus", "EntityUsageState", "EntityAlarmStatus", "EntityAdminState")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+iso, Unsigned32, Gauge32, TimeTicks, MibIdentifier, Counter32, NotificationType, mib_2, ModuleIdentity, Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "Gauge32", "TimeTicks", "MibIdentifier", "Counter32", "NotificationType", "mib-2", "ModuleIdentity", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter64")
+DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
+entityStateMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 131))
+entityStateMIB.setRevisions(('2005-11-22 00:00',))
+if mibBuilder.loadTexts: entityStateMIB.setLastUpdated('200511220000Z')
+if mibBuilder.loadTexts: entityStateMIB.setOrganization('IETF Entity MIB Working Group')
+entStateObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 1))
+entStateTable = MibTable((1, 3, 6, 1, 2, 1, 131, 1, 1), )
+if mibBuilder.loadTexts: entStateTable.setStatus('current')
+entStateEntry = MibTableRow((1, 3, 6, 1, 2, 1, 131, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: entStateEntry.setStatus('current')
+entStateLastChanged = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 1), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateLastChanged.setStatus('current')
+entStateAdmin = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 2), EntityAdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: entStateAdmin.setStatus('current')
+entStateOper = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 3), EntityOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateOper.setStatus('current')
+entStateUsage = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 4), EntityUsageState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateUsage.setStatus('current')
+entStateAlarm = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 5), EntityAlarmStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateAlarm.setStatus('current')
+entStateStandby = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 6), EntityStandbyStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateStandby.setStatus('current')
+entStateNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 0))
+entStateOperEnabled = NotificationType((1, 3, 6, 1, 2, 1, 131, 0, 1)).setObjects(("ENTITY-STATE-MIB", "entStateAdmin"), ("ENTITY-STATE-MIB", "entStateAlarm"))
+if mibBuilder.loadTexts: entStateOperEnabled.setStatus('current')
+entStateOperDisabled = NotificationType((1, 3, 6, 1, 2, 1, 131, 0, 2)).setObjects(("ENTITY-STATE-MIB", "entStateAdmin"), ("ENTITY-STATE-MIB", "entStateAlarm"))
+if mibBuilder.loadTexts: entStateOperDisabled.setStatus('current')
+entStateConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 2))
+entStateCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 2, 1))
+entStateCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 131, 2, 1, 1)).setObjects(("ENTITY-STATE-MIB", "entStateGroup"), ("ENTITY-STATE-MIB", "entStateNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    entStateCompliance = entStateCompliance.setStatus('current')
+entStateGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 2, 2))
+entStateGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 131, 2, 2, 1)).setObjects(("ENTITY-STATE-MIB", "entStateLastChanged"), ("ENTITY-STATE-MIB", "entStateAdmin"), ("ENTITY-STATE-MIB", "entStateOper"), ("ENTITY-STATE-MIB", "entStateUsage"), ("ENTITY-STATE-MIB", "entStateAlarm"), ("ENTITY-STATE-MIB", "entStateStandby"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    entStateGroup = entStateGroup.setStatus('current')
+entStateNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 131, 2, 2, 2)).setObjects(("ENTITY-STATE-MIB", "entStateOperEnabled"), ("ENTITY-STATE-MIB", "entStateOperDisabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    entStateNotificationsGroup = entStateNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("ENTITY-STATE-MIB", entStateGroup=entStateGroup, entStateOper=entStateOper, entStateStandby=entStateStandby, entStateLastChanged=entStateLastChanged, entStateAlarm=entStateAlarm, entStateOperDisabled=entStateOperDisabled, entStateAdmin=entStateAdmin, entStateCompliance=entStateCompliance, entStateNotificationsGroup=entStateNotificationsGroup, entStateEntry=entStateEntry, entStateTable=entStateTable, entStateGroups=entStateGroups, entStateOperEnabled=entStateOperEnabled, entStateCompliances=entStateCompliances, entStateObjects=entStateObjects, entityStateMIB=entityStateMIB, PYSNMP_MODULE_ID=entityStateMIB, entStateUsage=entStateUsage, entStateNotifications=entStateNotifications, entStateConformance=entStateConformance)
