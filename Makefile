@@ -34,11 +34,7 @@ compilerfc: dirs $(RFC)
 index: compilerfc ##generate index
 	@# Generate index
 	touch output/.nojekyll
-	grep -Eo 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
-	| sed 's|output/notexts/||' \
-	| sed 's|, |.|g' \
-	| sed 's|.py:ModuleIdentity((|,|' \
-	| sed 's|))||' >output/index.csv
+	./scripts/index.sh
 
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
