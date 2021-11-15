@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 .PHONY: all
 #RFC=$(notdir $(wildcard mibs/*))
-RFC=$(wildcard mibs/*)
+RFC=$(wildcard src/standard/*)
 
 # fetch:  ## Download all mibs from the source
 # 	@# Wget recursive
@@ -18,13 +18,13 @@ compilerfc: dirs $(RFC)
 #Compile with notexts	
 	poetry run mibdump \
 	--no-python-compile \
-	--mib-source=file://$$(pwd)/mibs/ \
+	--mib-source=file://$$(pwd)/src/standard \
 	--destination-directory=./output/notexts \
 	$(notdir $(RFC))
 #Compile with notext	
 	poetry run mibdump \
 	--no-python-compile \
-	--mib-source=file://$$(pwd)/mibs/ \
+	--mib-source=file://$$(pwd)/src/standard \
 	--destination-directory=./output/texts \
 	--generate-mib-texts --keep-texts-layout \
 	$(notdir $(RFC))
@@ -46,7 +46,7 @@ compile-changed:  ## Compile With Texts all MIBs into .py files
 		echo "## Compiling $$f"; \
 		poetry run mibdump \
 			--no-python-compile \
-			--mib-source=file://$$(pwd)/mibs/asn1 \
+			--mib-source=file://$$(pwd)/src/standardasn1 \
 			--destination-directory=./pysnmp \
 			$$f; \
 	done
@@ -57,7 +57,7 @@ compile-with-texts:  ## Compile With Texts all MIBs into .py files
 	  poetry run mibdump.py \
 	    --generate-mib-texts \
 	    --no-python-compile \
-	    --mib-source=file://$$(pwd)/mibs/asn1 \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
 	    --destination-directory=./pysnmp-with-texts \
 	    $$f; \
 	done
@@ -68,7 +68,7 @@ compile-with-texts-changed:  ## Compile With Texts all MIBs into .py files
 	  poetry run mibdump.py \
 	    --generate-mib-texts \
 	    --no-python-compile \
-	    --mib-source=file://$$(pwd)/mibs/asn1 \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
 	    --destination-directory=./pysnmp-with-texts \
 	    $$f; \
 	done
@@ -79,7 +79,7 @@ compile-json:  ## Compile With Texts all MIBs into .py files
 	  poetry run mibdump.py \
 	    --generate-mib-texts \
 	    --no-python-compile \
-	    --mib-source=file://$$(pwd)/mibs/asn1 \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
 	    --destination-format=json \
 	    --destination-directory=./mibs/json \
 	    $$f; \
@@ -91,7 +91,7 @@ compile-json-changed:  ## Compile With Texts all MIBs into .py files
 	  poetry run mibdump.py \
 	    --generate-mib-texts \
 	    --no-python-compile \
-	    --mib-source=file://$$(pwd)/mibs/asn1 \
+	    --mib-source=file://$$(pwd)/src/standardasn1 \
 	    --destination-format=json \
 	    --destination-directory=./mibs/json \
 	    $$f; \
