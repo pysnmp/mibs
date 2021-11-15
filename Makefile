@@ -12,13 +12,13 @@ RFC=$(wildcard mibs/*)
 compilerfc: $(RFC)
 	@# Compile mibs
 #Compile with notexts	
-	poetry run mibdump.py \
+	poetry run mibdump \
 	--no-python-compile \
 	--mib-source=file://$$(pwd)/mibs/ \
 	--destination-directory=./output/notexts \
 	$(notdir $(RFC))
 #Compile with notext	
-	poetry run mibdump.py \
+	poetry run mibdump \
 	--no-python-compile \
 	--mib-source=file://$$(pwd)/mibs/ \
 	--destination-directory=./output/texts \
@@ -40,7 +40,7 @@ index: compilerfc ##generate index
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
 		echo "## Compiling $$f"; \
-		poetry run mibdump.py \
+		poetry run mibdump \
 			--no-python-compile \
 			--mib-source=file://$$(pwd)/mibs/asn1 \
 			--destination-directory=./pysnmp \
