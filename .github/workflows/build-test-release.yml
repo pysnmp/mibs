@@ -29,7 +29,6 @@ jobs:
     name: Build Release
     needs:
       - pre-commit
-      - review_secrets
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
