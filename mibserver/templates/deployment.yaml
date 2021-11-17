@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sc4snmp-mib-server
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: sc4snmp-mib-server
+  template:
+    metadata:
+      labels:
+        app: sc4snmp-mib-server
+    spec:
+      containers:
+        - name: sc4snmp-mib-server
+          image: {{ .Values.image.repository | default "ghcr.io/pysnmp/mibs/container" }}:{{ .Values.image.tag | default "latest" }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | default "IfNotPresent"  }}
+          ports:
+            - containerPort: 80
+          resources:
+          {{- if .Values.resources }}
+{{ .Values.resources | toYaml | trim | indent 12 }}
+            {{ else }}
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            {{ end }}
+
+
