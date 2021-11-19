@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BCN-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-PRODUCTS-MIB
-# Produced by pysmi-1.1.0 at Fri Nov 19 14:54:41 2021
+# Produced by pysmi-1.1.0 at Fri Nov 19 15:19:34 2021
 # On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
 bcnProducts, bcnModules = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnProducts", "bcnModules")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, iso, Unsigned32, ObjectIdentity, ModuleIdentity, Counter64, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, IpAddress, Counter32, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "iso", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "Counter64", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "IpAddress", "Counter32", "TimeTicks", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ObjectIdentity, MibIdentifier, IpAddress, Counter32, TimeTicks, Bits, Unsigned32, ModuleIdentity, Counter64, Integer32, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ObjectIdentity", "MibIdentifier", "IpAddress", "Counter32", "TimeTicks", "Bits", "Unsigned32", "ModuleIdentity", "Counter64", "Integer32", "NotificationType", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bcnProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 4, 2))
 bcnProductsMIB.setRevisions(('2010-11-30 12:00',))
 
@@ -27,4 +27,4 @@ bcnProductsAdonis250 = MibIdentifier((1, 3, 6, 1, 4, 1, 13315, 2, 3))
 bcnProductsAdonis750 = MibIdentifier((1, 3, 6, 1, 4, 1, 13315, 2, 4))
 bcnProductsAdonis1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 13315, 2, 5))
 bcnProductsPoteus2150 = MibIdentifier((1, 3, 6, 1, 4, 1, 13315, 2, 6))
-mibBuilder.exportSymbols("BCN-PRODUCTS-MIB", bcnProductsAdonis1000=bcnProductsAdonis1000, bcnProductsProteus=bcnProductsProteus, bcnProductsPoteus2150=bcnProductsPoteus2150, bcnProductsAdonis=bcnProductsAdonis, bcnProductsMIB=bcnProductsMIB, bcnProductsAdonis750=bcnProductsAdonis750, bcnProductsAdonis250=bcnProductsAdonis250, PYSNMP_MODULE_ID=bcnProductsMIB)
+mibBuilder.exportSymbols("BCN-PRODUCTS-MIB", bcnProductsProteus=bcnProductsProteus, bcnProductsPoteus2150=bcnProductsPoteus2150, PYSNMP_MODULE_ID=bcnProductsMIB, bcnProductsMIB=bcnProductsMIB, bcnProductsAdonis1000=bcnProductsAdonis1000, bcnProductsAdonis750=bcnProductsAdonis750, bcnProductsAdonis250=bcnProductsAdonis250, bcnProductsAdonis=bcnProductsAdonis)

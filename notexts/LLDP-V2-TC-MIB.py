@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module LLDP-V2-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LLDP-V2-TC-MIB
-# Produced by pysmi-1.1.0 at Fri Nov 19 14:38:39 2021
+# Produced by pysmi-1.1.0 at Fri Nov 19 15:06:48 2021
 # On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, ModuleIdentity, Integer32, org, MibIdentifier, iso, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Counter32, Unsigned32, ObjectIdentity, Gauge32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "Integer32", "org", "MibIdentifier", "iso", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Counter32", "Unsigned32", "ObjectIdentity", "Gauge32", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleIdentity, Counter64, NotificationType, iso, Bits, TimeTicks, Gauge32, ObjectIdentity, IpAddress, MibIdentifier, Counter32, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, org = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "NotificationType", "iso", "Bits", "TimeTicks", "Gauge32", "ObjectIdentity", "IpAddress", "MibIdentifier", "Counter32", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "org")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 lldpV2TcMIB = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 12))
 lldpV2TcMIB.setRevisions(('2009-06-08 00:00',))
 if mibBuilder.loadTexts: lldpV2TcMIB.setLastUpdated('200906080000Z')
@@ -65,4 +65,4 @@ class LldpV2PowerPortClass(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
     namedValues = NamedValues(("pClassPSE", 1), ("pClassPD", 2))
 
-mibBuilder.exportSymbols("LLDP-V2-TC-MIB", lldpV2TcMIB=lldpV2TcMIB, LldpV2PortId=LldpV2PortId, LldpV2SystemCapabilitiesMap=LldpV2SystemCapabilitiesMap, LldpV2ChassisId=LldpV2ChassisId, PYSNMP_MODULE_ID=lldpV2TcMIB, LldpV2DestAddressTableIndex=LldpV2DestAddressTableIndex, LldpV2ManAddrIfSubtype=LldpV2ManAddrIfSubtype, LldpV2LinkAggStatusMap=LldpV2LinkAggStatusMap, LldpV2PortIdSubtype=LldpV2PortIdSubtype, LldpV2ManAddress=LldpV2ManAddress, ieee802dot1mibs=ieee802dot1mibs, LldpV2PowerPortClass=LldpV2PowerPortClass, LldpV2ChassisIdSubtype=LldpV2ChassisIdSubtype)
+mibBuilder.exportSymbols("LLDP-V2-TC-MIB", LldpV2ManAddress=LldpV2ManAddress, LldpV2SystemCapabilitiesMap=LldpV2SystemCapabilitiesMap, LldpV2PortId=LldpV2PortId, LldpV2ManAddrIfSubtype=LldpV2ManAddrIfSubtype, LldpV2PortIdSubtype=LldpV2PortIdSubtype, LldpV2PowerPortClass=LldpV2PowerPortClass, LldpV2LinkAggStatusMap=LldpV2LinkAggStatusMap, PYSNMP_MODULE_ID=lldpV2TcMIB, LldpV2ChassisIdSubtype=LldpV2ChassisIdSubtype, lldpV2TcMIB=lldpV2TcMIB, LldpV2DestAddressTableIndex=LldpV2DestAddressTableIndex, LldpV2ChassisId=LldpV2ChassisId, ieee802dot1mibs=ieee802dot1mibs)

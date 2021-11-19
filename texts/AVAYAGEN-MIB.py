@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AVAYAGEN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/AVAYAGEN-MIB.mib
-# Produced by pysmi-1.1.0 at Fri Nov 19 14:46:50 2021
+# Produced by pysmi-1.1.0 at Fri Nov 19 15:13:20 2021
 # On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-enterprises, MibIdentifier, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, ObjectIdentity, Unsigned32, Bits, Counter32, iso, ModuleIdentity, IpAddress, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "MibIdentifier", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "Bits", "Counter32", "iso", "ModuleIdentity", "IpAddress", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+enterprises, TimeTicks, Gauge32, MibIdentifier, ModuleIdentity, Unsigned32, Counter32, IpAddress, Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "TimeTicks", "Gauge32", "MibIdentifier", "ModuleIdentity", "Unsigned32", "Counter32", "IpAddress", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "iso", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 avaya = ModuleIdentity((1, 3, 6, 1, 4, 1, 6889))
 avaya.setRevisions(('1904-01-27 09:00', '1902-08-15 09:00', '1902-07-28 09:00', '1901-08-09 17:00', '1901-06-21 11:55', '1900-10-15 10:45', '1900-10-15 13:05',))
 
@@ -27,4 +27,4 @@ avGatewayMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 6))
 lsg = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1))
 avayaEISTopology = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1, 10))
 avayaSystemStats = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1, 11))
-mibBuilder.exportSymbols("AVAYAGEN-MIB", avayaEISTopology=avayaEISTopology, avGatewayMibs=avGatewayMibs, mibs=mibs, lsg=lsg, avGatewayProducts=avGatewayProducts, avayaSystemStats=avayaSystemStats, products=products, PYSNMP_MODULE_ID=avaya, avaya=avaya)
+mibBuilder.exportSymbols("AVAYAGEN-MIB", avaya=avaya, lsg=lsg, PYSNMP_MODULE_ID=avaya, products=products, avGatewayProducts=avGatewayProducts, avayaEISTopology=avayaEISTopology, avGatewayMibs=avGatewayMibs, mibs=mibs, avayaSystemStats=avayaSystemStats)
