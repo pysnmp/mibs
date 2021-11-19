@@ -44,12 +44,10 @@ jobs:
         run: |
           mkdir /tmp/package
           mkdir /tmp/index
-          touch /tmp/origin/index.yaml
           mkdir /tmp/origin
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
           VERSION=$(echo $GITHUB_REF | cut -d / -f 3)
           echo $VERSION
-#          wget https://pysnmp.github.io/mibs/index.yaml -P /tmp/origin
           helm package charts -d /tmp/package
           gh release upload $VERSION /tmp/package/*
           helm repo index /tmp/package --url https://github.com/pysnmp/mibs/releases/download/$VERSION
