@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module SNMP-USER-BASED-SM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-USER-BASED-SM-MIB
-# Produced by pysmi-1.1.0 at Tue Nov 16 11:56:26 2021
-# On host fv-az121-894 platform Linux version 5.11.0-1020-azure by user runner
+# Produced by pysmi-1.1.0 at Fri Nov 19 14:59:09 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-snmpPrivProtocols, snmpAuthProtocols, SnmpEngineID, SnmpAdminString = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "snmpPrivProtocols", "snmpAuthProtocols", "SnmpEngineID", "SnmpAdminString")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, Gauge32, TimeTicks, MibIdentifier, iso, Bits, Integer32, ModuleIdentity, IpAddress, NotificationType, snmpModules, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "Gauge32", "TimeTicks", "MibIdentifier", "iso", "Bits", "Integer32", "ModuleIdentity", "IpAddress", "NotificationType", "snmpModules", "ObjectIdentity")
-RowStatus, AutonomousType, RowPointer, TextualConvention, StorageType, DisplayString, TestAndIncr = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "AutonomousType", "RowPointer", "TextualConvention", "StorageType", "DisplayString", "TestAndIncr")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+SnmpAdminString, snmpAuthProtocols, snmpPrivProtocols, SnmpEngineID = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString", "snmpAuthProtocols", "snmpPrivProtocols", "SnmpEngineID")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Integer32, NotificationType, TimeTicks, Counter32, ObjectIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, snmpModules, IpAddress, ModuleIdentity, Bits, MibIdentifier, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "TimeTicks", "Counter32", "ObjectIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "snmpModules", "IpAddress", "ModuleIdentity", "Bits", "MibIdentifier", "Counter64", "Unsigned32")
+TextualConvention, AutonomousType, StorageType, DisplayString, TestAndIncr, RowStatus, RowPointer = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "AutonomousType", "StorageType", "DisplayString", "TestAndIncr", "RowStatus", "RowPointer")
 snmpUsmMIB = ModuleIdentity((1, 3, 6, 1, 6, 3, 15))
-snmpUsmMIB.setRevisions(('2002-10-16 00:00', '1999-01-20 00:00', '1997-11-20 00:00',))
-if mibBuilder.loadTexts: snmpUsmMIB.setLastUpdated('200210160000Z')
+snmpUsmMIB.setRevisions(('1999-01-20 00:00', '1997-11-20 00:00',))
+if mibBuilder.loadTexts: snmpUsmMIB.setLastUpdated('9901200000Z')
 if mibBuilder.loadTexts: snmpUsmMIB.setOrganization('SNMPv3 Working Group')
 usmMIBObjects = MibIdentifier((1, 3, 6, 1, 6, 3, 15, 1))
 usmMIBConformance = MibIdentifier((1, 3, 6, 1, 6, 3, 15, 2))
@@ -28,6 +28,8 @@ usmNoPrivProtocol = ObjectIdentity((1, 3, 6, 1, 6, 3, 10, 1, 2, 1))
 if mibBuilder.loadTexts: usmNoPrivProtocol.setStatus('current')
 usmDESPrivProtocol = ObjectIdentity((1, 3, 6, 1, 6, 3, 10, 1, 2, 2))
 if mibBuilder.loadTexts: usmDESPrivProtocol.setStatus('current')
+usmAESPrivProtocol = ObjectIdentity((1, 3, 6, 1, 6, 3, 10, 1, 2, 4))
+if mibBuilder.loadTexts: usmAESPrivProtocol.setStatus('current')
 class KeyChange(TextualConvention, OctetString):
     status = 'current'
 
@@ -86,4 +88,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 usmMIBBasicGroup = ObjectGroup((1, 3, 6, 1, 6, 3, 15, 2, 2, 1)).setObjects(("SNMP-USER-BASED-SM-MIB", "usmStatsUnsupportedSecLevels"), ("SNMP-USER-BASED-SM-MIB", "usmStatsNotInTimeWindows"), ("SNMP-USER-BASED-SM-MIB", "usmStatsUnknownUserNames"), ("SNMP-USER-BASED-SM-MIB", "usmStatsUnknownEngineIDs"), ("SNMP-USER-BASED-SM-MIB", "usmStatsWrongDigests"), ("SNMP-USER-BASED-SM-MIB", "usmStatsDecryptionErrors"), ("SNMP-USER-BASED-SM-MIB", "usmUserSpinLock"), ("SNMP-USER-BASED-SM-MIB", "usmUserSecurityName"), ("SNMP-USER-BASED-SM-MIB", "usmUserCloneFrom"), ("SNMP-USER-BASED-SM-MIB", "usmUserAuthProtocol"), ("SNMP-USER-BASED-SM-MIB", "usmUserAuthKeyChange"), ("SNMP-USER-BASED-SM-MIB", "usmUserOwnAuthKeyChange"), ("SNMP-USER-BASED-SM-MIB", "usmUserPrivProtocol"), ("SNMP-USER-BASED-SM-MIB", "usmUserPrivKeyChange"), ("SNMP-USER-BASED-SM-MIB", "usmUserOwnPrivKeyChange"), ("SNMP-USER-BASED-SM-MIB", "usmUserPublic"), ("SNMP-USER-BASED-SM-MIB", "usmUserStorageType"), ("SNMP-USER-BASED-SM-MIB", "usmUserStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     usmMIBBasicGroup = usmMIBBasicGroup.setStatus('current')
-mibBuilder.exportSymbols("SNMP-USER-BASED-SM-MIB", usmMIBCompliance=usmMIBCompliance, usmUserName=usmUserName, KeyChange=KeyChange, usmStatsUnsupportedSecLevels=usmStatsUnsupportedSecLevels, usmUserOwnPrivKeyChange=usmUserOwnPrivKeyChange, usmStatsUnknownUserNames=usmStatsUnknownUserNames, usmUserPublic=usmUserPublic, usmUserPrivProtocol=usmUserPrivProtocol, usmUserOwnAuthKeyChange=usmUserOwnAuthKeyChange, usmMIBGroups=usmMIBGroups, snmpUsmMIB=snmpUsmMIB, usmUserAuthProtocol=usmUserAuthProtocol, usmStats=usmStats, usmHMACSHAAuthProtocol=usmHMACSHAAuthProtocol, usmMIBConformance=usmMIBConformance, usmUserEngineID=usmUserEngineID, usmUserSecurityName=usmUserSecurityName, usmHMACMD5AuthProtocol=usmHMACMD5AuthProtocol, usmStatsWrongDigests=usmStatsWrongDigests, usmUserStorageType=usmUserStorageType, usmStatsNotInTimeWindows=usmStatsNotInTimeWindows, usmUserCloneFrom=usmUserCloneFrom, PYSNMP_MODULE_ID=snmpUsmMIB, usmUserTable=usmUserTable, usmUserAuthKeyChange=usmUserAuthKeyChange, usmUserSpinLock=usmUserSpinLock, usmUserEntry=usmUserEntry, usmNoAuthProtocol=usmNoAuthProtocol, usmUserStatus=usmUserStatus, usmDESPrivProtocol=usmDESPrivProtocol, usmMIBCompliances=usmMIBCompliances, usmUserPrivKeyChange=usmUserPrivKeyChange, usmMIBBasicGroup=usmMIBBasicGroup, usmUser=usmUser, usmMIBObjects=usmMIBObjects, usmStatsUnknownEngineIDs=usmStatsUnknownEngineIDs, usmNoPrivProtocol=usmNoPrivProtocol, usmStatsDecryptionErrors=usmStatsDecryptionErrors)
+mibBuilder.exportSymbols("SNMP-USER-BASED-SM-MIB", KeyChange=KeyChange, usmStatsUnsupportedSecLevels=usmStatsUnsupportedSecLevels, usmUserPrivProtocol=usmUserPrivProtocol, usmMIBBasicGroup=usmMIBBasicGroup, usmStatsUnknownUserNames=usmStatsUnknownUserNames, usmUserStatus=usmUserStatus, usmHMACMD5AuthProtocol=usmHMACMD5AuthProtocol, usmUserName=usmUserName, usmUserOwnPrivKeyChange=usmUserOwnPrivKeyChange, usmUserAuthKeyChange=usmUserAuthKeyChange, usmUserOwnAuthKeyChange=usmUserOwnAuthKeyChange, usmNoAuthProtocol=usmNoAuthProtocol, usmMIBObjects=usmMIBObjects, usmAESPrivProtocol=usmAESPrivProtocol, usmStatsWrongDigests=usmStatsWrongDigests, usmMIBCompliances=usmMIBCompliances, usmMIBGroups=usmMIBGroups, usmHMACSHAAuthProtocol=usmHMACSHAAuthProtocol, usmStatsNotInTimeWindows=usmStatsNotInTimeWindows, usmUserPublic=usmUserPublic, usmUserCloneFrom=usmUserCloneFrom, usmUserStorageType=usmUserStorageType, usmStatsUnknownEngineIDs=usmStatsUnknownEngineIDs, usmUserPrivKeyChange=usmUserPrivKeyChange, PYSNMP_MODULE_ID=snmpUsmMIB, snmpUsmMIB=snmpUsmMIB, usmUserTable=usmUserTable, usmNoPrivProtocol=usmNoPrivProtocol, usmMIBConformance=usmMIBConformance, usmUserAuthProtocol=usmUserAuthProtocol, usmUserEntry=usmUserEntry, usmMIBCompliance=usmMIBCompliance, usmUserSecurityName=usmUserSecurityName, usmUser=usmUser, usmDESPrivProtocol=usmDESPrivProtocol, usmStats=usmStats, usmUserSpinLock=usmUserSpinLock, usmUserEngineID=usmUserEngineID, usmStatsDecryptionErrors=usmStatsDecryptionErrors)

@@ -1,9 +1,7 @@
 -- ============================================================================
--- AT-BOARDS.MIB, Allied Telesis enterprise MIB: SWITCH module
---
--- Extracted from ATROUTER.MIB of pre 2.9.1 release
---
--- June 2006, Stan Xiang
+-- AT-SWI.MIB
+-- Allied Telesis enterprise MIB
+-- For AlliedWare Plus (tm) operating system
 --
 -- Copyright (c) 2006 by Allied Telesis, Inc.
 -- All rights reserved.
@@ -16,7 +14,8 @@ AT-SWITCH-MIB DEFINITIONS ::= BEGIN
 IMPORTS
     MODULE-IDENTITY,
     OBJECT-TYPE,
-    NOTIFICATION-TYPE
+    NOTIFICATION-TYPE,
+    Counter32
     	FROM SNMPv2-SMI
 
     DisplayString
@@ -73,7 +72,7 @@ SwiPortEntry  ::=
    }
 
 swiPortNumber OBJECT-TYPE
-   SYNTAX    	INTEGER
+   SYNTAX    	INTEGER (1..65535)
    MAX-ACCESS   read-only
    STATUS    	current
    DESCRIPTION
@@ -82,7 +81,7 @@ swiPortNumber OBJECT-TYPE
 
 
 swiPortIngressLimit OBJECT-TYPE
-    SYNTAX  INTEGER
+    SYNTAX  INTEGER (1..2147483647)
     MAX-ACCESS  read-write
     STATUS  current
     DESCRIPTION
@@ -91,7 +90,7 @@ swiPortIngressLimit OBJECT-TYPE
     ::= { swiPortEntry 20 }
 
 swiPortEgressLimit OBJECT-TYPE
-    SYNTAX  	INTEGER
+    SYNTAX  	INTEGER (1..2147483647)
     MAX-ACCESS  read-write
     STATUS  	current
     DESCRIPTION
@@ -127,15 +126,15 @@ SwiPortVlanEntry  ::=
    }
 
 swiPortVlanPortNumber OBJECT-TYPE
-   SYNTAX    	INTEGER
-   MAX-ACCESS   not-accessible
+   SYNTAX    	INTEGER (1..65535)
+   MAX-ACCESS   read-only
    STATUS    	current
    DESCRIPTION
              "This object identifies the port of the switch."
    ::= { swiPortVlanEntry 1 } 
    
 swiPortVlanVlanId OBJECT-TYPE
-   SYNTAX    	INTEGER
+   SYNTAX    	INTEGER (1..65535)
    MAX-ACCESS   read-only
    STATUS    	current
    DESCRIPTION
@@ -160,7 +159,7 @@ swiPortVlanStateNotify NOTIFICATION-TYPE
    DESCRIPTION
    "This objects informs a state change of a port in vlan."
    ::= { swi 9 }
-   
+
 -- The following table lists the various switch port counters for the
 -- swi56xx based products.
 
@@ -284,7 +283,7 @@ Swi56xxPortCounterEntry  ::=
    }
 
 swi56xxPortNumber OBJECT-TYPE
-   SYNTAX    	INTEGER
+   SYNTAX    	INTEGER (1..65535)
    MAX-ACCESS   read-only
    STATUS    	current
    DESCRIPTION

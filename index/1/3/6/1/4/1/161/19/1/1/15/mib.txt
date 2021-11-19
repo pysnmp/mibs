@@ -1,2 +1,1 @@
-CMM3-MIB
 CMM4-MIB
