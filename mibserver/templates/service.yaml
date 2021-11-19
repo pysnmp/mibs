@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
+  # TDOD: find release.name
   name: sc4snmp-mib-server-service
   namespace: {{ .Release.Namespace | quote }}
 spec:
