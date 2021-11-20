@@ -15,14 +15,15 @@ grep -Po 'ModuleIdentity\(\(((?:\d(?:, )?)*)\)\)' output/notexts/* \
 	| sed 's|.*/notexts/||' \
 	| sed 's|, |.|g' \
 	| sed 's|*:ModuleIdentity((|,|' \
-	| sed 's|))||' >output/index.csv
+	| sed 's|))||' >index.csv
 
 while IFS=, read -r one two; do 
     d=$(echo $two | sed 's|\.|/|g')
     mkdir -p output/index/$d
     echo $one>>output/index/$d/mib.txt
-    echo $d, $one    
-done <output/index.csv
+    echo $d, $one
+    echo $two,$one>>output/output.csv
+done <index.csv
 
 rm -f output/texts/SNMPv2-MIB*
 rm -f output/texts/INET-ADDRESS-MIB*
