@@ -1,22 +1,22 @@
 #
 # PySNMP MIB module SL-FT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-FT-MIB
-# Produced by pysmi-1.1.3 at Sat Nov 20 17:24:12 2021
+# Produced by pysmi-1.1.3 at Sat Nov 20 21:34:26 2021
 # On host fv-az121-977 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
 IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-ifAlias, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifAlias", "ifIndex")
+ifIndex, ifAlias = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifAlias")
 InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-PerfIntervalCount, PerfTotalCount, PerfCurrentCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfTotalCount", "PerfCurrentCount")
+PerfTotalCount, PerfCurrentCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfTotalCount", "PerfCurrentCount", "PerfIntervalCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, iso, ModuleIdentity, Integer32, Counter32, Bits, TimeTicks, Counter64, Unsigned32, NotificationType, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "iso", "ModuleIdentity", "Integer32", "Counter32", "Bits", "TimeTicks", "Counter64", "Unsigned32", "NotificationType", "ObjectIdentity")
-RowStatus, TimeStamp, RowPointer, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TimeStamp", "RowPointer", "TextualConvention", "TruthValue", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, enterprises, Counter32, Integer32, IpAddress, TimeTicks, NotificationType, Gauge32, iso, MibIdentifier, ObjectIdentity, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "enterprises", "Counter32", "Integer32", "IpAddress", "TimeTicks", "NotificationType", "Gauge32", "iso", "MibIdentifier", "ObjectIdentity", "Bits", "Unsigned32")
+TruthValue, TextualConvention, DisplayString, RowStatus, RowPointer, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "RowStatus", "RowPointer", "TimeStamp")
 class MacAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
     fixedLength = 6
@@ -70,4 +70,4 @@ slFtSystemsEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 30, 1, 1, 0))
 if mibBuilder.loadTexts: slFtSystemsEvents.setStatus('current')
 slFtTftpStatusChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 30, 1, 1, 0, 1)).setObjects(("SL-FT-MIB", "slFtTftpStatus"))
 if mibBuilder.loadTexts: slFtTftpStatusChangeTrap.setStatus('current')
-mibBuilder.exportSymbols("SL-FT-MIB", slFtFileTransferProtocol=slFtFileTransferProtocol, slFtFileTransfer=slFtFileTransfer, slFtFileTransferToSubSystems=slFtFileTransferToSubSystems, slFtSftpUserLogin=slFtSftpUserLogin, slFtSystemReset=slFtSystemReset, slFtTftpRetryTimeOut=slFtTftpRetryTimeOut, slFtSystems=slFtSystems, PYSNMP_MODULE_ID=slFt, slFtTftpStatus=slFtTftpStatus, slFtFileTransCmd=slFtFileTransCmd, SftpUserPassword=SftpUserPassword, slFtGen=slFtGen, slFtFileName=slFtFileName, slFtFileNameWithinProduct=slFtFileNameWithinProduct, slFtTftpStatusChangeTrap=slFtTftpStatusChangeTrap, slFtTftpError=slFtTftpError, slFtFileTransferServerPort=slFtFileTransferServerPort, slFtSftpPasswordLogin=slFtSftpPasswordLogin, slFtSystemsEvents=slFtSystemsEvents, slFtTftpTotalTimeOut=slFtTftpTotalTimeOut, slFtAgnt=slFtAgnt, slFt=slFt, MacAddress=MacAddress, slFtFileServerIP=slFtFileServerIP, slFtAgnSwVersionSwapCmd=slFtAgnSwVersionSwapCmd, SftpUserLogin=SftpUserLogin)
+mibBuilder.exportSymbols("SL-FT-MIB", slFtTftpError=slFtTftpError, slFtFileTransferToSubSystems=slFtFileTransferToSubSystems, slFtTftpStatusChangeTrap=slFtTftpStatusChangeTrap, slFtSftpPasswordLogin=slFtSftpPasswordLogin, slFtSftpUserLogin=slFtSftpUserLogin, PYSNMP_MODULE_ID=slFt, slFtAgnSwVersionSwapCmd=slFtAgnSwVersionSwapCmd, slFtTftpTotalTimeOut=slFtTftpTotalTimeOut, slFtFileTransferServerPort=slFtFileTransferServerPort, slFtTftpStatus=slFtTftpStatus, slFtFileName=slFtFileName, slFtAgnt=slFtAgnt, slFtFileServerIP=slFtFileServerIP, slFtTftpRetryTimeOut=slFtTftpRetryTimeOut, slFt=slFt, slFtFileTransfer=slFtFileTransfer, slFtFileNameWithinProduct=slFtFileNameWithinProduct, slFtSystemsEvents=slFtSystemsEvents, slFtGen=slFtGen, slFtFileTransferProtocol=slFtFileTransferProtocol, slFtSystemReset=slFtSystemReset, SftpUserPassword=SftpUserPassword, slFtFileTransCmd=slFtFileTransCmd, SftpUserLogin=SftpUserLogin, MacAddress=MacAddress, slFtSystems=slFtSystems)

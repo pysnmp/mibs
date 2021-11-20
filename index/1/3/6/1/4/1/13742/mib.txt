@@ -1,2 +1,0 @@
-PDU2-MIB
-RemoteKVMDevice-MIB

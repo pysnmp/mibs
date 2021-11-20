@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module SIAE-PMFTP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-PMFTP-MIB
-# Produced by pysmi-1.1.3 at Sat Nov 20 17:25:34 2021
+# Produced by pysmi-1.1.3 at Sat Nov 20 21:35:48 2021
 # On host fv-az121-977 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 OwnerString, = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
 alarmTrap, = mibBuilder.importSymbols("SIAE-ALARM-MIB", "alarmTrap")
 equipIpSnmpAgentAddress, = mibBuilder.importSymbols("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 accessControlLoginIpAddress, = mibBuilder.importSymbols("SIAE-USER-MIB", "accessControlLoginIpAddress")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, ModuleIdentity, Integer32, iso, Unsigned32, IpAddress, Counter32, Bits, ObjectIdentity, NotificationType, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "Integer32", "iso", "Unsigned32", "IpAddress", "Counter32", "Bits", "ObjectIdentity", "NotificationType", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, NotificationType, Counter64, Integer32, MibIdentifier, Gauge32, IpAddress, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, ObjectIdentity, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "Integer32", "MibIdentifier", "Gauge32", "IpAddress", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "ObjectIdentity", "iso", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 pmFTP = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 31))
 pmFTP.setRevisions(('2015-03-23 00:00', '2014-09-29 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
 if mibBuilder.loadTexts: pmFTP.setLastUpdated('201503230000Z')
@@ -42,4 +42,4 @@ pmFTPEndInterval = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 31, 10), Integer32()
 if mibBuilder.loadTexts: pmFTPEndInterval.setStatus('current')
 pmFTPStatusTrap = NotificationType((1, 3, 6, 1, 4, 1, 3373, 1103, 0, 3101)).setObjects(("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress"), ("SIAE-PMFTP-MIB", "pmFTPStatus"), ("SIAE-USER-MIB", "accessControlLoginIpAddress"))
 if mibBuilder.loadTexts: pmFTPStatusTrap.setStatus('current')
-mibBuilder.exportSymbols("SIAE-PMFTP-MIB", pmFTPEndInterval=pmFTPEndInterval, pmFTPStatus=pmFTPStatus, pmFTPfileName=pmFTPfileName, pmFTPCompressedFile=pmFTPCompressedFile, pmFTPBeginInterval=pmFTPBeginInterval, pmFTPActionRequest=pmFTPActionRequest, PYSNMP_MODULE_ID=pmFTP, pmFTPTpClass=pmFTPTpClass, pmFTPTpRmonOwner=pmFTPTpRmonOwner, pmFTPStatusTrapNotification=pmFTPStatusTrapNotification, pmFTPStatusTrap=pmFTPStatusTrap, pmFTPMibVersion=pmFTPMibVersion, pmFTP=pmFTP)
+mibBuilder.exportSymbols("SIAE-PMFTP-MIB", pmFTPTpRmonOwner=pmFTPTpRmonOwner, pmFTPStatusTrapNotification=pmFTPStatusTrapNotification, pmFTPActionRequest=pmFTPActionRequest, pmFTPMibVersion=pmFTPMibVersion, pmFTPTpClass=pmFTPTpClass, PYSNMP_MODULE_ID=pmFTP, pmFTPStatus=pmFTPStatus, pmFTPBeginInterval=pmFTPBeginInterval, pmFTPStatusTrap=pmFTPStatusTrap, pmFTP=pmFTP, pmFTPEndInterval=pmFTPEndInterval, pmFTPfileName=pmFTPfileName, pmFTPCompressedFile=pmFTPCompressedFile)

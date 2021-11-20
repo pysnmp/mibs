@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module MINI-LINK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/MINI-LINK-MIB
-# Produced by pysmi-1.1.3 at Sat Nov 20 17:26:15 2021
+# Produced by pysmi-1.1.3 at Sat Nov 20 21:36:30 2021
 # On host fv-az121-977 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, enterprises, IpAddress, NotificationType, Bits, Gauge32, Integer32, ModuleIdentity, iso, Counter32, MibIdentifier, Unsigned32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "enterprises", "IpAddress", "NotificationType", "Bits", "Gauge32", "Integer32", "ModuleIdentity", "iso", "Counter32", "MibIdentifier", "Unsigned32", "Counter64")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, Counter32, Counter64, IpAddress, TimeTicks, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits, NotificationType, ObjectIdentity, Gauge32, iso, enterprises, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter32", "Counter64", "IpAddress", "TimeTicks", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits", "NotificationType", "ObjectIdentity", "Gauge32", "iso", "enterprises", "ModuleIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 miniLink = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 223))
 miniLink.setRevisions(('2016-03-09 12:30', '2016-02-10 12:30',))
@@ -21,4 +21,4 @@ if mibBuilder.loadTexts: miniLink.setOrganization('Ericsson')
 if mibBuilder.loadTexts: miniLink.setContactInfo('Anders Ekvall\n             Postal: Ericsson AB,\n             E-Mail: anders.ekvall@ericsson.com')
 if mibBuilder.loadTexts: miniLink.setDescription('This is the top MIB for Ericsson MINI-LINK')
 ericsson = MibIdentifier((1, 3, 6, 1, 4, 1, 193))
-mibBuilder.exportSymbols("MINI-LINK-MIB", PYSNMP_MODULE_ID=miniLink, ericsson=ericsson, miniLink=miniLink)
+mibBuilder.exportSymbols("MINI-LINK-MIB", miniLink=miniLink, PYSNMP_MODULE_ID=miniLink, ericsson=ericsson)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-PORT-SECURITY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-PORT-SECURITY-MIB
-# Produced by pysmi-1.1.3 at Sat Nov 20 17:22:40 2021
+# Produced by pysmi-1.1.3 at Sat Nov 20 21:32:51 2021
 # On host fv-az121-977 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-switch, configL2IfaceEnable = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch", "configL2IfaceEnable")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+configL2IfaceEnable, switch = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "configL2IfaceEnable", "switch")
 dot1qTpFdbStatus, dot1qVlanStatus = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qTpFdbStatus", "dot1qVlanStatus")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Gauge32, IpAddress, NotificationType, MibIdentifier, ObjectIdentity, Bits, TimeTicks, Counter32, Integer32, Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "IpAddress", "NotificationType", "MibIdentifier", "ObjectIdentity", "Bits", "TimeTicks", "Counter32", "Integer32", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, NotificationType, Integer32, Counter64, Gauge32, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32, TimeTicks, MibIdentifier, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "NotificationType", "Integer32", "Counter64", "Gauge32", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32", "TimeTicks", "MibIdentifier", "ModuleIdentity", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtPortSecurityMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 109))
 prvtPortSecurityMib.setRevisions(('2008-06-18 00:00', '2005-02-16 00:00', '2004-05-10 00:00',))
 if mibBuilder.loadTexts: prvtPortSecurityMib.setLastUpdated('200806180000Z')
@@ -28,4 +28,4 @@ prvtPortSECMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 109, 2, 2))
 prvtPortSECNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 738, 1, 5, 109, 2, 2, 1)).setObjects(("PRVT-PORT-SECURITY-MIB", "prvtPortSECViolation"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     prvtPortSECNotificationGroup = prvtPortSECNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("PRVT-PORT-SECURITY-MIB", prvtPortSECConformance=prvtPortSECConformance, prvtPortSECViolation=prvtPortSECViolation, prvtPortSecurityMib=prvtPortSecurityMib, prvtPortSECObjects=prvtPortSECObjects, prvtPortSECNotificationGroup=prvtPortSECNotificationGroup, prvtPortSECNotifications=prvtPortSECNotifications, prvtPortSECMIBGroups=prvtPortSECMIBGroups, prvtDuplicatedMACAddressAlarm=prvtDuplicatedMACAddressAlarm, PYSNMP_MODULE_ID=prvtPortSecurityMib)
+mibBuilder.exportSymbols("PRVT-PORT-SECURITY-MIB", prvtPortSECNotificationGroup=prvtPortSECNotificationGroup, prvtPortSECNotifications=prvtPortSECNotifications, prvtPortSECMIBGroups=prvtPortSECMIBGroups, prvtDuplicatedMACAddressAlarm=prvtDuplicatedMACAddressAlarm, prvtPortSECObjects=prvtPortSECObjects, prvtPortSECConformance=prvtPortSECConformance, prvtPortSecurityMib=prvtPortSecurityMib, PYSNMP_MODULE_ID=prvtPortSecurityMib, prvtPortSECViolation=prvtPortSECViolation)
