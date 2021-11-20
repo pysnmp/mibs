@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BEGEMOT-MIB2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-MIB2-MIB
-# Produced by pysmi-1.1.3 at Sat Nov 20 21:26:51 2021
-# On host fv-az121-977 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sat Nov 20 22:33:19 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 begemotIp, = mibBuilder.importSymbols("BEGEMOT-IP-MIB", "begemotIp")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Bits, iso, ObjectIdentity, TimeTicks, Counter32, ModuleIdentity, Gauge32, IpAddress, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "iso", "ObjectIdentity", "TimeTicks", "Counter32", "ModuleIdentity", "Gauge32", "IpAddress", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "MibIdentifier")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Bits, IpAddress, ObjectIdentity, Unsigned32, Counter64, NotificationType, MibIdentifier, Counter32, Integer32, TimeTicks, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "IpAddress", "ObjectIdentity", "Unsigned32", "Counter64", "NotificationType", "MibIdentifier", "Counter32", "Integer32", "TimeTicks", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 begemotMib2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1))
 begemotMib2.setRevisions(('2009-08-03 00:00', '2006-02-13 00:00',))
@@ -24,4 +24,4 @@ begemotIfForcePoll = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 3), TimeTicks(
 if mibBuilder.loadTexts: begemotIfForcePoll.setStatus('current')
 begemotIfDataPoll = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 4), TimeTicks().clone(100)).setUnits('deciseconds').setMaxAccess("readwrite")
 if mibBuilder.loadTexts: begemotIfDataPoll.setStatus('current')
-mibBuilder.exportSymbols("BEGEMOT-MIB2-MIB", begemotIfPoll=begemotIfPoll, PYSNMP_MODULE_ID=begemotMib2, begemotIfForcePoll=begemotIfForcePoll, begemotIfMaxspeed=begemotIfMaxspeed, begemotMib2=begemotMib2, begemotIfDataPoll=begemotIfDataPoll)
+mibBuilder.exportSymbols("BEGEMOT-MIB2-MIB", begemotIfForcePoll=begemotIfForcePoll, PYSNMP_MODULE_ID=begemotMib2, begemotMib2=begemotMib2, begemotIfPoll=begemotIfPoll, begemotIfDataPoll=begemotIfDataPoll, begemotIfMaxspeed=begemotIfMaxspeed)

@@ -1,10 +1,9 @@
 ALCATEL-IND1-NETSEC-MIB DEFINITIONS ::= BEGIN
-
 IMPORTS
-    OBJECT-TYPE,         
+    OBJECT-TYPE,
     MODULE-IDENTITY,
-    OBJECT-IDENTITY,    
-    Counter32,         
+    OBJECT-IDENTITY,
+    Integer32, Counter32,
     NOTIFICATION-TYPE   FROM SNMPv2-SMI
 
     MODULE-COMPLIANCE,
@@ -13,34 +12,33 @@ IMPORTS
 
     TEXTUAL-CONVENTION,
     TruthValue,
-    RowStatus,
-    DisplayString      FROM SNMPv2-TC
+    RowStatus           FROM SNMPv2-TC
+
+    SnmpAdminString     FROM SNMP-FRAMEWORK-MIB
 
     InterfaceIndex      FROM IF-MIB
 
-    softentIND1NetSec,
-    alaNetSecTraps     FROM ALCATEL-IND1-BASE;
-
+    softentIND1NetSec   FROM ALCATEL-IND1-BASE;
 
 alcatelIND1NETSECMIB MODULE-IDENTITY
-  LAST-UPDATED "200704030000Z"
+  LAST-UPDATED "201005130000Z"
   ORGANIZATION "Alcatel IND"
   CONTACT-INFO
        "Please consult with Customer Service to ensure the most appropriate
         version of this document is used with the products in question:
-    
+
                    Alcatel-Lucent, Enterprise Solutions Division
                   (Formerly Alcatel Internetworking, Incorporated)
                           26801 West Agoura Road
                        Agoura Hills, CA  91301-5122
                          United States Of America
-   
+
        Telephone:               North America  +1 800 995 2696
                                 Latin America  +1 877 919 9526
                                 Europe         +31 23 556 0100
                                 Asia           +65 394 7933
                                 All Other      +1 818 878 4507
-   
+
        Electronic Mail:         support@ind.alcatel.com
        World Wide Web:          http://alcatel-lucent.com/wps/portal/enterprise
        File Transfer Protocol:  ftp://ftp.ind.alcatel.com/pub/products/mibs"
@@ -54,6 +52,7 @@ alcatelIND1NETSECMIB MODULE-IDENTITY
         The right to make changes in specification and other information
         contained in this document without prior notice is reserved.
 
+
         No liability shall be assumed for any incidental, indirect, special, or
         consequential damages whatsoever arising from or related to this
         document or the information contained herein.
@@ -64,18 +63,25 @@ alcatelIND1NETSECMIB MODULE-IDENTITY
 
                     Copyright (C) 1995-2007 Alcatel-Lucent
                         ALL RIGHTS RESERVED WORLDWIDE"
+
+    REVISION      "201005130000Z"
+    DESCRIPTION
+        "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
   ::= { softentIND1NetSec 1 }
 
+alcatelIND1NETSECMIBNotifications OBJECT-IDENTITY
+        STATUS current
+        DESCRIPTION
+            "Branch For NETSEC MIB Subsystem Notifications."
+        ::= { alcatelIND1NETSECMIB 0 }
 
 alcatelIND1NETSECMIBObjects OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIB 1 }
-
-
 
 --  Types of Anomalies
 AlaAnomalyType ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION "Types of anomalies being configured or monitored"
-    SYNTAX      INTEGER { 
+    SYNTAX      INTEGER {
                all(0),
                arpaddressscan(1),
                arpflood(2),
@@ -98,9 +104,9 @@ AlaPacketType ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION "Types of packets being monitored"
     SYNTAX      INTEGER {
-               arpreply (1), 
-               arprequest (2), 
-               icmpechoreply (3), 
+               arpreply (1),
+               arprequest (2),
+               icmpechoreply (3),
                icmpechorequest (4),
                icmpdnr (5),
                tcpsynonly (6),
@@ -115,12 +121,11 @@ AlaPacketType ::= TEXTUAL-CONVENTION
 AlaNetsecStatus ::= TEXTUAL-CONVENTION
     STATUS current
     DESCRIPTION "State of polar variables."
-    SYNTAX INTEGER { 
-          default (0), 
-          enable (1), 
+    SYNTAX INTEGER {
+          default (0),
+          enable (1),
           disable (2)
         }
-
 
 --
 -- Configure a port/port-range
@@ -130,6 +135,7 @@ alaNetSecPortRangeConfig OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 1 }
 --
 -- Add a port range to a group
 --
+
 alaNetSecPortRangeGroupTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecPortRangeGroupEntry
         MAX-ACCESS not-accessible
@@ -143,16 +149,16 @@ alaNetSecPortRangeGroupEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Each entry is identified by a unique port-range."
-        INDEX   { 
-          alaNetSecPortRangeGroupStartIfId, 
-          alaNetSecPortRangeGroupEndIfId 
+        INDEX   {
+          alaNetSecPortRangeGroupStartIfId,
+          alaNetSecPortRangeGroupEndIfId
         }
         ::= { alaNetSecPortRangeGroupTable 1 }
 
 AlaNetSecPortRangeGroupEntry ::= SEQUENCE {
         alaNetSecPortRangeGroupStartIfId InterfaceIndex,
         alaNetSecPortRangeGroupEndIfId InterfaceIndex,
-        alaNetSecPortRangeGroupName DisplayString,
+        alaNetSecPortRangeGroupName SnmpAdminString,
         alaNetSecPortRangeGroupRowStatus RowStatus
         }
 
@@ -171,7 +177,7 @@ alaNetSecPortRangeGroupEndIfId OBJECT-TYPE
         ::= { alaNetSecPortRangeGroupEntry 2 }
 
 alaNetSecPortRangeGroupName OBJECT-TYPE
-        SYNTAX DisplayString ( SIZE( 1 .. 32 ) )
+        SYNTAX SnmpAdminString ( SIZE( 1 .. 32 ) )
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION "Name of monitoring-group with which this port-range is associated."
@@ -184,22 +190,12 @@ alaNetSecPortRangeGroupRowStatus OBJECT-TYPE
         DESCRIPTION "identifies state of this entry. CREATEANDGO will only work, if the name of alaNetSecPortRangeGroupName is part of the create request"
         ::= { alaNetSecPortRangeGroupEntry 4 }
 
-
-
-
-
-
-
-
-
-
-
-
 --
 -- MONITORING GROUPS.
 --  Groups of ports with common anomaly detection behavior.
 --  Users can create groups and configure parameters through them.
 --
+
 alaNetSecMonitoringGroupConfig OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 2 }
 alaNetSecMonitoringGroupTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecMonitoringGroupEntry
@@ -213,27 +209,27 @@ alaNetSecMonitoringGroupEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Each entry identifies configuration of a monitoring-group's anomaly-type's parameter"
-        INDEX   { 
-          alaNetSecMonitoringGroupName, 
+        INDEX   {
+          alaNetSecMonitoringGroupName,
           alaNetSecMonitoringGroupAnomaly
         }
         ::= { alaNetSecMonitoringGroupTable 1 }
 
 AlaNetSecMonitoringGroupEntry ::= SEQUENCE {
-        alaNetSecMonitoringGroupName DisplayString,
+        alaNetSecMonitoringGroupName SnmpAdminString,
         alaNetSecMonitoringGroupAnomaly AlaAnomalyType,
         alaNetSecMonitoringGroupAnomalyState AlaNetsecStatus,
         alaNetSecMonitoringGroupAnomalyLog AlaNetsecStatus,
         alaNetSecMonitoringGroupAnomalyTrap AlaNetsecStatus,
         alaNetSecMonitoringGroupAnomalyQuarantine AlaNetsecStatus,
-        alaNetSecMonitoringGroupAnomalyCount INTEGER,
-        alaNetSecMonitoringGroupAnomalySensitivity INTEGER,
-        alaNetSecMonitoringGroupAnomalyPeriod INTEGER,
+        alaNetSecMonitoringGroupAnomalyCount Integer32,
+        alaNetSecMonitoringGroupAnomalySensitivity Integer32,
+        alaNetSecMonitoringGroupAnomalyPeriod Integer32,
         alaNetSecMonitoringGroupRowStatus RowStatus
         }
 
 alaNetSecMonitoringGroupName OBJECT-TYPE
-        SYNTAX DisplayString  ( SIZE( 1 .. 32 ) )
+        SYNTAX SnmpAdminString  ( SIZE( 1 .. 32 ) )
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "name of the monitoring-group"
@@ -247,7 +243,7 @@ alaNetSecMonitoringGroupAnomaly OBJECT-TYPE
         ::= { alaNetSecMonitoringGroupEntry 2 }
 
 alaNetSecMonitoringGroupAnomalyState OBJECT-TYPE
-        SYNTAX AlaNetsecStatus 
+        SYNTAX AlaNetsecStatus
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION "State of detecting indexed anomaly."
@@ -255,7 +251,7 @@ alaNetSecMonitoringGroupAnomalyState OBJECT-TYPE
         ::= { alaNetSecMonitoringGroupEntry 3 }
 
 alaNetSecMonitoringGroupAnomalyLog OBJECT-TYPE
-        SYNTAX AlaNetsecStatus 
+        SYNTAX AlaNetsecStatus
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION "State of logging upon detecting anomaly."
@@ -263,7 +259,7 @@ alaNetSecMonitoringGroupAnomalyLog OBJECT-TYPE
         ::= { alaNetSecMonitoringGroupEntry 4 }
 
 alaNetSecMonitoringGroupAnomalyTrap OBJECT-TYPE
-        SYNTAX AlaNetsecStatus 
+        SYNTAX AlaNetsecStatus
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION "State of sending traps upon detecting anomaly."
@@ -271,7 +267,7 @@ alaNetSecMonitoringGroupAnomalyTrap OBJECT-TYPE
         ::= { alaNetSecMonitoringGroupEntry 5 }
 
 alaNetSecMonitoringGroupAnomalyQuarantine OBJECT-TYPE
-        SYNTAX AlaNetsecStatus 
+        SYNTAX AlaNetsecStatus
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION "State of Quarantining anomalous port upon detecting anomaly."
@@ -279,10 +275,10 @@ alaNetSecMonitoringGroupAnomalyQuarantine OBJECT-TYPE
         ::= { alaNetSecMonitoringGroupEntry 6 }
 
 alaNetSecMonitoringGroupAnomalyCount OBJECT-TYPE
-        SYNTAX INTEGER ( 1..100000 )
+        SYNTAX Integer32 ( 1..100000 )
         MAX-ACCESS read-create
         STATUS current
-        DESCRIPTION "Count of packets that must be seen during monitoring period 
+        DESCRIPTION "Count of packets that must be seen during monitoring period
                    to initiate anomaly detection check.
                    Default value varies as below with anomaly:
                    Anomaly                      Count
@@ -305,7 +301,7 @@ alaNetSecMonitoringGroupAnomalyCount OBJECT-TYPE
         ::= { alaNetSecMonitoringGroupEntry 7 }
 
 alaNetSecMonitoringGroupAnomalySensitivity OBJECT-TYPE
-        SYNTAX INTEGER ( 1..100 ) 
+        SYNTAX Integer32 ( 1..100 )
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION "Sensitivity of Anomaly Check to deviation from expected behavior."
@@ -313,7 +309,7 @@ alaNetSecMonitoringGroupAnomalySensitivity OBJECT-TYPE
         ::= { alaNetSecMonitoringGroupEntry 8 }
 
 alaNetSecMonitoringGroupAnomalyPeriod OBJECT-TYPE
-        SYNTAX INTEGER ( 5..3600 )
+        SYNTAX Integer32 ( 5..3600 )
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION "Time in seconds to monitor packets before checking for anomaly."
@@ -327,15 +323,12 @@ alaNetSecMonitoringGroupRowStatus OBJECT-TYPE
         DESCRIPTION "CREATEANDGO will only work if, besides RowStatus,  at least one of State, Log, Trap, Quarantine, Count, Sensitivity or Period is part of the request."
         ::= { alaNetSecMonitoringGroupEntry 10 }
 
-
-
-
-
-
 --
 -- Read port statistics.
 --
+
 alaNetSecPortStats OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 3 }
+
 alaNetSecPortStatsTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecPortStatsEntry
         MAX-ACCESS not-accessible
@@ -348,11 +341,12 @@ alaNetSecPortStatsEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Stats are collected on a <port,packet-type,packet-direction,total/last> basis"
-        INDEX   { 
+        INDEX   {
            alaNetSecPortStatsIfId,
            alaNetSecPortStatsPacket
-        }       
+        }
         ::= { alaNetSecPortStatsTable 1 }
+
 AlaNetSecPortStatsEntry ::= SEQUENCE {
            alaNetSecPortStatsIfId InterfaceIndex,
            alaNetSecPortStatsPacket AlaPacketType,
@@ -368,43 +362,48 @@ alaNetSecPortStatsIfId OBJECT-TYPE
         STATUS current
         DESCRIPTION "Interface Index of the port"
         ::= { alaNetSecPortStatsEntry 1 }
+
 alaNetSecPortStatsPacket OBJECT-TYPE
         SYNTAX AlaPacketType
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Packet type"
         ::= { alaNetSecPortStatsEntry 2 }
+
 alaNetSecPortStatsLastIngress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed Ingress packets observed during last 5 seconds"
         ::= { alaNetSecPortStatsEntry 3 }
+
 alaNetSecPortStatsLastEgress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed Egress packets observed during last 5 seconds"
         ::= { alaNetSecPortStatsEntry 4 }
+
 alaNetSecPortStatsTotalIngress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed Ingress packets observed since monitoring was enabled, Counter will loop back from zero upon reaching the maximum"
         ::= { alaNetSecPortStatsEntry 5 }
+
 alaNetSecPortStatsTotalEgress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed Egress packets observed since monitoring was enabled. Counter will loop back from zero upon reaching the maximum"
         ::= { alaNetSecPortStatsEntry 6 }
 
-
-
 --
 -- Read port Anomaly statistics.
 --
+
 alaNetSecPortAnomalyStats OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 4 }
+
 alaNetSecPortAnomalyStatsTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecPortAnomalyStatsEntry
         MAX-ACCESS not-accessible
@@ -417,12 +416,13 @@ alaNetSecPortAnomalyStatsEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Stats are collected on a <port,anomaly-type,packet-type,packet-direction,current/last> basis"
-        INDEX   { 
+        INDEX   {
            alaNetSecPortAnomalyStatsIfId,
            alaNetSecPortAnomalyStatsAnomaly,
            alaNetSecPortAnomalyStatsPacket
-        }       
+        }
         ::= { alaNetSecPortAnomalyStatsTable 1 }
+
 AlaNetSecPortAnomalyStatsEntry ::= SEQUENCE {
            alaNetSecPortAnomalyStatsIfId InterfaceIndex,
            alaNetSecPortAnomalyStatsAnomaly AlaAnomalyType,
@@ -439,49 +439,55 @@ alaNetSecPortAnomalyStatsIfId OBJECT-TYPE
         STATUS current
         DESCRIPTION "Interface Index of the port"
         ::= { alaNetSecPortAnomalyStatsEntry 1 }
+
 alaNetSecPortAnomalyStatsAnomaly OBJECT-TYPE
         SYNTAX AlaAnomalyType
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Anomaly type"
         ::= { alaNetSecPortAnomalyStatsEntry 2 }
+
 alaNetSecPortAnomalyStatsPacket OBJECT-TYPE
         SYNTAX AlaPacketType
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Packet type"
         ::= { alaNetSecPortAnomalyStatsEntry 3 }
+
 alaNetSecPortAnomalyStatsCurrentIngress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed packets ingress during current monitoring period."
         ::= { alaNetSecPortAnomalyStatsEntry 4 }
+
 alaNetSecPortAnomalyStatsCurrentEgress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed packets egress during current monitoring period."
         ::= { alaNetSecPortAnomalyStatsEntry 5 }
+
 alaNetSecPortAnomalyStatsLastIngress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed packets ingress during last monitoring period."
         ::= { alaNetSecPortAnomalyStatsEntry 6 }
+
 alaNetSecPortAnomalyStatsLastEgress OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of Indexed packets egress during last monitoring period."
         ::= { alaNetSecPortAnomalyStatsEntry 7 }
 
-
-
 --
 -- Read port Anomaly Summary.
 --
+
 alaNetSecPortAnomalySummary OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 5 }
+
 alaNetSecPortAnomalySummaryTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecPortAnomalySummaryEntry
         MAX-ACCESS not-accessible
@@ -494,11 +500,12 @@ alaNetSecPortAnomalySummaryEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Summary are reported on a <port,summary-type,anomaly-type> basis"
-        INDEX   { 
+        INDEX   {
            alaNetSecPortAnomalySummaryIfId,
            alaNetSecPortAnomalySummaryAnomaly
         }
         ::= { alaNetSecPortAnomalySummaryTable 1 }
+
 AlaNetSecPortAnomalySummaryEntry ::= SEQUENCE {
            alaNetSecPortAnomalySummaryIfId InterfaceIndex,
            alaNetSecPortAnomalySummaryAnomaly AlaAnomalyType,
@@ -512,30 +519,34 @@ alaNetSecPortAnomalySummaryIfId OBJECT-TYPE
         STATUS current
         DESCRIPTION "Interface Index of port"
         ::= { alaNetSecPortAnomalySummaryEntry 1 }
+
 alaNetSecPortAnomalySummaryAnomaly OBJECT-TYPE
         SYNTAX AlaAnomalyType
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Anomaly type"
         ::= { alaNetSecPortAnomalySummaryEntry 2 }
+
 alaNetSecPortAnomalySummaryObserved OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of observations for indexed anomaly on indexed port since monitoring was enabled."
         ::= { alaNetSecPortAnomalySummaryEntry 3 }
+
 alaNetSecPortAnomalySummaryDetected OBJECT-TYPE
-        SYNTAX Counter32 
+        SYNTAX Counter32
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "Count of detections for indexed anomaly on indexed port since monitoring was enabled."
         ::= { alaNetSecPortAnomalySummaryEntry 4 }
 
-
 ---
 ---Port Operation Anomaly table
 --
+
 alaNetSecPortOp OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 6 }
+
 alaNetSecPortOpTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecPortOpEntry
         MAX-ACCESS not-accessible
@@ -548,22 +559,22 @@ alaNetSecPortOpEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Each entry is identified by a unique port, and anomaly-type combination"
-        INDEX   { 
-          alaNetSecPortOpIfId, 
+        INDEX   {
+          alaNetSecPortOpIfId,
           alaNetSecPortOpAnomaly
         }
         ::= { alaNetSecPortOpTable 1 }
 
 AlaNetSecPortOpEntry ::= SEQUENCE {
-        alaNetSecPortOpIfId InterfaceIndex, 
+        alaNetSecPortOpIfId InterfaceIndex,
         alaNetSecPortOpAnomaly AlaAnomalyType,
         alaNetSecPortOpState AlaNetsecStatus,
         alaNetSecPortOpLog AlaNetsecStatus,
         alaNetSecPortOpTrap AlaNetsecStatus,
         alaNetSecPortOpQuarantine AlaNetsecStatus,
-        alaNetSecPortOpCount INTEGER,
-        alaNetSecPortOpSensitivity INTEGER,
-        alaNetSecPortOpPeriod INTEGER
+        alaNetSecPortOpCount Integer32,
+        alaNetSecPortOpSensitivity Integer32,
+        alaNetSecPortOpPeriod Integer32
         }
 
 alaNetSecPortOpIfId OBJECT-TYPE
@@ -609,32 +620,32 @@ alaNetSecPortOpQuarantine OBJECT-TYPE
         ::= { alaNetSecPortOpEntry 6 }
 
 alaNetSecPortOpCount OBJECT-TYPE
-        SYNTAX INTEGER ( 1 .. 100000 ) 
+        SYNTAX Integer32 ( 1 .. 100000 )
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "activation-count being used by netsec on the indexed object"
         ::= { alaNetSecPortOpEntry 7 }
 
 alaNetSecPortOpSensitivity OBJECT-TYPE
-        SYNTAX INTEGER ( 1 .. 100 ) 
+        SYNTAX Integer32 ( 1 .. 100 )
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "sensitivity being used by netsec on the indexed object"
         ::= { alaNetSecPortOpEntry 8 }
 
 alaNetSecPortOpPeriod OBJECT-TYPE
-        SYNTAX INTEGER ( 5 .. 3600 ) 
+        SYNTAX Integer32 ( 5 .. 3600 )
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "monitoring period being used by netsec on the indexed object"
         ::= { alaNetSecPortOpEntry 9 }
 
-
-
 ---
 ---Group Operation Anomaly table
 --
+
 alaNetSecGroupOp OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 7 }
+
 alaNetSecGroupOpTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecGroupOpEntry
         MAX-ACCESS not-accessible
@@ -647,26 +658,26 @@ alaNetSecGroupOpEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Each entry is identified by a unique group, and anomaly-type combination"
-        INDEX   { 
-          alaNetSecGroupOpName, 
+        INDEX   {
+          alaNetSecGroupOpName,
           alaNetSecGroupOpAnomaly
         }
         ::= { alaNetSecGroupOpTable 1 }
 
 AlaNetSecGroupOpEntry ::= SEQUENCE {
-        alaNetSecGroupOpName DisplayString,
+        alaNetSecGroupOpName SnmpAdminString,
         alaNetSecGroupOpAnomaly AlaAnomalyType,
         alaNetSecGroupOpState AlaNetsecStatus,
         alaNetSecGroupOpLog AlaNetsecStatus,
         alaNetSecGroupOpTrap AlaNetsecStatus,
         alaNetSecGroupOpQuarantine AlaNetsecStatus,
-        alaNetSecGroupOpCount INTEGER,
-        alaNetSecGroupOpSensitivity INTEGER,
-        alaNetSecGroupOpPeriod INTEGER
+        alaNetSecGroupOpCount Integer32,
+        alaNetSecGroupOpSensitivity Integer32,
+        alaNetSecGroupOpPeriod Integer32
         }
 
 alaNetSecGroupOpName OBJECT-TYPE
-        SYNTAX DisplayString  ( SIZE( 1 .. 32 ) )
+        SYNTAX SnmpAdminString  ( SIZE( 1 .. 32 ) )
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "name of the group"
@@ -708,32 +719,33 @@ alaNetSecGroupOpQuarantine OBJECT-TYPE
         ::= { alaNetSecGroupOpEntry 6 }
 
 alaNetSecGroupOpCount OBJECT-TYPE
-        SYNTAX INTEGER ( 1 .. 100000 ) 
+        SYNTAX Integer32 ( 1 .. 100000 )
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "activation-count being used by netsec on the indexed object"
         ::= { alaNetSecGroupOpEntry 7 }
 
 alaNetSecGroupOpSensitivity OBJECT-TYPE
-        SYNTAX INTEGER ( 1 .. 100 ) 
+        SYNTAX Integer32 ( 1 .. 100 )
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "sensitivity being used by netsec on the indexed object"
         ::= { alaNetSecGroupOpEntry 8 }
 
 alaNetSecGroupOpPeriod OBJECT-TYPE
-        SYNTAX INTEGER ( 5 .. 3600 ) 
+        SYNTAX Integer32 ( 5 .. 3600 )
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION "monitoring period being used by netsec on the indexed object"
         ::= { alaNetSecGroupOpEntry 9 }
 
-
 --
 -- MONITORING GROUPS.
 --  Table to read the monitoring groups.
 --
+
 alaNetSecGroup OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 8 }
+
 alaNetSecGroupTable OBJECT-TYPE
         SYNTAX SEQUENCE OF AlaNetSecGroupEntry
         MAX-ACCESS not-accessible
@@ -746,19 +758,19 @@ alaNetSecGroupEntry OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Each entry identifies a configured group"
-        INDEX   { 
+        INDEX   {
           alaNetSecGroupName
         }
         ::= { alaNetSecGroupTable 1}
 
 AlaNetSecGroupEntry ::= SEQUENCE {
-        alaNetSecGroupName DisplayString,
+        alaNetSecGroupName SnmpAdminString,
         alaNetSecGroupMemberPorts TruthValue,
         alaNetSecGroupAnomalyCfg TruthValue
         }
 
 alaNetSecGroupName OBJECT-TYPE
-        SYNTAX DisplayString  ( SIZE( 1 .. 32 ) )
+        SYNTAX SnmpAdminString  ( SIZE( 1 .. 32 ) )
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION "Name of configured group"
@@ -778,43 +790,38 @@ alaNetSecGroupAnomalyCfg OBJECT-TYPE
         DESCRIPTION "Yes if any of this group's anomaly has a non-default configuration."
         ::= { alaNetSecGroupEntry 3 }
 
-
-
-
-
 --
 -- Network Security Traps
 --
-alaNetSecPortTrapsDesc OBJECT IDENTIFIER ::= { alaNetSecTraps 1 }
-alaNetSecPortTrapsObj  OBJECT IDENTIFIER ::= { alaNetSecTraps 2 }
 
-
+alaNetSecPortTrapsObj  OBJECT IDENTIFIER ::= { alcatelIND1NETSECMIBObjects 9 }
 
 --
 -- Traps Description
 --
+
 alaNetSecPortTrapAnomaly NOTIFICATION-TYPE
-     OBJECTS { 
+     OBJECTS {
        alaNetSecPortTrapInfoIfId,
        alaNetSecPortTrapInfoAnomaly,
        alaNetSecPortTrapInfoType
      }
      STATUS     current
      DESCRIPTION "Trap for an anomaly detected on a port."
-     ::= { alaNetSecPortTrapsDesc 0 1 }
+     ::= { alcatelIND1NETSECMIBNotifications 1 }
 
 alaNetSecPortTrapQuarantine NOTIFICATION-TYPE
-     OBJECTS { 
+     OBJECTS {
        alaNetSecPortTrapInfoIfId
      }
      STATUS     current
      DESCRIPTION "Trap for an anomalous port quarantine."
-     ::= { alaNetSecPortTrapsDesc 0 2 }
-
+     ::= { alcatelIND1NETSECMIBNotifications 2 }
 
 --
 -- Trap Objects
 --
+
 alaNetSecPortTrapInfoIfId OBJECT-TYPE
         SYNTAX InterfaceIndex
         MAX-ACCESS accessible-for-notify
@@ -823,7 +830,7 @@ alaNetSecPortTrapInfoIfId OBJECT-TYPE
         ::= { alaNetSecPortTrapsObj 1 }
 
 alaNetSecPortTrapInfoAnomaly OBJECT-TYPE
-        SYNTAX AlaAnomalyType 
+        SYNTAX AlaAnomalyType
         MAX-ACCESS accessible-for-notify
         STATUS current
         DESCRIPTION "Type of anomaly detected on the interface"
@@ -835,9 +842,6 @@ alaNetSecPortTrapInfoType OBJECT-TYPE
         STATUS current
         DESCRIPTION "Nature of anomaly. Informs if system attached to interface is source or target of the anomaly."
         ::= { alaNetSecPortTrapsObj 3 }
-
-
-
 
 
 --
@@ -859,31 +863,35 @@ alcatelIND1NETSECMIBCompliances OBJECT-IDENTITY
    DESCRIPTION "Branch for NETSEC application compliance statements"
    ::= { alcatelIND1NETSECMIBConformance 2 }
 
-
 --
 -- COMPLIANCE
 --
+
 alcatelIND1NETSECMIBCompliance MODULE-COMPLIANCE
     STATUS  current
     DESCRIPTION "Compliance statement for NetSec."
     MODULE MANDATORY-GROUPS {
       alaNetSecPortRangeComplianceGroup,
       alaNetSecMonitoringGroupComplianceGroup,
-      alaNetSecPortStatsComplianceGroup,       
-      alaNetSecPortAnomalyStatsComplianceGroup,       
-      alaNetSecPortAnomalySummaryComplianceGroup,       
-      alaNetSecPortOpComplianceGroup,  
-      alaNetSecGroupOpComplianceGroup,  
-      alaNetSecGroupComplianceGroup,       
-      alaNetSecPortTrapsComplianceGroup
+      alaNetSecPortStatsComplianceGroup,
+      alaNetSecPortAnomalyStatsComplianceGroup,
+      alaNetSecPortAnomalySummaryComplianceGroup,
+      alaNetSecPortOpComplianceGroup,
+      alaNetSecGroupOpComplianceGroup,
+      alaNetSecGroupComplianceGroup,
+      alaNetSecPortTrapsComplianceGroup,
+      alaNetSecMonitoringGroupEntryGroup,
+      alaNetSecPortRangeGroupEntryGroup,
+      alaNetSecPortTrapAnomalyGroup
     }
     ::= { alcatelIND1NETSECMIBCompliances 1 }
 
 --
 -- UNITS OF CONFORMANCE
 --
+
 alaNetSecPortRangeComplianceGroup OBJECT-GROUP
-    OBJECTS {       
+    OBJECTS {
       alaNetSecPortRangeGroupRowStatus
     }
    STATUS current
@@ -899,14 +907,13 @@ alaNetSecMonitoringGroupComplianceGroup OBJECT-GROUP
    ::= { alcatelIND1NETSECMIBGroups 2 }
 
 alaNetSecPortTrapsComplianceGroup NOTIFICATION-GROUP
-    NOTIFICATIONS {       
+    NOTIFICATIONS {
       alaNetSecPortTrapAnomaly,
       alaNetSecPortTrapQuarantine
     }
    STATUS current
    DESCRIPTION "Traps"
    ::= { alcatelIND1NETSECMIBGroups 3 }
-
 
 alaNetSecPortStatsComplianceGroup OBJECT-GROUP
     OBJECTS {
@@ -981,4 +988,43 @@ alaNetSecGroupComplianceGroup OBJECT-GROUP
    DESCRIPTION
       "Monitoring Group port membership Collection"
    ::= { alcatelIND1NETSECMIBGroups 9 }
+
+   alaNetSecMonitoringGroupEntryGroup OBJECT-GROUP
+    OBJECTS {
+    	alaNetSecMonitoringGroupAnomalyState,
+        alaNetSecMonitoringGroupAnomalyLog,
+        alaNetSecMonitoringGroupAnomalyTrap,
+        alaNetSecMonitoringGroupAnomalyQuarantine,
+        alaNetSecMonitoringGroupAnomalyCount,
+        alaNetSecMonitoringGroupAnomalySensitivity,
+        alaNetSecMonitoringGroupAnomalyPeriod,
+        alaNetSecMonitoringGroupRowStatus
+    }
+   STATUS current
+   DESCRIPTION
+      "Entry identifies configuration of a monitoring-group's anomaly-type's parameter group."
+   ::= { alcatelIND1NETSECMIBGroups 10 }
+
+   alaNetSecPortRangeGroupEntryGroup OBJECT-GROUP
+    OBJECTS {
+    	alaNetSecPortRangeGroupName,
+        alaNetSecPortRangeGroupRowStatus
+        }
+   STATUS current
+   DESCRIPTION
+      "Entry is identified by a unique port-range group."
+   ::= { alcatelIND1NETSECMIBGroups 11 }
+
+   alaNetSecPortTrapAnomalyGroup OBJECT-GROUP
+    OBJECTS {
+    	alaNetSecPortTrapInfoIfId,
+    	alaNetSecPortTrapInfoAnomaly,
+    	alaNetSecPortTrapInfoType
+        }
+   STATUS current
+   DESCRIPTION
+      "Trap for an anomaly detected on a port group."
+   ::= { alcatelIND1NETSECMIBGroups 12 }
+
 END
+
