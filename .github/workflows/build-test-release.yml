@@ -53,16 +53,16 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: v3.6.3
-      - name: Upload
-        run: |
-          mkdir /tmp/package
-          mkdir /tmp/index
-          mkdir /tmp/origin
-          VERSION="$(echo "$GITHUB_REF" | cut -d / -f 3)"
-          helm package charts -d /tmp/package
-          gh release upload "$VERSION" /tmp/package/*
-          helm repo index /tmp/package --url https://github.com/pysnmp/mibs/releases/download/"$VERSION"
-          cp /tmp/package/index.yaml ./output
+#       - name: Upload
+#         run: |
+#           mkdir /tmp/package
+#           mkdir /tmp/index
+#           mkdir /tmp/origin
+#           VERSION="$(echo "$GITHUB_REF" | cut -d / -f 3)"
+#           helm package charts -d /tmp/package
+#           gh release upload "$VERSION" /tmp/package/*
+#           helm repo index /tmp/package --url https://github.com/pysnmp/mibs/releases/download/"$VERSION"
+#           cp /tmp/package/index.yaml ./output
 
       - name: Deploy - GH-PAGES
         uses: peaceiris/actions-gh-pages@v3
