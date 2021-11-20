@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IANAifType-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IANAifType-MIB
-# Produced by pysmi-1.1.0 at Fri Nov 19 15:06:54 2021
-# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
+# ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANAifType-MIB
+# Produced by pysmi-1.1.3 at Sat Nov 20 16:39:46 2021
+# On host fv-az42-715 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Bits, MibIdentifier, iso, IpAddress, TimeTicks, ModuleIdentity, Counter32, Gauge32, Unsigned32, ObjectIdentity, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "MibIdentifier", "iso", "IpAddress", "TimeTicks", "ModuleIdentity", "Counter32", "Gauge32", "Unsigned32", "ObjectIdentity", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+mib_2, ObjectIdentity, MibIdentifier, iso, TimeTicks, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Unsigned32, Integer32, Bits, ModuleIdentity, Counter32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "ObjectIdentity", "MibIdentifier", "iso", "TimeTicks", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Unsigned32", "Integer32", "Bits", "ModuleIdentity", "Counter32", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ianaifType = ModuleIdentity((1, 3, 6, 1, 2, 1, 30))
 ianaifType.setRevisions(('2020-04-02 00:00', '2020-01-10 00:00', '2019-12-03 00:00', '2019-10-16 00:00', '2019-02-14 00:00', '2019-02-08 00:00', '2019-01-31 00:00', '2018-07-04 00:00', '2018-06-28 00:00', '2018-06-28 00:00', '2018-06-22 00:00', '2018-06-21 00:00', '2017-03-30 00:00', '2017-01-19 00:00', '2016-11-23 00:00', '2016-06-16 00:00', '2016-06-09 00:00', '2016-06-08 00:00', '2016-05-19 00:00', '2016-05-03 00:00', '2016-04-29 00:00', '2014-09-24 00:00', '2014-09-19 00:00', '2014-07-03 00:00', '2014-05-22 00:00', '2012-05-17 00:00', '2012-01-11 00:00', '2011-12-18 00:00', '2011-10-26 00:00', '2011-09-07 00:00', '2011-07-22 00:00', '2011-06-03 00:00', '2010-09-21 00:00', '2010-07-21 00:00', '2010-02-11 00:00', '2010-02-08 00:00', '2009-05-06 00:00', '2009-02-06 00:00', '2008-10-09 00:00', '2008-08-12 00:00', '2008-07-22 00:00', '2008-06-24 00:00', '2008-05-29 00:00', '2007-09-13 00:00', '2007-05-29 00:00', '2007-03-08 00:00', '2007-01-23 00:00', '2006-10-17 00:00', '2006-09-25 00:00', '2006-08-17 00:00', '2006-08-11 00:00', '2006-07-25 00:00', '2006-06-14 00:00', '2006-03-31 00:00', '2006-03-30 00:00', '2005-12-22 00:00', '2005-10-10 00:00', '2005-09-09 00:00', '2005-05-27 00:00', '2005-03-03 00:00', '2004-11-22 00:00', '2004-06-17 00:00', '2004-05-12 00:00', '2004-05-07 00:00', '2003-08-25 00:00', '2003-08-18 00:00', '2003-08-07 00:00', '2003-03-18 00:00', '2003-01-13 00:00', '2002-10-17 00:00', '2002-07-16 00:00', '2002-07-10 00:00', '2002-06-19 00:00', '2002-01-04 00:00', '2001-12-20 00:00', '2001-11-15 00:00', '2001-11-06 00:00', '2001-11-02 00:00', '2001-10-16 00:00', '2001-09-19 00:00', '2001-05-11 00:00', '2001-01-12 00:00', '2000-12-19 00:00', '2000-12-07 00:00', '2000-12-04 00:00', '2000-10-17 00:00', '2000-10-02 00:00', '2000-09-01 00:00', '2000-08-24 00:00', '2000-08-23 00:00', '2000-08-22 00:00', '2000-04-25 00:00', '2000-03-06 00:00', '1999-10-08 14:30', '1994-01-31 00:00',))
 
@@ -32,4 +32,4 @@ class IANAtunnelType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))
     namedValues = NamedValues(("other", 1), ("direct", 2), ("gre", 3), ("minimal", 4), ("l2tp", 5), ("pptp", 6), ("l2f", 7), ("udp", 8), ("atmp", 9), ("msdp", 10), ("sixToFour", 11), ("sixOverFour", 12), ("isatap", 13), ("teredo", 14), ("ipHttps", 15), ("softwireMesh", 16), ("dsLite", 17), ("aplusp", 18))
 
-mibBuilder.exportSymbols("IANAifType-MIB", ianaifType=ianaifType, PYSNMP_MODULE_ID=ianaifType, IANAifType=IANAifType, IANAtunnelType=IANAtunnelType)
+mibBuilder.exportSymbols("IANAifType-MIB", IANAifType=IANAifType, ianaifType=ianaifType, PYSNMP_MODULE_ID=ianaifType, IANAtunnelType=IANAtunnelType)
