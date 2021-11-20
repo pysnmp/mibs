@@ -66,6 +66,7 @@ alcatelIND1DVMRPMIB MODULE-IDENTITY
 alcatelIND1DVMRPMIBObjects OBJECT IDENTIFIER ::= { alcatelIND1DVMRPMIB 1 }
 
 alaDvmrpGlobalConfig    OBJECT IDENTIFIER ::= { alcatelIND1DVMRPMIBObjects 1 }
+alaDvmrpDebugConfig OBJECT IDENTIFIER ::= { alcatelIND1DVMRPMIBObjects 2 }
 alaDvmrpTunnelXIfTable OBJECT-TYPE
     SYNTAX        SEQUENCE OF AlaDvmrpTunnelXIfEntry
     MAX-ACCESS    not-accessible
@@ -75,7 +76,7 @@ alaDvmrpTunnelXIfTable OBJECT-TYPE
         assigned tunnel index when a DVMRP tunnel is created.  This table
         contains additional objects that are not present in the tunnelMIB
         tunnelIfTable."
-        ::= { alcatelIND1DVMRPMIBObjects 2 }
+        ::= { alcatelIND1DVMRPMIBObjects 3 }
 
 
 -- ***************************************************************************
@@ -235,7 +236,7 @@ alaDvmrpInitNbrAsSubord OBJECT-TYPE
 			enable(1),
 			disable(2)
 			}
-	MAX-ACCESS  read-only
+	MAX-ACCESS  read-write
 	STATUS      current
 	DESCRIPTION
 	"Enables/Disables Bfd for DVMRP Protocol."
@@ -248,24 +249,220 @@ alaDvmrpInitNbrAsSubord OBJECT-TYPE
 			enable(1),
 			disable(2)
 			}
-	MAX-ACCESS  read-only
+	MAX-ACCESS  read-write
 	STATUS      current
 	DESCRIPTION
 	"Enables/Disables Bfd for all DVMRP interfaces."
 	DEFVAL      {disable}
 	::= { alaDvmrpGlobalConfig 13}
 
- alaDvmrpMbrOperStatus   OBJECT-TYPE
-	SYNTAX	INTEGER
-			{
-			enable(1),
-			disable(2)
-			}
-	MAX-ACCESS  read-only
-	STATUS      current
-	DESCRIPTION
-	"Whether MBR is currently enabled/disabled for DVMRP."
-	::= { alaDvmrpGlobalConfig 14}
+-- ************************************************************************
+--  DVMRP Debug Configuration
+-- ************************************************************************
+
+alaDvmrpDebugLevel     OBJECT-TYPE
+    SYNTAX     Integer32 (0..255)
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { 0 }
+    ::= {alaDvmrpDebugConfig 1}
+
+alaDvmrpDebugError     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugError
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 2}
+
+alaDvmrpDebugNbr     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugNbr
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 3}
+
+alaDvmrpDebugRoutes     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugRoutes
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 4}
+
+alaDvmrpDebugProbes     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugProbes
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 5}
+
+alaDvmrpDebugPrunes     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugPrunes
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 6}
+
+alaDvmrpDebugGrafts     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugGrafts
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 7}
+
+alaDvmrpDebugTime     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugTime
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 8}
+
+alaDvmrpDebugIgmp     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugIgmp
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 9}
+
+alaDvmrpDebugFlash     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugFlash
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 10}
+
+alaDvmrpDebugMip     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugMip
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 11}
+
+alaDvmrpDebugInit     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugInit
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 12}
+
+alaDvmrpDebugTm     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugTm
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 13}
+
+alaDvmrpDebugIpmrm     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugIpmrm
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 14}
+
+alaDvmrpDebugMisc     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugMisc
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 15}
+
+alaDvmrpDebugAll     OBJECT-TYPE
+    SYNTAX     INTEGER {
+                   enable(1),
+                   disable(2)
+               }
+    MAX-ACCESS read-write
+    STATUS     deprecated
+    DESCRIPTION
+               "This Object is deprecated in favour of alaDrcTmDvmrpDebugAll
+                MIB Object of alaDrcTmDvmrpDebug Configuration"
+    DEFVAL     { disable }
+    ::= {alaDvmrpDebugConfig 16}
 
 -- ************************************************************************
 --  DVMRP Tunnel Config Extension Table
@@ -322,23 +519,10 @@ alaDvmrpLocalIfIndex        OBJECT-TYPE
 
  AlaDvmrpIfAugEntry ::=
 	SEQUENCE {
-			alaDvmrpIfBfdStatus		       INTEGER, 
-			alaDvmrpIfMbrDefaultInfoStatus INTEGER 
-           	 }
+			alaDvmrpIfBfdStatus		INTEGER 
+            	 }
 
  alaDvmrpIfBfdStatus		OBJECT-TYPE
-	SYNTAX		INTEGER
-			{
-			enable(1),
-			disable(2)
-			}
-	MAX-ACCESS	read-only
-	STATUS   current
-	DESCRIPTION
-		"This object enables/disables BFD for this DVMRP interface."
-		::= { alaDvmrpIfAugEntry 1 }
-
- alaDvmrpIfMbrDefaultInfoStatus	OBJECT-TYPE
 	SYNTAX		INTEGER
 			{
 			enable(1),
@@ -347,11 +531,8 @@ alaDvmrpLocalIfIndex        OBJECT-TYPE
 	MAX-ACCESS	read-create
 	STATUS   current
 	DESCRIPTION
-		"This object enables/disables DVMRP to advertise the default route 
-        on this interface.  This object is only applicable if the router
-        is operating as a Multicast Border Router."
-	DEFVAL { disable }
-		::= { alaDvmrpIfAugEntry 2 }
+		"This object enables/disables BFD for this DVMRP interface."
+		::= { alaDvmrpIfAugEntry 1 }
 
 -- conformance information
 
@@ -369,7 +550,7 @@ alaDvmrpCompliance MODULE-COMPLIANCE
             "The compliance statement for routers running DVMRP
             and implementing the ALCATEL-IND1-DVMRP MIB."
     MODULE  -- this module
-        MANDATORY-GROUPS { alaDvmrpConfigMIBGroup, 
+        MANDATORY-GROUPS { alaDvmrpConfigMIBGroup, alaDvmrpDebugMIBGroup,
                            alaDvmrpTunnelXIfMIBGroup,alaDvmrpIfConfigGroup }
 
     ::= { alcatelIND1DVMRPMIBCompliances 1 }
@@ -382,14 +563,27 @@ alaDvmrpConfigMIBGroup OBJECT-GROUP
               alaDvmrpRouteExpirationTimeout, alaDvmrpRouteHoldDown,
               alaDvmrpNeighborProbeInterval, alaDvmrpPruneLifetime,
               alaDvmrpPruneRetransmission, alaDvmrpGraftRetransmission,
-              alaDvmrpInitNbrAsSubord,alaDvmrpBfdStatus,alaDvmrpBfdAllInterfaceStatus,
-              alaDvmrpMbrOperStatus
+              alaDvmrpInitNbrAsSubord,alaDvmrpBfdStatus,alaDvmrpBfdAllInterfaceStatus 
             }
     STATUS  current
     DESCRIPTION
             "A collection of objects to support the management of global
             configuration parameters on DVMRP routers."
     ::= { alcatelIND1DVMRPMIBGroups 1 }
+
+alaDvmrpDebugMIBGroup OBJECT-GROUP
+    OBJECTS { alaDvmrpDebugLevel, alaDvmrpDebugError, alaDvmrpDebugNbr,
+              alaDvmrpDebugRoutes, alaDvmrpDebugProbes, alaDvmrpDebugPrunes,
+              alaDvmrpDebugGrafts, alaDvmrpDebugTime, alaDvmrpDebugIgmp,
+              alaDvmrpDebugFlash, alaDvmrpDebugMip, alaDvmrpDebugInit,
+              alaDvmrpDebugTm, alaDvmrpDebugIpmrm, alaDvmrpDebugMisc,
+              alaDvmrpDebugAll
+            }
+    STATUS  current
+    DESCRIPTION
+            "A collection of optional objects to provide debugging
+             support on DVMRP routers."
+    ::= { alcatelIND1DVMRPMIBGroups 2 }
 
 alaDvmrpTunnelXIfMIBGroup OBJECT-GROUP
     OBJECTS { alaDvmrpLocalIfIndex }
@@ -398,15 +592,15 @@ alaDvmrpTunnelXIfMIBGroup OBJECT-GROUP
             "These objects are required to provide additional information 
             about configured DVMRP tunnels not found in the standard tunnel
             MIB."
-    ::= { alcatelIND1DVMRPMIBGroups 2 }
+    ::= { alcatelIND1DVMRPMIBGroups 3 }
 alaDvmrpIfConfigGroup    OBJECT-GROUP
-   OBJECTS { alaDvmrpIfBfdStatus, alaDvmrpIfMbrDefaultInfoStatus }
+   OBJECTS { alaDvmrpIfBfdStatus }
     STATUS  current
     DESCRIPTION
             "These objects are required to provide additional information
             about configured DVMRP interfaces not found in the standard tunnel
             MIB."
-    ::= { alcatelIND1DVMRPMIBGroups 3 }
+    ::= { alcatelIND1DVMRPMIBGroups 4 }
 
 
 END

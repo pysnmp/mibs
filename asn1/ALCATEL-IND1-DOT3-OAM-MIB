@@ -333,7 +333,7 @@ ALCATEL-IND1-DOT3-OAM-MIB DEFINITIONS ::= BEGIN
         MAX-ACCESS  read-write
         STATUS      current
         DESCRIPTION
-          "This object is used to set the delay between two
+          "This object is used to set the delay between two 
            frames transmitted during L1 ping.
           "
         DEFVAL { 1000 }
@@ -551,7 +551,7 @@ ALCATEL-IND1-DOT3-OAM-MIB DEFINITIONS ::= BEGIN
             }
 
       alaDot3OamTransactionId OBJECT-TYPE
-        SYNTAX      Integer32 (1..2147483647)
+        SYNTAX      Integer32
         MAX-ACCESS  not-accessible
         STATUS      current
         DESCRIPTION

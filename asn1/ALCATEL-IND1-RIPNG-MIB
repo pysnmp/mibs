@@ -8,14 +8,14 @@ ALCATEL-IND1-RIPNG-MIB DEFINITIONS ::= BEGIN
                 FROM IPV6-TC
         RowStatus
                 FROM SNMPv2-TC
-        MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+        MODULE-COMPLIANCE, OBJECT-GROUP
                 FROM SNMPv2-CONF
         routingIND1Ripng
                 FROM ALCATEL-IND1-BASE;
 
 
     alcatelIND1RIPNGMIB MODULE-IDENTITY
-        LAST-UPDATED "201010260000Z"
+        LAST-UPDATED "200704030000Z"
         ORGANIZATION "Alcatel-Lucent"
         CONTACT-INFO
                 " Please consult with Customer Service to ensure the most appropriate
@@ -190,7 +190,7 @@ alaProtocolRipng        OBJECT IDENTIFIER ::= { alcatelIND1RIPNGMIBObjects 1 }
                 DESCRIPTION
                         "Controls whether trigged updates contain entire RIB
                         or just changes."
-                DEFVAL { onlyupdated }
+                DEFVAL { 2 }
         ::= { alaProtocolRipng 8 }
 
         alaRipngJitter OBJECT-TYPE
@@ -213,6 +213,201 @@ alaProtocolRipng        OBJECT IDENTIFIER ::= { alcatelIND1RIPNGMIBObjects 1 }
                 DEFVAL { 3 }
         ::= { alaProtocolRipng 10 }
 
+
+-- ************************************************************************
+--  RIPng Debug Configuration
+-- ************************************************************************
+
+alaRipngDebug OBJECT IDENTIFIER ::= { alcatelIND1RIPNGMIBObjects 2 }
+
+        alaRipngDebugLevel OBJECT-TYPE
+                SYNTAX  Integer32 (0..255)
+                MAX-ACCESS  read-write
+                STATUS  deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebur Configuration"
+                DEFVAL { 0 }
+        ::= { alaRipngDebug 1 }
+
+        alaRipngDebugError OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugError MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 2 }
+
+         alaRipngDebugWarn OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugWarning MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 3 }
+
+         alaRipngDebugRecv OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugRecv MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 4 }
+
+         alaRipngDebugSend OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugSend MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 5 }
+
+         alaRipngDebugRdb OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugRdb MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 6 }
+
+         alaRipngDebugAge OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugAge MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 7 }
+
+         alaRipngDebugMip OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugMip MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 8 }
+
+         alaRipngDebugInfo OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugInfo MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 9 }
+
+         alaRipngDebugSetup OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugSetup MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 10 }
+
+         alaRipngDebugTime OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugTime MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 11 }
+
+         alaRipngDebugTm OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugTm MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 12 }
+
+         alaRipngDebugRouteFilter OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugRouteFilter MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 13 }
+
+         alaRipngDebugNexthopFilter OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugNexthopFilter MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 14 }
+
+         alaRipngDebugSummary OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugSummary MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 15 }
+
+         alaRipngDebugAll OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        enable(1),
+                        disable(2)
+                }
+                MAX-ACCESS read-write
+                STATUS     deprecated
+                DESCRIPTION
+                        "This Object is deprecated in favour of alaDrcTmRipngDebugAll MIB Object of alaDrcTmRipngDebug Configuration"
+                DEFVAL     { disable }
+        ::= { alaRipngDebug 16}
 
 -- ************************************************************************
 --  RIPng Interface Table
@@ -239,8 +434,8 @@ alaRipngInterfaceEntry OBJECT-TYPE
 
 AlaRipngInterfaceEntry ::=
         SEQUENCE {
-                alaRipngInterfaceIndex          Integer32,
                 alaRipngInterfaceStatus         RowStatus,
+                alaRipngInterfaceIndex          Integer32,
                 alaRipngInterfaceMetric         Integer32,
                 alaRipngInterfaceRecvStatus     INTEGER,
                 alaRipngInterfaceSendStatus     INTEGER,
@@ -248,29 +443,30 @@ AlaRipngInterfaceEntry ::=
                 alaRipngInterfacePacketsSent    Integer32,
                 alaRipngInterfacePacketsRcvd    Integer32,
                 alaRipngInterfaceMTU            Counter32,
-                alaRipngInterfaceNextUpdate     TimeTicks
+                alaRipngInterfaceNextUpdate     TimeTicks,
+                alaRipngInterfaceJitter         Integer32
         }
-
-        alaRipngInterfaceIndex OBJECT-TYPE
-                SYNTAX  Integer32  (1..2147483647)
-                MAX-ACCESS not-accessible
-                STATUS  current
-                DESCRIPTION
-                        "IPv6 index of this interface."
-        ::= { alaRipngInterfaceEntry 1 }
 
         alaRipngInterfaceStatus OBJECT-TYPE
                 SYNTAX  RowStatus
-                MAX-ACCESS  read-create
-                STATUS current
+                MAX-ACCESS  read-write
+                STATUS  current
                 DESCRIPTION
                         "Create/delete RIPng interfaces."
                 DEFVAL  { notInService }
+        ::= { alaRipngInterfaceEntry 1 }
+
+        alaRipngInterfaceIndex OBJECT-TYPE
+                SYNTAX  Integer32
+                MAX-ACCESS not-accessible
+                STATUS current
+                DESCRIPTION
+                        "IPv6 index of this interface."
         ::= { alaRipngInterfaceEntry 2 }
 
         alaRipngInterfaceMetric OBJECT-TYPE
                 SYNTAX  Integer32 (1 .. 15)
-                MAX-ACCESS read-create
+                MAX-ACCESS read-write
                 STATUS current
                 DESCRIPTION
                         "Metric used on this interface."
@@ -282,11 +478,11 @@ AlaRipngInterfaceEntry ::=
                         enabled (1),
                         disabled (2)
                 }
-                MAX-ACCESS read-create
+                MAX-ACCESS read-write
                 STATUS current
                 DESCRIPTION
                         "Controls whether or not to recv updates on this intf."
-                DEFVAL { enabled }
+                DEFVAL { 1 }
         ::= { alaRipngInterfaceEntry 4 }
 
         alaRipngInterfaceSendStatus OBJECT-TYPE
@@ -294,11 +490,11 @@ AlaRipngInterfaceEntry ::=
                         enabled (1),
                         disabled (2)
                 }
-                MAX-ACCESS read-create
+                MAX-ACCESS read-write
                 STATUS current
                 DESCRIPTION
                         "Controls whether or not to send updates on this intf."
-                DEFVAL { enabled }
+                DEFVAL { 1 }
         ::= { alaRipngInterfaceEntry 5 }
 
         alaRipngInterfaceHorizon OBJECT-TYPE
@@ -307,11 +503,11 @@ AlaRipngInterfaceEntry ::=
                         onlysplit (2),
                         poison (3)
                 }
-                MAX-ACCESS read-create
+                MAX-ACCESS read-write
                 STATUS current
                 DESCRIPTION
                         "Controls use of split horizon on this interface."
-                DEFVAL { none }
+                DEFVAL { 1 }
         ::= { alaRipngInterfaceEntry 6 }
 
         alaRipngInterfacePacketsSent OBJECT-TYPE
@@ -346,6 +542,233 @@ AlaRipngInterfaceEntry ::=
                         "Seconds remaining for the next update on this interface"
         ::= { alaRipngInterfaceEntry 10 }
 
+        alaRipngInterfaceJitter OBJECT-TYPE
+                SYNTAX  Integer32 (0 .. 60)
+                MAX-ACCESS  read-write
+                STATUS  deprecated
+                DESCRIPTION
+                        "Deprecated in favour of alaRipngJitter"
+                DEFVAL { 3 }
+        ::= { alaRipngInterfaceEntry 11 }
+
+
+-- ************************************************************************
+--  RIPng Next Hop Filter Table
+-- ************************************************************************
+
+
+alaRipngNexthopFilterTable  OBJECT-TYPE
+        SYNTAX    SEQUENCE OF AlaRipngNexthopFilterEntry
+        MAX-ACCESS    not-accessible
+        STATUS    deprecated
+        DESCRIPTION
+                "RIPng Nexthop filters."
+::= { alaProtocolRipng 12 }
+
+alaRipngNexthopFilterEntry OBJECT-TYPE
+        SYNTAX    AlaRipngNexthopFilterEntry
+        MAX-ACCESS    not-accessible
+        STATUS    deprecated
+        DESCRIPTION
+                "Each individual Nexthop filter."
+        INDEX   {
+                alaRipngNexthopFilterAddress
+        }
+::= { alaRipngNexthopFilterTable 1 }
+
+AlaRipngNexthopFilterEntry ::=
+        SEQUENCE {
+                alaRipngNexthopFilterStatus     RowStatus,
+                alaRipngNexthopFilterAddress    Ipv6Address
+        }
+
+        alaRipngNexthopFilterStatus OBJECT-TYPE
+                SYNTAX  RowStatus
+                MAX-ACCESS  read-write
+                STATUS  deprecated
+                DESCRIPTION
+                        "Create/delete RIPng Nexthop Filter."
+                DEFVAL  { notInService }
+        ::= { alaRipngNexthopFilterEntry 1 }
+
+        alaRipngNexthopFilterAddress OBJECT-TYPE
+                SYNTAX  Ipv6Address
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Address of router to filter routes from."
+        ::= { alaRipngNexthopFilterEntry 2 }
+
+-- ************************************************************************
+--  RIPng Summarization Table
+-- ************************************************************************
+
+alaRipngSummarizationTable  OBJECT-TYPE
+        SYNTAX    SEQUENCE OF AlaRipngSummarizationEntry
+        MAX-ACCESS    not-accessible
+        STATUS    deprecated
+        DESCRIPTION
+                "RIPng Nexthop filters."
+::= { alaProtocolRipng 13 }
+
+alaRipngSummarizationEntry OBJECT-TYPE
+        SYNTAX    AlaRipngSummarizationEntry
+        MAX-ACCESS    not-accessible
+        STATUS    deprecated
+        DESCRIPTION
+                "Each individual Nexthop filter."
+        INDEX   {
+                alaRipngSummarizationSourcePrefix,
+                alaRipngSummarizationSourcePrefixLen,
+                alaRipngSummarizationPrefix,
+                alaRipngSummarizationPrefixLen
+        }
+::= { alaRipngSummarizationTable 1 }
+
+AlaRipngSummarizationEntry ::=
+        SEQUENCE {
+                alaRipngSummarizationStatus             RowStatus,
+                alaRipngSummarizationSourcePrefix       Ipv6AddressPrefix,
+                alaRipngSummarizationSourcePrefixLen    Integer32,
+                alaRipngSummarizationPrefix             Ipv6AddressPrefix,
+                alaRipngSummarizationPrefixLen          Integer32,
+                alaRipngSummarizationSubnets            INTEGER
+        }
+
+        alaRipngSummarizationStatus OBJECT-TYPE
+                SYNTAX  RowStatus
+                MAX-ACCESS  read-write
+                STATUS  deprecated
+                DESCRIPTION
+                        "Create/delete RIPng Summarization Filter."
+                DEFVAL  { notInService }
+        ::= { alaRipngSummarizationEntry 1 }
+
+        alaRipngSummarizationSourcePrefix OBJECT-TYPE
+                SYNTAX  Ipv6AddressPrefix
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Prefix of network to use a the source of a
+                        summarization."
+        ::= { alaRipngSummarizationEntry 2 }
+
+        alaRipngSummarizationSourcePrefixLen OBJECT-TYPE
+                SYNTAX  Integer32 (1 .. 128)
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Prefix length of source prefix."
+        ::= { alaRipngSummarizationEntry 3 }
+
+        alaRipngSummarizationPrefix OBJECT-TYPE
+                SYNTAX  Ipv6AddressPrefix
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Prefix of summarized route."
+        ::= { alaRipngSummarizationEntry 4 }
+
+        alaRipngSummarizationPrefixLen OBJECT-TYPE
+                SYNTAX  Integer32 (1 .. 128)
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Prefix length of summarized route."
+        ::= { alaRipngSummarizationEntry 5 }
+
+        alaRipngSummarizationSubnets OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        include (1),
+                        donotinclude (2)
+                }
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Include subnets?"
+        ::= { alaRipngSummarizationEntry 6 }
+
+
+-- ************************************************************************
+--  RIPng Route Filter Table
+-- ************************************************************************
+
+alaRipngRouteFilterTable  OBJECT-TYPE
+        SYNTAX    SEQUENCE OF AlaRipngRouteFilterEntry
+        MAX-ACCESS    not-accessible
+        STATUS    deprecated
+        DESCRIPTION
+                "RIPng route filters."
+::= { alaProtocolRipng 14 }
+
+alaRipngRouteFilterEntry OBJECT-TYPE
+        SYNTAX    AlaRipngRouteFilterEntry
+        MAX-ACCESS    not-accessible
+        STATUS    deprecated
+        DESCRIPTION
+                "Each individual route filter."
+        INDEX   {
+                alaRipngRouteFilterPrefix,
+                alaRipngRouteFilterPrefixLen,
+                alaRipngRouteFilterDirection
+        }
+::= { alaRipngRouteFilterTable 1 }
+
+AlaRipngRouteFilterEntry ::=
+        SEQUENCE {
+                alaRipngRouteFilterStatus       RowStatus,
+                alaRipngRouteFilterPrefix       Ipv6AddressPrefix,
+                alaRipngRouteFilterPrefixLen    Integer32,
+                alaRipngRouteFilterDirection    INTEGER,
+                alaRipngRouteFilterSubnets      INTEGER
+        }
+
+        alaRipngRouteFilterStatus OBJECT-TYPE
+                SYNTAX  RowStatus
+                MAX-ACCESS  read-write
+                STATUS  deprecated
+                DESCRIPTION
+                        "Create/delete RIPng route Filter."
+                DEFVAL  { notInService }
+        ::= { alaRipngRouteFilterEntry 1 }
+
+        alaRipngRouteFilterPrefix OBJECT-TYPE
+                SYNTAX  Ipv6AddressPrefix
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Prefix of filter."
+        ::= { alaRipngRouteFilterEntry 2 }
+
+        alaRipngRouteFilterPrefixLen OBJECT-TYPE
+                SYNTAX  Integer32 (1 .. 128)
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Prefix length of filter."
+        ::= { alaRipngRouteFilterEntry 3 }
+
+        alaRipngRouteFilterDirection OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        in (1),
+                        out (2)
+                }
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Which way to apply the filter."
+        ::= { alaRipngRouteFilterEntry 4 }
+
+        alaRipngRouteFilterSubnets OBJECT-TYPE
+                SYNTAX  INTEGER {
+                        include (1),
+                        donotinclude (2)
+                }
+                MAX-ACCESS read-write
+                STATUS deprecated
+                DESCRIPTION
+                        "Include subnets?"
+        ::= { alaRipngRouteFilterEntry 5 }
 
 -- ************************************************************************
 --  RIPng Peer Table
@@ -374,12 +797,12 @@ alaRipngPeerEntry OBJECT-TYPE
 AlaRipngPeerEntry ::=
         SEQUENCE {
                 alaRipngPeerAddress     Ipv6Address,
-                alaRipngPeerIndex       Integer32,
                 alaRipngPeerLastUpdate  TimeTicks,
                 alaRipngPeerNumUpdates  Counter32,
                 alaRipngPeerNumRoutes   Counter32,
                 alaRipngPeerBadPackets  Counter32,
-                alaRipngPeerBadRoutes   Counter32
+                alaRipngPeerBadRoutes   Counter32,
+                alaRipngPeerIndex       Integer32
         }
 
         alaRipngPeerAddress OBJECT-TYPE
@@ -390,22 +813,13 @@ AlaRipngPeerEntry ::=
                         "Address of peer."
         ::= { alaRipngPeerEntry 1 }
 
-
-        alaRipngPeerIndex OBJECT-TYPE
-                SYNTAX  Integer32  (1..2147483647)
-                MAX-ACCESS not-accessible
-                STATUS current
-                DESCRIPTION
-                        "IPv6 index of the interface on which this peer is seen"
-        ::= { alaRipngPeerEntry 2 }
-
         alaRipngPeerLastUpdate OBJECT-TYPE
                 SYNTAX  TimeTicks
                 MAX-ACCESS  read-only
                 STATUS  current
                 DESCRIPTION
                         "Last Update received."
-        ::= { alaRipngPeerEntry 3 }
+        ::= { alaRipngPeerEntry 2 }
 
         alaRipngPeerNumUpdates OBJECT-TYPE
                 SYNTAX  Counter32
@@ -413,7 +827,7 @@ AlaRipngPeerEntry ::=
                 STATUS  current
                 DESCRIPTION
                         "Total # of updates received from this peer."
-        ::= { alaRipngPeerEntry 4 }
+        ::= { alaRipngPeerEntry 3 }
 
         alaRipngPeerNumRoutes OBJECT-TYPE
                 SYNTAX  Counter32
@@ -421,7 +835,7 @@ AlaRipngPeerEntry ::=
                 STATUS  current
                 DESCRIPTION
                         "Total # of routes received from this peer."
-        ::= { alaRipngPeerEntry 5 }
+        ::= { alaRipngPeerEntry 4 }
 
         alaRipngPeerBadPackets OBJECT-TYPE
                 SYNTAX  Counter32
@@ -429,7 +843,7 @@ AlaRipngPeerEntry ::=
                 STATUS  current
                 DESCRIPTION
                         "Total # of bad packets received."
-        ::= { alaRipngPeerEntry 6 }
+        ::= { alaRipngPeerEntry 5 }
 
         alaRipngPeerBadRoutes OBJECT-TYPE
                 SYNTAX  Counter32
@@ -437,6 +851,14 @@ AlaRipngPeerEntry ::=
                 STATUS  current
                 DESCRIPTION
                         "Total # of bad routes received."
+        ::= { alaRipngPeerEntry 6 }
+
+        alaRipngPeerIndex OBJECT-TYPE
+                SYNTAX  Integer32
+                MAX-ACCESS not-accessible
+                STATUS current
+                DESCRIPTION
+                        "IPv6 index of the interface on which this peer is seen"
         ::= { alaRipngPeerEntry 7 }
 
 
@@ -474,7 +896,7 @@ AlaRipngRouteEntry ::=
                 alaRipngRouteAge        TimeTicks,
                 alaRipngRouteTag        Integer32,
                 alaRipngRouteMetric     Integer32,
-                alaRipngRouteStatus     INTEGER,
+                alaRipngRouteStatus     RowStatus,
                 alaRipngRouteFlags      INTEGER,
                 alaRipngRouteIndex      Integer32
         }
@@ -542,15 +964,12 @@ AlaRipngRouteEntry ::=
         ::= { alaRipngRouteEntry 7 }
 
         alaRipngRouteStatus OBJECT-TYPE
-                SYNTAX    INTEGER {
-                        inactive (0),
-                          active (1)
-                }
+                SYNTAX    RowStatus
                 MAX-ACCESS read-only
                 STATUS     current
                 DESCRIPTION
-                        "Indicates whether the route has been installed
-                         into the IP Route Manager's fib."
+                        "The row status variable, used according to
+                        row installation and removal conventions."
         ::= { alaRipngRouteEntry 8 }
 
         alaRipngRouteFlags OBJECT-TYPE
@@ -591,7 +1010,11 @@ alcatelIND1RIPMIBCompliance MODULE-COMPLIANCE
 
         MANDATORY-GROUPS {
                 alaRipngGlobalGroup,
+                alaRipngDebugGroup,
                 alaRipngInterfaceGroup,
+                alaRipngNexthopFilterGroup,
+                alaRipngSummarizationGroup,
+                alaRipngRouteFilterGroup,
                 alaRipngPeerGroup,
                 alaRipngRouteGroup
         }
@@ -612,14 +1035,33 @@ alaRipngGlobalGroup OBJECT-GROUP
                 alaRipngGarbageTimer,
                 alaRipngRouteCount,
                 alaRipngGlobalRouteTag,
-                alaRipngTriggeredSends,
-                alaRipngJitter,
-                alaRipngPort
+                alaRipngTriggeredSends
         }
         STATUS current
         DESCRIPTION
                 "Collection of Miscellaneous objects for management of RIP."
 ::= { alcatelIND1RIPNGMIBGroups 1 }
+
+alaRipngDebugGroup OBJECT-GROUP
+        OBJECTS {
+                alaRipngDebugLevel,
+                alaRipngDebugError,
+                alaRipngDebugWarn,
+                alaRipngDebugRecv,
+                alaRipngDebugSend,
+                alaRipngDebugRdb,
+                alaRipngDebugAge,
+                alaRipngDebugMip,
+                alaRipngDebugInfo,
+                alaRipngDebugSetup,
+                alaRipngDebugTime,
+                alaRipngDebugTm,
+                alaRipngDebugAll
+        }
+        STATUS current
+        DESCRIPTION
+                "Collection of Miscellaneous objects for management of RIP."
+::= { alcatelIND1RIPNGMIBGroups 2 }
 
 alaRipngInterfaceGroup OBJECT-GROUP
         OBJECTS {
@@ -631,12 +1073,50 @@ alaRipngInterfaceGroup OBJECT-GROUP
                 alaRipngInterfacePacketsSent,
                 alaRipngInterfacePacketsRcvd,
                 alaRipngInterfaceMTU,
-                alaRipngInterfaceNextUpdate
+                alaRipngInterfaceNextUpdate,
+                alaRipngInterfaceJitter
         }
         STATUS current
         DESCRIPTION
                 "Collection of Miscellaneous objects for management of RIP."
 ::= { alcatelIND1RIPNGMIBGroups 3 }
+
+alaRipngNexthopFilterGroup OBJECT-GROUP
+        OBJECTS {
+                alaRipngNexthopFilterStatus,
+                alaRipngNexthopFilterAddress
+        }
+        STATUS current
+        DESCRIPTION
+                "Collection of Miscellaneous objects for management of RIP."
+::= { alcatelIND1RIPNGMIBGroups 4 }
+
+alaRipngSummarizationGroup OBJECT-GROUP
+        OBJECTS {
+                alaRipngSummarizationStatus,
+                alaRipngSummarizationSourcePrefix,
+                alaRipngSummarizationSourcePrefixLen,
+                alaRipngSummarizationPrefix,
+                alaRipngSummarizationPrefixLen,
+                alaRipngSummarizationSubnets
+        }
+        STATUS current
+        DESCRIPTION
+                "Collection of Miscellaneous objects for management of RIP."
+::= { alcatelIND1RIPNGMIBGroups 5 }
+
+alaRipngRouteFilterGroup OBJECT-GROUP
+        OBJECTS {
+                alaRipngRouteFilterStatus,
+                alaRipngRouteFilterPrefix,
+                alaRipngRouteFilterPrefixLen,
+                alaRipngRouteFilterDirection,
+                alaRipngRouteFilterSubnets
+        }
+        STATUS current
+        DESCRIPTION
+                "Collection of Miscellaneous objects for management of RIP."
+::= { alcatelIND1RIPNGMIBGroups 6 }
 
 alaRipngPeerGroup OBJECT-GROUP
         OBJECTS {
@@ -666,7 +1146,6 @@ alaRipngRouteGroup OBJECT-GROUP
                 "Collection of Miscellaneous objects for management of RIP."
 ::= { alcatelIND1RIPNGMIBGroups 8 }
 
-
 --
 -- Traps
 --
@@ -679,16 +1158,6 @@ ripngRouteMaxLimitReached NOTIFICATION-TYPE
            " This notification is generated as RIPng database reached supported maximum entries.
              RIPng will discard any new updates."
 ::= {alcatelIND1RIPNGTrapsRoot 1}
-
-
-alcatelIND1RIPNGTrapsGroup NOTIFICATION-GROUP
-        NOTIFICATIONS {
-            ripngRouteMaxLimitReached
-        }
-        STATUS  current
-        DESCRIPTION
-            "Collection of RIPNG Trap Objects."
-        ::= { alcatelIND1RIPNGMIBGroups 9 }
 
 
 END
