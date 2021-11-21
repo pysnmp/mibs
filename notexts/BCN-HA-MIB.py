@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module BCN-HA-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-HA-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 01:09:06 2021
-# On host fv-az83-627 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 21 13:28:58 2021
+# On host fv-az74-779 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, MibIdentifier, Bits, NotificationType, Unsigned32, ModuleIdentity, Gauge32, Integer32, iso, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "MibIdentifier", "Bits", "NotificationType", "Unsigned32", "ModuleIdentity", "Gauge32", "Integer32", "iso", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter64, MibIdentifier, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, TimeTicks, Gauge32, ModuleIdentity, IpAddress, Counter32, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "TimeTicks", "Gauge32", "ModuleIdentity", "IpAddress", "Counter32", "Integer32", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bcnHaMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 5, 1))
 bcnHaMIB.setRevisions(('2010-12-15 00:00',))
 if mibBuilder.loadTexts: bcnHaMIB.setLastUpdated('201012150000Z')
@@ -69,4 +69,4 @@ bcnHaStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 5, 4, 1
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnHaStatusCompliance = bcnHaStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-HA-MIB", bcnHaServiceCompliances=bcnHaServiceCompliances, bcnHaConformance=bcnHaConformance, bcnHaSerVirtualAddressType=bcnHaSerVirtualAddressType, bcnHaSerOperState=bcnHaSerOperState, bcnHaSerPeerAddressType=bcnHaSerPeerAddressType, bcnHaAlarmNotif=bcnHaAlarmNotif, bcnHa=bcnHa, bcnHaSerVirtualAddress=bcnHaSerVirtualAddress, bcnHaNotification=bcnHaNotification, bcnHaServiceStatusGroup=bcnHaServiceStatusGroup, bcnHaSerAddressEntry=bcnHaSerAddressEntry, bcnHaSerPhysicalAddress=bcnHaSerPhysicalAddress, bcnHaSerPhysicalAddressType=bcnHaSerPhysicalAddressType, bcnHaStatusCompliance=bcnHaStatusCompliance, bcnHaMIB=bcnHaMIB, bcnHaAlarmSeverity=bcnHaAlarmSeverity, bcnHaSerPeerAddress=bcnHaSerPeerAddress, bcnHaNotificationEventGroup=bcnHaNotificationEventGroup, bcnHaServiceGroups=bcnHaServiceGroups, bcnHaNotificationDataGroup=bcnHaNotificationDataGroup, bcnHaObjects=bcnHaObjects, bcnHaNotificationData=bcnHaNotificationData, bcnHaServiceStatus=bcnHaServiceStatus, bcnHaSerAddressTable=bcnHaSerAddressTable, bcnHaNotificationEvents=bcnHaNotificationEvents, PYSNMP_MODULE_ID=bcnHaMIB, bcnHaAlarmInfo=bcnHaAlarmInfo, bcnHaSerAddrTableIndex=bcnHaSerAddrTableIndex, bcnHaSerReplicationState=bcnHaSerReplicationState)
+mibBuilder.exportSymbols("BCN-HA-MIB", bcnHaObjects=bcnHaObjects, bcnHaNotificationEvents=bcnHaNotificationEvents, bcnHaAlarmInfo=bcnHaAlarmInfo, bcnHaSerAddrTableIndex=bcnHaSerAddrTableIndex, bcnHaSerAddressTable=bcnHaSerAddressTable, bcnHaNotificationDataGroup=bcnHaNotificationDataGroup, bcnHaSerPeerAddressType=bcnHaSerPeerAddressType, bcnHaNotification=bcnHaNotification, bcnHaSerPeerAddress=bcnHaSerPeerAddress, bcnHaConformance=bcnHaConformance, bcnHa=bcnHa, bcnHaAlarmNotif=bcnHaAlarmNotif, bcnHaSerPhysicalAddressType=bcnHaSerPhysicalAddressType, bcnHaSerReplicationState=bcnHaSerReplicationState, bcnHaSerVirtualAddress=bcnHaSerVirtualAddress, bcnHaServiceCompliances=bcnHaServiceCompliances, bcnHaNotificationData=bcnHaNotificationData, bcnHaStatusCompliance=bcnHaStatusCompliance, bcnHaAlarmSeverity=bcnHaAlarmSeverity, bcnHaSerAddressEntry=bcnHaSerAddressEntry, bcnHaNotificationEventGroup=bcnHaNotificationEventGroup, bcnHaSerVirtualAddressType=bcnHaSerVirtualAddressType, bcnHaServiceStatusGroup=bcnHaServiceStatusGroup, bcnHaSerPhysicalAddress=bcnHaSerPhysicalAddress, PYSNMP_MODULE_ID=bcnHaMIB, bcnHaServiceStatus=bcnHaServiceStatus, bcnHaSerOperState=bcnHaSerOperState, bcnHaMIB=bcnHaMIB, bcnHaServiceGroups=bcnHaServiceGroups)

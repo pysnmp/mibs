@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SL-PORT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-PORT-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 01:14:20 2021
-# On host fv-az83-627 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 21 13:33:52 2021
+# On host fv-az74-779 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-NotificationType, IpAddress, Integer32, TimeTicks, Unsigned32, iso, ModuleIdentity, ObjectIdentity, Bits, Counter64, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Integer32", "TimeTicks", "Unsigned32", "iso", "ModuleIdentity", "ObjectIdentity", "Bits", "Counter64", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-DateAndTime, TruthValue, TextualConvention, DisplayString, TimeStamp, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TruthValue", "TextualConvention", "DisplayString", "TimeStamp", "RowStatus")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ObjectIdentity, iso, NotificationType, Integer32, Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, IpAddress, TimeTicks, ModuleIdentity, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "NotificationType", "Integer32", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "IpAddress", "TimeTicks", "ModuleIdentity", "Unsigned32", "Bits")
+RowStatus, DateAndTime, TimeStamp, DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TimeStamp", "DisplayString", "TextualConvention", "TruthValue")
 slPort = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 14))
 if mibBuilder.loadTexts: slPort.setLastUpdated('200101180000Z')
 if mibBuilder.loadTexts: slPort.setOrganization('PacketLight Networks Ltd.')
@@ -74,4 +74,4 @@ if mibBuilder.loadTexts: slPortConfigChangedLabel.setDescription('An slPortConfi
 slPortConfigChangedApsEnabled = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 14, 2, 5)).setObjects(("SL-PORT-MIB", "slPortConfigIndex"))
 if mibBuilder.loadTexts: slPortConfigChangedApsEnabled.setStatus('current')
 if mibBuilder.loadTexts: slPortConfigChangedApsEnabled.setDescription('An slPortConfigChangedLabel notification is sent when the \n\t\tcorresponding object slPortConfigApsEnable is changed.')
-mibBuilder.exportSymbols("SL-PORT-MIB", slPortConfigChangedLabel=slPortConfigChangedLabel, slPortConfigChanged=slPortConfigChanged, slPort=slPort, slPortConfig=slPortConfig, slPortConfigChangedMask=slPortConfigChangedMask, slPortNotification=slPortNotification, slPortConfigLedColor=slPortConfigLedColor, slPortConfigLabel=slPortConfigLabel, slPortConfigChangedApsEnabled=slPortConfigChangedApsEnabled, LedColor=LedColor, LedMode=LedMode, slPortConfigChangedType=slPortConfigChangedType, slPortConfigAlarmMask=slPortConfigAlarmMask, slPortConfigEntry=slPortConfigEntry, slPortConfigLastChange=slPortConfigLastChange, slPortConfigChangeType=slPortConfigChangeType, slPortConfigLedMode=slPortConfigLedMode, PYSNMP_MODULE_ID=slPort, slPortConfigIndex=slPortConfigIndex, slPortConfigTable=slPortConfigTable)
+mibBuilder.exportSymbols("SL-PORT-MIB", LedColor=LedColor, slPortConfigEntry=slPortConfigEntry, slPortConfigChanged=slPortConfigChanged, slPortConfigChangedMask=slPortConfigChangedMask, slPortConfig=slPortConfig, slPortConfigChangeType=slPortConfigChangeType, slPortNotification=slPortNotification, slPortConfigLedMode=slPortConfigLedMode, PYSNMP_MODULE_ID=slPort, slPortConfigIndex=slPortConfigIndex, LedMode=LedMode, slPortConfigLabel=slPortConfigLabel, slPortConfigTable=slPortConfigTable, slPort=slPort, slPortConfigChangedLabel=slPortConfigChangedLabel, slPortConfigChangedApsEnabled=slPortConfigChangedApsEnabled, slPortConfigChangedType=slPortConfigChangedType, slPortConfigLedColor=slPortConfigLedColor, slPortConfigLastChange=slPortConfigLastChange, slPortConfigAlarmMask=slPortConfigAlarmMask)

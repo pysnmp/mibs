@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PACKETLOGIC-OVERVIEW-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-OVERVIEW-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 01:07:24 2021
-# On host fv-az83-627 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 21 13:27:23 2021
+# On host fv-az74-779 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Unsigned32, MibIdentifier, NotificationType, ModuleIdentity, Bits, Integer32, Gauge32, iso, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Unsigned32", "MibIdentifier", "NotificationType", "ModuleIdentity", "Bits", "Integer32", "Gauge32", "iso", "TimeTicks", "Counter64")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+NotificationType, TimeTicks, MibIdentifier, Bits, Integer32, ModuleIdentity, iso, Counter32, Unsigned32, Counter64, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "TimeTicks", "MibIdentifier", "Bits", "Integer32", "ModuleIdentity", "iso", "Counter32", "Unsigned32", "Counter64", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
 systemOverview = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 40))
 systemOverview.setRevisions(('2019-09-12 15:00',))
 
@@ -43,4 +43,4 @@ if mibBuilder.loadTexts: machineId.setDescription('MACHINEID of the system')
 firmwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 40, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: firmwareVersion.setStatus('current')
 if mibBuilder.loadTexts: firmwareVersion.setDescription('Firmware Version')
-mibBuilder.exportSymbols("PACKETLOGIC-OVERVIEW-MIB", systemOverview=systemOverview, overviewEntry=overviewEntry, overview=overview, machineId=machineId, overviewEntryIndex=overviewEntryIndex, PYSNMP_MODULE_ID=systemOverview, firmwareVersion=firmwareVersion, model=model, configMd5Sum=configMd5Sum)
+mibBuilder.exportSymbols("PACKETLOGIC-OVERVIEW-MIB", overviewEntryIndex=overviewEntryIndex, machineId=machineId, overview=overview, firmwareVersion=firmwareVersion, PYSNMP_MODULE_ID=systemOverview, overviewEntry=overviewEntry, systemOverview=systemOverview, model=model, configMd5Sum=configMd5Sum)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ARISTA-NEXTHOP-GROUP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-NEXTHOP-GROUP-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 01:01:51 2021
-# On host fv-az83-627 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 21 13:22:05 2021
+# On host fv-az74-779 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, ModuleIdentity, TimeTicks, ObjectIdentity, Counter64, Gauge32, Unsigned32, Integer32, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "Counter64", "Gauge32", "Unsigned32", "Integer32", "iso", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter64, Counter32, ModuleIdentity, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Integer32, IpAddress, TimeTicks, Bits, Unsigned32, NotificationType, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "ModuleIdentity", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Integer32", "IpAddress", "TimeTicks", "Bits", "Unsigned32", "NotificationType", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 aristaNexthopGroupMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 21))
 aristaNexthopGroupMIB.setRevisions(('2016-04-17 00:00',))
 
@@ -83,4 +83,4 @@ aristaNexthopGroupCounterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 21, 2,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaNexthopGroupCounterGroup = aristaNexthopGroupCounterGroup.setStatus('current')
 if mibBuilder.loadTexts: aristaNexthopGroupCounterGroup.setDescription('The collection of objects that provide counter information\n        for every nexthop in the nexthop group.')
-mibBuilder.exportSymbols("ARISTA-NEXTHOP-GROUP-MIB", aristaNexthopGroupCounterGroup=aristaNexthopGroupCounterGroup, aristaNexthopGroupMibGroups=aristaNexthopGroupMibGroups, aristaNexthopGroupMibCompliances=aristaNexthopGroupMibCompliances, PYSNMP_MODULE_ID=aristaNexthopGroupMIB, aristaNexthopGroupCounterPacketCount=aristaNexthopGroupCounterPacketCount, aristaNexthopGroupTable=aristaNexthopGroupTable, aristaNexthopGroupName=aristaNexthopGroupName, aristaNexthopGroupMIB=aristaNexthopGroupMIB, aristaNexthopGroupMibConformance=aristaNexthopGroupMibConformance, NexthopGroupName=NexthopGroupName, aristaNexthopGroupCounterTable=aristaNexthopGroupCounterTable, aristaNexthopGroupMibCompliance=aristaNexthopGroupMibCompliance, aristaNexthopGroupCounterIndex=aristaNexthopGroupCounterIndex, aristaNexthopGroupGroup=aristaNexthopGroupGroup, aristaNexthopGroupCounterEntry=aristaNexthopGroupCounterEntry, aristaNexthopGroupMibObjects=aristaNexthopGroupMibObjects, aristaNexthopGroupId=aristaNexthopGroupId, NexthopGroupType=NexthopGroupType, aristaNexthopGroupEntry=aristaNexthopGroupEntry, aristaNexthopGroupCounterByteCount=aristaNexthopGroupCounterByteCount, aristaNexthopGroupType=aristaNexthopGroupType, aristaNexthopGroupEntryIndex=aristaNexthopGroupEntryIndex)
+mibBuilder.exportSymbols("ARISTA-NEXTHOP-GROUP-MIB", aristaNexthopGroupCounterPacketCount=aristaNexthopGroupCounterPacketCount, aristaNexthopGroupCounterIndex=aristaNexthopGroupCounterIndex, aristaNexthopGroupMibConformance=aristaNexthopGroupMibConformance, NexthopGroupType=NexthopGroupType, PYSNMP_MODULE_ID=aristaNexthopGroupMIB, aristaNexthopGroupCounterEntry=aristaNexthopGroupCounterEntry, aristaNexthopGroupEntry=aristaNexthopGroupEntry, aristaNexthopGroupCounterGroup=aristaNexthopGroupCounterGroup, aristaNexthopGroupGroup=aristaNexthopGroupGroup, aristaNexthopGroupCounterTable=aristaNexthopGroupCounterTable, NexthopGroupName=NexthopGroupName, aristaNexthopGroupMIB=aristaNexthopGroupMIB, aristaNexthopGroupMibGroups=aristaNexthopGroupMibGroups, aristaNexthopGroupEntryIndex=aristaNexthopGroupEntryIndex, aristaNexthopGroupId=aristaNexthopGroupId, aristaNexthopGroupName=aristaNexthopGroupName, aristaNexthopGroupMibCompliances=aristaNexthopGroupMibCompliances, aristaNexthopGroupType=aristaNexthopGroupType, aristaNexthopGroupTable=aristaNexthopGroupTable, aristaNexthopGroupMibObjects=aristaNexthopGroupMibObjects, aristaNexthopGroupCounterByteCount=aristaNexthopGroupCounterByteCount, aristaNexthopGroupMibCompliance=aristaNexthopGroupMibCompliance)

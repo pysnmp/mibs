@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module LM-SENSORS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LM-SENSORS-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 00:55:06 2021
-# On host fv-az83-627 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 21 13:15:37 2021
+# On host fv-az74-779 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress, TimeTicks, Counter32, Unsigned32, ModuleIdentity, Counter64, Bits, ObjectIdentity, Gauge32, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress", "TimeTicks", "Counter32", "Unsigned32", "ModuleIdentity", "Counter64", "Bits", "ObjectIdentity", "Gauge32", "Integer32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, TimeTicks, iso, Gauge32, NotificationType, MibIdentifier, Counter64, Unsigned32, Integer32, ModuleIdentity, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "TimeTicks", "iso", "Gauge32", "NotificationType", "MibIdentifier", "Counter64", "Unsigned32", "Integer32", "ModuleIdentity", "ObjectIdentity", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ucdExperimental, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdExperimental")
 lmSensorsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 13, 16, 1))
 lmSensorsMIB.setRevisions(('2000-11-05 00:00',))
@@ -82,4 +82,4 @@ if mibBuilder.loadTexts: lmMiscSensorsDevice.setDescription('The name of the dev
 lmMiscSensorsValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 16, 5, 1, 3), Gauge32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: lmMiscSensorsValue.setStatus('current')
 if mibBuilder.loadTexts: lmMiscSensorsValue.setDescription('The value of this sensor.')
-mibBuilder.exportSymbols("LM-SENSORS-MIB", lmMiscSensorsValue=lmMiscSensorsValue, PYSNMP_MODULE_ID=lmSensorsMIB, lmTempSensorsTable=lmTempSensorsTable, lmMiscSensorsEntry=lmMiscSensorsEntry, lmVoltSensorsTable=lmVoltSensorsTable, lmTempSensorsEntry=lmTempSensorsEntry, lmFanSensorsIndex=lmFanSensorsIndex, lmMiscSensorsIndex=lmMiscSensorsIndex, lmFanSensorsValue=lmFanSensorsValue, lmVoltSensorsDevice=lmVoltSensorsDevice, lmVoltSensorsEntry=lmVoltSensorsEntry, lmSensorsMIB=lmSensorsMIB, lmMiscSensorsDevice=lmMiscSensorsDevice, lmTempSensorsIndex=lmTempSensorsIndex, lmFanSensorsTable=lmFanSensorsTable, lmVoltSensorsValue=lmVoltSensorsValue, lmVoltSensorsIndex=lmVoltSensorsIndex, lmTempSensorsDevice=lmTempSensorsDevice, lmTempSensorsValue=lmTempSensorsValue, lmFanSensorsDevice=lmFanSensorsDevice, lmSensors=lmSensors, lmFanSensorsEntry=lmFanSensorsEntry, lmMiscSensorsTable=lmMiscSensorsTable)
+mibBuilder.exportSymbols("LM-SENSORS-MIB", lmVoltSensorsTable=lmVoltSensorsTable, lmFanSensorsTable=lmFanSensorsTable, lmMiscSensorsValue=lmMiscSensorsValue, lmMiscSensorsTable=lmMiscSensorsTable, lmVoltSensorsDevice=lmVoltSensorsDevice, lmVoltSensorsValue=lmVoltSensorsValue, lmVoltSensorsIndex=lmVoltSensorsIndex, lmFanSensorsEntry=lmFanSensorsEntry, lmTempSensorsIndex=lmTempSensorsIndex, lmFanSensorsIndex=lmFanSensorsIndex, lmMiscSensorsIndex=lmMiscSensorsIndex, lmTempSensorsDevice=lmTempSensorsDevice, lmFanSensorsValue=lmFanSensorsValue, lmVoltSensorsEntry=lmVoltSensorsEntry, lmTempSensorsEntry=lmTempSensorsEntry, lmTempSensorsValue=lmTempSensorsValue, lmSensors=lmSensors, lmTempSensorsTable=lmTempSensorsTable, lmFanSensorsDevice=lmFanSensorsDevice, PYSNMP_MODULE_ID=lmSensorsMIB, lmSensorsMIB=lmSensorsMIB, lmMiscSensorsDevice=lmMiscSensorsDevice, lmMiscSensorsEntry=lmMiscSensorsEntry)
