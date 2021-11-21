@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FOUNDRY-SN-MAC-VLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/foundry/FOUNDRY-SN-MAC-VLAN-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 13:28:13 2021
+# Produced by pysmi-1.1.3 at Sun Nov 21 13:51:48 2021
 # On host fv-az74-779 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Bits, Unsigned32, ModuleIdentity, Integer32, IpAddress, Counter64, Gauge32, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "Unsigned32", "ModuleIdentity", "Integer32", "IpAddress", "Counter64", "Gauge32", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType", "iso")
-DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, Counter32, Counter64, IpAddress, iso, Integer32, ModuleIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, TimeTicks, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "Counter64", "IpAddress", "iso", "Integer32", "ModuleIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "TimeTicks", "ObjectIdentity", "Bits")
+MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
 snMacVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 30))
 snMacVlan.setRevisions(('2007-06-25 00:00',))
 if mibBuilder.loadTexts: snMacVlan.setLastUpdated('200706250000Z')
@@ -58,4 +58,4 @@ snMacBasedVlanPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 30, 2,
 if mibBuilder.loadTexts: snMacBasedVlanPriority.setStatus('current')
 snMacBasedVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 30, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("valid", 2), ("delete", 3), ("create", 4)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: snMacBasedVlanRowStatus.setStatus('current')
-mibBuilder.exportSymbols("FOUNDRY-SN-MAC-VLAN-MIB", snMacBasedVlanPriority=snMacBasedVlanPriority, snMacVlanGlobalDynConfigState=snMacVlanGlobalDynConfigState, snMacVlanIfEntry=snMacVlanIfEntry, snMacVlanGlobalObjects=snMacVlanGlobalObjects, snMacBasedVlanMac=snMacBasedVlanMac, snMacVlanTableObjects=snMacVlanTableObjects, snMacVlanIfIndex=snMacVlanIfIndex, snMacVlanPortMemberPortId=snMacVlanPortMemberPortId, snMacVlanIfMaxEntry=snMacVlanIfMaxEntry, snMacBasedVlanTable=snMacBasedVlanTable, snMacVlan=snMacVlan, snMacVlanIfClearConfig=snMacVlanIfClearConfig, snMacVlanGlobalClearOper=snMacVlanGlobalClearOper, snMacVlanPortMemberRowStatus=snMacVlanPortMemberRowStatus, snMacVlanIfClearOper=snMacVlanIfClearOper, snMacVlanPortMemberTable=snMacVlanPortMemberTable, snMacVlanPortMemberEntry=snMacVlanPortMemberEntry, snMacBasedVlanEntry=snMacBasedVlanEntry, PYSNMP_MODULE_ID=snMacVlan, snMacVlanIfEnable=snMacVlanIfEnable, snMacBasedVlanRowStatus=snMacBasedVlanRowStatus, snMacVlanIfTable=snMacVlanIfTable, snMacVlanPortMemberVLanId=snMacVlanPortMemberVLanId, snMacBasedVlanId=snMacBasedVlanId)
+mibBuilder.exportSymbols("FOUNDRY-SN-MAC-VLAN-MIB", snMacBasedVlanTable=snMacBasedVlanTable, snMacVlanPortMemberTable=snMacVlanPortMemberTable, snMacVlanGlobalClearOper=snMacVlanGlobalClearOper, snMacBasedVlanRowStatus=snMacBasedVlanRowStatus, snMacBasedVlanId=snMacBasedVlanId, snMacVlanIfClearOper=snMacVlanIfClearOper, PYSNMP_MODULE_ID=snMacVlan, snMacVlanPortMemberPortId=snMacVlanPortMemberPortId, snMacBasedVlanPriority=snMacBasedVlanPriority, snMacBasedVlanMac=snMacBasedVlanMac, snMacVlanGlobalDynConfigState=snMacVlanGlobalDynConfigState, snMacVlanPortMemberEntry=snMacVlanPortMemberEntry, snMacVlanIfMaxEntry=snMacVlanIfMaxEntry, snMacVlanIfIndex=snMacVlanIfIndex, snMacVlanIfTable=snMacVlanIfTable, snMacVlanIfClearConfig=snMacVlanIfClearConfig, snMacVlanIfEntry=snMacVlanIfEntry, snMacVlanGlobalObjects=snMacVlanGlobalObjects, snMacBasedVlanEntry=snMacBasedVlanEntry, snMacVlanTableObjects=snMacVlanTableObjects, snMacVlan=snMacVlan, snMacVlanPortMemberRowStatus=snMacVlanPortMemberRowStatus, snMacVlanIfEnable=snMacVlanIfEnable, snMacVlanPortMemberVLanId=snMacVlanPortMemberVLanId)
