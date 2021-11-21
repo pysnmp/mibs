@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-QOSv2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-QOSv2-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 00:44:43 2021
-# On host fv-az39-63 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 21 01:11:49 2021
+# On host fv-az83-627 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Unsigned32, TimeTicks, Gauge32, MibIdentifier, Integer32, Counter64, Counter32, ModuleIdentity, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Unsigned32", "TimeTicks", "Gauge32", "MibIdentifier", "Integer32", "Counter64", "Counter32", "ModuleIdentity", "ObjectIdentity", "IpAddress")
+NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32, MibIdentifier, Unsigned32, iso, Gauge32, Counter64, Integer32, ObjectIdentity, ModuleIdentity, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32", "MibIdentifier", "Unsigned32", "iso", "Gauge32", "Counter64", "Integer32", "ObjectIdentity", "ModuleIdentity", "Bits", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atQosv2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 503))
 atQosv2.setRevisions(('2015-08-31 00:00',))
@@ -33,4 +33,4 @@ if mibBuilder.loadTexts: atQosv2IfIndex.setDescription('The index of the interfa
 atQosv2VlanId = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 503, 1, 2), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atQosv2VlanId.setStatus('current')
 if mibBuilder.loadTexts: atQosv2VlanId.setDescription('The VLAN ID of the interface where the storm is detected on.')
-mibBuilder.exportSymbols("AT-QOSv2-MIB", atQosv2StormDetectionTrap=atQosv2StormDetectionTrap, PYSNMP_MODULE_ID=atQosv2, atQosv2IfIndex=atQosv2IfIndex, atQosv2VlanId=atQosv2VlanId, atQosv2=atQosv2, atQosv2Notification=atQosv2Notification, atQosv2NotificationVariables=atQosv2NotificationVariables)
+mibBuilder.exportSymbols("AT-QOSv2-MIB", atQosv2=atQosv2, atQosv2NotificationVariables=atQosv2NotificationVariables, atQosv2IfIndex=atQosv2IfIndex, atQosv2Notification=atQosv2Notification, atQosv2VlanId=atQosv2VlanId, PYSNMP_MODULE_ID=atQosv2, atQosv2StormDetectionTrap=atQosv2StormDetectionTrap)
