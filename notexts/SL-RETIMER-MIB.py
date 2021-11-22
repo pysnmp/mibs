@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SL-RETIMER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-RETIMER-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 19:37:05 2021
+# Produced by pysmi-1.1.3 at Mon Nov 22 20:13:04 2021
 # On host fv-az42-715 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 slService, = mibBuilder.importSymbols("SL-NE-MIB", "slService")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, Integer32, Gauge32, Counter32, IpAddress, MibIdentifier, iso, ModuleIdentity, Bits, ObjectIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "Integer32", "Gauge32", "Counter32", "IpAddress", "MibIdentifier", "iso", "ModuleIdentity", "Bits", "ObjectIdentity", "Unsigned32")
-TruthValue, DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DateAndTime", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibIdentifier, Bits, Counter64, TimeTicks, Counter32, NotificationType, IpAddress, Integer32, iso, Unsigned32, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "Counter64", "TimeTicks", "Counter32", "NotificationType", "IpAddress", "Integer32", "iso", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32")
+TruthValue, DisplayString, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention", "DateAndTime")
 slRetimer = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 1, 14))
 if mibBuilder.loadTexts: slRetimer.setLastUpdated('200508171200Z')
 if mibBuilder.loadTexts: slRetimer.setOrganization('PacketLight Networks Ltd.')
@@ -40,4 +40,4 @@ slRetimerCurrentRxK285ES = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 1, 14, 3, 
 if mibBuilder.loadTexts: slRetimerCurrentRxK285ES.setStatus('current')
 slRetimerStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 1, 14, 7, 1)).setObjects(("SL-RETIMER-MIB", "slRetimerLineIndex"))
 if mibBuilder.loadTexts: slRetimerStatusChange.setStatus('current')
-mibBuilder.exportSymbols("SL-RETIMER-MIB", slRetimerPm=slRetimerPm, PYSNMP_MODULE_ID=slRetimer, slRetimerStatusChange=slRetimerStatusChange, slRetimerCurrentIndex=slRetimerCurrentIndex, slRetimer=slRetimer, slRetimerStat=slRetimerStat, slRetimerCurrentTable=slRetimerCurrentTable, slRetimerCurrentRxRllES=slRetimerCurrentRxRllES, slRetimerCurrentEntry=slRetimerCurrentEntry, slRetimerConfigEntry=slRetimerConfigEntry, slRetimerConfig=slRetimerConfig, slRetimerConfigTable=slRetimerConfigTable, slRetimerLineIndex=slRetimerLineIndex, slRetimerCurrentRxK285ES=slRetimerCurrentRxK285ES, slRetimerResetPmCounters=slRetimerResetPmCounters, slRetimerTraps=slRetimerTraps)
+mibBuilder.exportSymbols("SL-RETIMER-MIB", slRetimerCurrentIndex=slRetimerCurrentIndex, slRetimerTraps=slRetimerTraps, slRetimerLineIndex=slRetimerLineIndex, slRetimerPm=slRetimerPm, slRetimerCurrentRxK285ES=slRetimerCurrentRxK285ES, slRetimerResetPmCounters=slRetimerResetPmCounters, slRetimerCurrentTable=slRetimerCurrentTable, slRetimer=slRetimer, slRetimerCurrentEntry=slRetimerCurrentEntry, slRetimerConfigEntry=slRetimerConfigEntry, slRetimerCurrentRxRllES=slRetimerCurrentRxRllES, slRetimerConfigTable=slRetimerConfigTable, slRetimerStatusChange=slRetimerStatusChange, slRetimerStat=slRetimerStat, slRetimerConfig=slRetimerConfig, PYSNMP_MODULE_ID=slRetimer)
