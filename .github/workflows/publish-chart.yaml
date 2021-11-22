@@ -1,0 +1,18 @@
+name: release-chart
+on:
+  push:
+    tags: 'chart-*'
+
+jobs:
+  release-chart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish Helm chart
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          charts_dir: mibserver
+          charts_url: https://pysnmp.github.io
+          branch: gh-pages
+          target_dir: charts
