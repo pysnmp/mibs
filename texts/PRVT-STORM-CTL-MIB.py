@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-STORM-CTL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-STORM-CTL-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:39:08 2021
-# On host fv-az83-627 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 19:32:49 2021
+# On host fv-az42-715 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, ObjectIdentity, Unsigned32, Gauge32, Integer32, IpAddress, ModuleIdentity, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, Counter32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "Unsigned32", "Gauge32", "Integer32", "IpAddress", "ModuleIdentity", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "Counter32", "MibIdentifier")
-DisplayString, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TruthValue", "TextualConvention")
+MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, Integer32, IpAddress, NotificationType, Gauge32, Unsigned32, iso, TimeTicks, Bits, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "Integer32", "IpAddress", "NotificationType", "Gauge32", "Unsigned32", "iso", "TimeTicks", "Bits", "Counter32", "ObjectIdentity")
+TextualConvention, DisplayString, TruthValue, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue", "RowStatus")
 prvtStormCtlMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 5, 171))
 prvtStormCtlMIB.setRevisions(('2010-06-21 00:00',))
 
@@ -55,4 +55,4 @@ if mibBuilder.loadTexts: prvtStrmCtlPortTrafficRowStatus.setDescription('The Row
 prvtStrmCtlPortTrafficThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 5, 171, 1, 3, 1, 3), RateThresholdType()).setUnits('packets-per-second').setMaxAccess("readcreate")
 if mibBuilder.loadTexts: prvtStrmCtlPortTrafficThreshold.setStatus('current')
 if mibBuilder.loadTexts: prvtStrmCtlPortTrafficThreshold.setDescription('The threshold at which, when exceeded, traffic will undergo\n         storm control action for this port and traffic type.')
-mibBuilder.exportSymbols("PRVT-STORM-CTL-MIB", prvtStrmCtlPortTrafficType=prvtStrmCtlPortTrafficType, prvtStrmCtlPortTrafficTable=prvtStrmCtlPortTrafficTable, prvtStormCtlMIBObjects=prvtStormCtlMIBObjects, prvtStrmCtlPortRowStatus=prvtStrmCtlPortRowStatus, RateThresholdType=RateThresholdType, prvtStormCtlMIB=prvtStormCtlMIB, prvtStrmCtlPortEntry=prvtStrmCtlPortEntry, prvtStrmCtlPortShutdown=prvtStrmCtlPortShutdown, prvtStrmCtlPortTrafficThreshold=prvtStrmCtlPortTrafficThreshold, prvtStrmCtlPortTrafficEntry=prvtStrmCtlPortTrafficEntry, prvtStrmCtlPortTrafficRowStatus=prvtStrmCtlPortTrafficRowStatus, prvtStrmCtlPortTable=prvtStrmCtlPortTable, PYSNMP_MODULE_ID=prvtStormCtlMIB)
+mibBuilder.exportSymbols("PRVT-STORM-CTL-MIB", PYSNMP_MODULE_ID=prvtStormCtlMIB, prvtStormCtlMIBObjects=prvtStormCtlMIBObjects, prvtStrmCtlPortTrafficEntry=prvtStrmCtlPortTrafficEntry, prvtStrmCtlPortRowStatus=prvtStrmCtlPortRowStatus, RateThresholdType=RateThresholdType, prvtStrmCtlPortEntry=prvtStrmCtlPortEntry, prvtStrmCtlPortTrafficRowStatus=prvtStrmCtlPortTrafficRowStatus, prvtStrmCtlPortTrafficThreshold=prvtStrmCtlPortTrafficThreshold, prvtStrmCtlPortShutdown=prvtStrmCtlPortShutdown, prvtStrmCtlPortTrafficType=prvtStrmCtlPortTrafficType, prvtStormCtlMIB=prvtStormCtlMIB, prvtStrmCtlPortTrafficTable=prvtStrmCtlPortTrafficTable, prvtStrmCtlPortTable=prvtStrmCtlPortTable)
