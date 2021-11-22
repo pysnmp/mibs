@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BCN-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-SMI-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:17:14 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:31:31 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 bluecatnetworks, = mibBuilder.importSymbols("BLUECATNETWORKS-MIB", "bluecatnetworks")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, Integer32, Gauge32, iso, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, Bits, NotificationType, TimeTicks, ModuleIdentity, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "Gauge32", "iso", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "Bits", "NotificationType", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Unsigned32, IpAddress, iso, NotificationType, Counter64, Bits, Integer32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ModuleIdentity, Counter32, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "IpAddress", "iso", "NotificationType", "Counter64", "Bits", "Integer32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ModuleIdentity", "Counter32", "TimeTicks", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bcnSMI = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 4, 1))
 bcnSMI.setRevisions(('2010-11-30 00:00',))
 
@@ -36,4 +36,4 @@ if mibBuilder.loadTexts: bcnModules.setDescription('bcnModules provides a root o
 bcnExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 13315, 5))
 if mibBuilder.loadTexts: bcnExperimental.setStatus('current')
 if mibBuilder.loadTexts: bcnExperimental.setDescription('The bcnExperimental branch is intended for work in progress mibs.\n        Objects in this part of the tree will be deleted when the work is\n        complete and moved to its permanent location.')
-mibBuilder.exportSymbols("BCN-SMI-MIB", bcnSMI=bcnSMI, bcnExperimental=bcnExperimental, bcnMgmt=bcnMgmt, bcnServices=bcnServices, PYSNMP_MODULE_ID=bcnSMI, bcnModules=bcnModules, bcnProducts=bcnProducts)
+mibBuilder.exportSymbols("BCN-SMI-MIB", bcnMgmt=bcnMgmt, bcnProducts=bcnProducts, bcnSMI=bcnSMI, bcnServices=bcnServices, bcnModules=bcnModules, bcnExperimental=bcnExperimental, PYSNMP_MODULE_ID=bcnSMI)

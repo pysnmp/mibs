@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AV-SME-PLATFORM-PROD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/AV-SME-PLATFORM-PROD-MIB.mib
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:11:02 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:25:34 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
 products, = mibBuilder.importSymbols("AVAYAGEN-MIB", "products")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, IpAddress, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, NotificationType, Integer32, Bits, Counter32, Gauge32, Unsigned32, iso, TimeTicks, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "IpAddress", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "NotificationType", "Integer32", "Bits", "Counter32", "Gauge32", "Unsigned32", "iso", "TimeTicks", "ObjectIdentity")
+iso, Counter32, Counter64, MibIdentifier, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, NotificationType, Gauge32, Unsigned32, Integer32, ObjectIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "Counter64", "MibIdentifier", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "NotificationType", "Gauge32", "Unsigned32", "Integer32", "ObjectIdentity", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 avSMEPlatformProdMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6889, 1, 48))
 avSMEPlatformProdMIB.setRevisions(('2014-05-30 12:00', '2014-04-03 12:00', '2013-01-23 16:00', '2012-11-29 12:00', '2012-05-10 12:35', '2012-04-09 10:25', '2012-03-05 10:05', '2011-12-16 13:30', '2011-12-14 15:35', '2011-12-07 14:10', '2011-05-03 13:30', '2011-03-30 09:22', '2010-07-07 13:50', '2010-07-06 13:45', '2010-07-02 15:06',))
@@ -79,4 +79,4 @@ if mibBuilder.loadTexts: smepProdPortLAN.setDescription('The authoritative refer
 smepProdGenericDongle = ObjectIdentity((1, 3, 6, 1, 4, 1, 6889, 1, 48, 4, 1))
 if mibBuilder.loadTexts: smepProdGenericDongle.setStatus('current')
 if mibBuilder.loadTexts: smepProdGenericDongle.setDescription('The authoritative reference for the Avaya IP Office License\n        Dongle - A single representation for three dongle types,\n        Parallel, Serial and USB. The Parallel and USB ones not truly\n        connected directly to the IP Office but the managing PC.')
-mibBuilder.exportSymbols("AV-SME-PLATFORM-PROD-MIB", smepCfg6=smepCfg6, smepCfg13=smepCfg13, smepCfg4=smepCfg4, PYSNMP_MODULE_ID=avSMEPlatformProdMIB, smepProdServices=smepProdServices, smepCfg5=smepCfg5, smepProdVariants=smepProdVariants, smepProdGenericDongle=smepProdGenericDongle, smepProdServiceOneXPortal=smepProdServiceOneXPortal, smepCfg8=smepCfg8, smepCfg11=smepCfg11, smepProdServiceContactRecorder=smepProdServiceContactRecorder, smepCfg9=smepCfg9, smepCfg12=smepCfg12, smepCfg1=smepCfg1, avSMEPlatformProdMIB=avSMEPlatformProdMIB, smepProdPorts=smepProdPorts, smepProdPortLAN=smepProdPortLAN, smepCfg3=smepCfg3, smepProdServiceVoicemailPro=smepProdServiceVoicemailPro, smepCfg2=smepCfg2, smepCfg10=smepCfg10, smepProdDongleModules=smepProdDongleModules, smepCfg7=smepCfg7)
+mibBuilder.exportSymbols("AV-SME-PLATFORM-PROD-MIB", smepProdServices=smepProdServices, smepCfg10=smepCfg10, smepCfg11=smepCfg11, smepProdPorts=smepProdPorts, smepCfg4=smepCfg4, smepCfg3=smepCfg3, smepProdServiceContactRecorder=smepProdServiceContactRecorder, smepCfg5=smepCfg5, smepCfg13=smepCfg13, smepProdDongleModules=smepProdDongleModules, smepProdGenericDongle=smepProdGenericDongle, smepCfg12=smepCfg12, smepProdVariants=smepProdVariants, smepCfg6=smepCfg6, avSMEPlatformProdMIB=avSMEPlatformProdMIB, smepCfg9=smepCfg9, smepCfg1=smepCfg1, smepProdPortLAN=smepProdPortLAN, smepProdServiceVoicemailPro=smepProdServiceVoicemailPro, smepCfg8=smepCfg8, PYSNMP_MODULE_ID=avSMEPlatformProdMIB, smepCfg7=smepCfg7, smepCfg2=smepCfg2, smepProdServiceOneXPortal=smepProdServiceOneXPortal)

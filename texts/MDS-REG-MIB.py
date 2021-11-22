@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module MDS-REG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-REG-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:14:54 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:29:14 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Counter32, NotificationType, TimeTicks, IpAddress, Integer32, iso, Unsigned32, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, MibIdentifier, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "NotificationType", "TimeTicks", "IpAddress", "Integer32", "iso", "Unsigned32", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "enterprises")
+Bits, ModuleIdentity, enterprises, MibIdentifier, Integer32, iso, TimeTicks, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, Unsigned32, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "enterprises", "MibIdentifier", "Integer32", "iso", "TimeTicks", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "Unsigned32", "ObjectIdentity", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mdsGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 4))
 mdsGlobalRegModule.setRevisions(('2006-02-08 00:00',))
@@ -41,4 +41,4 @@ if mibBuilder.loadTexts: mdsBroadband.setDescription('Sub-tree for broadband pro
 mdsSoftware = ObjectIdentity((1, 3, 6, 1, 4, 1, 4130, 9))
 if mibBuilder.loadTexts: mdsSoftware.setStatus('current')
 if mibBuilder.loadTexts: mdsSoftware.setDescription('Sub-tree for non-equipment software such as desktop applications')
-mibBuilder.exportSymbols("MDS-REG-MIB", PYSNMP_MODULE_ID=mdsGlobalRegModule, mdsRoot=mdsRoot, mdsPointToPoint=mdsPointToPoint, mdsNarrowband=mdsNarrowband, mdsGlobalRegModule=mdsGlobalRegModule, mdsWideband=mdsWideband, mdsSoftware=mdsSoftware, mdsPointToMultiPoint=mdsPointToMultiPoint, mdsBroadband=mdsBroadband)
+mibBuilder.exportSymbols("MDS-REG-MIB", mdsWideband=mdsWideband, mdsGlobalRegModule=mdsGlobalRegModule, mdsSoftware=mdsSoftware, PYSNMP_MODULE_ID=mdsGlobalRegModule, mdsPointToPoint=mdsPointToPoint, mdsNarrowband=mdsNarrowband, mdsRoot=mdsRoot, mdsBroadband=mdsBroadband, mdsPointToMultiPoint=mdsPointToMultiPoint)

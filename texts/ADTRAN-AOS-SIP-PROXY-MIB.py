@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module ADTRAN-AOS-SIP-PROXY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-SIP-PROXY-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:16:57 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:31:15 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 adGenAOSVoice, adGenAOSConformance = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSVoice", "adGenAOSConformance")
 adIdentityShared, = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentityShared")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
 InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-Unsigned32, Integer32, iso, ModuleIdentity, ObjectIdentity, IpAddress, Counter64, Gauge32, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "iso", "ModuleIdentity", "ObjectIdentity", "IpAddress", "Counter64", "Gauge32", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter32", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, Counter32, ObjectIdentity, MibIdentifier, TimeTicks, NotificationType, IpAddress, iso, Counter64, Bits, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "Counter32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "NotificationType", "IpAddress", "iso", "Counter64", "Bits", "ModuleIdentity", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adGenAOSSipProxy = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 5, 5))
 adGenAOSSipProxy.setRevisions(('2013-05-16 00:00',))
 
@@ -69,4 +69,4 @@ adSipProxyNotificationUtilityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     adSipProxyNotificationUtilityGroup = adSipProxyNotificationUtilityGroup.setStatus('current')
 if mibBuilder.loadTexts: adSipProxyNotificationUtilityGroup.setDescription('A collection of objects accessible only for notifications.')
-mibBuilder.exportSymbols("ADTRAN-AOS-SIP-PROXY-MIB", adProxyRolloverToServerInetAddressType=adProxyRolloverToServerInetAddressType, adProxyRolloverCause=adProxyRolloverCause, AdProxyRolloverCauseTC=AdProxyRolloverCauseTC, adSipProxy=adSipProxy, adProxyRolloverFromServerInetAddressType=adProxyRolloverFromServerInetAddressType, adSipProxyCompliances=adSipProxyCompliances, adSipProxyFullCompliance=adSipProxyFullCompliance, adProxyRolloverFromServerInetAddress=adProxyRolloverFromServerInetAddress, adProxyRolloverToServerInetAddress=adProxyRolloverToServerInetAddress, adSipProxyRollover=adSipProxyRollover, adGenAOSSipProxy=adGenAOSSipProxy, adSipProxyTraps=adSipProxyTraps, adSipProxyNotificationGroup=adSipProxyNotificationGroup, adSipProxyNotificationUtilityGroup=adSipProxyNotificationUtilityGroup, adProxyTimestamp=adProxyTimestamp, adSipProxyGroups=adSipProxyGroups, adSipProxyConformance=adSipProxyConformance, PYSNMP_MODULE_ID=adGenAOSSipProxy)
+mibBuilder.exportSymbols("ADTRAN-AOS-SIP-PROXY-MIB", PYSNMP_MODULE_ID=adGenAOSSipProxy, adSipProxyNotificationGroup=adSipProxyNotificationGroup, adGenAOSSipProxy=adGenAOSSipProxy, adSipProxy=adSipProxy, adSipProxyFullCompliance=adSipProxyFullCompliance, adSipProxyConformance=adSipProxyConformance, adProxyRolloverCause=adProxyRolloverCause, adProxyRolloverFromServerInetAddressType=adProxyRolloverFromServerInetAddressType, adSipProxyTraps=adSipProxyTraps, AdProxyRolloverCauseTC=AdProxyRolloverCauseTC, adSipProxyRollover=adSipProxyRollover, adSipProxyGroups=adSipProxyGroups, adSipProxyNotificationUtilityGroup=adSipProxyNotificationUtilityGroup, adProxyRolloverToServerInetAddressType=adProxyRolloverToServerInetAddressType, adProxyTimestamp=adProxyTimestamp, adProxyRolloverFromServerInetAddress=adProxyRolloverFromServerInetAddress, adSipProxyCompliances=adSipProxyCompliances, adProxyRolloverToServerInetAddress=adProxyRolloverToServerInetAddress)

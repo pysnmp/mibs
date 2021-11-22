@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HIPATH-WIRELESS-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ewc/HIPATH-WIRELESS-SMI
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:23:47 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:38:09 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-enterprises, Bits, Integer32, Unsigned32, ModuleIdentity, Counter64, IpAddress, TimeTicks, MibIdentifier, ObjectIdentity, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "Bits", "Integer32", "Unsigned32", "ModuleIdentity", "Counter64", "IpAddress", "TimeTicks", "MibIdentifier", "ObjectIdentity", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter64, ModuleIdentity, Integer32, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, iso, Gauge32, NotificationType, Counter32, MibIdentifier, Bits, enterprises, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "Integer32", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "iso", "Gauge32", "NotificationType", "Counter32", "MibIdentifier", "Bits", "enterprises", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hiPathWireless = ModuleIdentity((1, 3, 6, 1, 4, 1, 4329, 15))
 hiPathWireless.setRevisions(('2005-07-21 02:37',))
@@ -26,4 +26,4 @@ hiPathWirelessModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 15, 5))
 if mibBuilder.loadTexts: hiPathWirelessModules.setStatus('current')
 hiPathWirelessHWM = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 15, 6))
 if mibBuilder.loadTexts: hiPathWirelessHWM.setStatus('current')
-mibBuilder.exportSymbols("HIPATH-WIRELESS-SMI", hiPathWirelessDevelopment=hiPathWirelessDevelopment, hiPathWirelessHWM=hiPathWirelessHWM, hiPathWireless=hiPathWireless, hiPathWirelessMgmt=hiPathWirelessMgmt, PYSNMP_MODULE_ID=hiPathWireless, siemens=siemens, hiPathWirelessProducts=hiPathWirelessProducts, hiPathWirelessModules=hiPathWirelessModules)
+mibBuilder.exportSymbols("HIPATH-WIRELESS-SMI", hiPathWirelessHWM=hiPathWirelessHWM, hiPathWirelessMgmt=hiPathWirelessMgmt, hiPathWireless=hiPathWireless, hiPathWirelessProducts=hiPathWirelessProducts, siemens=siemens, hiPathWirelessModules=hiPathWirelessModules, PYSNMP_MODULE_ID=hiPathWireless, hiPathWirelessDevelopment=hiPathWirelessDevelopment)

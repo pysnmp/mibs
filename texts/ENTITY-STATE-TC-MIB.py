@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ENTITY-STATE-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ENTITY-STATE-TC-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:04:45 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:19:27 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, NotificationType, Unsigned32, Counter32, Gauge32, MibIdentifier, Counter64, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, TimeTicks, ObjectIdentity, Integer32, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Unsigned32", "Counter32", "Gauge32", "MibIdentifier", "Counter64", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "TimeTicks", "ObjectIdentity", "Integer32", "IpAddress", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectIdentity, iso, ModuleIdentity, Counter32, Integer32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType, Unsigned32, mib_2, Gauge32, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "ModuleIdentity", "Counter32", "Integer32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType", "Unsigned32", "mib-2", "Gauge32", "Counter64", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 entityStateTc = ModuleIdentity((1, 3, 6, 1, 2, 1, 130))
 entityStateTc.setRevisions(('2005-11-22 00:00',))
 
@@ -49,4 +49,4 @@ class EntityStandbyStatus(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
     namedValues = NamedValues(("unknown", 1), ("hotStandby", 2), ("coldStandby", 3), ("providingService", 4))
 
-mibBuilder.exportSymbols("ENTITY-STATE-TC-MIB", EntityOperState=EntityOperState, PYSNMP_MODULE_ID=entityStateTc, EntityUsageState=EntityUsageState, EntityAlarmStatus=EntityAlarmStatus, entityStateTc=entityStateTc, EntityAdminState=EntityAdminState, EntityStandbyStatus=EntityStandbyStatus)
+mibBuilder.exportSymbols("ENTITY-STATE-TC-MIB", entityStateTc=entityStateTc, EntityAlarmStatus=EntityAlarmStatus, EntityUsageState=EntityUsageState, EntityAdminState=EntityAdminState, PYSNMP_MODULE_ID=entityStateTc, EntityStandbyStatus=EntityStandbyStatus, EntityOperState=EntityOperState)

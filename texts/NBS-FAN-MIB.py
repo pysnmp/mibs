@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-FAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-FAN-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:05:35 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:20:17 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-nbs, NbsTcStatusSimple, NbsTcPartIndex = mibBuilder.importSymbols("NBS-MIB", "nbs", "NbsTcStatusSimple", "NbsTcPartIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Bits, iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Gauge32, Counter64, Counter32, Unsigned32, Integer32, MibIdentifier, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Gauge32", "Counter64", "Counter32", "Unsigned32", "Integer32", "MibIdentifier", "ObjectIdentity", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NbsTcPartIndex, NbsTcStatusSimple, nbs = mibBuilder.importSymbols("NBS-MIB", "NbsTcPartIndex", "NbsTcStatusSimple", "nbs")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, Counter32, Counter64, iso, Gauge32, MibIdentifier, Bits, Unsigned32, NotificationType, ModuleIdentity, ObjectIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "Counter32", "Counter64", "iso", "Gauge32", "MibIdentifier", "Bits", "Unsigned32", "NotificationType", "ModuleIdentity", "ObjectIdentity", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsFanMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 226))
 if mibBuilder.loadTexts: nbsFanMib.setLastUpdated('201306270000Z')
 if mibBuilder.loadTexts: nbsFanMib.setOrganization('NBS')
@@ -63,4 +63,4 @@ if mibBuilder.loadTexts: nbsFanTrapFanStatusOk.setDescription("Sent when fan's n
 nbsFanTrapFanSpeedChanged = NotificationType((1, 3, 6, 1, 4, 1, 629, 226, 100, 0, 40)).setObjects(("NBS-FAN-MIB", "nbsFanFanParentIfIndex"), ("NBS-FAN-MIB", "nbsFanFanParentPartIndex"), ("NBS-FAN-MIB", "nbsFanFanIndex"), ("NBS-FAN-MIB", "nbsFanFanDescription"), ("NBS-FAN-MIB", "nbsFanFanSpeed"))
 if mibBuilder.loadTexts: nbsFanTrapFanSpeedChanged.setStatus('current')
 if mibBuilder.loadTexts: nbsFanTrapFanSpeedChanged.setDescription("Sent when fan's nbsFanFanSpeed changes")
-mibBuilder.exportSymbols("NBS-FAN-MIB", nbsFanFanTable=nbsFanFanTable, nbsFanEvents=nbsFanEvents, nbsFanFanParentIfIndex=nbsFanFanParentIfIndex, nbsFanFanDescription=nbsFanFanDescription, nbsFanTrapFanSpeedChanged=nbsFanTrapFanSpeedChanged, nbsFanFanSpeed=nbsFanFanSpeed, nbsFanFanIndex=nbsFanFanIndex, nbsFanFanParentPartIndex=nbsFanFanParentPartIndex, nbsFanFanGrp=nbsFanFanGrp, nbsFanTrapFanStatusBad=nbsFanTrapFanStatusBad, nbsFanTrapFanStatusOk=nbsFanTrapFanStatusOk, nbsFanFanStatus=nbsFanFanStatus, nbsFanFanEntry=nbsFanFanEntry, PYSNMP_MODULE_ID=nbsFanMib, nbsFanFanTableSize=nbsFanFanTableSize, nbsFanEventsGrp=nbsFanEventsGrp, nbsFanMib=nbsFanMib)
+mibBuilder.exportSymbols("NBS-FAN-MIB", nbsFanEvents=nbsFanEvents, nbsFanFanStatus=nbsFanFanStatus, nbsFanTrapFanSpeedChanged=nbsFanTrapFanSpeedChanged, nbsFanFanGrp=nbsFanFanGrp, nbsFanFanParentIfIndex=nbsFanFanParentIfIndex, nbsFanFanEntry=nbsFanFanEntry, nbsFanEventsGrp=nbsFanEventsGrp, nbsFanTrapFanStatusBad=nbsFanTrapFanStatusBad, nbsFanFanTableSize=nbsFanFanTableSize, PYSNMP_MODULE_ID=nbsFanMib, nbsFanFanIndex=nbsFanFanIndex, nbsFanFanParentPartIndex=nbsFanFanParentPartIndex, nbsFanFanTable=nbsFanFanTable, nbsFanMib=nbsFanMib, nbsFanFanSpeed=nbsFanFanSpeed, nbsFanFanDescription=nbsFanFanDescription, nbsFanTrapFanStatusOk=nbsFanTrapFanStatusOk)

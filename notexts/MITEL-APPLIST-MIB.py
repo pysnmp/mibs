@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MITEL-APPLIST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mitel/MITEL-APPLIST-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:11:27 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:25:57 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 mitelIdentification, = mibBuilder.importSymbols("MITEL-MIB", "mitelIdentification")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Integer32, ModuleIdentity, NotificationType, iso, ObjectIdentity, Counter32, Counter64, Gauge32, IpAddress, MibIdentifier, TimeTicks, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "ModuleIdentity", "NotificationType", "iso", "ObjectIdentity", "Counter32", "Counter64", "Gauge32", "IpAddress", "MibIdentifier", "TimeTicks", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Integer32, ObjectIdentity, Unsigned32, MibIdentifier, Counter32, Bits, NotificationType, ModuleIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, Gauge32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "Unsigned32", "MibIdentifier", "Counter32", "Bits", "NotificationType", "ModuleIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "Gauge32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mitelIdApplications = ModuleIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 7))
 mitelIdApplications.setRevisions(('2014-02-11 12:00', '2008-11-25 00:00', '2008-10-02 00:00', '2008-08-13 00:00', '2007-06-07 00:00', '2007-04-09 00:00', '2007-02-12 00:00', '2006-08-10 00:00', '2005-02-23 21:34',))
 if mibBuilder.loadTexts: mitelIdApplications.setLastUpdated('201402111200Z')
@@ -46,4 +46,4 @@ mitelIdAppMediaServiceManager = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 7, 14
 if mibBuilder.loadTexts: mitelIdAppMediaServiceManager.setStatus('current')
 mitelIdAppMitelCommunicationDirectorManager = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 7, 15))
 if mibBuilder.loadTexts: mitelIdAppMitelCommunicationDirectorManager.setStatus('current')
-mibBuilder.exportSymbols("MITEL-APPLIST-MIB", PYSNMP_MODULE_ID=mitelIdApplications, mitelIdAppSecureCallRecConn=mitelIdAppSecureCallRecConn, mitelIdAppAudioWebConferencing=mitelIdAppAudioWebConferencing, mitelIdAppSuiteAppService=mitelIdAppSuiteAppService, mitelIdAppUnifiedIPClient=mitelIdAppUnifiedIPClient, mitelIdAppMitelCommunicationDirectorManager=mitelIdAppMitelCommunicationDirectorManager, mitelIdAppMasTeleworker=mitelIdAppMasTeleworker, mitelIdAppMasMobileExtention=mitelIdAppMasMobileExtention, mitelIdAppUnifiedCommunicationsServer=mitelIdAppUnifiedCommunicationsServer, mitelIdAppCallServer=mitelIdAppCallServer, mitelIdApplications=mitelIdApplications, mitelIdAppMediaServiceManager=mitelIdAppMediaServiceManager, mitelIdAppMasOfficeServerSuite=mitelIdAppMasOfficeServerSuite, mitelIdAppCustomerServiceManager=mitelIdAppCustomerServiceManager, mitelIdAppMasManagedVpn=mitelIdAppMasManagedVpn, mitelIdAppQuickConference=mitelIdAppQuickConference, mitelIdAppNupointUnifiedMessenger=mitelIdAppNupointUnifiedMessenger)
+mibBuilder.exportSymbols("MITEL-APPLIST-MIB", mitelIdAppUnifiedCommunicationsServer=mitelIdAppUnifiedCommunicationsServer, mitelIdAppSecureCallRecConn=mitelIdAppSecureCallRecConn, mitelIdAppUnifiedIPClient=mitelIdAppUnifiedIPClient, mitelIdAppQuickConference=mitelIdAppQuickConference, PYSNMP_MODULE_ID=mitelIdApplications, mitelIdAppMasMobileExtention=mitelIdAppMasMobileExtention, mitelIdAppMasOfficeServerSuite=mitelIdAppMasOfficeServerSuite, mitelIdApplications=mitelIdApplications, mitelIdAppMediaServiceManager=mitelIdAppMediaServiceManager, mitelIdAppNupointUnifiedMessenger=mitelIdAppNupointUnifiedMessenger, mitelIdAppMasTeleworker=mitelIdAppMasTeleworker, mitelIdAppAudioWebConferencing=mitelIdAppAudioWebConferencing, mitelIdAppCallServer=mitelIdAppCallServer, mitelIdAppCustomerServiceManager=mitelIdAppCustomerServiceManager, mitelIdAppMitelCommunicationDirectorManager=mitelIdAppMitelCommunicationDirectorManager, mitelIdAppMasManagedVpn=mitelIdAppMasManagedVpn, mitelIdAppSuiteAppService=mitelIdAppSuiteAppService)

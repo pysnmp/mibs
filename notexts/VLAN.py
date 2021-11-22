@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module VLAN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/VLAN
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:23:07 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:37:28 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 interface, = mibBuilder.importSymbols("ExaltComProducts", "interface")
 VlanGroupT, VlanStatusT = mibBuilder.importSymbols("ExaltComm", "VlanGroupT", "VlanStatusT")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-NotificationType, TimeTicks, ModuleIdentity, Unsigned32, Integer32, Bits, Counter64, IpAddress, MibIdentifier, Gauge32, iso, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "TimeTicks", "ModuleIdentity", "Unsigned32", "Integer32", "Bits", "Counter64", "IpAddress", "MibIdentifier", "Gauge32", "iso", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+NotificationType, Bits, ModuleIdentity, Gauge32, Unsigned32, iso, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, IpAddress, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "ModuleIdentity", "Gauge32", "Unsigned32", "iso", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "IpAddress", "Counter64", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vlan = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3))
 if mibBuilder.loadTexts: vlan.setStatus('current')
 vlanStatus = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3, 1), VlanStatusT()).setMaxAccess("readwrite")
@@ -29,4 +29,4 @@ vlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3, 6, 1, 2), Displ
 if mibBuilder.loadTexts: vlanID.setStatus('current')
 commitVlanSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3, 1000), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(4, 200))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitVlanSettings.setStatus('current')
-mibBuilder.exportSymbols("VLAN", vlan=vlan, vlanID=vlanID, vlanDefaultId=vlanDefaultId, vlanStatus=vlanStatus, commitVlanSettings=commitVlanSettings, vlanInterfacesEntry=vlanInterfacesEntry, vlanDefaultMgmtId=vlanDefaultMgmtId, vlanInterfaces=vlanInterfaces)
+mibBuilder.exportSymbols("VLAN", vlanInterfacesEntry=vlanInterfacesEntry, commitVlanSettings=commitVlanSettings, vlan=vlan, vlanStatus=vlanStatus, vlanDefaultId=vlanDefaultId, vlanID=vlanID, vlanInterfaces=vlanInterfaces, vlanDefaultMgmtId=vlanDefaultMgmtId)

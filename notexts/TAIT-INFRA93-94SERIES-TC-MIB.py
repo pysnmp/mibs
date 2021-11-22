@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TAIT-INFRA93-94SERIES-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-INFRA93-94SERIES-TC-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:16:59 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:31:16 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, iso, Gauge32, Unsigned32, TimeTicks, Bits, Integer32, Counter64, NotificationType, IpAddress, ModuleIdentity, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Gauge32", "Unsigned32", "TimeTicks", "Bits", "Integer32", "Counter64", "NotificationType", "IpAddress", "ModuleIdentity", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Bits, iso, Counter32, Counter64, NotificationType, Gauge32, ObjectIdentity, IpAddress, MibIdentifier, ModuleIdentity, Integer32, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "Counter32", "Counter64", "NotificationType", "Gauge32", "ObjectIdentity", "IpAddress", "MibIdentifier", "ModuleIdentity", "Integer32", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 infra93_94MibModule, = mibBuilder.importSymbols("TAIT-INFRA93-94SERIES-COMMON-MIB", "infra93-94MibModule")
 infra93_94TC = ModuleIdentity((1, 3, 6, 1, 4, 1, 3570, 1, 1, 10, 1)).setLabel("infra93-94TC")
 infra93_94TC.setRevisions(('2018-08-31 00:00', '2018-05-22 00:26', '2017-11-28 00:00', '2017-07-28 00:00', '2016-03-21 00:00', '2015-05-15 12:00', '2014-10-30 15:00', '2014-01-14 11:00',))
@@ -80,4 +80,4 @@ class OptionState(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("disabled", 0), ("enabled", 1))
 
-mibBuilder.exportSymbols("TAIT-INFRA93-94SERIES-TC-MIB", BaseStationMode=BaseStationMode, ChannelGroupStatus=ChannelGroupStatus, GateState=GateState, TimingControlType=TimingControlType, Condition=Condition, PowerW=PowerW, TransmitterStatus=TransmitterStatus, PYSNMP_MODULE_ID=infra93_94TC, OptionState=OptionState, FrequencyHz=FrequencyHz, AlarmState=AlarmState, CurrentmA=CurrentmA, infra93_94TC=infra93_94TC, VoltageV=VoltageV, Milliseconds=Milliseconds)
+mibBuilder.exportSymbols("TAIT-INFRA93-94SERIES-TC-MIB", Milliseconds=Milliseconds, CurrentmA=CurrentmA, AlarmState=AlarmState, TimingControlType=TimingControlType, ChannelGroupStatus=ChannelGroupStatus, OptionState=OptionState, PYSNMP_MODULE_ID=infra93_94TC, FrequencyHz=FrequencyHz, GateState=GateState, Condition=Condition, BaseStationMode=BaseStationMode, VoltageV=VoltageV, TransmitterStatus=TransmitterStatus, PowerW=PowerW, infra93_94TC=infra93_94TC)

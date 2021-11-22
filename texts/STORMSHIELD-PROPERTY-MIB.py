@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:14:12 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:28:33 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, Counter32, IpAddress, TimeTicks, NotificationType, MibIdentifier, Integer32, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "Counter32", "IpAddress", "TimeTicks", "NotificationType", "MibIdentifier", "Integer32", "Unsigned32", "Bits")
+Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Bits, iso, MibIdentifier, Counter32, NotificationType, Integer32, TimeTicks, Gauge32, Unsigned32, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Bits", "iso", "MibIdentifier", "Counter32", "NotificationType", "Integer32", "TimeTicks", "Gauge32", "Unsigned32", "ModuleIdentity", "ObjectIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: snsClone.setDescription("Firewall licence 'clone' token
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
 if mibBuilder.loadTexts: snsHADialup.setDescription("Firewall licence 'HA-dialup' token")
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbPPTP=snsNbPPTP, snsClone=snsClone, snsSerialNumber=snsSerialNumber, snsNbSerial=snsNbSerial, PYSNMP_MODULE_ID=snsProductProperty, snsVersion=snsVersion, snsProductProperty=snsProductProperty, snsHADialup=snsHADialup, snsNbVlan=snsNbVlan, snsNbLoopback=snsNbLoopback, snsSystemLanguage=snsSystemLanguage, snsLed=snsLed, snsModel=snsModel, snsNbDialup=snsNbDialup, snsSystemName=snsSystemName, snsNbEther=snsNbEther, snsWatchdog=snsWatchdog)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbLoopback=snsNbLoopback, snsClone=snsClone, snsHADialup=snsHADialup, PYSNMP_MODULE_ID=snsProductProperty, snsVersion=snsVersion, snsNbSerial=snsNbSerial, snsProductProperty=snsProductProperty, snsLed=snsLed, snsNbVlan=snsNbVlan, snsModel=snsModel, snsWatchdog=snsWatchdog, snsNbDialup=snsNbDialup, snsSerialNumber=snsSerialNumber, snsSystemLanguage=snsSystemLanguage, snsNbPPTP=snsNbPPTP, snsSystemName=snsSystemName, snsNbEther=snsNbEther)

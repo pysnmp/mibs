@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BLUECOAT-SG-WCCP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-WCCP-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:15:46 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:30:05 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, TimeTicks, MibIdentifier, Integer32, ModuleIdentity, NotificationType, Bits, Unsigned32, IpAddress, Counter32, Counter64, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "MibIdentifier", "Integer32", "ModuleIdentity", "NotificationType", "Bits", "Unsigned32", "IpAddress", "Counter32", "Counter64", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+IpAddress, ObjectIdentity, Bits, ModuleIdentity, Integer32, Unsigned32, TimeTicks, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter64, Counter32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ObjectIdentity", "Bits", "ModuleIdentity", "Integer32", "Unsigned32", "TimeTicks", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter64", "Counter32", "Gauge32")
 DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
 deviceWccpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 5))
 deviceWccpMIB.setRevisions(('2008-01-23 03:00', '2007-11-05 03:00', '2002-08-28 03:00',))
@@ -50,4 +50,4 @@ deviceWccpBytesRedir = MibTableColumn((1, 3, 6, 1, 4, 1, 3417, 2, 5, 2, 1, 1, 1,
 if mibBuilder.loadTexts: deviceWccpBytesRedir.setStatus('current')
 deviceWccpBytesLowRedir = MibTableColumn((1, 3, 6, 1, 4, 1, 3417, 2, 5, 2, 1, 1, 1, 8), Counter32()).setUnits('Bytes').setMaxAccess("readonly")
 if mibBuilder.loadTexts: deviceWccpBytesLowRedir.setStatus('current')
-mibBuilder.exportSymbols("BLUECOAT-SG-WCCP-MIB", WccpVersion=WccpVersion, deviceWccpValues=deviceWccpValues, deviceWccpServiceID=deviceWccpServiceID, deviceWccpServiceVersion=deviceWccpServiceVersion, deviceWccpBytesRedir=deviceWccpBytesRedir, deviceWccpMIB=deviceWccpMIB, WccpServiceType=WccpServiceType, deviceWccpValueTable=deviceWccpValueTable, deviceWccpPacketsRedir=deviceWccpPacketsRedir, deviceWccpBytesLowRedir=deviceWccpBytesLowRedir, deviceWccpEnabled=deviceWccpEnabled, PYSNMP_MODULE_ID=deviceWccpMIB, deviceWccpIndex=deviceWccpIndex, deviceWccpMIBObjects=deviceWccpMIBObjects, deviceWccpPacketsLowRedir=deviceWccpPacketsLowRedir, deviceWccpServiceType=deviceWccpServiceType, deviceWccpValueEntry=deviceWccpValueEntry)
+mibBuilder.exportSymbols("BLUECOAT-SG-WCCP-MIB", PYSNMP_MODULE_ID=deviceWccpMIB, deviceWccpBytesRedir=deviceWccpBytesRedir, deviceWccpValues=deviceWccpValues, deviceWccpBytesLowRedir=deviceWccpBytesLowRedir, deviceWccpEnabled=deviceWccpEnabled, deviceWccpIndex=deviceWccpIndex, deviceWccpServiceType=deviceWccpServiceType, deviceWccpPacketsRedir=deviceWccpPacketsRedir, WccpServiceType=WccpServiceType, WccpVersion=WccpVersion, deviceWccpMIB=deviceWccpMIB, deviceWccpServiceID=deviceWccpServiceID, deviceWccpPacketsLowRedir=deviceWccpPacketsLowRedir, deviceWccpMIBObjects=deviceWccpMIBObjects, deviceWccpValueEntry=deviceWccpValueEntry, deviceWccpServiceVersion=deviceWccpServiceVersion, deviceWccpValueTable=deviceWccpValueTable)

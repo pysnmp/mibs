@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-PRIORITY-CLASSIFY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-PRIORITY-CLASSIFY-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:20:10 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:34:29 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, MibIdentifier, Counter64, Gauge32, IpAddress, iso, Counter32, Unsigned32, ModuleIdentity, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "MibIdentifier", "Counter64", "Gauge32", "IpAddress", "iso", "Counter32", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "Bits")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ObjectIdentity, NotificationType, iso, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, Counter32, ModuleIdentity, TimeTicks, Unsigned32, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "iso", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "Counter32", "ModuleIdentity", "TimeTicks", "Unsigned32", "Counter64", "IpAddress")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 ctPriClassify = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6))
 if mibBuilder.loadTexts: ctPriClassify.setLastUpdated('200203121855Z')
 if mibBuilder.loadTexts: ctPriClassify.setOrganization('Cabletron Systems, Inc')
@@ -72,4 +72,4 @@ ctPriClassifyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctPriClassifyCompliance = ctPriClassifyCompliance.setStatus('current')
-mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyTOSValue=ctPriClassifyTOSValue, PortList=PortList, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyIngressList=ctPriClassifyIngressList, ctPriClassifyObjects=ctPriClassifyObjects, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassify=ctPriClassify, ctPriClassifyDataVal=ctPriClassifyDataVal, CtPriClassifyType=CtPriClassifyType, ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyPorts=ctPriClassifyPorts, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, PYSNMP_MODULE_ID=ctPriClassify, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyStatus=ctPriClassifyStatus, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyRowStatus=ctPriClassifyRowStatus)
+mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", ctPriClassify=ctPriClassify, CtPriClassifyType=CtPriClassifyType, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyPorts=ctPriClassifyPorts, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyTOSValue=ctPriClassifyTOSValue, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyObjects=ctPriClassifyObjects, ctPriClassifyRowInfo=ctPriClassifyRowInfo, PYSNMP_MODULE_ID=ctPriClassify, ctPriClassifyIngressList=ctPriClassifyIngressList, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyStatus=ctPriClassifyStatus, PortList=PortList, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning)

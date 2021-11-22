@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module AXIS-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/axis/AXIS-ROOT-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:11:11 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:25:43 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, MibIdentifier, IpAddress, ModuleIdentity, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, Counter64, Bits, enterprises, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "IpAddress", "ModuleIdentity", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "Counter64", "Bits", "enterprises", "Integer32", "Gauge32")
+ModuleIdentity, Bits, IpAddress, TimeTicks, iso, Counter64, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, enterprises, ObjectIdentity, NotificationType, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "IpAddress", "TimeTicks", "iso", "Counter64", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "enterprises", "ObjectIdentity", "NotificationType", "MibIdentifier", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 axis = ModuleIdentity((1, 3, 6, 1, 4, 1, 368))
 axis.setRevisions(('2012-06-08 10:00',))
@@ -23,4 +23,4 @@ if mibBuilder.loadTexts: axis.setDescription('The AXIS root MIB.')
 products = ObjectIdentity((1, 3, 6, 1, 4, 1, 368, 1))
 if mibBuilder.loadTexts: products.setStatus('current')
 if mibBuilder.loadTexts: products.setDescription('products is the root OBJECT IDENTIFIER from which\n         sysObjectID values are assigned. Actual values and\n         respectively products sub-tree are defined in:\n         AXIS-PRINTSERVER-MIB\n         AXIS-VIDEO-MIB')
-mibBuilder.exportSymbols("AXIS-ROOT-MIB", products=products, axis=axis, PYSNMP_MODULE_ID=axis)
+mibBuilder.exportSymbols("AXIS-ROOT-MIB", axis=axis, products=products, PYSNMP_MODULE_ID=axis)

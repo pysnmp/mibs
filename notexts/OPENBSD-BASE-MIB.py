@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OPENBSD-BASE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-BASE-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:23:31 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:37:53 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Unsigned32, enterprises, Counter32, NotificationType, ModuleIdentity, MibIdentifier, Counter64, IpAddress, Bits, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "enterprises", "Counter32", "NotificationType", "ModuleIdentity", "MibIdentifier", "Counter64", "IpAddress", "Bits", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, Unsigned32, NotificationType, Bits, ModuleIdentity, TimeTicks, ObjectIdentity, iso, enterprises, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Unsigned32", "NotificationType", "Bits", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "iso", "enterprises", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "IpAddress", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 openBSD = ModuleIdentity((1, 3, 6, 1, 4, 1, 30155))
 openBSD.setRevisions(('2012-01-31 00:00', '2008-12-23 00:00',))
 if mibBuilder.loadTexts: openBSD.setLastUpdated('201201310000Z')
@@ -23,4 +23,4 @@ carpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30155, 6))
 localSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 30155, 23))
 openBSDDefaultObjectID = MibIdentifier((1, 3, 6, 1, 4, 1, 30155, 23, 1))
 localTest = MibIdentifier((1, 3, 6, 1, 4, 1, 30155, 42))
-mibBuilder.exportSymbols("OPENBSD-BASE-MIB", pfMIBObjects=pfMIBObjects, relaydMIBObjects=relaydMIBObjects, sensorsMIBObjects=sensorsMIBObjects, memMIBObjects=memMIBObjects, localTest=localTest, carpMIBObjects=carpMIBObjects, openBSDDefaultObjectID=openBSDDefaultObjectID, localSystem=localSystem, openBSD=openBSD, PYSNMP_MODULE_ID=openBSD)
+mibBuilder.exportSymbols("OPENBSD-BASE-MIB", memMIBObjects=memMIBObjects, relaydMIBObjects=relaydMIBObjects, PYSNMP_MODULE_ID=openBSD, sensorsMIBObjects=sensorsMIBObjects, localSystem=localSystem, carpMIBObjects=carpMIBObjects, pfMIBObjects=pfMIBObjects, openBSDDefaultObjectID=openBSDDefaultObjectID, localTest=localTest, openBSD=openBSD)

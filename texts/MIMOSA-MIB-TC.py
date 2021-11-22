@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MIMOSA-MIB-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mimosa/MIMOSA-MIB-TC
-# Produced by pysmi-1.1.3 at Mon Nov 22 12:11:43 2021
-# On host fv-az36-755 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 12:26:12 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
 mimosa, = mibBuilder.importSymbols("MIMOSA-NETWORKS-BASE-MIB", "mimosa")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Unsigned32, Counter32, iso, Gauge32, Counter64, Integer32, TimeTicks, MibIdentifier, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "Counter32", "iso", "Gauge32", "Counter64", "Integer32", "TimeTicks", "MibIdentifier", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Gauge32, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, ModuleIdentity, iso, Counter32, IpAddress, Unsigned32, TimeTicks, Bits, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "ModuleIdentity", "iso", "Counter32", "IpAddress", "Unsigned32", "TimeTicks", "Bits", "NotificationType", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mimosaMibTC = ModuleIdentity((1, 3, 6, 1, 4, 1, 43356, 3))
 mimosaMibTC.setRevisions(('2017-02-15 00:00',))
 
@@ -45,4 +45,4 @@ class Mimosa5GHzChannelNumber(TextualConvention, Integer32):
     description = 'Reprensents the channel Wifi ChannelWidth'
     status = 'current'
 
-mibBuilder.exportSymbols("MIMOSA-MIB-TC", DecimalOne=DecimalOne, Mimosa5GHzFrequency=Mimosa5GHzFrequency, mimosaMibTC=mimosaMibTC, DecimalFive=DecimalFive, PYSNMP_MODULE_ID=mimosaMibTC, DecimalTwo=DecimalTwo, Mimosa5GHzChannelNumber=Mimosa5GHzChannelNumber)
+mibBuilder.exportSymbols("MIMOSA-MIB-TC", DecimalOne=DecimalOne, PYSNMP_MODULE_ID=mimosaMibTC, mimosaMibTC=mimosaMibTC, Mimosa5GHzFrequency=Mimosa5GHzFrequency, Mimosa5GHzChannelNumber=Mimosa5GHzChannelNumber, DecimalTwo=DecimalTwo, DecimalFive=DecimalFive)
