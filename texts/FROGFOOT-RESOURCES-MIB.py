@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module FROGFOOT-RESOURCES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/FROGFOOT-RESOURCES-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 21 13:40:13 2021
-# On host fv-az74-779 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Mon Nov 22 11:34:56 2021
+# On host fv-az33-360 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, iso, Integer32, Gauge32, NotificationType, IpAddress, Bits, enterprises, Counter32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Unsigned32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "Integer32", "Gauge32", "NotificationType", "IpAddress", "Bits", "enterprises", "Counter32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Unsigned32", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, ObjectIdentity, Gauge32, iso, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, enterprises, Counter32, NotificationType, IpAddress, Bits, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "ObjectIdentity", "Gauge32", "iso", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "enterprises", "Counter32", "NotificationType", "IpAddress", "Bits", "TimeTicks", "Counter64")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 resources = ModuleIdentity((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1))
 if mibBuilder.loadTexts: resources.setLastUpdated('200407170000Z')
 if mibBuilder.loadTexts: resources.setOrganization('Frogfoot Networks')
@@ -118,4 +118,4 @@ resLoadGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 1, 4)).setO
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     resLoadGroup = resLoadGroup.setStatus('current')
 if mibBuilder.loadTexts: resLoadGroup.setDescription('A collection of objects providing information specific to\n\t\tprocessor load averages.')
-mibBuilder.exportSymbols("FROGFOOT-RESOURCES-MIB", loadTable=loadTable, resDiskGroup=resDiskGroup, load=load, swapTotal=swapTotal, swap=swap, resGroups=resGroups, resMIBObjects=resMIBObjects, memCache=memCache, diskNumber=diskNumber, PYSNMP_MODULE_ID=resources, servers=servers, resMIB=resMIB, resCompliance=resCompliance, system=system, diskIndex=diskIndex, resConformance=resConformance, loadValue=loadValue, loadNumber=loadNumber, TableIndex=TableIndex, swapFree=swapFree, frogfoot=frogfoot, resources=resources, memTotal=memTotal, resMemGroup=resMemGroup, loadIndex=loadIndex, diskEntry=diskEntry, diskTable=diskTable, diskDev=diskDev, storage=storage, loadDescr=loadDescr, memory=memory, resLoadGroup=resLoadGroup, diskTotal=diskTotal, resSwapGroup=resSwapGroup, diskDir=diskDir, loadEntry=loadEntry, memFree=memFree, diskFSType=diskFSType, memBuffer=memBuffer, diskFree=diskFree, resCompliances=resCompliances)
+mibBuilder.exportSymbols("FROGFOOT-RESOURCES-MIB", diskFSType=diskFSType, diskDir=diskDir, load=load, memFree=memFree, servers=servers, storage=storage, diskEntry=diskEntry, resLoadGroup=resLoadGroup, diskIndex=diskIndex, diskDev=diskDev, resources=resources, diskNumber=diskNumber, loadNumber=loadNumber, memTotal=memTotal, loadDescr=loadDescr, resDiskGroup=resDiskGroup, resGroups=resGroups, loadValue=loadValue, frogfoot=frogfoot, resMemGroup=resMemGroup, memory=memory, memCache=memCache, resMIBObjects=resMIBObjects, diskTable=diskTable, diskTotal=diskTotal, resMIB=resMIB, resCompliance=resCompliance, resConformance=resConformance, TableIndex=TableIndex, resCompliances=resCompliances, swapFree=swapFree, diskFree=diskFree, loadTable=loadTable, system=system, memBuffer=memBuffer, loadEntry=loadEntry, loadIndex=loadIndex, swap=swap, swapTotal=swapTotal, resSwapGroup=resSwapGroup, PYSNMP_MODULE_ID=resources)
