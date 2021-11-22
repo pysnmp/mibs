@@ -12,7 +12,6 @@ jobs:
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          charts_dir: mibserver
-          charts_url: https://pysnmp.github.io
+          charts_url: https://pysnmp.github.io/mibs
           branch: gh-pages
           target_dir: charts
