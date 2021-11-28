@@ -25,11 +25,14 @@
   plugins:
     [
       "@semantic-release/commit-analyzer",
+        ["@semantic-release/exec", {
+            "prepareCmd": 'yq -i eval ".appVersion = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml;yq -i eval ".version = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml'
+        }],        
       "@semantic-release/release-notes-generator",
       [
         "@semantic-release/git",
         {
-          "assets": ["NOTICE"],
+          "assets": ["NOTICE", "charts/mibserver/Chart.yaml"],
           "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}",
         },
       ],
