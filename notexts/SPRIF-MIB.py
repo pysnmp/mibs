@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SPRIF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/SPRIF-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 21:13:06 2021
-# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:14:06 2021
+# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 SagemBoolean, = mibBuilder.importSymbols("EQUIPMENT-MIB", "SagemBoolean")
 sagemDr, = mibBuilder.importSymbols("SAGEM-DR-MIB", "sagemDr")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, MibIdentifier, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, TimeTicks, Gauge32, ObjectIdentity, IpAddress, Integer32, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "TimeTicks", "Gauge32", "ObjectIdentity", "IpAddress", "Integer32", "Counter64", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter32, Gauge32, Bits, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, ObjectIdentity, NotificationType, IpAddress, iso, TimeTicks, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "Bits", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "NotificationType", "IpAddress", "iso", "TimeTicks", "Counter64", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 sprif = ModuleIdentity((1, 3, 6, 1, 4, 1, 1038, 180))
 if mibBuilder.loadTexts: sprif.setLastUpdated('0012120000Z')
 if mibBuilder.loadTexts: sprif.setOrganization('SAGEM-Tolbiac drd/ddp/tmhd')
@@ -140,4 +140,4 @@ debug3mms = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 180, 30, 2, 1, 27), SagemBoo
 if mibBuilder.loadTexts: debug3mms.setStatus('current')
 debug3exr = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 180, 30, 2, 1, 28), SagemBoolean()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: debug3exr.setStatus('current')
-mibBuilder.exportSymbols("SPRIF-MIB", debug3exr=debug3exr, sprif=sprif, debugDate=debugDate, K2STAT=K2STAT, debugNodeState=debugNodeState, NodeId=NodeId, debugTxK2Src=debugTxK2Src, debugRxK2Path=debugRxK2Path, debugRxK2Stat=debugRxK2Stat, STATE=STATE, debug3Line=debug3Line, debugWtr=debugWtr, LINE=LINE, debugRxK1Dst=debugRxK1Dst, PYSNMP_MODULE_ID=sprif, debugNodeID=debugNodeID, debugTxK1Dst=debugTxK1Dst, debugTxK2Path=debugTxK2Path, debug3Entry=debug3Entry, debugLogType=debugLogType, debugTxK1Ask=debugTxK1Ask, debugIndex=debugIndex, debug3Date=debug3Date, SWITCHSTATUS=SWITCHSTATUS, debug3arv=debug3arv, LOCALFAIL=LOCALFAIL, K2PATH=K2PATH, debug3ato=debug3ato, debug3aun=debug3aun, debugTable=debugTable, debugTxK2Stat=debugTxK2Stat, debug3ptm=debug3ptm, debugLine=debugLine, debugLastDetectedFailure=debugLastDetectedFailure, debug=debug, K1ASK=K1ASK, LOGTYPE=LOGTYPE, debugActivated=debugActivated, debugLastDistantCommand=debugLastDistantCommand, debugNumber=debugNumber, debugTrafficStatus=debugTrafficStatus, debug3mms=debug3mms, debugEntry=debugEntry, debugLastLocalCommand=debugLastLocalCommand, TrafficStatus=TrafficStatus, debugRxK1Ask=debugRxK1Ask, debug3Table=debug3Table, debugTimerAction=debugTimerAction, TIMER=TIMER, debug3=debug3, debugRxK2Src=debugRxK2Src, LOCALCOMMAND=LOCALCOMMAND, debugSwitchingState=debugSwitchingState)
+mibBuilder.exportSymbols("SPRIF-MIB", debug3exr=debug3exr, K1ASK=K1ASK, LINE=LINE, debugEntry=debugEntry, debug3Table=debug3Table, debugWtr=debugWtr, debugRxK2Src=debugRxK2Src, debug3arv=debug3arv, debugTxK1Dst=debugTxK1Dst, K2PATH=K2PATH, debugLogType=debugLogType, debug3mms=debug3mms, debugActivated=debugActivated, debug=debug, debugTxK2Stat=debugTxK2Stat, debugTxK1Ask=debugTxK1Ask, SWITCHSTATUS=SWITCHSTATUS, K2STAT=K2STAT, debugLastLocalCommand=debugLastLocalCommand, debugLastDetectedFailure=debugLastDetectedFailure, debugRxK2Stat=debugRxK2Stat, LOCALFAIL=LOCALFAIL, debugLine=debugLine, debug3Line=debug3Line, debug3Date=debug3Date, STATE=STATE, debug3=debug3, debugTable=debugTable, debugNodeState=debugNodeState, LOGTYPE=LOGTYPE, LOCALCOMMAND=LOCALCOMMAND, debugTxK2Path=debugTxK2Path, debugNodeID=debugNodeID, debugSwitchingState=debugSwitchingState, debugTrafficStatus=debugTrafficStatus, debugTxK2Src=debugTxK2Src, debugDate=debugDate, debug3Entry=debug3Entry, debugRxK1Dst=debugRxK1Dst, NodeId=NodeId, debugRxK2Path=debugRxK2Path, debug3aun=debug3aun, debugIndex=debugIndex, debug3ato=debug3ato, debugLastDistantCommand=debugLastDistantCommand, sprif=sprif, debug3ptm=debug3ptm, TrafficStatus=TrafficStatus, PYSNMP_MODULE_ID=sprif, debugTimerAction=debugTimerAction, debugNumber=debugNumber, TIMER=TIMER, debugRxK1Ask=debugRxK1Ask)
