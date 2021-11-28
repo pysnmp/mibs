@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NBS-OBA-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OBA-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:42:10 2021
-# On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 19:42:17 2021
+# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NbsTcMHz, nbs = mibBuilder.importSymbols("NBS-MIB", "NbsTcMHz", "nbs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, NotificationType, MibIdentifier, IpAddress, Unsigned32, ObjectIdentity, TimeTicks, Integer32, ModuleIdentity, Counter64, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "NotificationType", "MibIdentifier", "IpAddress", "Unsigned32", "ObjectIdentity", "TimeTicks", "Integer32", "ModuleIdentity", "Counter64", "Bits")
+nbs, NbsTcMHz = mibBuilder.importSymbols("NBS-MIB", "nbs", "NbsTcMHz")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, Integer32, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, IpAddress, Unsigned32, Bits, NotificationType, ObjectIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "IpAddress", "Unsigned32", "Bits", "NotificationType", "ObjectIdentity", "TimeTicks", "Gauge32")
 TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
 nbsObaMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 240))
 if mibBuilder.loadTexts: nbsObaMib.setLastUpdated('201503270000Z')
@@ -74,4 +74,4 @@ nbsObaAlsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 240, 3, 1, 1, 1), Inte
 if mibBuilder.loadTexts: nbsObaAlsIfIndex.setStatus('current')
 nbsObaAlsState = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 240, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("enable", 2), ("disable", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nbsObaAlsState.setStatus('current')
-mibBuilder.exportSymbols("NBS-OBA-MIB", nbsObaDefinePresentState=nbsObaDefinePresentState, nbsObaDefineGrp=nbsObaDefineGrp, nbsObaDefineMapType=nbsObaDefineMapType, nbsObaDefineAllocationInfo=nbsObaDefineAllocationInfo, nbsObaAlsState=nbsObaAlsState, PYSNMP_MODULE_ID=nbsObaMib, nbsObaInfoGrp=nbsObaInfoGrp, nbsObaInfoAvails=nbsObaInfoAvails, nbsObaInfoUnitSize=nbsObaInfoUnitSize, nbsObaDefineOduList=nbsObaDefineOduList, nbsObaDefineCoupledWith=nbsObaDefineCoupledWith, nbsObaDefineRowStatus=nbsObaDefineRowStatus, nbsObaDefineClientPort=nbsObaDefineClientPort, nbsObaAlsTable=nbsObaAlsTable, nbsObaAlsGrp=nbsObaAlsGrp, nbsObaDefineOduType=nbsObaDefineOduType, nbsObaAlsIfIndex=nbsObaAlsIfIndex, nbsObaDefineTable=nbsObaDefineTable, nbsObaDefineLabel=nbsObaDefineLabel, nbsObaDefineOduCount=nbsObaDefineOduCount, nbsObaInfoLineIfIndex=nbsObaInfoLineIfIndex, nbsObaInfoEntry=nbsObaInfoEntry, nbsObaAlsEntry=nbsObaAlsEntry, nbsObaInfoTable=nbsObaInfoTable, nbsObaInfoMaxUnits=nbsObaInfoMaxUnits, nbsObaDefineEntry=nbsObaDefineEntry, nbsObaDefineTableSize=nbsObaDefineTableSize, nbsObaMib=nbsObaMib, nbsObaInfoMaxUnitsPerClientPort=nbsObaInfoMaxUnitsPerClientPort, nbsObaDefineOrdinalIndex=nbsObaDefineOrdinalIndex, nbsObaDefineLinePort=nbsObaDefineLinePort)
+mibBuilder.exportSymbols("NBS-OBA-MIB", nbsObaDefineTable=nbsObaDefineTable, nbsObaInfoTable=nbsObaInfoTable, nbsObaDefineLinePort=nbsObaDefineLinePort, nbsObaDefineMapType=nbsObaDefineMapType, nbsObaDefineOduCount=nbsObaDefineOduCount, nbsObaDefineCoupledWith=nbsObaDefineCoupledWith, nbsObaDefineRowStatus=nbsObaDefineRowStatus, nbsObaInfoEntry=nbsObaInfoEntry, nbsObaDefineClientPort=nbsObaDefineClientPort, nbsObaDefineTableSize=nbsObaDefineTableSize, nbsObaInfoAvails=nbsObaInfoAvails, nbsObaDefineOduList=nbsObaDefineOduList, nbsObaInfoMaxUnitsPerClientPort=nbsObaInfoMaxUnitsPerClientPort, nbsObaDefineOrdinalIndex=nbsObaDefineOrdinalIndex, nbsObaAlsGrp=nbsObaAlsGrp, nbsObaInfoGrp=nbsObaInfoGrp, nbsObaAlsEntry=nbsObaAlsEntry, nbsObaInfoLineIfIndex=nbsObaInfoLineIfIndex, nbsObaInfoMaxUnits=nbsObaInfoMaxUnits, nbsObaAlsTable=nbsObaAlsTable, nbsObaDefineLabel=nbsObaDefineLabel, nbsObaDefineEntry=nbsObaDefineEntry, nbsObaAlsIfIndex=nbsObaAlsIfIndex, nbsObaMib=nbsObaMib, nbsObaAlsState=nbsObaAlsState, nbsObaDefineGrp=nbsObaDefineGrp, nbsObaDefineOduType=nbsObaDefineOduType, nbsObaDefineAllocationInfo=nbsObaDefineAllocationInfo, PYSNMP_MODULE_ID=nbsObaMib, nbsObaDefinePresentState=nbsObaDefinePresentState, nbsObaInfoUnitSize=nbsObaInfoUnitSize)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CT-BROADCAST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-BROADCAST-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:57:47 2021
-# On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 19:59:58 2021
+# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 ctBroadcast, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctBroadcast")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, Counter32, ModuleIdentity, Bits, NotificationType, Integer32, MibIdentifier, ObjectIdentity, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "Counter32", "ModuleIdentity", "Bits", "NotificationType", "Integer32", "MibIdentifier", "ObjectIdentity", "Gauge32", "Unsigned32")
+iso, MibIdentifier, IpAddress, Counter64, Gauge32, ObjectIdentity, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, Unsigned32, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibIdentifier", "IpAddress", "Counter64", "Gauge32", "ObjectIdentity", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "Unsigned32", "ModuleIdentity", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctBroadcastCtl = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1))
 ctBroadcastCtlTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1), )
@@ -31,4 +31,4 @@ ctBroadcastPeakBroadcastClear = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 1
 if mibBuilder.loadTexts: ctBroadcastPeakBroadcastClear.setStatus('mandatory')
 ctBroadcastDesiredBroadcastThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctBroadcastDesiredBroadcastThreshold.setStatus('mandatory')
-mibBuilder.exportSymbols("CT-BROADCAST-MIB", ctBroadcastPeakBroadcastClear=ctBroadcastPeakBroadcastClear, ctBroadcastPeakBroadcastRateTime=ctBroadcastPeakBroadcastRateTime, ctBroadcastTotalBroadcastFrames=ctBroadcastTotalBroadcastFrames, ctBroadcastCtlEntry=ctBroadcastCtlEntry, ctBroadcastCtlInterface=ctBroadcastCtlInterface, ctBroadcastDesiredBroadcastThreshold=ctBroadcastDesiredBroadcastThreshold, ctBroadcastCtlSlotID=ctBroadcastCtlSlotID, ctBroadcastPeakBroadcastRate=ctBroadcastPeakBroadcastRate, ctBroadcastCtl=ctBroadcastCtl, ctBroadcastCtlTable=ctBroadcastCtlTable)
+mibBuilder.exportSymbols("CT-BROADCAST-MIB", ctBroadcastCtlSlotID=ctBroadcastCtlSlotID, ctBroadcastCtl=ctBroadcastCtl, ctBroadcastTotalBroadcastFrames=ctBroadcastTotalBroadcastFrames, ctBroadcastCtlInterface=ctBroadcastCtlInterface, ctBroadcastPeakBroadcastRate=ctBroadcastPeakBroadcastRate, ctBroadcastCtlTable=ctBroadcastCtlTable, ctBroadcastCtlEntry=ctBroadcastCtlEntry, ctBroadcastPeakBroadcastRateTime=ctBroadcastPeakBroadcastRateTime, ctBroadcastPeakBroadcastClear=ctBroadcastPeakBroadcastClear, ctBroadcastDesiredBroadcastThreshold=ctBroadcastDesiredBroadcastThreshold)

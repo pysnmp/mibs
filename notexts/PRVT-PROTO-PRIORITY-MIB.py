@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-PROTO-PRIORITY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-PROTO-PRIORITY-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:59:15 2021
-# On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 20:01:34 2021
+# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, ModuleIdentity, MibIdentifier, Gauge32, ObjectIdentity, Counter32, TimeTicks, Counter64, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "MibIdentifier", "Gauge32", "ObjectIdentity", "Counter32", "TimeTicks", "Counter64", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "Unsigned32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, IpAddress, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, ObjectIdentity, TimeTicks, MibIdentifier, ModuleIdentity, NotificationType, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "IpAddress", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "ObjectIdentity", "TimeTicks", "MibIdentifier", "ModuleIdentity", "NotificationType", "Bits", "Counter32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 prvtProtoPriorityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 5, 182))
 prvtProtoPriorityMIB.setRevisions(('2014-02-03 00:00',))
 if mibBuilder.loadTexts: prvtProtoPriorityMIB.setLastUpdated('201402030000Z')
@@ -29,4 +29,4 @@ dscpRemarkingFc = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 5, 182, 1, 1, 1, 3)
 if mibBuilder.loadTexts: dscpRemarkingFc.setStatus('current')
 prvtArpPriorityMappingToFc = MibScalar((1, 3, 6, 1, 4, 1, 738, 10, 5, 182, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("be", 1), ("l2", 2), ("af", 3), ("l1", 4), ("h2", 5), ("ef", 6), ("h1", 7), ("nc", 8)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: prvtArpPriorityMappingToFc.setStatus('current')
-mibBuilder.exportSymbols("PRVT-PROTO-PRIORITY-MIB", dscpRemarkingValue=dscpRemarkingValue, dscpRemarkingFc=dscpRemarkingFc, prvtProtoPriorityMIB=prvtProtoPriorityMIB, prvtArpPriorityMappingToFc=prvtArpPriorityMappingToFc, dscpRemarkingEntry=dscpRemarkingEntry, dscpRemarkingTable=dscpRemarkingTable, prvtProtoPriorityMIBObjects=prvtProtoPriorityMIBObjects, dscpRemarkingRowStatus=dscpRemarkingRowStatus, PYSNMP_MODULE_ID=prvtProtoPriorityMIB)
+mibBuilder.exportSymbols("PRVT-PROTO-PRIORITY-MIB", dscpRemarkingValue=dscpRemarkingValue, dscpRemarkingTable=dscpRemarkingTable, PYSNMP_MODULE_ID=prvtProtoPriorityMIB, prvtArpPriorityMappingToFc=prvtArpPriorityMappingToFc, dscpRemarkingRowStatus=dscpRemarkingRowStatus, prvtProtoPriorityMIB=prvtProtoPriorityMIB, dscpRemarkingEntry=dscpRemarkingEntry, dscpRemarkingFc=dscpRemarkingFc, prvtProtoPriorityMIBObjects=prvtProtoPriorityMIBObjects)

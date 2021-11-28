@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module FOUNDRY-SN-MAC-AUTHENTICATION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/foundry/FOUNDRY-SN-MAC-AUTHENTICATION-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:53:50 2021
-# On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 19:55:29 2021
+# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, ModuleIdentity, Counter32, NotificationType, ObjectIdentity, iso, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, Bits, Integer32, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "Counter32", "NotificationType", "ObjectIdentity", "iso", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "Bits", "Integer32", "TimeTicks", "Unsigned32")
-TimeStamp, DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "MacAddress", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, NotificationType, ModuleIdentity, IpAddress, iso, TimeTicks, Counter32, Unsigned32, Counter64, Bits, Gauge32, ObjectIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "ModuleIdentity", "IpAddress", "iso", "TimeTicks", "Counter32", "Unsigned32", "Counter64", "Bits", "Gauge32", "ObjectIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, TimeStamp, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "MacAddress", "DisplayString")
 snMacAuth = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28))
 snMacAuth.setRevisions(('2007-06-25 00:00',))
 
@@ -82,4 +82,4 @@ if mibBuilder.loadTexts: snMacAuthClearMacSessionMac.setDescription('An MAC Sess
 snMacAuthClearMacSessionAction = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 28, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("valid", 0), ("clear", 1)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: snMacAuthClearMacSessionAction.setStatus('current')
 if mibBuilder.loadTexts: snMacAuthClearMacSessionAction.setDescription('valid(0) - a SNMP-GET of this mib shows that it is valid command to use. \n\t\t clear(1) - represents clearing an MAC Session entry indexed by a MAC address.')
-mibBuilder.exportSymbols("FOUNDRY-SN-MAC-AUTHENTICATION-MIB", snMacAuthTable=snMacAuthTable, snMacAuthTimeStamp=snMacAuthTimeStamp, snMacAuthClearIfCmdEntry=snMacAuthClearIfCmdEntry, snMacAuthGlobal=snMacAuthGlobal, snMacAuthClearMacSessionAction=snMacAuthClearMacSessionAction, snMacAuthAge=snMacAuthAge, snMacAuthEntry=snMacAuthEntry, snMacAuthIfIndex=snMacAuthIfIndex, snMacAuthDot1x=snMacAuthDot1x, snMacAuthGlobalConfigState=snMacAuthGlobalConfigState, snMacAuthClearIfCmdIfIndex=snMacAuthClearIfCmdIfIndex, snMacAuthClearMacSessionIfIndex=snMacAuthClearMacSessionIfIndex, snMacAuthVlanId=snMacAuthVlanId, snMacAuthClearGlobalCmd=snMacAuthClearGlobalCmd, snMacAuthClearIfCmdTable=snMacAuthClearIfCmdTable, snMacAuthClearMacSessionTable=snMacAuthClearMacSessionTable, snMacAuthMac=snMacAuthMac, snMacAuth=snMacAuth, snMacAuthClearIfCmdAction=snMacAuthClearIfCmdAction, PYSNMP_MODULE_ID=snMacAuth, snMacAuthClearMacSessionEntry=snMacAuthClearMacSessionEntry, snMacAuthState=snMacAuthState, snMacAuthClearMacSessionMac=snMacAuthClearMacSessionMac)
+mibBuilder.exportSymbols("FOUNDRY-SN-MAC-AUTHENTICATION-MIB", snMacAuthMac=snMacAuthMac, snMacAuthClearIfCmdEntry=snMacAuthClearIfCmdEntry, snMacAuthClearIfCmdTable=snMacAuthClearIfCmdTable, snMacAuthAge=snMacAuthAge, snMacAuthGlobalConfigState=snMacAuthGlobalConfigState, snMacAuthClearMacSessionAction=snMacAuthClearMacSessionAction, snMacAuthState=snMacAuthState, snMacAuthTable=snMacAuthTable, snMacAuthIfIndex=snMacAuthIfIndex, snMacAuthClearIfCmdAction=snMacAuthClearIfCmdAction, snMacAuthTimeStamp=snMacAuthTimeStamp, snMacAuthClearMacSessionMac=snMacAuthClearMacSessionMac, snMacAuthVlanId=snMacAuthVlanId, snMacAuthDot1x=snMacAuthDot1x, snMacAuthClearMacSessionEntry=snMacAuthClearMacSessionEntry, snMacAuthGlobal=snMacAuthGlobal, PYSNMP_MODULE_ID=snMacAuth, snMacAuthEntry=snMacAuthEntry, snMacAuthClearMacSessionIfIndex=snMacAuthClearMacSessionIfIndex, snMacAuthClearGlobalCmd=snMacAuthClearGlobalCmd, snMacAuth=snMacAuth, snMacAuthClearMacSessionTable=snMacAuthClearMacSessionTable, snMacAuthClearIfCmdIfIndex=snMacAuthClearIfCmdIfIndex)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VPN-TC-STD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/VPN-TC-STD-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:41:18 2021
-# On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 19:41:17 2021
+# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Unsigned32, NotificationType, Gauge32, iso, IpAddress, Integer32, MibIdentifier, ModuleIdentity, ObjectIdentity, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "NotificationType", "Gauge32", "iso", "IpAddress", "Integer32", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "mib-2")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+iso, Counter32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, Counter64, Unsigned32, Gauge32, mib_2, ObjectIdentity, ModuleIdentity, IpAddress, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "Counter64", "Unsigned32", "Gauge32", "mib-2", "ObjectIdentity", "ModuleIdentity", "IpAddress", "TimeTicks", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vpnTcMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 129))
 vpnTcMIB.setRevisions(('2005-11-15 00:00',))
 
@@ -31,4 +31,4 @@ class VPNIdOrZero(TextualConvention, OctetString):
     description = 'This textual convention is an extension of the\n         VPNId textual convention that defines a non-zero-length\n         OCTET STRING to identify a physical entity.  This extension\n         permits the additional value of a zero-length OCTET STRING.\n\n         The semantics of the value zero-length OCTET STRING are\n         object-specific and must therefore be defined\n         as part of the description of any object that uses this\n         syntax.  Examples of usage of this extension are\n         situations where none or all VPN IDs need to be\n         referenced.'
     status = 'current'
     subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(7, 7), )
-mibBuilder.exportSymbols("VPN-TC-STD-MIB", VPNId=VPNId, VPNIdOrZero=VPNIdOrZero, vpnTcMIB=vpnTcMIB, PYSNMP_MODULE_ID=vpnTcMIB)
+mibBuilder.exportSymbols("VPN-TC-STD-MIB", VPNId=VPNId, PYSNMP_MODULE_ID=vpnTcMIB, vpnTcMIB=vpnTcMIB, VPNIdOrZero=VPNIdOrZero)
