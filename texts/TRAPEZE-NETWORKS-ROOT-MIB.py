@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TRAPEZE-NETWORKS-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/TRAPEZE-NETWORKS-ROOT-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:49:58 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:25:15 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, MibIdentifier, TimeTicks, Integer32, Counter64, Bits, ModuleIdentity, Counter32, ObjectIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, enterprises, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "TimeTicks", "Integer32", "Counter64", "Bits", "ModuleIdentity", "Counter32", "ObjectIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "enterprises", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Bits, Unsigned32, MibIdentifier, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32, ModuleIdentity, TimeTicks, Counter64, ObjectIdentity, iso, NotificationType, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Unsigned32", "MibIdentifier", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "ObjectIdentity", "iso", "NotificationType", "Integer32", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 trpzRootMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 14525))
 trpzRootMib.setRevisions(('2008-05-22 00:08', '2007-11-28 00:07', '2006-04-14 00:06', '2005-01-01 00:00',))
 
@@ -26,4 +26,4 @@ trpzRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 3))
 trpzMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4))
 trpzTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 5))
 trpzMgmtAppMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 6))
-mibBuilder.exportSymbols("TRAPEZE-NETWORKS-ROOT-MIB", trpzMibs=trpzMibs, trpzTraps=trpzTraps, PYSNMP_MODULE_ID=trpzRootMib, trpzRegistration=trpzRegistration, trpzProducts=trpzProducts, trpzMgmtAppMibs=trpzMgmtAppMibs, trpzTemporary=trpzTemporary, trpzRootMib=trpzRootMib)
+mibBuilder.exportSymbols("TRAPEZE-NETWORKS-ROOT-MIB", trpzRegistration=trpzRegistration, trpzTemporary=trpzTemporary, trpzMgmtAppMibs=trpzMgmtAppMibs, trpzProducts=trpzProducts, trpzRootMib=trpzRootMib, trpzTraps=trpzTraps, PYSNMP_MODULE_ID=trpzRootMib, trpzMibs=trpzMibs)

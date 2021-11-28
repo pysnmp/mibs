@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-CSMACD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-CSMACD-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:46:36 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:22:32 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 ctCSMACD, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctCSMACD")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, TimeTicks, Counter64, Gauge32, ModuleIdentity, MibIdentifier, Integer32, Counter32, NotificationType, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "TimeTicks", "Counter64", "Gauge32", "ModuleIdentity", "MibIdentifier", "Integer32", "Counter32", "NotificationType", "Bits", "iso")
+Counter32, Bits, ModuleIdentity, Counter64, Integer32, IpAddress, MibIdentifier, Unsigned32, iso, NotificationType, TimeTicks, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "ModuleIdentity", "Counter64", "Integer32", "IpAddress", "MibIdentifier", "Unsigned32", "iso", "NotificationType", "TimeTicks", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctFnbCSMACD = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 1))
 ctFnbPortConnect = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 2))
@@ -38,4 +38,4 @@ ctFnbPortCompID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 2, 1, 1, 
 if mibBuilder.loadTexts: ctFnbPortCompID.setStatus('mandatory')
 ctFnbPortConnectionChanges = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 2, 2), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctFnbPortConnectionChanges.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-CSMACD-MIB", ctFnbCSMACD=ctFnbCSMACD, ctFnbCSMACDTable=ctFnbCSMACDTable, ctFnbPortConnectPortIndex=ctFnbPortConnectPortIndex, ctFnbPortConnectPortAssignment=ctFnbPortConnectPortAssignment, ctFnbConnect=ctFnbConnect, ctFnbPortConnect=ctFnbPortConnect, ctFnbPortConnectBoardIndex=ctFnbPortConnectBoardIndex, ctFnbCSMACDEntry=ctFnbCSMACDEntry, ctFnbPortConnectEntry=ctFnbPortConnectEntry, ctFnbPortCompID=ctFnbPortCompID, ctFnbPortConnectionChanges=ctFnbPortConnectionChanges, ctFnbCSMACDIndex=ctFnbCSMACDIndex, ctFnbPortConnectTable=ctFnbPortConnectTable, ctFnbPortChanges=ctFnbPortChanges)
+mibBuilder.exportSymbols("CTRON-CSMACD-MIB", ctFnbPortConnect=ctFnbPortConnect, ctFnbPortConnectEntry=ctFnbPortConnectEntry, ctFnbCSMACD=ctFnbCSMACD, ctFnbPortConnectBoardIndex=ctFnbPortConnectBoardIndex, ctFnbPortConnectPortAssignment=ctFnbPortConnectPortAssignment, ctFnbPortConnectTable=ctFnbPortConnectTable, ctFnbPortCompID=ctFnbPortCompID, ctFnbCSMACDEntry=ctFnbCSMACDEntry, ctFnbCSMACDIndex=ctFnbCSMACDIndex, ctFnbPortConnectionChanges=ctFnbPortConnectionChanges, ctFnbConnect=ctFnbConnect, ctFnbPortConnectPortIndex=ctFnbPortConnectPortIndex, ctFnbCSMACDTable=ctFnbCSMACDTable, ctFnbPortChanges=ctFnbPortChanges)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WAYSTREAM-COPY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-COPY-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:38:07 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:15:11 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, IpAddress, Counter64, ModuleIdentity, Counter32, iso, Unsigned32, Integer32, NotificationType, Gauge32, ObjectIdentity, MibIdentifier, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "IpAddress", "Counter64", "ModuleIdentity", "Counter32", "iso", "Unsigned32", "Integer32", "NotificationType", "Gauge32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, iso, Counter32, MibIdentifier, IpAddress, Counter64, Bits, ObjectIdentity, ModuleIdentity, Unsigned32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "iso", "Counter32", "MibIdentifier", "IpAddress", "Counter64", "Bits", "ObjectIdentity", "ModuleIdentity", "Unsigned32", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 wsExperiment, = mibBuilder.importSymbols("WAYSTREAM-SMI", "wsExperiment")
 wsCopy = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303, 3, 2))
 wsCopy.setRevisions(('2017-02-10 11:00', '2011-01-11 17:35', '2009-03-23 11:17', '2008-09-10 15:38',))
@@ -45,4 +45,4 @@ if mibBuilder.loadTexts: wsCopyStatus.setDescription('The status of a filehandle
 wsCopyError = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: wsCopyError.setStatus('current')
 if mibBuilder.loadTexts: wsCopyError.setDescription("A textual description of the filehandle last\n                         error status. If the filehandle does not exist or\n                         has not been used for the last 24 hours, a 'No Error'\n                         message is returned.")
-mibBuilder.exportSymbols("WAYSTREAM-COPY-MIB", wsCopyStatus=wsCopyStatus, wsCopyDestination=wsCopyDestination, wsCopy=wsCopy, wsCopySource=wsCopySource, wsCopyNextState=wsCopyNextState, PYSNMP_MODULE_ID=wsCopy, wsCopyIndex=wsCopyIndex, wsCopyError=wsCopyError, wsCopyTable=wsCopyTable, wsCopyEntry=wsCopyEntry)
+mibBuilder.exportSymbols("WAYSTREAM-COPY-MIB", wsCopySource=wsCopySource, wsCopyError=wsCopyError, wsCopyTable=wsCopyTable, wsCopyNextState=wsCopyNextState, wsCopyEntry=wsCopyEntry, wsCopy=wsCopy, wsCopyStatus=wsCopyStatus, wsCopyDestination=wsCopyDestination, PYSNMP_MODULE_ID=wsCopy, wsCopyIndex=wsCopyIndex)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AVIAT-SWMANAGEMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-SWMANAGEMENT-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:58:18 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:31:36 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Unsigned32, Bits, iso, NotificationType, MibIdentifier, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, IpAddress, TimeTicks, Gauge32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "iso", "NotificationType", "MibIdentifier", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "IpAddress", "TimeTicks", "Gauge32", "ObjectIdentity")
-DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter32, Unsigned32, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, TimeTicks, Gauge32, Bits, ObjectIdentity, MibIdentifier, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "TimeTicks", "Gauge32", "Bits", "ObjectIdentity", "MibIdentifier", "NotificationType", "iso")
+DisplayString, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "DateAndTime")
 aviatModules, = mibBuilder.importSymbols("STXN-GLOBALREGISTER-MIB", "aviatModules")
 aviatSwManagementModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 2509, 9, 11))
 aviatSwManagementModule.setRevisions(('2014-01-21 01:57',))
@@ -60,4 +60,4 @@ aviatSwManagementComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2509, 9, 11, 1, 2
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aviatSwManagementComplV1 = aviatSwManagementComplV1.setStatus('current')
-mibBuilder.exportSymbols("AVIAT-SWMANAGEMENT-MIB", PYSNMP_MODULE_ID=aviatSwManagementModule, aviatSmLoadUri=aviatSmLoadUri, aviatSmDetailsVersion=aviatSmDetailsVersion, aviatSmLoadActivateWaitTimer=aviatSmLoadActivateWaitTimer, aviatSwManagementComplV1=aviatSwManagementComplV1, aviatSwLoadObjects=aviatSwLoadObjects, aviatSwLoadGroup=aviatSwLoadGroup, aviatSwManagementModule=aviatSwManagementModule, aviatSwResetObjects=aviatSwResetObjects, aviatSwDetailsObjects=aviatSwDetailsObjects, aviatSmLoadProgress=aviatSmLoadProgress, aviatSmLoadRollbackDuration=aviatSmLoadRollbackDuration, aviatSmLoadActivateTime=aviatSmLoadActivateTime, aviatSmLoadControl=aviatSmLoadControl, aviatSmDetailsInactiveVersion=aviatSmDetailsInactiveVersion, aviatSwManagementMIBObjects=aviatSwManagementMIBObjects, aviatSwResetGroup=aviatSwResetGroup, aviatSwDetailsGroup=aviatSwDetailsGroup, aviatSwManagementConf=aviatSwManagementConf, aviatSmLoadStatus=aviatSmLoadStatus, aviatSmSoftReset=aviatSmSoftReset, aviatSmLoadRollbackTimer=aviatSmLoadRollbackTimer, aviatSmLoadActivateWaitDuration=aviatSmLoadActivateWaitDuration, aviatSwManagementCompliance=aviatSwManagementCompliance, aviatSwManagementGroups=aviatSwManagementGroups)
+mibBuilder.exportSymbols("AVIAT-SWMANAGEMENT-MIB", aviatSwManagementModule=aviatSwManagementModule, aviatSmLoadActivateTime=aviatSmLoadActivateTime, aviatSwManagementCompliance=aviatSwManagementCompliance, aviatSmDetailsInactiveVersion=aviatSmDetailsInactiveVersion, aviatSwDetailsObjects=aviatSwDetailsObjects, aviatSwManagementMIBObjects=aviatSwManagementMIBObjects, aviatSmLoadActivateWaitTimer=aviatSmLoadActivateWaitTimer, aviatSwResetObjects=aviatSwResetObjects, aviatSwManagementConf=aviatSwManagementConf, aviatSmLoadRollbackDuration=aviatSmLoadRollbackDuration, aviatSmSoftReset=aviatSmSoftReset, aviatSmLoadUri=aviatSmLoadUri, aviatSwDetailsGroup=aviatSwDetailsGroup, aviatSmLoadActivateWaitDuration=aviatSmLoadActivateWaitDuration, aviatSwManagementComplV1=aviatSwManagementComplV1, aviatSwManagementGroups=aviatSwManagementGroups, aviatSwLoadGroup=aviatSwLoadGroup, aviatSwLoadObjects=aviatSwLoadObjects, aviatSmDetailsVersion=aviatSmDetailsVersion, aviatSmLoadRollbackTimer=aviatSmLoadRollbackTimer, aviatSwResetGroup=aviatSwResetGroup, aviatSmLoadProgress=aviatSmLoadProgress, aviatSmLoadStatus=aviatSmLoadStatus, aviatSmLoadControl=aviatSmLoadControl, PYSNMP_MODULE_ID=aviatSwManagementModule)

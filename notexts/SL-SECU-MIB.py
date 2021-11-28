@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SL-SECU-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SECU-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:54:01 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:26:53 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Counter64, NotificationType, transmission, MibIdentifier, Bits, Gauge32, Integer32, iso, Counter32, ObjectIdentity, TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "NotificationType", "transmission", "MibIdentifier", "Bits", "Gauge32", "Integer32", "iso", "Counter32", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
-DateAndTime, TextualConvention, TruthValue, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TruthValue", "DisplayString", "RowStatus")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+MibIdentifier, Counter64, transmission, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ModuleIdentity, Unsigned32, Counter32, ObjectIdentity, iso, NotificationType, TimeTicks, Bits, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter64", "transmission", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ModuleIdentity", "Unsigned32", "Counter32", "ObjectIdentity", "iso", "NotificationType", "TimeTicks", "Bits", "Integer32", "Gauge32")
+DisplayString, TextualConvention, RowStatus, DateAndTime, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "DateAndTime", "TruthValue")
 slSecuMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24))
 if mibBuilder.loadTexts: slSecuMib.setLastUpdated('201105170000Z')
 if mibBuilder.loadTexts: slSecuMib.setOrganization('PacketLight Networks Ltd.')
@@ -67,4 +67,4 @@ slSecuEncryptionLock = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1
 if mibBuilder.loadTexts: slSecuEncryptionLock.setStatus('current')
 slSecuEncryptionProtectedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("init", 1), ("exchange", 2), ("kdf", 3), ("active", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: slSecuEncryptionProtectedStatus.setStatus('current')
-mibBuilder.exportSymbols("SL-SECU-MIB", slSecuSelectType=slSecuSelectType, slSecuWlTable=slSecuWlTable, slSecuSelectEntry=slSecuSelectEntry, slSecuEncryptionStatus=slSecuEncryptionStatus, slSecuEncryptionForceInit=slSecuEncryptionForceInit, slSecuEncryptionLock=slSecuEncryptionLock, slSecuEncryptionKeyExchangePeriod=slSecuEncryptionKeyExchangePeriod, slSecuWlEntry=slSecuWlEntry, slSecuSelectEnable=slSecuSelectEnable, slSecuMib=slSecuMib, slSecuSelect=slSecuSelect, slSecuSelectTable=slSecuSelectTable, slSecuWlIp=slSecuWlIp, slSecuWl=slSecuWl, slSecuFirewallEnable=slSecuFirewallEnable, slSecuEncryptionTable=slSecuEncryptionTable, SlSecuType=SlSecuType, slSecuEncryptionEntry=slSecuEncryptionEntry, slSecuWlMask=slSecuWlMask, PYSNMP_MODULE_ID=slSecuMib, slSecuEncryptionPreShared=slSecuEncryptionPreShared, slSecuEncryptionProtectedStatus=slSecuEncryptionProtectedStatus, slSecuGen=slSecuGen, slSecuEncryption=slSecuEncryption, slSecuWlStatus=slSecuWlStatus, slSecuEncryptionIfIndex=slSecuEncryptionIfIndex, slSecuEncryptionEnable=slSecuEncryptionEnable, slSecuSelectPort=slSecuSelectPort)
+mibBuilder.exportSymbols("SL-SECU-MIB", slSecuEncryptionPreShared=slSecuEncryptionPreShared, slSecuMib=slSecuMib, slSecuWl=slSecuWl, slSecuSelectEntry=slSecuSelectEntry, slSecuEncryptionEntry=slSecuEncryptionEntry, slSecuEncryptionEnable=slSecuEncryptionEnable, slSecuWlTable=slSecuWlTable, slSecuSelectPort=slSecuSelectPort, slSecuWlEntry=slSecuWlEntry, slSecuEncryptionStatus=slSecuEncryptionStatus, slSecuSelect=slSecuSelect, slSecuWlIp=slSecuWlIp, slSecuEncryptionTable=slSecuEncryptionTable, slSecuSelectEnable=slSecuSelectEnable, slSecuSelectType=slSecuSelectType, slSecuEncryptionProtectedStatus=slSecuEncryptionProtectedStatus, slSecuFirewallEnable=slSecuFirewallEnable, slSecuWlMask=slSecuWlMask, slSecuEncryptionIfIndex=slSecuEncryptionIfIndex, slSecuEncryption=slSecuEncryption, slSecuEncryptionForceInit=slSecuEncryptionForceInit, SlSecuType=SlSecuType, slSecuEncryptionKeyExchangePeriod=slSecuEncryptionKeyExchangePeriod, slSecuGen=slSecuGen, slSecuWlStatus=slSecuWlStatus, slSecuSelectTable=slSecuSelectTable, slSecuEncryptionLock=slSecuEncryptionLock, PYSNMP_MODULE_ID=slSecuMib)

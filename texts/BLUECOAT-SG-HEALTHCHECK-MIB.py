@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SG-HEALTHCHECK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-HEALTHCHECK-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:39:56 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:17:03 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-TimeTicks, Unsigned32, Integer32, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, MibIdentifier, ModuleIdentity, IpAddress, ObjectIdentity, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Unsigned32", "Integer32", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "MibIdentifier", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+ObjectIdentity, TimeTicks, iso, Gauge32, ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32, Unsigned32, NotificationType, Integer32, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "iso", "Gauge32", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32", "Unsigned32", "NotificationType", "Integer32", "Bits", "Counter64")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 deviceHealthCheckMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 7))
 deviceHealthCheckMIB.setRevisions(('2013-05-22 03:00', '2013-05-21 03:00', '2007-11-05 03:00', '2002-08-28 03:00',))
 
@@ -76,4 +76,4 @@ deviceHealthCheckMIBNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 3417, 2, 7
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     deviceHealthCheckMIBNotifGroup = deviceHealthCheckMIBNotifGroup.setStatus('current')
 if mibBuilder.loadTexts: deviceHealthCheckMIBNotifGroup.setDescription('Group of Health Check notifications implemented in ProxySG appliances.')
-mibBuilder.exportSymbols("BLUECOAT-SG-HEALTHCHECK-MIB", deviceHealthCheckStringValues=deviceHealthCheckStringValues, deviceHealthCheckMIBCompliances=deviceHealthCheckMIBCompliances, deviceHealthCheckMIBGroups=deviceHealthCheckMIBGroups, HealthCheckMessageString=HealthCheckMessageString, deviceHealthCheckValueTable=deviceHealthCheckValueTable, deviceHealthCheckValues=deviceHealthCheckValues, deviceHealthCheckMessage=deviceHealthCheckMessage, deviceHealthCheckTime=deviceHealthCheckTime, PYSNMP_MODULE_ID=deviceHealthCheckMIB, deviceHealthCheckMIBNotifs=deviceHealthCheckMIBNotifs, deviceHealthCheckMIBNotifGroup=deviceHealthCheckMIBNotifGroup, deviceHealthCheckMIBCompliance=deviceHealthCheckMIBCompliance, deviceHealthCheckState=deviceHealthCheckState, deviceHealthCheckMIBGroup=deviceHealthCheckMIBGroup, deviceHealthCheckMIBNotifsPrefix=deviceHealthCheckMIBNotifsPrefix, deviceHealthCheckMIBConformance=deviceHealthCheckMIBConformance, deviceHealthCheckTrap=deviceHealthCheckTrap, deviceHealthCheckMIBObjects=deviceHealthCheckMIBObjects, deviceHealthCheckName=deviceHealthCheckName, deviceHealthCheckValueEntry=deviceHealthCheckValueEntry, deviceHealthCheckMIB=deviceHealthCheckMIB, HealthCheckStatus=HealthCheckStatus, deviceHealthCheckMIBNotifGroups=deviceHealthCheckMIBNotifGroups)
+mibBuilder.exportSymbols("BLUECOAT-SG-HEALTHCHECK-MIB", deviceHealthCheckValueEntry=deviceHealthCheckValueEntry, deviceHealthCheckMIBCompliances=deviceHealthCheckMIBCompliances, HealthCheckStatus=HealthCheckStatus, deviceHealthCheckValueTable=deviceHealthCheckValueTable, HealthCheckMessageString=HealthCheckMessageString, deviceHealthCheckMIBNotifs=deviceHealthCheckMIBNotifs, deviceHealthCheckMIBGroup=deviceHealthCheckMIBGroup, deviceHealthCheckMIBGroups=deviceHealthCheckMIBGroups, deviceHealthCheckMIBCompliance=deviceHealthCheckMIBCompliance, deviceHealthCheckName=deviceHealthCheckName, deviceHealthCheckValues=deviceHealthCheckValues, deviceHealthCheckMIBObjects=deviceHealthCheckMIBObjects, deviceHealthCheckState=deviceHealthCheckState, deviceHealthCheckStringValues=deviceHealthCheckStringValues, deviceHealthCheckTrap=deviceHealthCheckTrap, deviceHealthCheckMIBNotifGroup=deviceHealthCheckMIBNotifGroup, deviceHealthCheckTime=deviceHealthCheckTime, deviceHealthCheckMIBNotifGroups=deviceHealthCheckMIBNotifGroups, deviceHealthCheckMIBNotifsPrefix=deviceHealthCheckMIBNotifsPrefix, deviceHealthCheckMIBConformance=deviceHealthCheckMIBConformance, deviceHealthCheckMessage=deviceHealthCheckMessage, PYSNMP_MODULE_ID=deviceHealthCheckMIB, deviceHealthCheckMIB=deviceHealthCheckMIB)

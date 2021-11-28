@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SIAE-IFEXT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-IFEXT-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:55:46 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:28:54 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
+AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, ObjectIdentity, Counter32, Integer32, Unsigned32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, TimeTicks, ModuleIdentity, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "Counter32", "Integer32", "Unsigned32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "TimeTicks", "ModuleIdentity", "iso", "NotificationType")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, MibIdentifier, ModuleIdentity, Integer32, Counter64, NotificationType, ObjectIdentity, TimeTicks, Counter32, Bits, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "MibIdentifier", "ModuleIdentity", "Integer32", "Counter64", "NotificationType", "ObjectIdentity", "TimeTicks", "Counter32", "Bits", "iso", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 ifext = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 73))
 ifext.setRevisions(('2016-04-18 00:00', '2015-07-21 00:00', '2014-12-02 00:00', '2014-09-26 00:00', '2014-06-05 00:00', '2014-02-21 00:00', '2013-10-28 00:00',))
 
@@ -77,4 +77,4 @@ if mibBuilder.loadTexts: ifextLineLoop.setDescription('This object is set from a
 ifextLosAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 5), AlarmSeverityCode().clone('majorTrapEnable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ifextLosAlarmSeverityCode.setStatus('current')
 if mibBuilder.loadTexts: ifextLosAlarmSeverityCode.setDescription('Defines the severity associated to the ifextLosAlarm\n             and enables/disables the trap generation on status change event.')
-mibBuilder.exportSymbols("SIAE-IFEXT-MIB", ifextMaintTableEntry=ifextMaintTableEntry, ifextMediumSelection=ifextMediumSelection, ifextLosAlarmSeverityCode=ifextLosAlarmSeverityCode, ifextAdminStatus=ifextAdminStatus, ifextMediumType=ifextMediumType, ifextRowStatus=ifextRowStatus, ifext=ifext, ifextTableEntry=ifextTableEntry, ifextLosAlarm=ifextLosAlarm, PYSNMP_MODULE_ID=ifext, ifextLineLoop=ifextLineLoop, ifextMaintTable=ifextMaintTable, ifextPortUsage=ifextPortUsage, ifextSfpId=ifextSfpId, ifextAlarmReportEnable=ifextAlarmReportEnable, ifextTable=ifextTable, ifextCapabilities=ifextCapabilities, ifextLabel=ifextLabel, ifextIfIndex=ifextIfIndex, ifextMibVersion=ifextMibVersion)
+mibBuilder.exportSymbols("SIAE-IFEXT-MIB", ifextPortUsage=ifextPortUsage, ifextIfIndex=ifextIfIndex, ifextAlarmReportEnable=ifextAlarmReportEnable, ifextLineLoop=ifextLineLoop, ifextTable=ifextTable, PYSNMP_MODULE_ID=ifext, ifextMaintTable=ifextMaintTable, ifextLosAlarmSeverityCode=ifextLosAlarmSeverityCode, ifextRowStatus=ifextRowStatus, ifextSfpId=ifextSfpId, ifextMaintTableEntry=ifextMaintTableEntry, ifextCapabilities=ifextCapabilities, ifextTableEntry=ifextTableEntry, ifextLabel=ifextLabel, ifextAdminStatus=ifextAdminStatus, ifextMediumType=ifextMediumType, ifextMediumSelection=ifextMediumSelection, ifextLosAlarm=ifextLosAlarm, ifext=ifext, ifextMibVersion=ifextMibVersion)

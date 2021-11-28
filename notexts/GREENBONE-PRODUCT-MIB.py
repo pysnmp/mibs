@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module GREENBONE-PRODUCT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/greenbone/GREENBONE-PRODUCT-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:33:00 2021
-# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 21:10:58 2021
+# On host fv-az121-306 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, TimeTicks, Counter32, ModuleIdentity, iso, NotificationType, MibIdentifier, Unsigned32, Integer32, ObjectIdentity, Counter64, enterprises, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "TimeTicks", "Counter32", "ModuleIdentity", "iso", "NotificationType", "MibIdentifier", "Unsigned32", "Integer32", "ObjectIdentity", "Counter64", "enterprises", "IpAddress", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+IpAddress, enterprises, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, ObjectIdentity, TimeTicks, Unsigned32, Bits, Integer32, Gauge32, NotificationType, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "enterprises", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "ObjectIdentity", "TimeTicks", "Unsigned32", "Bits", "Integer32", "Gauge32", "NotificationType", "ModuleIdentity", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 greenboneProduct = ModuleIdentity((1, 3, 6, 1, 4, 1, 35847, 1))
 greenboneProduct.setRevisions(('2017-05-15 00:01', '2015-01-06 00:01', '2014-12-31 00:01', '2012-03-26 00:01',))
 if mibBuilder.loadTexts: greenboneProduct.setLastUpdated('201705150001Z')
@@ -44,4 +44,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 greenboneProductSWGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 35847, 1, 4, 3)).setObjects(("GREENBONE-PRODUCT-MIB", "swName"), ("GREENBONE-PRODUCT-MIB", "swVersionString"), ("GREENBONE-PRODUCT-MIB", "swVersionMajor"), ("GREENBONE-PRODUCT-MIB", "swVersionMinor"), ("GREENBONE-PRODUCT-MIB", "swVersionPatch"), ("GREENBONE-PRODUCT-MIB", "swVersionRevision"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     greenboneProductSWGroup = greenboneProductSWGroup.setStatus('current')
-mibBuilder.exportSymbols("GREENBONE-PRODUCT-MIB", productGroups=productGroups, PYSNMP_MODULE_ID=greenboneProduct, swVersionRevision=swVersionRevision, hwName=hwName, greenboneProductSWGroup=greenboneProductSWGroup, swName=swName, productHardware=productHardware, swVersionMajor=swVersionMajor, productSoftware=productSoftware, productName=productName, greenboneProductHWGroup=greenboneProductHWGroup, greenboneProduct=greenboneProduct, swVersion=swVersion, swVersionPatch=swVersionPatch, greenboneProductGroup=greenboneProductGroup, swVersionMinor=swVersionMinor, swVersionString=swVersionString)
+mibBuilder.exportSymbols("GREENBONE-PRODUCT-MIB", swVersionRevision=swVersionRevision, hwName=hwName, swVersionMajor=swVersionMajor, productSoftware=productSoftware, greenboneProduct=greenboneProduct, swName=swName, swVersionMinor=swVersionMinor, swVersionPatch=swVersionPatch, PYSNMP_MODULE_ID=greenboneProduct, productName=productName, greenboneProductSWGroup=greenboneProductSWGroup, productHardware=productHardware, greenboneProductGroup=greenboneProductGroup, swVersionString=swVersionString, greenboneProductHWGroup=greenboneProductHWGroup, productGroups=productGroups, swVersion=swVersion)
