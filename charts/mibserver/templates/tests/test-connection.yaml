@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "mibserver.fullname" . }}-test-connection"
+  labels:
+    {{- include "mibserver.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "mibserver.fullname" . }}:{{ .Values.service.port }}/index.csv']
+  restartPolicy: Never

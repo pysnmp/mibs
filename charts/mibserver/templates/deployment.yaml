@@ -1,36 +1,76 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sc4snmp-mib-server
-  namespace: {{ .Release.Namespace | quote }}
+  name: {{ include "mibserver.fullname" . }}
+  labels:
+    {{- include "mibserver.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      app: sc4snmp-mib-server
+      {{- include "mibserver.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
-        app: sc4snmp-mib-server
+        {{- include "mibserver.selectorLabels" . | nindent 8 }}
     spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "mibserver.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: sc4snmp-mib-server
-          image: {{ .Values.image.repository | default "ghcr.io/pysnmp/mibs/container" }}:{{ .Values.image.tag | default "latest" }}
-          imagePullPolicy: {{ .Values.image.pullPolicy | default "IfNotPresent"  }}
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+            - name: http-status
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http-status
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http-status
           resources:
-          {{- if .Values.resources }}
-{{ .Values.resources | toYaml | trim | indent 12 }}
-            {{ else }}
-            limits:
-              cpu: 100m
-              memory: 128Mi
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            {{ end }}
-
-
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /var/cache/nginx 
+              name: nginx-cache            
+            - mountPath: /var/run
+              name: run
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: nginx-cache
+          emptyDir: {}
+        - name: nginx-conf
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
