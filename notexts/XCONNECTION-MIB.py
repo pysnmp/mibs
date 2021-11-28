@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module XCONNECTION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/XCONNECTION-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:51:03 2021
-# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 20:17:29 2021
+# On host fv-az77-612 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 SagemBoolean, = mibBuilder.importSymbols("EQUIPMENT-MIB", "SagemBoolean")
 sagemDr, = mibBuilder.importSymbols("SAGEM-DR-MIB", "sagemDr")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Bits, TimeTicks, ObjectIdentity, ModuleIdentity, Gauge32, IpAddress, iso, Counter32, NotificationType, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "Gauge32", "IpAddress", "iso", "Counter32", "NotificationType", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32")
+NotificationType, Unsigned32, Integer32, MibIdentifier, ObjectIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, Gauge32, Bits, Counter32, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "Integer32", "MibIdentifier", "ObjectIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "Gauge32", "Bits", "Counter32", "ModuleIdentity", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 xconnection = ModuleIdentity((1, 3, 6, 1, 4, 1, 1038, 108))
 if mibBuilder.loadTexts: xconnection.setLastUpdated('0205220000Z')
@@ -96,4 +96,4 @@ xconProceed = MibScalar((1, 3, 6, 1, 4, 1, 1038, 108, 30, 20), SagemBoolean()).s
 if mibBuilder.loadTexts: xconProceed.setStatus('current')
 xconDiagnostic = MibScalar((1, 3, 6, 1, 4, 1, 1038, 108, 30, 21), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: xconDiagnostic.setStatus('current')
-mibBuilder.exportSymbols("XCONNECTION-MIB", xconDirection=xconDirection, linkCTPSource=linkCTPSource, xconName=xconName, linkEntry=linkEntry, xconDiagnostic=xconDiagnostic, xconSinkType=xconSinkType, linkDirection=linkDirection, linkTable=linkTable, linkCTPSink=linkCTPSink, CTPType=CTPType, ProtectionType=ProtectionType, xconnection=xconnection, linkImplementation=linkImplementation, xconSinkIndex=xconSinkIndex, linkSrcType=linkSrcType, xconAction=xconAction, xcon=xcon, xconSrcType=xconSrcType, link=link, TrafficStatus=TrafficStatus, linkProtectionStatus=linkProtectionStatus, LinkDirection=LinkDirection, linkTrafficStatus=linkTrafficStatus, ProtectionStatus=ProtectionStatus, xconNumber=xconNumber, linkProtectionType=linkProtectionType, xconSrcIndex=xconSrcIndex, linkName=linkName, linkSinkType=linkSinkType, linkGroupId=linkGroupId, xconProceed=xconProceed, XconDir=XconDir, ActionType=ActionType, linkNumber=linkNumber, linkIndex=linkIndex, PYSNMP_MODULE_ID=xconnection)
+mibBuilder.exportSymbols("XCONNECTION-MIB", linkTrafficStatus=linkTrafficStatus, xconProceed=xconProceed, xcon=xcon, CTPType=CTPType, linkProtectionType=linkProtectionType, link=link, linkCTPSource=linkCTPSource, linkCTPSink=linkCTPSink, xconAction=xconAction, linkEntry=linkEntry, ProtectionStatus=ProtectionStatus, xconSrcType=xconSrcType, linkSinkType=linkSinkType, xconName=xconName, xconSinkType=xconSinkType, linkGroupId=linkGroupId, xconSinkIndex=xconSinkIndex, linkProtectionStatus=linkProtectionStatus, PYSNMP_MODULE_ID=xconnection, TrafficStatus=TrafficStatus, XconDir=XconDir, ActionType=ActionType, xconSrcIndex=xconSrcIndex, LinkDirection=LinkDirection, ProtectionType=ProtectionType, xconDiagnostic=xconDiagnostic, xconnection=xconnection, linkNumber=linkNumber, linkImplementation=linkImplementation, linkDirection=linkDirection, linkName=linkName, xconDirection=xconDirection, linkIndex=linkIndex, linkSrcType=linkSrcType, xconNumber=xconNumber, linkTable=linkTable)
