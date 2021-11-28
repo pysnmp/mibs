@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-RESILIENT-LINK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-RESILIENT-LINK-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 17:18:03 2021
-# On host fv-az33-735 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 19:30:33 2021
+# On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Counter64, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, TimeTicks, iso, Integer32, ObjectIdentity, NotificationType, Bits, Gauge32, ModuleIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "TimeTicks", "iso", "Integer32", "ObjectIdentity", "NotificationType", "Bits", "Gauge32", "ModuleIdentity", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter64, Unsigned32, Counter32, Integer32, iso, Gauge32, ModuleIdentity, TimeTicks, ObjectIdentity, MibIdentifier, NotificationType, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "Counter32", "Integer32", "iso", "Gauge32", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "MibIdentifier", "NotificationType", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtResilientLinkMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 102))
 prvtResilientLinkMib.setRevisions(('2005-02-16 00:00', '2003-05-06 00:00', '2002-01-28 00:00',))
@@ -69,4 +69,4 @@ resilientLinkNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 738, 1, 5,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     resilientLinkNotificationGroup = resilientLinkNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: resilientLinkNotificationGroup.setDescription('Private Notification Group.')
-mibBuilder.exportSymbols("PRVT-RESILIENT-LINK-MIB", PYSNMP_MODULE_ID=prvtResilientLinkMib, resilientLinkPort1ifIndex=resilientLinkPort1ifIndex, resilientLinkCurrentActivePort=resilientLinkCurrentActivePort, resilientLinkConfigTable=resilientLinkConfigTable, resilientLinkNotificationGroup=resilientLinkNotificationGroup, resilientLinkConfig=resilientLinkConfig, prvtResilientLinkConformance=prvtResilientLinkConformance, resilientLinkPort2ifIndex=resilientLinkPort2ifIndex, resilientLinkActivePort=resilientLinkActivePort, prvtResilientLinkMib=prvtResilientLinkMib, resilientLinkIndex=resilientLinkIndex, resilientLinkConnectedPort=resilientLinkConnectedPort, prvtResilientLinkNotifications=prvtResilientLinkNotifications, resilientLinkConfigEntry=resilientLinkConfigEntry, prvtResilientLinkMIBGroups=prvtResilientLinkMIBGroups, resilientLinkStatusEntry=resilientLinkStatusEntry, resilientLinkStatus=resilientLinkStatus, resilientLinkPreferredPort=resilientLinkPreferredPort, resilientLinkEnable=resilientLinkEnable, resilientLinkStatusChange=resilientLinkStatusChange, resilientLinkStatusTable=resilientLinkStatusTable)
+mibBuilder.exportSymbols("PRVT-RESILIENT-LINK-MIB", resilientLinkConfigTable=resilientLinkConfigTable, resilientLinkStatusEntry=resilientLinkStatusEntry, prvtResilientLinkConformance=prvtResilientLinkConformance, resilientLinkStatus=resilientLinkStatus, resilientLinkConfigEntry=resilientLinkConfigEntry, resilientLinkNotificationGroup=resilientLinkNotificationGroup, resilientLinkConfig=resilientLinkConfig, resilientLinkIndex=resilientLinkIndex, resilientLinkEnable=resilientLinkEnable, resilientLinkStatusChange=resilientLinkStatusChange, prvtResilientLinkNotifications=prvtResilientLinkNotifications, resilientLinkPort1ifIndex=resilientLinkPort1ifIndex, resilientLinkActivePort=resilientLinkActivePort, prvtResilientLinkMIBGroups=prvtResilientLinkMIBGroups, resilientLinkPreferredPort=resilientLinkPreferredPort, resilientLinkPort2ifIndex=resilientLinkPort2ifIndex, prvtResilientLinkMib=prvtResilientLinkMib, resilientLinkCurrentActivePort=resilientLinkCurrentActivePort, PYSNMP_MODULE_ID=prvtResilientLinkMib, resilientLinkStatusTable=resilientLinkStatusTable, resilientLinkConnectedPort=resilientLinkConnectedPort)
