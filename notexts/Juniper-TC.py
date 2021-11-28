@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module Juniper-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-TC
-# Produced by pysmi-1.1.3 at Sun Nov 28 14:35:31 2021
-# On host fv-az39-900 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 15:10:43 2021
+# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
 juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, TimeTicks, NotificationType, Bits, ObjectIdentity, iso, Unsigned32, MibIdentifier, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "NotificationType", "Bits", "ObjectIdentity", "iso", "Unsigned32", "MibIdentifier", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter64, NotificationType, IpAddress, ObjectIdentity, TimeTicks, Counter32, iso, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter64", "NotificationType", "IpAddress", "ObjectIdentity", "TimeTicks", "Counter32", "iso", "Unsigned32", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 juniTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 1))
 juniTextualConventions.setRevisions(('2005-12-21 20:13', '2005-11-18 22:30', '2004-12-03 22:12', '2003-11-12 22:31', '2002-09-16 21:44', '2002-04-04 16:35', '2001-03-08 22:26', '1999-12-12 00:00', '1999-07-14 00:00', '1998-11-13 00:00',))
 if mibBuilder.loadTexts: juniTextualConventions.setLastUpdated('200512212013Z')
@@ -95,4 +95,4 @@ class JuniTimeFilter(TextualConvention, TimeTicks):
 class JuniNibbleConfig(TextualConvention, Integer32):
     status = 'current'
 
-mibBuilder.exportSymbols("Juniper-TC", JuniInterfaceLocationType=JuniInterfaceLocationType, JuniLogSeverity=JuniLogSeverity, JuniNibbleConfig=JuniNibbleConfig, JuniAcctngOperType=JuniAcctngOperType, JuniVrfGroupName=JuniVrfGroupName, JuniIpAddrLessIf=JuniIpAddrLessIf, JuniName=JuniName, JuniNextIfIndex=JuniNextIfIndex, JuniTimeFilter=JuniTimeFilter, JuniVrfName=JuniVrfName, JuniAcctngAdminType=JuniAcctngAdminType, JuniInterfaceLocationValue=JuniInterfaceLocationValue, JuniInterfaceLocation=JuniInterfaceLocation, JuniInterfaceDescrFormat=JuniInterfaceDescrFormat, JuniSetMap=JuniSetMap, PYSNMP_MODULE_ID=juniTextualConventions, JuniTimeSlotMap=JuniTimeSlotMap, juniTextualConventions=juniTextualConventions, JuniEnable=JuniEnable)
+mibBuilder.exportSymbols("Juniper-TC", JuniName=JuniName, JuniIpAddrLessIf=JuniIpAddrLessIf, juniTextualConventions=juniTextualConventions, JuniInterfaceLocationType=JuniInterfaceLocationType, JuniTimeSlotMap=JuniTimeSlotMap, JuniEnable=JuniEnable, JuniNextIfIndex=JuniNextIfIndex, JuniInterfaceDescrFormat=JuniInterfaceDescrFormat, JuniVrfGroupName=JuniVrfGroupName, JuniInterfaceLocationValue=JuniInterfaceLocationValue, JuniVrfName=JuniVrfName, JuniAcctngAdminType=JuniAcctngAdminType, JuniAcctngOperType=JuniAcctngOperType, JuniSetMap=JuniSetMap, JuniNibbleConfig=JuniNibbleConfig, JuniInterfaceLocation=JuniInterfaceLocation, JuniTimeFilter=JuniTimeFilter, PYSNMP_MODULE_ID=juniTextualConventions, JuniLogSeverity=JuniLogSeverity)
