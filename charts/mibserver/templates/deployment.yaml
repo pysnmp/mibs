@@ -52,6 +52,8 @@ spec:
               name: nginx-cache            
             - mountPath: /var/run
               name: run
+            - mountPath: /tmp
+              name: tmp              
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -85,4 +87,6 @@ spec:
         - name: nginx-conf
           emptyDir: {}
         - name: run
+          emptyDir: {}
+        - name: tmp
           emptyDir: {}
