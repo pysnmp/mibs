@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-RIP-EXTENSION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-RIP-EXTENSION-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:26:43 2021
-# On host fv-az77-612 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 20:48:35 2021
+# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
 ipSwitch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "ipSwitch")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, Counter64, Bits, IpAddress, MibIdentifier, Gauge32, ObjectIdentity, Unsigned32, ModuleIdentity, TimeTicks, Integer32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "Counter64", "Bits", "IpAddress", "MibIdentifier", "Gauge32", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "TimeTicks", "Integer32", "NotificationType")
+Integer32, ModuleIdentity, Gauge32, MibIdentifier, Counter32, TimeTicks, NotificationType, Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ModuleIdentity", "Gauge32", "MibIdentifier", "Counter32", "TimeTicks", "NotificationType", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "iso", "Bits")
 TextualConvention, TruthValue, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "RowStatus", "DisplayString")
 prvtRIPExtensionMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 6, 4, 1))
 prvtRIPExtensionMib.setRevisions(('2008-01-01 00:00', '2005-02-16 00:00', '2003-05-06 00:00', '2002-11-11 00:00',))
@@ -44,4 +44,4 @@ if mibBuilder.loadTexts: ripRedistributeRouteMap.setDescription('The route map t
 ripRedistributeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 4, 1, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: ripRedistributeRowStatus.setStatus('current')
 if mibBuilder.loadTexts: ripRedistributeRowStatus.setDescription('Indicates the status of the row. Setting of this field to active enables the \n        redistribution of the protocol. Setting this field to destroy disables the \n        redistribution of the protocol')
-mibBuilder.exportSymbols("PRVT-RIP-EXTENSION-MIB", ripRedistributeMetric=ripRedistributeMetric, ripExtension=ripExtension, ripRedistributeRouteMap=ripRedistributeRouteMap, ripRedistributeProtocol=ripRedistributeProtocol, ripRedistributeTable=ripRedistributeTable, ripRedistributeRowStatus=ripRedistributeRowStatus, ripEnable=ripEnable, ripRedistributeEntry=ripRedistributeEntry, PYSNMP_MODULE_ID=prvtRIPExtensionMib, prvtRIPExtensionMib=prvtRIPExtensionMib, routingProtocols=routingProtocols)
+mibBuilder.exportSymbols("PRVT-RIP-EXTENSION-MIB", ripRedistributeEntry=ripRedistributeEntry, routingProtocols=routingProtocols, ripRedistributeMetric=ripRedistributeMetric, ripEnable=ripEnable, ripRedistributeRouteMap=ripRedistributeRouteMap, ripRedistributeProtocol=ripRedistributeProtocol, ripRedistributeRowStatus=ripRedistributeRowStatus, PYSNMP_MODULE_ID=prvtRIPExtensionMib, ripExtension=ripExtension, ripRedistributeTable=ripRedistributeTable, prvtRIPExtensionMib=prvtRIPExtensionMib)

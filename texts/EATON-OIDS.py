@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module EATON-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-OIDS
-# Produced by pysmi-1.1.3 at Sun Nov 28 20:13:15 2021
-# On host fv-az77-612 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 20:29:22 2021
+# On host fv-az36-794 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, enterprises, iso, Counter32, Unsigned32, Counter64, Gauge32, Integer32, NotificationType, TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "enterprises", "iso", "Counter32", "Unsigned32", "Counter64", "Gauge32", "Integer32", "NotificationType", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+iso, Counter64, Gauge32, Unsigned32, TimeTicks, ObjectIdentity, enterprises, MibIdentifier, IpAddress, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, Integer32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Gauge32", "Unsigned32", "TimeTicks", "ObjectIdentity", "enterprises", "MibIdentifier", "IpAddress", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "Integer32", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 eaton = ModuleIdentity((1, 3, 6, 1, 4, 1, 534))
 eaton.setRevisions(('2018-11-13 00:00', '2014-02-19 00:00', '2010-01-24 00:00', '2009-06-18 00:00', '2007-08-06 00:00', '2007-07-05 00:00', '2006-10-15 00:00', '2006-05-25 00:00',))
 
@@ -62,4 +62,4 @@ class NonNegativeInteger(TextualConvention, Integer32):
     displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
 
-mibBuilder.exportSymbols("EATON-OIDS", PYSNMP_MODULE_ID=eaton, onlinetDaemon=onlinetDaemon, sensorAgent=sensorAgent, powerChain=powerChain, products=products, itProjects=itProjects, xupsMIB=xupsMIB, connectUPSAdapterEthernet=connectUPSAdapterEthernet, hdpdu=hdpdu, eatonPdu=eatonPdu, eaton=eaton, eatonPowerChainDevice=eatonPowerChainDevice, PositiveInteger=PositiveInteger, powerwareNetworkDigitalIOEther=powerwareNetworkDigitalIOEther, pki=pki, xupsIoMIB=xupsIoMIB, xupsEnvironment=xupsEnvironment, powerwareEliSnmpAdapter=powerwareEliSnmpAdapter, xupsObjectId=xupsObjectId, environmentalMonitor=environmentalMonitor, sts=sts, powerwareBasicEmbeddedEthernet=powerwareBasicEmbeddedEthernet, simpleSnmpAdapter=simpleSnmpAdapter, powerVision=powerVision, connectUPSAdapterTokenRing=connectUPSAdapterTokenRing, eatonPowerXpertMeter=eatonPowerXpertMeter, powerCmnd=powerCmnd, powerwareEthernetSnmpAdapter=powerwareEthernetSnmpAdapter, eatonPowerChainGateway=eatonPowerChainGateway, dataCenter=dataCenter, NonNegativeInteger=NonNegativeInteger, powerwareNetworkSnmpAdapterToken=powerwareNetworkSnmpAdapterToken, powerwareNetworkSnmpAdapterEther=powerwareNetworkSnmpAdapterEther, pduAgent=pduAgent)
+mibBuilder.exportSymbols("EATON-OIDS", xupsMIB=xupsMIB, onlinetDaemon=onlinetDaemon, powerwareEliSnmpAdapter=powerwareEliSnmpAdapter, sensorAgent=sensorAgent, powerVision=powerVision, powerCmnd=powerCmnd, pduAgent=pduAgent, eatonPowerXpertMeter=eatonPowerXpertMeter, powerwareEthernetSnmpAdapter=powerwareEthernetSnmpAdapter, eatonPowerChainGateway=eatonPowerChainGateway, PositiveInteger=PositiveInteger, xupsEnvironment=xupsEnvironment, powerChain=powerChain, xupsIoMIB=xupsIoMIB, xupsObjectId=xupsObjectId, PYSNMP_MODULE_ID=eaton, powerwareBasicEmbeddedEthernet=powerwareBasicEmbeddedEthernet, connectUPSAdapterTokenRing=connectUPSAdapterTokenRing, eaton=eaton, eatonPdu=eatonPdu, NonNegativeInteger=NonNegativeInteger, powerwareNetworkSnmpAdapterToken=powerwareNetworkSnmpAdapterToken, powerwareNetworkDigitalIOEther=powerwareNetworkDigitalIOEther, eatonPowerChainDevice=eatonPowerChainDevice, connectUPSAdapterEthernet=connectUPSAdapterEthernet, environmentalMonitor=environmentalMonitor, products=products, dataCenter=dataCenter, sts=sts, itProjects=itProjects, powerwareNetworkSnmpAdapterEther=powerwareNetworkSnmpAdapterEther, hdpdu=hdpdu, simpleSnmpAdapter=simpleSnmpAdapter, pki=pki)
