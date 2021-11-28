@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module WAYSTREAM-IGMP-CACHE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-IGMP-CACHE-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:22:42 2021
+# Produced by pysmi-1.1.3 at Sun Nov 28 19:51:52 2021
 # On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Unsigned32, Counter64, TimeTicks, MibIdentifier, iso, Counter32, NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, ObjectIdentity, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "Counter64", "TimeTicks", "MibIdentifier", "iso", "Counter32", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "ObjectIdentity", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter64, ModuleIdentity, Counter32, Integer32, MibIdentifier, NotificationType, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, Gauge32, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "Counter32", "Integer32", "MibIdentifier", "NotificationType", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "Gauge32", "IpAddress", "Unsigned32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 wsMgmt, = mibBuilder.importSymbols("WAYSTREAM-SMI", "wsMgmt")
 wsIgmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303, 4, 13))
 wsIgmp.setRevisions(('2017-02-10 11:00', '2011-01-11 17:54', '2009-04-29 13:49', '2009-03-23 11:25', '2008-04-30 13:48', '2007-06-13 14:37',))
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: wsIgmpCacheReporter.setDescription('The reporter for wh
 wsIgmpCacheUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 4, 13, 2, 1, 4), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: wsIgmpCacheUpTime.setStatus('current')
 if mibBuilder.loadTexts: wsIgmpCacheUpTime.setDescription('Time elapsed since this entry was created.')
-mibBuilder.exportSymbols("WAYSTREAM-IGMP-CACHE-MIB", PYSNMP_MODULE_ID=wsIgmp, wsIgmpCacheReporter=wsIgmpCacheReporter, wsIgmpCacheTable=wsIgmpCacheTable, wsIgmpCacheEntry=wsIgmpCacheEntry, wsIgmpCacheUpTime=wsIgmpCacheUpTime, wsIgmpCacheAddress=wsIgmpCacheAddress, wsIgmpCacheIfIndex=wsIgmpCacheIfIndex, wsIgmp=wsIgmp)
+mibBuilder.exportSymbols("WAYSTREAM-IGMP-CACHE-MIB", wsIgmpCacheEntry=wsIgmpCacheEntry, wsIgmp=wsIgmp, wsIgmpCacheUpTime=wsIgmpCacheUpTime, wsIgmpCacheReporter=wsIgmpCacheReporter, wsIgmpCacheTable=wsIgmpCacheTable, wsIgmpCacheIfIndex=wsIgmpCacheIfIndex, wsIgmpCacheAddress=wsIgmpCacheAddress, PYSNMP_MODULE_ID=wsIgmp)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ExaltComm-TRAPS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComm-TRAPS-MIB
-# Produced by pysmi-1.1.3 at Sun Nov 28 19:35:27 2021
+# Produced by pysmi-1.1.3 at Sun Nov 28 20:04:17 2021
 # On host fv-az83-233 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-productsMIBNotifications, locLinkState, modelName = mibBuilder.importSymbols("ExaltComProducts", "productsMIBNotifications", "locLinkState", "modelName")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Unsigned32, TimeTicks, Bits, MibIdentifier, NotificationType, ObjectIdentity, IpAddress, Gauge32, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "TimeTicks", "Bits", "MibIdentifier", "NotificationType", "ObjectIdentity", "IpAddress", "Gauge32", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+locLinkState, modelName, productsMIBNotifications = mibBuilder.importSymbols("ExaltComProducts", "locLinkState", "modelName", "productsMIBNotifications")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, MibIdentifier, Counter32, ModuleIdentity, ObjectIdentity, iso, IpAddress, Integer32, Gauge32, Counter64, TimeTicks, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "Counter32", "ModuleIdentity", "ObjectIdentity", "iso", "IpAddress", "Integer32", "Gauge32", "Counter64", "TimeTicks", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 notifs = MibIdentifier((1, 3, 6, 1, 4, 1, 25651, 1, 1, 1))
 notifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25651, 1, 1, 2))
@@ -77,4 +77,4 @@ if mibBuilder.loadTexts: loc_rsl_stat_notif.setDescription('Local RSL Event Trap
 eth_watermark_hit_duration_notif = NotificationType((1, 3, 6, 1, 4, 1, 25651, 1, 1, 1, 11)).setLabel("eth-watermark-hit-duration-notif").setObjects(("ExaltComm-TRAPS-MIB", "locEthWtmkHitDurationETH1"), ("ExaltComm-TRAPS-MIB", "locEthWtmkHitDurationETH2"), ("ExaltComm-TRAPS-MIB", "locEthWtmkHitDurationETH3"))
 if mibBuilder.loadTexts: eth_watermark_hit_duration_notif.setStatus('current')
 if mibBuilder.loadTexts: eth_watermark_hit_duration_notif.setDescription('Ethernet Utilization above watermark minutes Trap')
-mibBuilder.exportSymbols("ExaltComm-TRAPS-MIB", locRSLStatVert=locRSLStatVert, locRadioStat=locRadioStat, notifs=notifs, loc_temp_stat_notif=loc_temp_stat_notif, locEthWtmkHitDurationETH4=locEthWtmkHitDurationETH4, rem_radio_stat_notif=rem_radio_stat_notif, loc_radio_stat_notif=loc_radio_stat_notif, locRSLStat=locRSLStat, locEthWtmkHitDurationETH1=locEthWtmkHitDurationETH1, locTempStat=locTempStat, loc_rsl_stat_horiz_notif=loc_rsl_stat_horiz_notif, loc_rsl_stat_notif=loc_rsl_stat_notif, locEthWtmkHitDurationETH3=locEthWtmkHitDurationETH3, radio_syn_alm_notif=radio_syn_alm_notif, locEthWtmkHitDurationETH2=locEthWtmkHitDurationETH2, loc_rsl_stat_vert_notif=loc_rsl_stat_vert_notif, chan_syn_alm_h_notif=chan_syn_alm_h_notif, cold_start_notif=cold_start_notif, notifObjects=notifObjects, eth_watermark_hit_duration_notif=eth_watermark_hit_duration_notif, remRadioStat=remRadioStat, chan_syn_alm_v_notif=chan_syn_alm_v_notif, locRSLStatHoriz=locRSLStatHoriz)
+mibBuilder.exportSymbols("ExaltComm-TRAPS-MIB", radio_syn_alm_notif=radio_syn_alm_notif, locRadioStat=locRadioStat, loc_radio_stat_notif=loc_radio_stat_notif, rem_radio_stat_notif=rem_radio_stat_notif, notifObjects=notifObjects, loc_temp_stat_notif=loc_temp_stat_notif, locEthWtmkHitDurationETH3=locEthWtmkHitDurationETH3, locEthWtmkHitDurationETH1=locEthWtmkHitDurationETH1, locRSLStat=locRSLStat, locTempStat=locTempStat, loc_rsl_stat_vert_notif=loc_rsl_stat_vert_notif, loc_rsl_stat_horiz_notif=loc_rsl_stat_horiz_notif, chan_syn_alm_v_notif=chan_syn_alm_v_notif, loc_rsl_stat_notif=loc_rsl_stat_notif, remRadioStat=remRadioStat, cold_start_notif=cold_start_notif, locEthWtmkHitDurationETH2=locEthWtmkHitDurationETH2, locEthWtmkHitDurationETH4=locEthWtmkHitDurationETH4, notifs=notifs, chan_syn_alm_h_notif=chan_syn_alm_h_notif, eth_watermark_hit_duration_notif=eth_watermark_hit_duration_notif, locRSLStatVert=locRSLStatVert, locRSLStatHoriz=locRSLStatHoriz)
