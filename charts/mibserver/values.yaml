@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/pysnmp/mibs/container
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "main"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -73,7 +73,7 @@ resources:
 autoscaling:
   enabled: True
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 

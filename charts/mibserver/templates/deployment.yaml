@@ -34,6 +34,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: NGINX_ENTRYPOINT_QUIET_LOGS
+              value: "1"
           ports:
             - name: http
               containerPort: 8000
@@ -48,10 +51,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /var/cache/nginx 
-              name: nginx-cache            
-            - mountPath: /var/run
-              name: run
             - mountPath: /tmp
               name: tmp              
       {{- with .Values.nodeSelector }}
@@ -82,11 +81,5 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: nginx-cache
-          emptyDir: {}
-        - name: nginx-conf
-          emptyDir: {}
-        - name: run
-          emptyDir: {}
         - name: tmp
           emptyDir: {}
