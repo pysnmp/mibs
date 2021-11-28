@@ -1,0 +1,11 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "mibserver.fullname" . }}
+  labels: 
+    {{- include "mibserver.labels" . | nindent 4 }}
+spec:
+  minAvailable: 80%
+  selector:
+    matchLabels: 
+    {{- include "mibserver.selectorLabels" . | nindent 8 }}

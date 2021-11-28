@@ -26,7 +26,7 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext:
-  fsGroup: 101
+  fsGroup: 10001
 
 securityContext:
   capabilities:
@@ -34,7 +34,8 @@ securityContext:
       - ALL
   readOnlyRootFilesystem: true
   runAsNonRoot: true
-  runAsUser: 101
+  runAsUser: 10001
+  runAsGroup: 10001
 
 service:
   type: ClusterIP
@@ -80,4 +81,4 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
+podAntiAffinity: soft
