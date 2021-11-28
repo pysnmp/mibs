@@ -4,6 +4,8 @@ metadata:
   name: {{ include "mibserver.fullname" . }}
   labels:
     {{- include "mibserver.labels" . | nindent 4 }}
+  annotations:
+    "kube-score/ignore": "container-image-pull-policy"
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -14,7 +16,6 @@ spec:
   template:
     metadata:
       {{- with .Values.podAnnotations }}
-      annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
@@ -40,10 +41,6 @@ spec:
             - name: http-status
               containerPort: 8080
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http-status
           readinessProbe:
             httpGet:
               path: /
@@ -59,9 +56,24 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
+      {{- if eq .Values.podAntiAffinity "hard" }}
       affinity:
-        {{- toYaml . | nindent 8 }}
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: "kubernetes.io/hostname"
+              labelSelector:
+                matchLabels:
+                    {{- include "mibserver.selectorLabels" . | nindent 22 }}
+      {{- else if eq .Values.podAntiAffinity "soft" }}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              podAffinityTerm:
+                topologyKey: kubernetes.io/hostname
+                labelSelector:
+                  matchLabels:
+                    {{- include "mibserver.selectorLabels" . | nindent 22 }}
       {{- end }}
       {{- with .Values.tolerations }}
       tolerations:

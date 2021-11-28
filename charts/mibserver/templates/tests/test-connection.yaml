@@ -6,10 +6,27 @@ metadata:
     {{- include "mibserver.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
+    "kube-score/ignore": "pod-probes,pod-networkpolicy"
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: busybox:1.34.1
+      imagePullPolicy: Always
       command: ['wget']
       args: ['{{ include "mibserver.fullname" . }}:{{ .Values.service.port }}/index.csv']
+      securityContext:
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi      
   restartPolicy: Never
