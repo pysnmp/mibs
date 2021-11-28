@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module AT-DNS-CLIENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-DNS-CLIENT
-# Produced by pysmi-1.1.3 at Sun Nov 28 16:41:29 2021
-# On host fv-az126-355 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 17:11:11 2021
+# On host fv-az135-491 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
 InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Unsigned32, TimeTicks, Gauge32, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, Integer32, IpAddress, ObjectIdentity, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "TimeTicks", "Gauge32", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "Integer32", "IpAddress", "ObjectIdentity", "ModuleIdentity", "MibIdentifier")
-TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, ObjectIdentity, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks, NotificationType, Counter32, ModuleIdentity, MibIdentifier, Counter64, Unsigned32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks", "NotificationType", "Counter32", "ModuleIdentity", "MibIdentifier", "Counter64", "Unsigned32", "Integer32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 atDNSClient = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1))
 atDNSClient.setRevisions(('2010-06-14 04:45', '2008-09-18 12:00',))
 
@@ -46,4 +46,4 @@ if mibBuilder.loadTexts: atDNSServerAddr.setDescription("This object represents 
 atDNSServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 1, 4), RowStatus().clone(1)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: atDNSServerStatus.setStatus('current')
 if mibBuilder.loadTexts: atDNSServerStatus.setDescription("The Status of this row.\n                The reading of this object should have a value of\n                'active(1)', for an existing row.\n\n                For creation of new entry, a management application\n                should set this object with value 'createAndGo(4)',\n                and using the same value as that got from reading\n                object 'atDNSServerIndexNext', as the index for\n                the new entry.\n\n                When an entry is created, the object 'atDNSServerAddr'\n                in the entry is set with a default value '0.0.0.0'.\n                The management application should change it to\n                a desired value with a SET operation.\n\n                For deletion of entry, a management application\n                should set this object with value 'destroy(6)'.\n\n                Once an entry is deleted, other entries in the table\n                which have bigger index than the deleted one, will\n                be indexed again. Therefore a management\n                application can effectively delete multiple entries\n                by repeating the SET operation using the same index.\n\n                An attempt to SET this object with value other than\n                'createAndGo' or 'destroy' will fail.")
-mibBuilder.exportSymbols("AT-DNS-CLIENT-MIB", atDNSClient=atDNSClient, atDNSServerIndex=atDNSServerIndex, atDNSServerTable=atDNSServerTable, atDNSServerStatus=atDNSServerStatus, atDNSServerAddr=atDNSServerAddr, PYSNMP_MODULE_ID=atDNSClient, atDNSServerIndexNext=atDNSServerIndexNext, atDNSServerAddrType=atDNSServerAddrType, atDNSServerEntry=atDNSServerEntry, atDns=atDns)
+mibBuilder.exportSymbols("AT-DNS-CLIENT-MIB", atDns=atDns, PYSNMP_MODULE_ID=atDNSClient, atDNSServerIndexNext=atDNSServerIndexNext, atDNSServerTable=atDNSServerTable, atDNSServerIndex=atDNSServerIndex, atDNSServerStatus=atDNSServerStatus, atDNSServerAddr=atDNSServerAddr, atDNSClient=atDNSClient, atDNSServerAddrType=atDNSServerAddrType, atDNSServerEntry=atDNSServerEntry)
