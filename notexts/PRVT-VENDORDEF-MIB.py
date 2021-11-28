@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module PRVT-VENDORDEF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-VENDORDEF-MIB
-# Produced by pysmi-1.1.3 at Mon Nov 22 20:08:06 2021
-# On host fv-az42-715 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Sun Nov 28 14:00:47 2021
+# On host fv-az77-612 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, ObjectIdentity, NotificationType, Counter32, Gauge32, TimeTicks, Unsigned32, MibIdentifier, enterprises, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "ObjectIdentity", "NotificationType", "Counter32", "Gauge32", "TimeTicks", "Unsigned32", "MibIdentifier", "enterprises", "Counter64", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ObjectIdentity, NotificationType, Unsigned32, enterprises, Counter32, Gauge32, iso, IpAddress, MibIdentifier, TimeTicks, ModuleIdentity, Counter64, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ObjectIdentity", "NotificationType", "Unsigned32", "enterprises", "Counter32", "Gauge32", "iso", "IpAddress", "MibIdentifier", "TimeTicks", "ModuleIdentity", "Counter64", "Bits")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtVendorDefMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738))
 prvtVendorDefMIB.setRevisions(('2007-09-29 00:00',))
 if mibBuilder.loadTexts: prvtVendorDefMIB.setLastUpdated('200709290000Z')
 if mibBuilder.loadTexts: prvtVendorDefMIB.setOrganization('BATM Advanced Communication')
 prvt_products = ObjectIdentity((1, 3, 6, 1, 4, 1, 738, 10)).setLabel("prvt-products")
 if mibBuilder.loadTexts: prvt_products.setStatus('current')
-mibBuilder.exportSymbols("PRVT-VENDORDEF-MIB", prvtVendorDefMIB=prvtVendorDefMIB, PYSNMP_MODULE_ID=prvtVendorDefMIB, prvt_products=prvt_products)
+mibBuilder.exportSymbols("PRVT-VENDORDEF-MIB", PYSNMP_MODULE_ID=prvtVendorDefMIB, prvtVendorDefMIB=prvtVendorDefMIB, prvt_products=prvt_products)
