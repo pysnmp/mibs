@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module UCD-DISKIO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/UCD-DISKIO-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 02:48:15 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 02:47:52 2021
+# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, Counter32, Integer32, Unsigned32, ObjectIdentity, MibIdentifier, Bits, IpAddress, ModuleIdentity, NotificationType, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "Counter32", "Integer32", "Unsigned32", "ObjectIdentity", "MibIdentifier", "Bits", "IpAddress", "ModuleIdentity", "NotificationType", "Gauge32", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+iso, Counter64, Counter32, IpAddress, Bits, MibIdentifier, Gauge32, NotificationType, Integer32, TimeTicks, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Counter32", "IpAddress", "Bits", "MibIdentifier", "Gauge32", "NotificationType", "Integer32", "TimeTicks", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ucdExperimental, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdExperimental")
 ucdDiskIOMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 13, 15))
 ucdDiskIOMIB.setRevisions(('2016-04-04 00:00', '2005-04-20 00:00', '2002-02-13 00:00', '2000-01-26 00:00',))
@@ -44,4 +44,4 @@ diskIONWrittenX = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 13), Cou
 if mibBuilder.loadTexts: diskIONWrittenX.setStatus('current')
 diskIOBusyTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 14), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: diskIOBusyTime.setStatus('current')
-mibBuilder.exportSymbols("UCD-DISKIO-MIB", diskIONWritten=diskIONWritten, ucdDiskIOMIB=ucdDiskIOMIB, diskIOBusyTime=diskIOBusyTime, diskIOLA5=diskIOLA5, diskIONReadX=diskIONReadX, diskIODevice=diskIODevice, PYSNMP_MODULE_ID=ucdDiskIOMIB, diskIOWrites=diskIOWrites, diskIONWrittenX=diskIONWrittenX, diskIONRead=diskIONRead, diskIOReads=diskIOReads, diskIOLA15=diskIOLA15, diskIOLA1=diskIOLA1, diskIOIndex=diskIOIndex, diskIOTable=diskIOTable, diskIOEntry=diskIOEntry)
+mibBuilder.exportSymbols("UCD-DISKIO-MIB", diskIOEntry=diskIOEntry, diskIOBusyTime=diskIOBusyTime, ucdDiskIOMIB=ucdDiskIOMIB, diskIODevice=diskIODevice, diskIOLA15=diskIOLA15, diskIOLA5=diskIOLA5, diskIOIndex=diskIOIndex, diskIONRead=diskIONRead, diskIOLA1=diskIOLA1, PYSNMP_MODULE_ID=ucdDiskIOMIB, diskIOReads=diskIOReads, diskIONReadX=diskIONReadX, diskIONWrittenX=diskIONWrittenX, diskIOTable=diskIOTable, diskIONWritten=diskIONWritten, diskIOWrites=diskIOWrites)
