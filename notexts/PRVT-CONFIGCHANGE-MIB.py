@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-CONFIGCHANGE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-CONFIGCHANGE-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 02:36:04 2021
-# On host fv-az33-471 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 03:07:12 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Counter32, IpAddress, Bits, MibIdentifier, Integer32, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter64, ObjectIdentity, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "IpAddress", "Bits", "MibIdentifier", "Integer32", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter64", "ObjectIdentity", "ModuleIdentity", "Gauge32")
-DisplayString, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowPointer", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, ObjectIdentity, Unsigned32, Counter32, ModuleIdentity, TimeTicks, Integer32, Bits, IpAddress, MibIdentifier, Counter64, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "Unsigned32", "Counter32", "ModuleIdentity", "TimeTicks", "Integer32", "Bits", "IpAddress", "MibIdentifier", "Counter64", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+RowPointer, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowPointer", "TextualConvention", "DisplayString")
 prvtConfigChangeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 150))
 prvtConfigChangeMIB.setRevisions(('2009-07-13 00:00', '2006-11-20 00:00',))
 if mibBuilder.loadTexts: prvtConfigChangeMIB.setLastUpdated('200907130000Z')
@@ -35,4 +35,4 @@ if mibBuilder.loadTexts: snmpServerStatusChange.setStatus('current')
 prvtConfigChangeNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 150, 0))
 prvtConfigChangeObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 150, 1))
 prvtConfigChangeConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 150, 3))
-mibBuilder.exportSymbols("PRVT-CONFIGCHANGE-MIB", cliConfigChangeCommand=cliConfigChangeCommand, prvtConfigChangeObjects=prvtConfigChangeObjects, prvtConfigChangeMIB=prvtConfigChangeMIB, cliConfigChangeNodePrompt=cliConfigChangeNodePrompt, prvtConfigChangeAlarm=prvtConfigChangeAlarm, prvtConfigChangeAlarmRow=prvtConfigChangeAlarmRow, PYSNMP_MODULE_ID=prvtConfigChangeMIB, prvtConfigChangeAlarmOID=prvtConfigChangeAlarmOID, prvtConfigChangeConformance=prvtConfigChangeConformance, snmpServerStatus=snmpServerStatus, snmpServerStatusChange=snmpServerStatusChange, prvtConfigChangeNotifications=prvtConfigChangeNotifications, cliConfigurationChange=cliConfigurationChange)
+mibBuilder.exportSymbols("PRVT-CONFIGCHANGE-MIB", PYSNMP_MODULE_ID=prvtConfigChangeMIB, prvtConfigChangeAlarm=prvtConfigChangeAlarm, prvtConfigChangeConformance=prvtConfigChangeConformance, prvtConfigChangeNotifications=prvtConfigChangeNotifications, prvtConfigChangeMIB=prvtConfigChangeMIB, cliConfigChangeCommand=cliConfigChangeCommand, prvtConfigChangeAlarmRow=prvtConfigChangeAlarmRow, cliConfigurationChange=cliConfigurationChange, snmpServerStatusChange=snmpServerStatusChange, cliConfigChangeNodePrompt=cliConfigChangeNodePrompt, prvtConfigChangeAlarmOID=prvtConfigChangeAlarmOID, prvtConfigChangeObjects=prvtConfigChangeObjects, snmpServerStatus=snmpServerStatus)
