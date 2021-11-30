@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-OPR-LED-MANAGEMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-OPR-LED-MANAGEMENT-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 03:10:57 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 13:56:50 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, Counter64, Unsigned32, IpAddress, ModuleIdentity, iso, MibIdentifier, NotificationType, TimeTicks, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "Unsigned32", "IpAddress", "ModuleIdentity", "iso", "MibIdentifier", "NotificationType", "TimeTicks", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, Unsigned32, Integer32, Bits, iso, MibIdentifier, Counter64, TimeTicks, ObjectIdentity, IpAddress, NotificationType, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "Integer32", "Bits", "iso", "MibIdentifier", "Counter64", "TimeTicks", "ObjectIdentity", "IpAddress", "NotificationType", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 prvtOprLedMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 110))
 prvtOprLedMgmtMIB.setRevisions(('2006-07-29 00:00',))
 
@@ -33,4 +33,4 @@ prvtOprLedMgmtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 110, 3))
 prvtOprLedSatus = MibScalar((1, 3, 6, 1, 4, 1, 738, 1, 5, 110, 1, 1), LedValues().clone('green-stable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: prvtOprLedSatus.setStatus('current')
 if mibBuilder.loadTexts: prvtOprLedSatus.setDescription('All possible led states. States red-stable and red-blinking\ncan not be set. States amber-stable and amber-blinking green-blinking can\nbe set only when the current state is green-stable. The object\nhas read-write access and its default value is green-stable')
-mibBuilder.exportSymbols("PRVT-OPR-LED-MANAGEMENT-MIB", prvtOprLedMgmtConformance=prvtOprLedMgmtConformance, prvtOprLedMgmtObjects=prvtOprLedMgmtObjects, prvtOprLedMgmtMIB=prvtOprLedMgmtMIB, prvtOprLedSatus=prvtOprLedSatus, PYSNMP_MODULE_ID=prvtOprLedMgmtMIB, prvtOprLedMgmtNotifications=prvtOprLedMgmtNotifications, LedValues=LedValues)
+mibBuilder.exportSymbols("PRVT-OPR-LED-MANAGEMENT-MIB", prvtOprLedMgmtNotifications=prvtOprLedMgmtNotifications, PYSNMP_MODULE_ID=prvtOprLedMgmtMIB, prvtOprLedMgmtObjects=prvtOprLedMgmtObjects, prvtOprLedMgmtConformance=prvtOprLedMgmtConformance, LedValues=LedValues, prvtOprLedSatus=prvtOprLedSatus, prvtOprLedMgmtMIB=prvtOprLedMgmtMIB)

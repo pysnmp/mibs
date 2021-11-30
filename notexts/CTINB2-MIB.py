@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTINB2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTINB2-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 03:09:10 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 13:55:19 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 ctINBinfo2, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctINBinfo2")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Counter32, Unsigned32, iso, IpAddress, Gauge32, MibIdentifier, Counter64, ObjectIdentity, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Counter32", "Unsigned32", "iso", "IpAddress", "Gauge32", "MibIdentifier", "Counter64", "ObjectIdentity", "Bits", "Integer32")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, Unsigned32, Counter64, Integer32, Gauge32, Bits, Counter32, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "Counter64", "Integer32", "Gauge32", "Bits", "Counter32", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "TimeTicks", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctInbUtil = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 12, 2, 1))
 ctInbUtilInterval = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 12, 2, 1, 1), Integer32().clone(1)).setMaxAccess("readwrite")
@@ -37,4 +37,4 @@ ctInbUtilAbsoluteB = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 12, 2, 1, 2,
 if mibBuilder.loadTexts: ctInbUtilAbsoluteB.setStatus('mandatory')
 ctInbUtilAbsoluteTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 12, 2, 1, 2, 1, 9), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctInbUtilAbsoluteTotal.setStatus('mandatory')
-mibBuilder.exportSymbols("CTINB2-MIB", ctInbUtilDestSlot=ctInbUtilDestSlot, ctInbUtil=ctInbUtil, ctInbUtilAbsoluteB=ctInbUtilAbsoluteB, ctInbUtilEntry=ctInbUtilEntry, ctInbUtilAbsoluteTotal=ctInbUtilAbsoluteTotal, ctInbUtilSrcSlot=ctInbUtilSrcSlot, ctInbUtilTable=ctInbUtilTable, ctInbUtilHiByteCountB=ctInbUtilHiByteCountB, ctInbUtilLoByteCountB=ctInbUtilLoByteCountB, ctInbUtilHiByteCountA=ctInbUtilHiByteCountA, ctInbUtilAbsoluteA=ctInbUtilAbsoluteA, ctInbUtilLoByteCountA=ctInbUtilLoByteCountA, ctInbUtilInterval=ctInbUtilInterval)
+mibBuilder.exportSymbols("CTINB2-MIB", ctInbUtilInterval=ctInbUtilInterval, ctInbUtilLoByteCountB=ctInbUtilLoByteCountB, ctInbUtilAbsoluteTotal=ctInbUtilAbsoluteTotal, ctInbUtilAbsoluteA=ctInbUtilAbsoluteA, ctInbUtil=ctInbUtil, ctInbUtilHiByteCountA=ctInbUtilHiByteCountA, ctInbUtilDestSlot=ctInbUtilDestSlot, ctInbUtilSrcSlot=ctInbUtilSrcSlot, ctInbUtilAbsoluteB=ctInbUtilAbsoluteB, ctInbUtilEntry=ctInbUtilEntry, ctInbUtilTable=ctInbUtilTable, ctInbUtilLoByteCountA=ctInbUtilLoByteCountA, ctInbUtilHiByteCountB=ctInbUtilHiByteCountB)

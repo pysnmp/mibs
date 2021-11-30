@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TELDAT-MON-CPU-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-CPU-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 03:08:30 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 13:54:46 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, iso, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, ObjectIdentity, NotificationType, Counter64, Integer32, Counter32, MibIdentifier, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "ObjectIdentity", "NotificationType", "Counter64", "Integer32", "Counter32", "MibIdentifier", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, ObjectIdentity, Unsigned32, NotificationType, Bits, MibIdentifier, IpAddress, TimeTicks, Counter32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "ObjectIdentity", "Unsigned32", "NotificationType", "Bits", "MibIdentifier", "IpAddress", "TimeTicks", "Counter32", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 telProdNpMonitSistema, = mibBuilder.importSymbols("TELDAT-SW-STRUCTURE-MIB", "telProdNpMonitSistema")
 teldatCPUMonMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2))
 teldatCPUMonMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2, 1))
@@ -29,4 +29,4 @@ if mibBuilder.loadTexts: teldatCPUBusy1min.setDescription('The overall CPU busy 
 teldatCPUBusy5min = MibScalar((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: teldatCPUBusy5min.setStatus('mandatory')
 if mibBuilder.loadTexts: teldatCPUBusy5min.setDescription('The overall CPU busy percentage in the last 5 minute period.')
-mibBuilder.exportSymbols("TELDAT-MON-CPU-MIB", teldatCPUBusy5sec=teldatCPUBusy5sec, teldatCPUBusy1min=teldatCPUBusy1min, teldatCPUCompliances=teldatCPUCompliances, teldatCPUBusy5min=teldatCPUBusy5min, teldatCPUBusyGroup=teldatCPUBusyGroup, teldatCPUMonMIB=teldatCPUMonMIB, teldatCPUGroups=teldatCPUGroups, teldatCPUMonMIBConformance=teldatCPUMonMIBConformance, teldatCPUMonMIBObjects=teldatCPUMonMIBObjects, teldatCPUMonMIBNotifs=teldatCPUMonMIBNotifs, teldatCPUMonMIBNotifPrefix=teldatCPUMonMIBNotifPrefix)
+mibBuilder.exportSymbols("TELDAT-MON-CPU-MIB", teldatCPUMonMIBNotifs=teldatCPUMonMIBNotifs, teldatCPUMonMIB=teldatCPUMonMIB, teldatCPUBusy5sec=teldatCPUBusy5sec, teldatCPUGroups=teldatCPUGroups, teldatCPUMonMIBNotifPrefix=teldatCPUMonMIBNotifPrefix, teldatCPUCompliances=teldatCPUCompliances, teldatCPUMonMIBObjects=teldatCPUMonMIBObjects, teldatCPUBusy1min=teldatCPUBusy1min, teldatCPUBusy5min=teldatCPUBusy5min, teldatCPUMonMIBConformance=teldatCPUMonMIBConformance, teldatCPUBusyGroup=teldatCPUBusyGroup)

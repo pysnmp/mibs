@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module DISMAN-NSLOOKUP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DISMAN-NSLOOKUP-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 02:47:52 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 13:37:38 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-ObjectIdentity, iso, Counter32, Counter64, IpAddress, Bits, MibIdentifier, Gauge32, mib_2, Integer32, NotificationType, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Counter32", "Counter64", "IpAddress", "Bits", "MibIdentifier", "Gauge32", "mib-2", "Integer32", "NotificationType", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Integer32, Gauge32, TimeTicks, Counter64, MibIdentifier, NotificationType, ObjectIdentity, ModuleIdentity, iso, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, mib_2, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Gauge32", "TimeTicks", "Counter64", "MibIdentifier", "NotificationType", "ObjectIdentity", "ModuleIdentity", "iso", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "mib-2", "Bits")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 lookupMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 82))
 lookupMIB.setRevisions(('2006-06-13 00:00', '2000-09-21 00:00',))
 if mibBuilder.loadTexts: lookupMIB.setLastUpdated('200606130000Z')
@@ -66,4 +66,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 lookupGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 82, 2, 2, 1)).setObjects(("DISMAN-NSLOOKUP-MIB", "lookupMaxConcurrentRequests"), ("DISMAN-NSLOOKUP-MIB", "lookupPurgeTime"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlOperStatus"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTargetAddressType"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTargetAddress"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTime"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlRc"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlRowStatus"), ("DISMAN-NSLOOKUP-MIB", "lookupResultsAddressType"), ("DISMAN-NSLOOKUP-MIB", "lookupResultsAddress"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lookupGroup = lookupGroup.setStatus('current')
-mibBuilder.exportSymbols("DISMAN-NSLOOKUP-MIB", lookupCtlOwnerIndex=lookupCtlOwnerIndex, lookupConformance=lookupConformance, lookupObjects=lookupObjects, lookupCtlEntry=lookupCtlEntry, lookupCtlOperationName=lookupCtlOperationName, lookupMIB=lookupMIB, lookupResultsAddress=lookupResultsAddress, lookupResultsTable=lookupResultsTable, lookupCtlTargetAddress=lookupCtlTargetAddress, lookupMaxConcurrentRequests=lookupMaxConcurrentRequests, lookupCtlTable=lookupCtlTable, lookupCompliance=lookupCompliance, lookupCtlRowStatus=lookupCtlRowStatus, lookupCtlTargetAddressType=lookupCtlTargetAddressType, PYSNMP_MODULE_ID=lookupMIB, lookupGroup=lookupGroup, lookupCtlOperStatus=lookupCtlOperStatus, lookupCtlTime=lookupCtlTime, lookupResultsIndex=lookupResultsIndex, lookupPurgeTime=lookupPurgeTime, lookupResultsAddressType=lookupResultsAddressType, lookupCompliances=lookupCompliances, lookupResultsEntry=lookupResultsEntry, lookupGroups=lookupGroups, lookupCtlRc=lookupCtlRc, lookupMinimumCompliance=lookupMinimumCompliance)
+mibBuilder.exportSymbols("DISMAN-NSLOOKUP-MIB", lookupResultsAddress=lookupResultsAddress, lookupCtlTargetAddressType=lookupCtlTargetAddressType, lookupCtlRc=lookupCtlRc, lookupCtlOperationName=lookupCtlOperationName, lookupMinimumCompliance=lookupMinimumCompliance, lookupMIB=lookupMIB, lookupCompliance=lookupCompliance, lookupResultsAddressType=lookupResultsAddressType, lookupPurgeTime=lookupPurgeTime, lookupObjects=lookupObjects, lookupResultsEntry=lookupResultsEntry, PYSNMP_MODULE_ID=lookupMIB, lookupResultsIndex=lookupResultsIndex, lookupGroup=lookupGroup, lookupCtlTime=lookupCtlTime, lookupResultsTable=lookupResultsTable, lookupConformance=lookupConformance, lookupCtlOwnerIndex=lookupCtlOwnerIndex, lookupMaxConcurrentRequests=lookupMaxConcurrentRequests, lookupCtlTargetAddress=lookupCtlTargetAddress, lookupCtlOperStatus=lookupCtlOperStatus, lookupGroups=lookupGroups, lookupCtlRowStatus=lookupCtlRowStatus, lookupCompliances=lookupCompliances, lookupCtlEntry=lookupCtlEntry, lookupCtlTable=lookupCtlTable)

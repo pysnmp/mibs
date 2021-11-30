@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 03:00:42 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 13:48:22 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, NotificationType, Bits, Unsigned32, IpAddress, MibIdentifier, Counter64, ObjectIdentity, Counter32, iso, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "Bits", "Unsigned32", "IpAddress", "MibIdentifier", "Counter64", "ObjectIdentity", "Counter32", "iso", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
+IpAddress, ObjectIdentity, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, ModuleIdentity, TimeTicks, Counter64, Bits, Unsigned32, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ObjectIdentity", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "ModuleIdentity", "TimeTicks", "Counter64", "Bits", "Unsigned32", "MibIdentifier", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: snsClone.setDescription("Firewall licence 'clone' token
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
 if mibBuilder.loadTexts: snsHADialup.setDescription("Firewall licence 'HA-dialup' token")
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbPPTP=snsNbPPTP, snsModel=snsModel, snsSystemName=snsSystemName, snsLed=snsLed, snsSystemLanguage=snsSystemLanguage, snsClone=snsClone, snsNbEther=snsNbEther, snsNbLoopback=snsNbLoopback, snsHADialup=snsHADialup, snsProductProperty=snsProductProperty, snsNbVlan=snsNbVlan, PYSNMP_MODULE_ID=snsProductProperty, snsVersion=snsVersion, snsSerialNumber=snsSerialNumber, snsWatchdog=snsWatchdog, snsNbSerial=snsNbSerial, snsNbDialup=snsNbDialup)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbEther=snsNbEther, snsNbVlan=snsNbVlan, snsNbLoopback=snsNbLoopback, snsSerialNumber=snsSerialNumber, snsNbDialup=snsNbDialup, snsWatchdog=snsWatchdog, snsProductProperty=snsProductProperty, snsSystemName=snsSystemName, PYSNMP_MODULE_ID=snsProductProperty, snsVersion=snsVersion, snsNbPPTP=snsNbPPTP, snsNbSerial=snsNbSerial, snsModel=snsModel, snsLed=snsLed, snsHADialup=snsHADialup, snsSystemLanguage=snsSystemLanguage, snsClone=snsClone)

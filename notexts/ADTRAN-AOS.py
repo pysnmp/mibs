@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ADTRAN-AOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS
-# Produced by pysmi-1.1.3 at Tue Nov 30 03:04:40 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 13:51:36 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-adIdentityShared, adShared = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentityShared", "adShared")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+adShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adIdentityShared")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, Integer32, TimeTicks, Unsigned32, Counter64, Counter32, Bits, IpAddress, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "Integer32", "TimeTicks", "Unsigned32", "Counter64", "Counter32", "Bits", "IpAddress", "MibIdentifier")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, MibIdentifier, TimeTicks, Counter32, iso, Integer32, ObjectIdentity, IpAddress, Bits, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "MibIdentifier", "TimeTicks", "Counter32", "iso", "Integer32", "ObjectIdentity", "IpAddress", "Bits", "Gauge32", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adGenAOSMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53))
 adGenAOSMib.setRevisions(('2014-09-10 00:00', '2012-04-27 00:00', '2010-07-05 00:00', '2004-10-20 00:00',))
@@ -27,4 +27,4 @@ adGenAOSPower = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 7))
 adGenAOSConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99))
 adGenAOSApplications = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 8))
 adGenAOSMef = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9))
-mibBuilder.exportSymbols("ADTRAN-AOS", PYSNMP_MODULE_ID=adGenAOSMib, adGenAOSRouter=adGenAOSRouter, adGenAOSVoice=adGenAOSVoice, adGenAOSCommon=adGenAOSCommon, adGenAOS=adGenAOS, adGenAOSApplications=adGenAOSApplications, adGenAOSWan=adGenAOSWan, adGenAOSPower=adGenAOSPower, adGenAOSConformance=adGenAOSConformance, adGenAOSSecurity=adGenAOSSecurity, adGenAOSSwitch=adGenAOSSwitch, adGenAOSMib=adGenAOSMib, adGenAOSMef=adGenAOSMef)
+mibBuilder.exportSymbols("ADTRAN-AOS", adGenAOSMib=adGenAOSMib, PYSNMP_MODULE_ID=adGenAOSMib, adGenAOSSwitch=adGenAOSSwitch, adGenAOSVoice=adGenAOSVoice, adGenAOSWan=adGenAOSWan, adGenAOSApplications=adGenAOSApplications, adGenAOSConformance=adGenAOSConformance, adGenAOSMef=adGenAOSMef, adGenAOS=adGenAOS, adGenAOSPower=adGenAOSPower, adGenAOSSecurity=adGenAOSSecurity, adGenAOSRouter=adGenAOSRouter, adGenAOSCommon=adGenAOSCommon)

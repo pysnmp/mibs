@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NBS-USER-SESSION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-USER-SESSION-MIB
-# Produced by pysmi-1.1.3 at Tue Nov 30 02:49:08 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 13:38:40 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, Integer32, Gauge32, Unsigned32, ObjectIdentity, IpAddress, ModuleIdentity, Counter64, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "IpAddress", "ModuleIdentity", "Counter64", "iso", "NotificationType")
-TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, Counter32, ModuleIdentity, NotificationType, TimeTicks, Gauge32, IpAddress, MibIdentifier, ObjectIdentity, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "Counter32", "ModuleIdentity", "NotificationType", "TimeTicks", "Gauge32", "IpAddress", "MibIdentifier", "ObjectIdentity", "Unsigned32", "iso")
+TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 nbsUserSessionMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 218))
 if mibBuilder.loadTexts: nbsUserSessionMib.setLastUpdated('201504290000Z')
 if mibBuilder.loadTexts: nbsUserSessionMib.setOrganization('MRV')
@@ -41,4 +41,4 @@ nbsUserSessionConnectTime = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 218, 1, 2, 1,
 if mibBuilder.loadTexts: nbsUserSessionConnectTime.setStatus('current')
 nbsUserSessionVia = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 218, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notSupported", 0), ("console", 1), ("ssh", 2), ("telnet", 3), ("api", 4), ("snmp", 5), ("gui", 6)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nbsUserSessionVia.setStatus('current')
-mibBuilder.exportSymbols("NBS-USER-SESSION-MIB", nbsUserSessionLine=nbsUserSessionLine, nbsUserSessionMib=nbsUserSessionMib, nbsUserSessionHost=nbsUserSessionHost, nbsUserSessionId=nbsUserSessionId, PYSNMP_MODULE_ID=nbsUserSessionMib, nbsUserSessionEntry=nbsUserSessionEntry, nbsUserSessionTable=nbsUserSessionTable, nbsUserSessionRowStatus=nbsUserSessionRowStatus, nbsUserSessionUser=nbsUserSessionUser, nbsUserSessionVia=nbsUserSessionVia, nbsUserSessionConnectTime=nbsUserSessionConnectTime, nbsUserSessionGrp=nbsUserSessionGrp, nbsUserSessionPID=nbsUserSessionPID, nbsUserSessionType=nbsUserSessionType, nbsUserSessionTableSize=nbsUserSessionTableSize)
+mibBuilder.exportSymbols("NBS-USER-SESSION-MIB", nbsUserSessionId=nbsUserSessionId, nbsUserSessionUser=nbsUserSessionUser, nbsUserSessionConnectTime=nbsUserSessionConnectTime, PYSNMP_MODULE_ID=nbsUserSessionMib, nbsUserSessionLine=nbsUserSessionLine, nbsUserSessionTableSize=nbsUserSessionTableSize, nbsUserSessionEntry=nbsUserSessionEntry, nbsUserSessionPID=nbsUserSessionPID, nbsUserSessionType=nbsUserSessionType, nbsUserSessionVia=nbsUserSessionVia, nbsUserSessionTable=nbsUserSessionTable, nbsUserSessionHost=nbsUserSessionHost, nbsUserSessionRowStatus=nbsUserSessionRowStatus, nbsUserSessionGrp=nbsUserSessionGrp, nbsUserSessionMib=nbsUserSessionMib)

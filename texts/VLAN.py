@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module VLAN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/VLAN
-# Produced by pysmi-1.1.3 at Tue Nov 30 03:16:47 2021
-# On host fv-az42-83 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Nov 30 14:01:52 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 interface, = mibBuilder.importSymbols("ExaltComProducts", "interface")
-VlanGroupT, VlanStatusT = mibBuilder.importSymbols("ExaltComm", "VlanGroupT", "VlanStatusT")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter32, TimeTicks, Counter64, ObjectIdentity, Bits, ModuleIdentity, NotificationType, Integer32, Gauge32, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "Counter64", "ObjectIdentity", "Bits", "ModuleIdentity", "NotificationType", "Integer32", "Gauge32", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "MibIdentifier")
+VlanStatusT, VlanGroupT = mibBuilder.importSymbols("ExaltComm", "VlanStatusT", "VlanGroupT")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+TimeTicks, IpAddress, Bits, ModuleIdentity, Counter32, Integer32, iso, MibIdentifier, Gauge32, Unsigned32, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "Bits", "ModuleIdentity", "Counter32", "Integer32", "iso", "MibIdentifier", "Gauge32", "Unsigned32", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vlan = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3))
 if mibBuilder.loadTexts: vlan.setStatus('current')
@@ -37,4 +37,4 @@ if mibBuilder.loadTexts: vlanID.setDescription('This is the list of Vlan ID in c
 commitVlanSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3, 1000), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(4, 200))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitVlanSettings.setStatus('current')
 if mibBuilder.loadTexts: commitVlanSettings.setDescription('This command allows saving, or resetting Vlan\n                            parameters to factory original. Options are:\n                            save, clear, reset; where clear will abandon\n                            unsaved changes.')
-mibBuilder.exportSymbols("VLAN", vlanDefaultMgmtId=vlanDefaultMgmtId, vlanID=vlanID, vlan=vlan, commitVlanSettings=commitVlanSettings, vlanStatus=vlanStatus, vlanInterfacesEntry=vlanInterfacesEntry, vlanDefaultId=vlanDefaultId, vlanInterfaces=vlanInterfaces)
+mibBuilder.exportSymbols("VLAN", vlanDefaultMgmtId=vlanDefaultMgmtId, vlanStatus=vlanStatus, vlanID=vlanID, vlanInterfaces=vlanInterfaces, vlan=vlan, vlanDefaultId=vlanDefaultId, vlanInterfacesEntry=vlanInterfacesEntry, commitVlanSettings=commitVlanSettings)
