@@ -1,7 +1,7 @@
 name: release-chart
 on:
   push:
-    tags: 'chart-*'
+    tags: "v*"
 
 jobs:
   release-chart:
