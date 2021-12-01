@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-PRIORITY-CLASSIFY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-PRIORITY-CLASSIFY-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:11:53 2021
-# On host fv-az33-471 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:41:22 2021
+# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-NotificationType, Unsigned32, IpAddress, Bits, Gauge32, MibIdentifier, ObjectIdentity, Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "IpAddress", "Bits", "Gauge32", "MibIdentifier", "ObjectIdentity", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "TimeTicks", "Counter64")
-TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Counter32, TimeTicks, Bits, MibIdentifier, Counter64, Integer32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, NotificationType, Gauge32, Unsigned32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "Bits", "MibIdentifier", "Counter64", "Integer32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "NotificationType", "Gauge32", "Unsigned32", "IpAddress")
+TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 ctPriClassify = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6))
 if mibBuilder.loadTexts: ctPriClassify.setLastUpdated('200203121855Z')
 if mibBuilder.loadTexts: ctPriClassify.setOrganization('Cabletron Systems, Inc')
@@ -72,4 +72,4 @@ ctPriClassifyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctPriClassifyCompliance = ctPriClassifyCompliance.setStatus('current')
-mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", ctPriClassifyTOSValue=ctPriClassifyTOSValue, ctPriClassifyObjects=ctPriClassifyObjects, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyStatus=ctPriClassifyStatus, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyIngressList=ctPriClassifyIngressList, CtPriClassifyType=CtPriClassifyType, ctPriClassifyPorts=ctPriClassifyPorts, ctPriClassify=ctPriClassify, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyPriority=ctPriClassifyPriority, PYSNMP_MODULE_ID=ctPriClassify, PortList=PortList)
+mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", PYSNMP_MODULE_ID=ctPriClassify, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyPorts=ctPriClassifyPorts, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyStatus=ctPriClassifyStatus, CtPriClassifyType=CtPriClassifyType, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, ctPriClassifyObjects=ctPriClassifyObjects, ctPriClassify=ctPriClassify, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyIngressList=ctPriClassifyIngressList, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyTOSValue=ctPriClassifyTOSValue, PortList=PortList, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus)
