@@ -1,3 +1,4 @@
+{{- if .Values.networkPolicy.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -6,8 +7,21 @@ metadata:
     {{- include "mibserver.labels" . | nindent 4 }}
 spec:
   podSelector:
-    matchLabels:
     {{- include "mibserver.selectorLabels" . | nindent 8 }}
   policyTypes:
     - Ingress
-    - Egress
+    - Egress    
+  ingress:
+    # Allow inbound connections
+    - ports:
+        - port: 8000  # WEB        
+      {{- if not .Values.networkPolicy.allowExternal }}
+      from:
+        - podSelector:
+            matchLabels:
+              {{ template "mibserver.fullname" . }}-client: "true"
+      {{- end }}
+    # Allow probes
+    - ports:
+        - port: 8080
+{{- end }}
