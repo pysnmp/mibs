@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module CORERO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/corero/CORERO-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:46:03 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:36:53 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Integer32, MibIdentifier, Bits, ModuleIdentity, Unsigned32, ObjectIdentity, Counter32, Counter64, enterprises, IpAddress, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "MibIdentifier", "Bits", "ModuleIdentity", "Unsigned32", "ObjectIdentity", "Counter32", "Counter64", "enterprises", "IpAddress", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks")
+Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, Counter64, TimeTicks, NotificationType, iso, ModuleIdentity, ObjectIdentity, Unsigned32, MibIdentifier, enterprises, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "Counter64", "TimeTicks", "NotificationType", "iso", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "MibIdentifier", "enterprises", "Counter32", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 corero = ModuleIdentity((1, 3, 6, 1, 4, 1, 41036))
 corero.setRevisions(('2017-06-16 00:00', '2014-04-24 00:00',))
@@ -26,4 +26,4 @@ if mibBuilder.loadTexts: coreroRegistrations.setDescription('This module defines
 coreroProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 41036, 2))
 if mibBuilder.loadTexts: coreroProducts.setStatus('current')
 if mibBuilder.loadTexts: coreroProducts.setDescription('A registration point under which all Corero AGENT-CAPABILIITES\n         definitions (and therefore values of sysObjectId) are defined.')
-mibBuilder.exportSymbols("CORERO-MIB", corero=corero, PYSNMP_MODULE_ID=corero, coreroRegistrations=coreroRegistrations, coreroProducts=coreroProducts)
+mibBuilder.exportSymbols("CORERO-MIB", coreroProducts=coreroProducts, PYSNMP_MODULE_ID=corero, corero=corero, coreroRegistrations=coreroRegistrations)

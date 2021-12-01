@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-REDUNDANCY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-REDUNDANCY-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:01:31 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:50:18 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 software, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "software")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, Unsigned32, ObjectIdentity, NotificationType, iso, IpAddress, Gauge32, ModuleIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "Unsigned32", "ObjectIdentity", "NotificationType", "iso", "IpAddress", "Gauge32", "ModuleIdentity", "Counter64")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, TimeTicks, ModuleIdentity, Counter64, ObjectIdentity, NotificationType, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, MibIdentifier, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "ModuleIdentity", "Counter64", "ObjectIdentity", "NotificationType", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "MibIdentifier", "Counter32", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtRedundancyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 111, 5))
 prvtRedundancyMIB.setRevisions(('2013-12-17 00:00',))
@@ -36,4 +36,4 @@ switchover = NotificationType((1, 3, 6, 1, 4, 1, 738, 10, 111, 5, 0, 2))
 if mibBuilder.loadTexts: switchover.setStatus('current')
 redundancyStatus = NotificationType((1, 3, 6, 1, 4, 1, 738, 10, 111, 5, 0, 3)).setObjects(("PRVT-REDUNDANCY-MIB", "prvtRedundancyChassisStatus"))
 if mibBuilder.loadTexts: redundancyStatus.setStatus('current')
-mibBuilder.exportSymbols("PRVT-REDUNDANCY-MIB", prvtRedundancyChassisStatus=prvtRedundancyChassisStatus, licStatus=licStatus, prvtRedundancyChassisEntry=prvtRedundancyChassisEntry, prvtRedundancyObjects=prvtRedundancyObjects, prvtRedundancyMIB=prvtRedundancyMIB, PYSNMP_MODULE_ID=prvtRedundancyMIB, prvtRedundancyChassisSlotId=prvtRedundancyChassisSlotId, redundancyStatus=redundancyStatus, prvtRedundancyNotifications=prvtRedundancyNotifications, prvtRedundancyChassisEntryStatus=prvtRedundancyChassisEntryStatus, switchover=switchover, prvtRedundancyChassisLICType=prvtRedundancyChassisLICType, prvtRedundancyChassisTable=prvtRedundancyChassisTable)
+mibBuilder.exportSymbols("PRVT-REDUNDANCY-MIB", licStatus=licStatus, prvtRedundancyChassisTable=prvtRedundancyChassisTable, prvtRedundancyMIB=prvtRedundancyMIB, PYSNMP_MODULE_ID=prvtRedundancyMIB, prvtRedundancyChassisEntry=prvtRedundancyChassisEntry, prvtRedundancyChassisStatus=prvtRedundancyChassisStatus, switchover=switchover, prvtRedundancyChassisLICType=prvtRedundancyChassisLICType, prvtRedundancyNotifications=prvtRedundancyNotifications, prvtRedundancyChassisSlotId=prvtRedundancyChassisSlotId, prvtRedundancyChassisEntryStatus=prvtRedundancyChassisEntryStatus, redundancyStatus=redundancyStatus, prvtRedundancyObjects=prvtRedundancyObjects)

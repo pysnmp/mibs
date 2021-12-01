@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module ARISTA-ENTITY-SENSOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-ENTITY-SENSOR-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:47:51 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:38:29 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-entPhysicalIndex, entPhysicalDescr = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "entPhysicalDescr")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+entPhysicalDescr, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalDescr", "entPhysicalIndex")
 entPhySensorValue, EntitySensorValue = mibBuilder.importSymbols("ENTITY-SENSOR-MIB", "entPhySensorValue", "EntitySensorValue")
 entStateAlarm, = mibBuilder.importSymbols("ENTITY-STATE-MIB", "entStateAlarm")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-iso, Counter32, ModuleIdentity, Gauge32, Integer32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, NotificationType, TimeTicks, Unsigned32, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "ModuleIdentity", "Gauge32", "Integer32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "NotificationType", "TimeTicks", "Unsigned32", "Counter64", "IpAddress")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+IpAddress, Unsigned32, Integer32, ModuleIdentity, Counter32, Bits, ObjectIdentity, MibIdentifier, NotificationType, Gauge32, Counter64, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "Integer32", "ModuleIdentity", "Counter32", "Bits", "ObjectIdentity", "MibIdentifier", "NotificationType", "Gauge32", "Counter64", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 aristaEntSensorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 12))
 aristaEntSensorMIB.setRevisions(('2014-08-15 00:00', '2013-05-09 09:50',))
@@ -51,4 +51,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 aristaEntSensorNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 30065, 3, 12, 2, 2, 2)).setObjects(("ARISTA-ENTITY-SENSOR-MIB", "aristaEntSensorAlarm"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaEntSensorNotificationsGroup = aristaEntSensorNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-ENTITY-SENSOR-MIB", aristaEntSensorMibGroups=aristaEntSensorMibGroups, aristaEntSensorMibCompliances=aristaEntSensorMibCompliances, aristaEntSensorMibCompliance=aristaEntSensorMibCompliance, PYSNMP_MODULE_ID=aristaEntSensorMIB, aristaEntSensorThresholdLowCritical=aristaEntSensorThresholdLowCritical, aristaEntSensorNotificationsGroup=aristaEntSensorNotificationsGroup, aristaEntSensorThresholdTable=aristaEntSensorThresholdTable, aristaEntSensorMibConformance=aristaEntSensorMibConformance, aristaEntSensorMibNotifications=aristaEntSensorMibNotifications, aristaEntSensorMibObjects=aristaEntSensorMibObjects, aristaEntSensorThresholdEntry=aristaEntSensorThresholdEntry, aristaEntSensorThresholdHighCritical=aristaEntSensorThresholdHighCritical, aristaEntSensorStatusDescr=aristaEntSensorStatusDescr, aristaEntSensorThresholdLowWarning=aristaEntSensorThresholdLowWarning, aristaEntSensorMIB=aristaEntSensorMIB, aristaEntSensorThresholdGroup=aristaEntSensorThresholdGroup, aristaEntSensorThresholdHighWarning=aristaEntSensorThresholdHighWarning, aristaEntSensorAlarm=aristaEntSensorAlarm)
+mibBuilder.exportSymbols("ARISTA-ENTITY-SENSOR-MIB", aristaEntSensorStatusDescr=aristaEntSensorStatusDescr, aristaEntSensorMibObjects=aristaEntSensorMibObjects, aristaEntSensorMibCompliance=aristaEntSensorMibCompliance, aristaEntSensorNotificationsGroup=aristaEntSensorNotificationsGroup, aristaEntSensorThresholdLowWarning=aristaEntSensorThresholdLowWarning, aristaEntSensorAlarm=aristaEntSensorAlarm, aristaEntSensorMibGroups=aristaEntSensorMibGroups, aristaEntSensorMibNotifications=aristaEntSensorMibNotifications, aristaEntSensorMibConformance=aristaEntSensorMibConformance, aristaEntSensorThresholdEntry=aristaEntSensorThresholdEntry, aristaEntSensorThresholdHighCritical=aristaEntSensorThresholdHighCritical, aristaEntSensorThresholdGroup=aristaEntSensorThresholdGroup, PYSNMP_MODULE_ID=aristaEntSensorMIB, aristaEntSensorMIB=aristaEntSensorMIB, aristaEntSensorMibCompliances=aristaEntSensorMibCompliances, aristaEntSensorThresholdTable=aristaEntSensorThresholdTable, aristaEntSensorThresholdHighWarning=aristaEntSensorThresholdHighWarning, aristaEntSensorThresholdLowCritical=aristaEntSensorThresholdLowCritical)

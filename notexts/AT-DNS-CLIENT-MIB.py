@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module AT-DNS-CLIENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-DNS-CLIENT
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:59:24 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:48:27 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
 InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Counter32, Integer32, ObjectIdentity, Unsigned32, TimeTicks, IpAddress, Counter64, Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "Integer32", "ObjectIdentity", "Unsigned32", "TimeTicks", "IpAddress", "Counter64", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "ModuleIdentity")
-DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, Bits, MibIdentifier, IpAddress, TimeTicks, iso, ModuleIdentity, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Bits", "MibIdentifier", "IpAddress", "TimeTicks", "iso", "ModuleIdentity", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "Counter64", "Gauge32")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 atDNSClient = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1))
 atDNSClient.setRevisions(('2010-06-14 04:45', '2008-09-18 12:00',))
 if mibBuilder.loadTexts: atDNSClient.setLastUpdated('201006140445Z')
@@ -33,4 +33,4 @@ atDNSServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 
 if mibBuilder.loadTexts: atDNSServerAddr.setStatus('current')
 atDNSServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 501, 1, 2, 1, 4), RowStatus().clone(1)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: atDNSServerStatus.setStatus('current')
-mibBuilder.exportSymbols("AT-DNS-CLIENT-MIB", atDNSServerEntry=atDNSServerEntry, atDns=atDns, atDNSServerIndex=atDNSServerIndex, atDNSServerAddr=atDNSServerAddr, atDNSServerAddrType=atDNSServerAddrType, atDNSServerStatus=atDNSServerStatus, PYSNMP_MODULE_ID=atDNSClient, atDNSServerIndexNext=atDNSServerIndexNext, atDNSClient=atDNSClient, atDNSServerTable=atDNSServerTable)
+mibBuilder.exportSymbols("AT-DNS-CLIENT-MIB", atDNSServerAddrType=atDNSServerAddrType, atDNSServerStatus=atDNSServerStatus, atDns=atDns, atDNSClient=atDNSClient, atDNSServerEntry=atDNSServerEntry, atDNSServerAddr=atDNSServerAddr, atDNSServerTable=atDNSServerTable, atDNSServerIndexNext=atDNSServerIndexNext, atDNSServerIndex=atDNSServerIndex, PYSNMP_MODULE_ID=atDNSClient)

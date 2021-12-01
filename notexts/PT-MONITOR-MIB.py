@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PT-MONITOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-MONITOR-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:07:30 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:56:07 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 pt, = mibBuilder.importSymbols("PT-MIB", "pt")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Integer32, Counter64, Bits, TimeTicks, Gauge32, MibIdentifier, IpAddress, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter64", "Bits", "TimeTicks", "Gauge32", "MibIdentifier", "IpAddress", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "iso", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ModuleIdentity, ObjectIdentity, Bits, Counter64, NotificationType, IpAddress, Integer32, Gauge32, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "Bits", "Counter64", "NotificationType", "IpAddress", "Integer32", "Gauge32", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ptMonitor = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 223, 2, 4))
 ptMonitor.setRevisions(('2016-03-09 12:30', '2016-02-10 12:30',))
 if mibBuilder.loadTexts: ptMonitor.setLastUpdated('201603091230Z')
@@ -41,4 +41,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ptMonitorCompleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 193, 223, 2, 4, 2, 2, 1)).setObjects(("PT-MONITOR-MIB", "temperatureStatus"), ("PT-MONITOR-MIB", "healthStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ptMonitorCompleteGroup = ptMonitorCompleteGroup.setStatus('current')
-mibBuilder.exportSymbols("PT-MONITOR-MIB", temperatureStatus=temperatureStatus, ptMonitorCompliances=ptMonitorCompliances, ptMonitorCompleteGroup=ptMonitorCompleteGroup, ptMonitorFullCompliance=ptMonitorFullCompliance, ptMonitorGroups=ptMonitorGroups, hwDiagnosticsEntry=hwDiagnosticsEntry, ptMonitor=ptMonitor, ptMonitorConformance=ptMonitorConformance, hwIndex=hwIndex, PYSNMP_MODULE_ID=ptMonitor, hwDiagnosticsTable=hwDiagnosticsTable, healthStatus=healthStatus, HealthStatusTC=HealthStatusTC)
+mibBuilder.exportSymbols("PT-MONITOR-MIB", hwDiagnosticsEntry=hwDiagnosticsEntry, hwDiagnosticsTable=hwDiagnosticsTable, ptMonitorGroups=ptMonitorGroups, ptMonitor=ptMonitor, ptMonitorCompliances=ptMonitorCompliances, ptMonitorConformance=ptMonitorConformance, ptMonitorFullCompliance=ptMonitorFullCompliance, ptMonitorCompleteGroup=ptMonitorCompleteGroup, PYSNMP_MODULE_ID=ptMonitor, HealthStatusTC=HealthStatusTC, healthStatus=healthStatus, hwIndex=hwIndex, temperatureStatus=temperatureStatus)

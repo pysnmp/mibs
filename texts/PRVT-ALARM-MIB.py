@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-ALARM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-ALARM-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:01:34 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:50:20 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
 software, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "software")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Counter32, MibIdentifier, NotificationType, ModuleIdentity, Gauge32, Bits, Integer32, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "MibIdentifier", "NotificationType", "ModuleIdentity", "Gauge32", "Bits", "Integer32", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Unsigned32, ObjectIdentity, MibIdentifier, TimeTicks, iso, Gauge32, IpAddress, ModuleIdentity, NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "iso", "Gauge32", "IpAddress", "ModuleIdentity", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 prvtAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 111, 4))
 prvtAlarmMIB.setRevisions(('2013-03-25 00:00',))
 
@@ -43,4 +43,4 @@ if mibBuilder.loadTexts: prvtAlarmCurrentSeverity.setDescription('The current al
 prvtAlarmCurrentDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2, 1, 4), OctetString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: prvtAlarmCurrentDescription.setStatus('current')
 if mibBuilder.loadTexts: prvtAlarmCurrentDescription.setDescription('The alarm description.')
-mibBuilder.exportSymbols("PRVT-ALARM-MIB", prvtAlarmCurrentTable=prvtAlarmCurrentTable, prvtAlarmCurrentCounter=prvtAlarmCurrentCounter, prvtAlarmCurrentRaisedTime=prvtAlarmCurrentRaisedTime, prvtUpdatedCurrentAlarmCounter=prvtUpdatedCurrentAlarmCounter, prvtAlarmCurrentDescription=prvtAlarmCurrentDescription, PYSNMP_MODULE_ID=prvtAlarmMIB, prvtAlarmCurrentEntry=prvtAlarmCurrentEntry, prvtAlarmCurrentSeverity=prvtAlarmCurrentSeverity, prvtAlarmMIB=prvtAlarmMIB, prvtAlarmMIBObjects=prvtAlarmMIBObjects)
+mibBuilder.exportSymbols("PRVT-ALARM-MIB", prvtUpdatedCurrentAlarmCounter=prvtUpdatedCurrentAlarmCounter, prvtAlarmCurrentSeverity=prvtAlarmCurrentSeverity, prvtAlarmCurrentCounter=prvtAlarmCurrentCounter, PYSNMP_MODULE_ID=prvtAlarmMIB, prvtAlarmMIB=prvtAlarmMIB, prvtAlarmCurrentEntry=prvtAlarmCurrentEntry, prvtAlarmCurrentTable=prvtAlarmCurrentTable, prvtAlarmCurrentRaisedTime=prvtAlarmCurrentRaisedTime, prvtAlarmMIBObjects=prvtAlarmMIBObjects, prvtAlarmCurrentDescription=prvtAlarmCurrentDescription)

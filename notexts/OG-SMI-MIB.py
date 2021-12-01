@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OG-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SMI-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:48:12 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:38:48 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Bits, MibIdentifier, Counter64, ModuleIdentity, Integer32, TimeTicks, Counter32, enterprises, NotificationType, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "MibIdentifier", "Counter64", "ModuleIdentity", "Integer32", "TimeTicks", "Counter32", "enterprises", "NotificationType", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ObjectIdentity, Counter64, TimeTicks, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Gauge32, iso, Counter32, Bits, ModuleIdentity, Integer32, NotificationType, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "TimeTicks", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Gauge32", "iso", "Counter32", "Bits", "ModuleIdentity", "Integer32", "NotificationType", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 opengear = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049))
 opengear.setRevisions(('2018-06-15 00:00', '2013-11-15 00:00', '2013-08-11 00:00', '2010-03-22 11:27', '2005-02-24 01:00',))
 if mibBuilder.loadTexts: opengear.setLastUpdated('201806150000Z')
@@ -39,4 +39,4 @@ ogModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 11))
 if mibBuilder.loadTexts: ogModules.setStatus('current')
 ogSpecific = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 18))
 if mibBuilder.loadTexts: ogSpecific.setStatus('current')
-mibBuilder.exportSymbols("OG-SMI-MIB", ogLegacyMgmt=ogLegacyMgmt, ogInternal=ogInternal, ogReserved2=ogReserved2, PYSNMP_MODULE_ID=opengear, ogMgmt=ogMgmt, ogSpecific=ogSpecific, ogAgentCapability=ogAgentCapability, otherEnterprises=otherEnterprises, opengear=opengear, ogProducts=ogProducts, ogModules=ogModules, ogConfig=ogConfig, ogReserved1=ogReserved1, ogExperimental=ogExperimental)
+mibBuilder.exportSymbols("OG-SMI-MIB", ogReserved1=ogReserved1, ogMgmt=ogMgmt, otherEnterprises=otherEnterprises, ogProducts=ogProducts, ogSpecific=ogSpecific, ogLegacyMgmt=ogLegacyMgmt, ogReserved2=ogReserved2, ogInternal=ogInternal, ogAgentCapability=ogAgentCapability, ogConfig=ogConfig, PYSNMP_MODULE_ID=opengear, ogExperimental=ogExperimental, opengear=opengear, ogModules=ogModules)

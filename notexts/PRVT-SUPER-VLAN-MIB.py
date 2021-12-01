@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-SUPER-VLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-SUPER-VLAN-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:01:31 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:50:18 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+InterfaceIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "InterfaceIndexOrZero")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, ObjectIdentity, Unsigned32, iso, NotificationType, IpAddress, Gauge32, ModuleIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "ObjectIdentity", "Unsigned32", "iso", "NotificationType", "IpAddress", "Gauge32", "ModuleIdentity", "Counter64")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, TimeTicks, ModuleIdentity, Counter64, Unsigned32, NotificationType, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, MibIdentifier, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "Counter64", "Unsigned32", "NotificationType", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "MibIdentifier", "Counter32", "IpAddress")
 DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
 prvtSuperVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 5, 136))
 prvtSuperVlanMIB.setRevisions(('2010-08-04 00:00',))
@@ -54,4 +54,4 @@ prvtSuperVlanIfRingPortActive = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 5, 13
 if mibBuilder.loadTexts: prvtSuperVlanIfRingPortActive.setStatus('current')
 prvtSuperVlanIfRingPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 5, 136, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: prvtSuperVlanIfRingPortRowStatus.setStatus('current')
-mibBuilder.exportSymbols("PRVT-SUPER-VLAN-MIB", prvtSuperVlanIfCVlanRowStatus=prvtSuperVlanIfCVlanRowStatus, prvtSuperVlanIfRingPortRowStatus=prvtSuperVlanIfRingPortRowStatus, prvtSuperVlanIfEntry=prvtSuperVlanIfEntry, prvtSuperVlanIfRingPortActive=prvtSuperVlanIfRingPortActive, prvtSuperVlanIfRingPort2=prvtSuperVlanIfRingPort2, prvtSuperVlanIfRingPort1=prvtSuperVlanIfRingPort1, prvtSuperVlanMIB=prvtSuperVlanMIB, prvtSuperVlanIfTable=prvtSuperVlanIfTable, prvtSuperVlanIfCVlanEntry=prvtSuperVlanIfCVlanEntry, prvtSuperVlanIfCVlanTable=prvtSuperVlanIfCVlanTable, prvtSuperVlanIfIndex=prvtSuperVlanIfIndex, prvtSuperVlanIfRingPortTable=prvtSuperVlanIfRingPortTable, prvtSuperVlanIfRingPortPreferred=prvtSuperVlanIfRingPortPreferred, prvtSuperVlanIfRingPortEntry=prvtSuperVlanIfRingPortEntry, prvtSuperVlanIfRingPortVlanId=prvtSuperVlanIfRingPortVlanId, prvtSuperVlanIfCVlanMask=prvtSuperVlanIfCVlanMask, prvtSuperVlanIfTargetPort=prvtSuperVlanIfTargetPort, PYSNMP_MODULE_ID=prvtSuperVlanMIB, prvtSuperVlanIfRowStatus=prvtSuperVlanIfRowStatus, prvtSuperVlanMIBObjects=prvtSuperVlanMIBObjects, prvtSuperVlanIfCVlanId=prvtSuperVlanIfCVlanId)
+mibBuilder.exportSymbols("PRVT-SUPER-VLAN-MIB", prvtSuperVlanIfRingPortActive=prvtSuperVlanIfRingPortActive, prvtSuperVlanIfRingPort2=prvtSuperVlanIfRingPort2, prvtSuperVlanIfCVlanMask=prvtSuperVlanIfCVlanMask, prvtSuperVlanIfRingPortVlanId=prvtSuperVlanIfRingPortVlanId, prvtSuperVlanIfRingPort1=prvtSuperVlanIfRingPort1, prvtSuperVlanIfRingPortEntry=prvtSuperVlanIfRingPortEntry, prvtSuperVlanIfCVlanRowStatus=prvtSuperVlanIfCVlanRowStatus, prvtSuperVlanIfEntry=prvtSuperVlanIfEntry, prvtSuperVlanIfCVlanTable=prvtSuperVlanIfCVlanTable, prvtSuperVlanIfTargetPort=prvtSuperVlanIfTargetPort, prvtSuperVlanMIB=prvtSuperVlanMIB, prvtSuperVlanIfIndex=prvtSuperVlanIfIndex, prvtSuperVlanIfRowStatus=prvtSuperVlanIfRowStatus, prvtSuperVlanIfRingPortRowStatus=prvtSuperVlanIfRingPortRowStatus, prvtSuperVlanIfRingPortTable=prvtSuperVlanIfRingPortTable, prvtSuperVlanIfCVlanId=prvtSuperVlanIfCVlanId, PYSNMP_MODULE_ID=prvtSuperVlanMIB, prvtSuperVlanIfRingPortPreferred=prvtSuperVlanIfRingPortPreferred, prvtSuperVlanMIBObjects=prvtSuperVlanMIBObjects, prvtSuperVlanIfTable=prvtSuperVlanIfTable, prvtSuperVlanIfCVlanEntry=prvtSuperVlanIfCVlanEntry)

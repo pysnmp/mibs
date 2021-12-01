@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-OTNOH-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OTNOH-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:41:16 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:32:43 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Unsigned32, ObjectIdentity, Bits, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, Counter32, IpAddress, Counter64, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "ObjectIdentity", "Bits", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "Counter32", "IpAddress", "Counter64", "TimeTicks", "NotificationType")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, MibIdentifier, iso, NotificationType, Counter64, Integer32, Gauge32, Bits, Counter32, ObjectIdentity, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "iso", "NotificationType", "Counter64", "Integer32", "Gauge32", "Bits", "Counter32", "ObjectIdentity", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 nbsOtnohMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 224))
 if mibBuilder.loadTexts: nbsOtnohMib.setLastUpdated('201212200000Z')
 if mibBuilder.loadTexts: nbsOtnohMib.setOrganization('NBS')
@@ -54,4 +54,4 @@ if mibBuilder.loadTexts: nbsOtnohTtiExpectOpSpec.setDescription('This object spe
 nbsOtnohTtiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: nbsOtnohTtiRowStatus.setStatus('current')
 if mibBuilder.loadTexts: nbsOtnohTtiRowStatus.setDescription('Used to add/remove the configuration of a network segment')
-mibBuilder.exportSymbols("NBS-OTNOH-MIB", nbsOtnohMib=nbsOtnohMib, nbsOtnohTtiTable=nbsOtnohTtiTable, nbsOtnohTtiExpectSapi=nbsOtnohTtiExpectSapi, PYSNMP_MODULE_ID=nbsOtnohMib, nbsOtnohTtiScope=nbsOtnohTtiScope, nbsOtnohTtiSendSapi=nbsOtnohTtiSendSapi, nbsOtnohTtiExpectOpSpec=nbsOtnohTtiExpectOpSpec, nbsOtnohTtiSendOpSpec=nbsOtnohTtiSendOpSpec, nbsOtnohTtiIfIndex=nbsOtnohTtiIfIndex, nbsOtnohTtiExpectDapi=nbsOtnohTtiExpectDapi, nbsOtnohTtiRowStatus=nbsOtnohTtiRowStatus, nbsOtnohTtiEntry=nbsOtnohTtiEntry, nbsOtnohTtiSendDapi=nbsOtnohTtiSendDapi, nbsOtnohTtiGrp=nbsOtnohTtiGrp)
+mibBuilder.exportSymbols("NBS-OTNOH-MIB", nbsOtnohTtiEntry=nbsOtnohTtiEntry, nbsOtnohMib=nbsOtnohMib, nbsOtnohTtiExpectDapi=nbsOtnohTtiExpectDapi, nbsOtnohTtiTable=nbsOtnohTtiTable, nbsOtnohTtiScope=nbsOtnohTtiScope, nbsOtnohTtiSendSapi=nbsOtnohTtiSendSapi, nbsOtnohTtiRowStatus=nbsOtnohTtiRowStatus, PYSNMP_MODULE_ID=nbsOtnohMib, nbsOtnohTtiSendDapi=nbsOtnohTtiSendDapi, nbsOtnohTtiExpectOpSpec=nbsOtnohTtiExpectOpSpec, nbsOtnohTtiIfIndex=nbsOtnohTtiIfIndex, nbsOtnohTtiSendOpSpec=nbsOtnohTtiSendOpSpec, nbsOtnohTtiExpectSapi=nbsOtnohTtiExpectSapi, nbsOtnohTtiGrp=nbsOtnohTtiGrp)

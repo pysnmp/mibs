@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module LOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/LOG-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:50:28 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:40:48 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 IntDateTime, Severity, SagemBoolean = mibBuilder.importSymbols("EQUIPMENT-MIB", "IntDateTime", "Severity", "SagemBoolean")
 sagemDr, = mibBuilder.importSymbols("SAGEM-DR-MIB", "sagemDr")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, MibIdentifier, Unsigned32, ModuleIdentity, iso, ObjectIdentity, Bits, Counter32, NotificationType, TimeTicks, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "MibIdentifier", "Unsigned32", "ModuleIdentity", "iso", "ObjectIdentity", "Bits", "Counter32", "NotificationType", "TimeTicks", "IpAddress", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter32, MibIdentifier, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, TimeTicks, iso, ModuleIdentity, NotificationType, Integer32, IpAddress, Gauge32, Unsigned32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "TimeTicks", "iso", "ModuleIdentity", "NotificationType", "Integer32", "IpAddress", "Gauge32", "Unsigned32", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 log = ModuleIdentity((1, 3, 6, 1, 4, 1, 1038, 105))
 if mibBuilder.loadTexts: log.setLastUpdated('0211150000Z')
 if mibBuilder.loadTexts: log.setOrganization('SAGEM/DR Tolbiac Centre')
@@ -86,4 +86,4 @@ logCurrentAI = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 105, 105, 1, 7), DisplayS
 if mibBuilder.loadTexts: logCurrentAI.setStatus('current')
 logCurrentStatusV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 105, 105, 1, 8), Severity()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: logCurrentStatusV2.setStatus('current')
-mibBuilder.exportSymbols("LOG-MIB", thresholdTrap=thresholdTrap, logCurrentNumber=logCurrentNumber, logCurrentDate=logCurrentDate, logPC=logPC, resendTrapBool=resendTrapBool, logCapacity=logCapacity, logTrap=logTrap, logCurrentEvent=logCurrentEvent, logTrapEnable=logTrapEnable, logCurrentStatusV2=logCurrentStatusV2, PYSNMP_MODULE_ID=log, log=log, logNumber=logNumber, logDate=logDate, logClear=logClear, logEntry=logEntry, lostTrap=lostTrap, logCurrentIndex=logCurrentIndex, logObject=logObject, logCurrentPC=logCurrentPC, LogEvent=LogEvent, logLastEvent=logLastEvent, logEvent=logEvent, logCurrentCapacity=logCurrentCapacity, logCurrentEntry=logCurrentEntry, logTraps=logTraps, logName=logName, logCurrentClear=logCurrentClear, logEquipStatusV2=logEquipStatusV2, logCurrentAI=logCurrentAI, logIndex=logIndex, logAI=logAI, logCurrentTable=logCurrentTable, logCurrentName=logCurrentName, logCurrentObject=logCurrentObject, logTable=logTable, logCurrentLastEvent=logCurrentLastEvent)
+mibBuilder.exportSymbols("LOG-MIB", logDate=logDate, logCurrentIndex=logCurrentIndex, logCurrentEvent=logCurrentEvent, resendTrapBool=resendTrapBool, LogEvent=LogEvent, logCurrentStatusV2=logCurrentStatusV2, logName=logName, logEvent=logEvent, lostTrap=lostTrap, logCurrentCapacity=logCurrentCapacity, log=log, logObject=logObject, logCapacity=logCapacity, logCurrentLastEvent=logCurrentLastEvent, logCurrentObject=logCurrentObject, logLastEvent=logLastEvent, logNumber=logNumber, logCurrentAI=logCurrentAI, logCurrentEntry=logCurrentEntry, logTable=logTable, logEquipStatusV2=logEquipStatusV2, thresholdTrap=thresholdTrap, logTrap=logTrap, logCurrentNumber=logCurrentNumber, logAI=logAI, logTrapEnable=logTrapEnable, logCurrentDate=logCurrentDate, logPC=logPC, logCurrentName=logCurrentName, logCurrentClear=logCurrentClear, logCurrentTable=logCurrentTable, logCurrentPC=logCurrentPC, logEntry=logEntry, logTraps=logTraps, logIndex=logIndex, PYSNMP_MODULE_ID=log, logClear=logClear)

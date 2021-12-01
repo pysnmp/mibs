@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BENU-KAFKA-CLIENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-KAFKA-CLIENT-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:08:55 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:57:11 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, IpAddress, NotificationType, TimeTicks, Bits, Gauge32, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, ModuleIdentity, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "NotificationType", "TimeTicks", "Bits", "Gauge32", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationType, Counter32, Counter64, MibIdentifier, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, IpAddress, Bits, ModuleIdentity, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter32", "Counter64", "MibIdentifier", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "IpAddress", "Bits", "ModuleIdentity", "Integer32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 benuKafkaClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 12))
 benuKafkaClientMIB.setRevisions(('2015-10-21 00:00',))
 
@@ -51,4 +51,4 @@ if mibBuilder.loadTexts: bKafkaClientLatencyAvgProcessingTime.setDescription('Av
 bKafkaClientLatencyProcessTimeMorethan1MSPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 12, 1, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: bKafkaClientLatencyProcessTimeMorethan1MSPktCount.setStatus('current')
 if mibBuilder.loadTexts: bKafkaClientLatencyProcessTimeMorethan1MSPktCount.setDescription('Number of packets took more than 1 milli second processing time handled by Kafka client.')
-mibBuilder.exportSymbols("BENU-KAFKA-CLIENT-MIB", bKafkaClientLatencyMaxProcessingTime=bKafkaClientLatencyMaxProcessingTime, bKafkaClientLatencyStatsInterval=bKafkaClientLatencyStatsInterval, bKafkaClientLatencyMinProcessingTime=bKafkaClientLatencyMinProcessingTime, PYSNMP_MODULE_ID=benuKafkaClientMIB, bKafkaClientObjects=bKafkaClientObjects, bKafkaClientLatencyStatsIntervalDuration=bKafkaClientLatencyStatsIntervalDuration, bKafkaClientLatencyEntry=bKafkaClientLatencyEntry, bKafkaClientLatencyTotalPktCount=bKafkaClientLatencyTotalPktCount, benuKafkaClientMIB=benuKafkaClientMIB, bKafkaClientLatencyProcessTimeMorethan1MSPktCount=bKafkaClientLatencyProcessTimeMorethan1MSPktCount, bKafkaClientLatencyTable=bKafkaClientLatencyTable, bKafkaClientLatencyAvgProcessingTime=bKafkaClientLatencyAvgProcessingTime)
+mibBuilder.exportSymbols("BENU-KAFKA-CLIENT-MIB", bKafkaClientObjects=bKafkaClientObjects, PYSNMP_MODULE_ID=benuKafkaClientMIB, bKafkaClientLatencyStatsIntervalDuration=bKafkaClientLatencyStatsIntervalDuration, bKafkaClientLatencyAvgProcessingTime=bKafkaClientLatencyAvgProcessingTime, bKafkaClientLatencyMaxProcessingTime=bKafkaClientLatencyMaxProcessingTime, bKafkaClientLatencyTable=bKafkaClientLatencyTable, benuKafkaClientMIB=benuKafkaClientMIB, bKafkaClientLatencyMinProcessingTime=bKafkaClientLatencyMinProcessingTime, bKafkaClientLatencyTotalPktCount=bKafkaClientLatencyTotalPktCount, bKafkaClientLatencyProcessTimeMorethan1MSPktCount=bKafkaClientLatencyProcessTimeMorethan1MSPktCount, bKafkaClientLatencyStatsInterval=bKafkaClientLatencyStatsInterval, bKafkaClientLatencyEntry=bKafkaClientLatencyEntry)

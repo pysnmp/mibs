@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MEF-SOAM-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MEF-SOAM-TC-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:40:01 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:31:45 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Counter64, ModuleIdentity, enterprises, IpAddress, Bits, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32, iso, TimeTicks, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter64", "ModuleIdentity", "enterprises", "IpAddress", "Bits", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32", "iso", "TimeTicks", "NotificationType", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, NotificationType, ModuleIdentity, ObjectIdentity, enterprises, iso, IpAddress, MibIdentifier, Bits, Counter32, Gauge32, Unsigned32, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "ModuleIdentity", "ObjectIdentity", "enterprises", "iso", "IpAddress", "MibIdentifier", "Bits", "Counter32", "Gauge32", "Unsigned32", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mefSoamTcMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 15007, 1, 1))
 mefSoamTcMib.setRevisions(('2012-01-10 00:00', '2010-10-11 00:00',))
 
@@ -92,4 +92,4 @@ class MefSoamTcTestPatternType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
     namedValues = NamedValues(("null", 1), ("nullCrc32", 2), ("prbs", 3), ("prbsCrc32", 4))
 
-mibBuilder.exportSymbols("MEF-SOAM-TC-MIB", MefSoamTcStatusType=MefSoamTcStatusType, mefSoamTcMib=mefSoamTcMib, MefSoamTcMeasurementPeriodType=MefSoamTcMeasurementPeriodType, MefSoamTcOperationTimeType=MefSoamTcOperationTimeType, MefSoamTcDataPatternType=MefSoamTcDataPatternType, MefSoamTcAvailabilityType=MefSoamTcAvailabilityType, MefSoamTcMegIdType=MefSoamTcMegIdType, PYSNMP_MODULE_ID=mefSoamTcMib, MefSoamTcSessionType=MefSoamTcSessionType, MefSoamTcConnectivityStatusType=MefSoamTcConnectivityStatusType, MefSoamTcIntervalTypeAisLck=MefSoamTcIntervalTypeAisLck, MefSoamTcDelayMeasurementBinType=MefSoamTcDelayMeasurementBinType, MefSoamTcTestPatternType=MefSoamTcTestPatternType)
+mibBuilder.exportSymbols("MEF-SOAM-TC-MIB", MefSoamTcIntervalTypeAisLck=MefSoamTcIntervalTypeAisLck, MefSoamTcOperationTimeType=MefSoamTcOperationTimeType, MefSoamTcConnectivityStatusType=MefSoamTcConnectivityStatusType, MefSoamTcMeasurementPeriodType=MefSoamTcMeasurementPeriodType, mefSoamTcMib=mefSoamTcMib, MefSoamTcMegIdType=MefSoamTcMegIdType, MefSoamTcDataPatternType=MefSoamTcDataPatternType, MefSoamTcDelayMeasurementBinType=MefSoamTcDelayMeasurementBinType, MefSoamTcSessionType=MefSoamTcSessionType, MefSoamTcStatusType=MefSoamTcStatusType, MefSoamTcTestPatternType=MefSoamTcTestPatternType, PYSNMP_MODULE_ID=mefSoamTcMib, MefSoamTcAvailabilityType=MefSoamTcAvailabilityType)

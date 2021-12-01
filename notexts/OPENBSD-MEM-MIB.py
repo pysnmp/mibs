@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module OPENBSD-MEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-MEM-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:07:08 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:55:48 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ifNumber, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifNumber", "ifIndex")
 openBSD, = mibBuilder.importSymbols("OPENBSD-BASE-MIB", "openBSD")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter32, Unsigned32, Gauge32, Integer32, iso, TimeTicks, Bits, ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, NotificationType, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "Gauge32", "Integer32", "iso", "TimeTicks", "Bits", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "NotificationType", "ObjectIdentity", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, Gauge32, Bits, IpAddress, ModuleIdentity, Counter64, TimeTicks, Unsigned32, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "Gauge32", "Bits", "IpAddress", "ModuleIdentity", "Counter64", "TimeTicks", "Unsigned32", "Counter32", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 memMIBObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 30155, 5))
 memMIBObjects.setRevisions(('2012-02-09 00:00', '2008-12-23 00:00',))
 if mibBuilder.loadTexts: memMIBObjects.setLastUpdated('201202090000Z')
@@ -27,4 +27,4 @@ memIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 5, 2, 1, 1), DisplayString(
 if mibBuilder.loadTexts: memIfName.setStatus('current')
 memIfLiveLocks = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 5, 2, 1, 2), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: memIfLiveLocks.setStatus('current')
-mibBuilder.exportSymbols("OPENBSD-MEM-MIB", memIfTable=memIfTable, memIfName=memIfName, PYSNMP_MODULE_ID=memMIBObjects, memIfLiveLocks=memIfLiveLocks, memMIBObjects=memMIBObjects, memIfEntry=memIfEntry, memMIBVersion=memMIBVersion)
+mibBuilder.exportSymbols("OPENBSD-MEM-MIB", memIfTable=memIfTable, memMIBObjects=memMIBObjects, memMIBVersion=memMIBVersion, memIfLiveLocks=memIfLiveLocks, memIfEntry=memIfEntry, memIfName=memIfName, PYSNMP_MODULE_ID=memMIBObjects)

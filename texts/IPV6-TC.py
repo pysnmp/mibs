@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module IPV6-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IPV6-TC
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:41:00 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-TC
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:31:45 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, Unsigned32, Counter64, NotificationType, Counter32, IpAddress, Bits, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "Counter64", "NotificationType", "Counter32", "IpAddress", "Bits", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "MibIdentifier", "Gauge32")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, NotificationType, ModuleIdentity, ObjectIdentity, iso, IpAddress, MibIdentifier, Bits, Counter32, Gauge32, Unsigned32, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "ModuleIdentity", "ObjectIdentity", "iso", "IpAddress", "MibIdentifier", "Bits", "Counter32", "Gauge32", "Unsigned32", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class Ipv6Address(TextualConvention, OctetString):
     description = 'This data type is used to model IPv6 addresses.\n        This is a binary string of 16 octets in network\n        byte-order.\n\n        This object is obsoleted by INET-ADDRESS-MIB::InetAddress.'
@@ -42,4 +42,4 @@ class Ipv6IfIndexOrZero(TextualConvention, Integer32):
     displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
 
-mibBuilder.exportSymbols("IPV6-TC", Ipv6IfIndexOrZero=Ipv6IfIndexOrZero, Ipv6Address=Ipv6Address, Ipv6AddressPrefix=Ipv6AddressPrefix, Ipv6AddressIfIdentifier=Ipv6AddressIfIdentifier, Ipv6IfIndex=Ipv6IfIndex)
+mibBuilder.exportSymbols("IPV6-TC", Ipv6IfIndex=Ipv6IfIndex, Ipv6Address=Ipv6Address, Ipv6IfIndexOrZero=Ipv6IfIndexOrZero, Ipv6AddressPrefix=Ipv6AddressPrefix, Ipv6AddressIfIdentifier=Ipv6AddressIfIdentifier)

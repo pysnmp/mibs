@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SL-SECU-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SECU-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:04:16 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:54:00 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Unsigned32, transmission, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, Counter64, Integer32, Bits, NotificationType, ModuleIdentity, Counter32, ObjectIdentity, iso, MibIdentifier, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "transmission", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "Counter64", "Integer32", "Bits", "NotificationType", "ModuleIdentity", "Counter32", "ObjectIdentity", "iso", "MibIdentifier", "IpAddress")
-RowStatus, DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Unsigned32, transmission, Integer32, ModuleIdentity, ObjectIdentity, iso, IpAddress, Bits, Counter32, NotificationType, MibIdentifier, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "transmission", "Integer32", "ModuleIdentity", "ObjectIdentity", "iso", "IpAddress", "Bits", "Counter32", "NotificationType", "MibIdentifier", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32")
+TruthValue, TextualConvention, DisplayString, DateAndTime, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "DateAndTime", "RowStatus")
 slSecuMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24))
 if mibBuilder.loadTexts: slSecuMib.setLastUpdated('201105170000Z')
 if mibBuilder.loadTexts: slSecuMib.setOrganization('PacketLight Networks Ltd.')
@@ -67,4 +67,4 @@ slSecuEncryptionLock = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1
 if mibBuilder.loadTexts: slSecuEncryptionLock.setStatus('current')
 slSecuEncryptionProtectedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("init", 1), ("exchange", 2), ("kdf", 3), ("active", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: slSecuEncryptionProtectedStatus.setStatus('current')
-mibBuilder.exportSymbols("SL-SECU-MIB", slSecuWl=slSecuWl, slSecuSelect=slSecuSelect, slSecuSelectPort=slSecuSelectPort, slSecuEncryptionIfIndex=slSecuEncryptionIfIndex, slSecuMib=slSecuMib, slSecuEncryptionLock=slSecuEncryptionLock, slSecuWlMask=slSecuWlMask, slSecuSelectTable=slSecuSelectTable, slSecuEncryptionProtectedStatus=slSecuEncryptionProtectedStatus, slSecuSelectType=slSecuSelectType, slSecuEncryptionEntry=slSecuEncryptionEntry, slSecuEncryptionEnable=slSecuEncryptionEnable, slSecuWlEntry=slSecuWlEntry, PYSNMP_MODULE_ID=slSecuMib, slSecuEncryptionTable=slSecuEncryptionTable, slSecuWlStatus=slSecuWlStatus, slSecuWlTable=slSecuWlTable, slSecuFirewallEnable=slSecuFirewallEnable, slSecuSelectEntry=slSecuSelectEntry, slSecuEncryptionStatus=slSecuEncryptionStatus, slSecuEncryption=slSecuEncryption, SlSecuType=SlSecuType, slSecuEncryptionPreShared=slSecuEncryptionPreShared, slSecuEncryptionKeyExchangePeriod=slSecuEncryptionKeyExchangePeriod, slSecuGen=slSecuGen, slSecuWlIp=slSecuWlIp, slSecuEncryptionForceInit=slSecuEncryptionForceInit, slSecuSelectEnable=slSecuSelectEnable)
+mibBuilder.exportSymbols("SL-SECU-MIB", slSecuWlTable=slSecuWlTable, slSecuWlIp=slSecuWlIp, SlSecuType=SlSecuType, slSecuEncryptionEntry=slSecuEncryptionEntry, slSecuEncryptionLock=slSecuEncryptionLock, slSecuEncryptionKeyExchangePeriod=slSecuEncryptionKeyExchangePeriod, slSecuSelectTable=slSecuSelectTable, slSecuGen=slSecuGen, slSecuWlStatus=slSecuWlStatus, slSecuSelect=slSecuSelect, slSecuMib=slSecuMib, slSecuEncryptionEnable=slSecuEncryptionEnable, slSecuEncryptionIfIndex=slSecuEncryptionIfIndex, slSecuFirewallEnable=slSecuFirewallEnable, slSecuWlEntry=slSecuWlEntry, slSecuEncryptionPreShared=slSecuEncryptionPreShared, slSecuSelectPort=slSecuSelectPort, slSecuEncryptionStatus=slSecuEncryptionStatus, slSecuSelectEntry=slSecuSelectEntry, slSecuEncryptionProtectedStatus=slSecuEncryptionProtectedStatus, slSecuWlMask=slSecuWlMask, slSecuSelectEnable=slSecuSelectEnable, slSecuSelectType=slSecuSelectType, slSecuWl=slSecuWl, slSecuEncryption=slSecuEncryption, PYSNMP_MODULE_ID=slSecuMib, slSecuEncryptionForceInit=slSecuEncryptionForceInit, slSecuEncryptionTable=slSecuEncryptionTable)

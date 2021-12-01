@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-REDUNDANCY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-REDUNDANCY-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 15:01:34 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:50:20 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
 software, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "software")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Counter32, MibIdentifier, NotificationType, ModuleIdentity, Gauge32, Bits, Integer32, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "MibIdentifier", "NotificationType", "ModuleIdentity", "Gauge32", "Bits", "Integer32", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "Unsigned32")
+Unsigned32, ObjectIdentity, MibIdentifier, TimeTicks, iso, Gauge32, IpAddress, ModuleIdentity, NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "iso", "Gauge32", "IpAddress", "ModuleIdentity", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtRedundancyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 111, 5))
 prvtRedundancyMIB.setRevisions(('2013-12-17 00:00',))
@@ -50,4 +50,4 @@ if mibBuilder.loadTexts: switchover.setDescription('Switchover has happend - lin
 redundancyStatus = NotificationType((1, 3, 6, 1, 4, 1, 738, 10, 111, 5, 0, 3)).setObjects(("PRVT-REDUNDANCY-MIB", "prvtRedundancyChassisStatus"))
 if mibBuilder.loadTexts: redundancyStatus.setStatus('current')
 if mibBuilder.loadTexts: redundancyStatus.setDescription('Chassis redundancy-status')
-mibBuilder.exportSymbols("PRVT-REDUNDANCY-MIB", prvtRedundancyChassisStatus=prvtRedundancyChassisStatus, PYSNMP_MODULE_ID=prvtRedundancyMIB, prvtRedundancyChassisSlotId=prvtRedundancyChassisSlotId, prvtRedundancyChassisLICType=prvtRedundancyChassisLICType, prvtRedundancyNotifications=prvtRedundancyNotifications, prvtRedundancyChassisEntry=prvtRedundancyChassisEntry, prvtRedundancyMIB=prvtRedundancyMIB, switchover=switchover, prvtRedundancyChassisEntryStatus=prvtRedundancyChassisEntryStatus, prvtRedundancyChassisTable=prvtRedundancyChassisTable, redundancyStatus=redundancyStatus, prvtRedundancyObjects=prvtRedundancyObjects, licStatus=licStatus)
+mibBuilder.exportSymbols("PRVT-REDUNDANCY-MIB", prvtRedundancyObjects=prvtRedundancyObjects, prvtRedundancyNotifications=prvtRedundancyNotifications, prvtRedundancyChassisStatus=prvtRedundancyChassisStatus, prvtRedundancyChassisEntryStatus=prvtRedundancyChassisEntryStatus, switchover=switchover, redundancyStatus=redundancyStatus, licStatus=licStatus, PYSNMP_MODULE_ID=prvtRedundancyMIB, prvtRedundancyChassisSlotId=prvtRedundancyChassisSlotId, prvtRedundancyChassisTable=prvtRedundancyChassisTable, prvtRedundancyChassisEntry=prvtRedundancyChassisEntry, prvtRedundancyChassisLICType=prvtRedundancyChassisLICType, prvtRedundancyMIB=prvtRedundancyMIB)

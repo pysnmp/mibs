@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ENTERASYS-MIB-NAMES (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/ENTERASYS-MIB-NAMES
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:59:59 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:48:58 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, MibIdentifier, enterprises, Bits, IpAddress, Integer32, Counter32, Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, ObjectIdentity, Unsigned32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibIdentifier", "enterprises", "Bits", "IpAddress", "Integer32", "Counter32", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, TimeTicks, iso, ModuleIdentity, ObjectIdentity, Bits, Gauge32, Integer32, NotificationType, enterprises, Counter32, Unsigned32, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "TimeTicks", "iso", "ModuleIdentity", "ObjectIdentity", "Bits", "Gauge32", "Integer32", "NotificationType", "enterprises", "Counter32", "Unsigned32", "Counter64", "IpAddress")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 etsysModuleName = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 1))
 etsysModuleName.setRevisions(('2003-11-06 15:15', '2003-10-23 17:19', '2002-06-14 16:02', '2002-06-14 14:02', '2000-11-13 21:21', '2000-10-05 13:00', '2000-04-07 00:00', '2000-03-21 00:00',))
 
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: etsysConformName.setDescription('Obsolete')
 etsysConformOID = ObjectIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 3, 2))
 if mibBuilder.loadTexts: etsysConformOID.setStatus('obsolete')
 if mibBuilder.loadTexts: etsysConformOID.setDescription('Obsolete')
-mibBuilder.exportSymbols("ENTERASYS-MIB-NAMES", PYSNMP_MODULE_ID=etsysModuleName, etsysConformName=etsysConformName, etsysConformOID=etsysConformOID, etsysOids=etsysOids, etsysNamesMib=etsysNamesMib, etsysModuleName=etsysModuleName, etsysConformance=etsysConformance, etsysX509Pki=etsysX509Pki, etsysAgentCaps=etsysAgentCaps, etsysModules=etsysModules, enterasys=enterasys, etsysMibs=etsysMibs)
+mibBuilder.exportSymbols("ENTERASYS-MIB-NAMES", etsysMibs=etsysMibs, etsysConformance=etsysConformance, PYSNMP_MODULE_ID=etsysModuleName, etsysConformName=etsysConformName, etsysAgentCaps=etsysAgentCaps, etsysModuleName=etsysModuleName, enterasys=enterasys, etsysX509Pki=etsysX509Pki, etsysModules=etsysModules, etsysConformOID=etsysConformOID, etsysOids=etsysOids, etsysNamesMib=etsysNamesMib)

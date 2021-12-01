@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module GLOBAL-REG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/GLOBAL-REG
-# Produced by pysmi-1.1.3 at Wed Dec  1 14:51:39 2021
-# On host fv-az126-713 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 15:41:52 2021
+# On host fv-az74-277 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Bits, iso, Integer32, IpAddress, NotificationType, MibIdentifier, enterprises, Gauge32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Bits", "iso", "Integer32", "IpAddress", "NotificationType", "MibIdentifier", "enterprises", "Gauge32", "Counter64")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, Bits, Integer32, TimeTicks, Counter32, enterprises, MibIdentifier, ModuleIdentity, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "Bits", "Integer32", "TimeTicks", "Counter32", "enterprises", "MibIdentifier", "ModuleIdentity", "NotificationType", "Gauge32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 globalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 20246, 2, 1, 1, 1))
 if mibBuilder.loadTexts: globalRegModule.setLastUpdated('201309131218Z')
@@ -31,4 +31,4 @@ controllerReg = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 1, 2))
 controllerOrionReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 20246, 2, 1, 2, 1))
 if mibBuilder.loadTexts: controllerOrionReg.setStatus('current')
 if mibBuilder.loadTexts: controllerOrionReg.setDescription('The Controller Model Orion')
-mibBuilder.exportSymbols("GLOBAL-REG", expr=expr, modules=modules, root=root, controller=controller, orion=orion, globalRegModule=globalRegModule, reg=reg, PYSNMP_MODULE_ID=globalRegModule, generic=generic, regs=regs, controllerReg=controllerReg, delta=delta, controllerOrionReg=controllerOrionReg, products=products, caps=caps)
+mibBuilder.exportSymbols("GLOBAL-REG", globalRegModule=globalRegModule, caps=caps, expr=expr, controllerOrionReg=controllerOrionReg, generic=generic, reg=reg, controller=controller, regs=regs, modules=modules, root=root, orion=orion, products=products, controllerReg=controllerReg, PYSNMP_MODULE_ID=globalRegModule, delta=delta)
