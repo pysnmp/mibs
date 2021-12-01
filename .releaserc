@@ -1,7 +1,7 @@
 #
 # Copyright 2021 Splunk Inc.
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
+# Licensed under the Apache License, Version 2.0(the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
@@ -15,47 +15,47 @@
 #
 {
   "branches":
+  [
+    "+([0-9])?(.{+([0-9]),x}).x",
+    "main",
+    { name: "next", channel: "alpha", prerelease: "alpha" },
+    { name: "develop", channel: "beta", prerelease: "beta" },
+  ],
+    plugins:
+  [
+    "@semantic-release/commit-analyzer",
     [
-      "+([0-9])?(.{+([0-9]),x}).x",
-      "main",
-      "next",
-      "next-major",
-      { name: "develop", prerelease: true },
+      "@google/semantic-release-replace-plugin",
+      {
+        "replacements": [          
+          {
+            "files": ["pyproject.toml"],
+            "from": "^version ?=.*",
+            "to": "version = \"${nextRelease.version}\"",
+            "results": [
+              {
+                "file": "pyproject.toml",
+                "hasChanged": true,
+                "numMatches": 1,
+                "numReplacements": 1
+              }
+            ],
+            "countMatches": true
+          }
+        ]
+      }
     ],
-  plugins:
+    ["@semantic-release/exec", {
+      "prepareCmd": 'yq -i eval ".appVersion = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml;yq -i eval ".version = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml'
+    }],
+    "@semantic-release/release-notes-generator",
     [
-      "@semantic-release/commit-analyzer",
-      [
-        "@google/semantic-release-replace-plugin",
-        {
-            {
-              "files": ["pyproject.toml"],
-              "from": "version ?=.*",
-              "to": "version = \"${nextRelease.version}\"",
-              "results": [
-                {
-                  "file": "pyproject.toml",
-                  "hasChanged": true,
-                  "numMatches": 1,
-                  "numReplacements": 1
-                }
-              ],
-              "countMatches": true
-            }
-          ]
-        }
-      ],
-        ["@semantic-release/exec", {
-            "prepareCmd": 'yq -i eval ".appVersion = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml;yq -i eval ".version = \"${nextRelease.version}\"" charts/mibserver/Chart.yaml'
-        }],        
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/git",
-        {
-          "assets": ["NOTICE", "charts/mibserver/Chart.yaml", "pyproject.toml"],
-          "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}",
+      "@semantic-release/git",
+      {
+        "assets": ["NOTICE", "charts/mibserver/Chart.yaml", "pyproject.toml"],
+        "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}",
         },
-      ],
-      ["@semantic-release/github", { "assets": ["NOTICE"] }],
     ],
+    ["@semantic-release/github", { "assets": ["NOTICE"] }],
+  ],
 }
