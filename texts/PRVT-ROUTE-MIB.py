@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-ROUTE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-ROUTE-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:09:24 2021
-# On host fv-az83-424 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:12:02 2021
+# On host fv-az36-754 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
 routingProtocols, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "routingProtocols")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, ModuleIdentity, Unsigned32, Counter64, iso, Integer32, NotificationType, IpAddress, MibIdentifier, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "Unsigned32", "Counter64", "iso", "Integer32", "NotificationType", "IpAddress", "MibIdentifier", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits")
-TextualConvention, TruthValue, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "RowStatus", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Counter32, ObjectIdentity, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, IpAddress, Bits, Integer32, MibIdentifier, TimeTicks, ModuleIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "ObjectIdentity", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "IpAddress", "Bits", "Integer32", "MibIdentifier", "TimeTicks", "ModuleIdentity", "Counter64")
+TextualConvention, TruthValue, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString", "RowStatus")
 prvtRouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 4, 3))
 prvtRouteMIB.setRevisions(('2009-01-27 00:00',))
 
@@ -106,4 +106,4 @@ if mibBuilder.loadTexts: prvtGlobalIPv6Forwarding.setDescription('Configure IPv6
 prvtGlobalIPv6Disable = MibScalar((1, 3, 6, 1, 4, 1, 738, 10, 6, 4, 3, 1, 5), TruthValue()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: prvtGlobalIPv6Disable.setStatus('current')
 if mibBuilder.loadTexts: prvtGlobalIPv6Disable.setDescription('Configure IPv6 behavior.')
-mibBuilder.exportSymbols("PRVT-ROUTE-MIB", prvtDynamicRouteMetrics=prvtDynamicRouteMetrics, prvtCfgIPv6RouteTable=prvtCfgIPv6RouteTable, prvtRouteMIBObjects=prvtRouteMIBObjects, prvtDynamicRoutePrefix=prvtDynamicRoutePrefix, prvtDynamicRouteType=prvtDynamicRouteType, prvtDynamicRouteTable=prvtDynamicRouteTable, prvtCfgIPv6RouteNextHop=prvtCfgIPv6RouteNextHop, prvtCfgIPv6RouteRowStatus=prvtCfgIPv6RouteRowStatus, prvtDynamicRouteDistance=prvtDynamicRouteDistance, prvtDynamicRouteNextHopType=prvtDynamicRouteNextHopType, prvtGlobalIPv6Disable=prvtGlobalIPv6Disable, prvtDynamicRouteIfName=prvtDynamicRouteIfName, prvtCfgRouteNextHop=prvtCfgRouteNextHop, prvtCfgRoutePrefix=prvtCfgRoutePrefix, prvtRouteMIB=prvtRouteMIB, prvtCfgRouteTable=prvtCfgRouteTable, prvtCfgIPv6RouteDistance=prvtCfgIPv6RouteDistance, prvtCfgIPv6RouteEntry=prvtCfgIPv6RouteEntry, NetPrefix=NetPrefix, prvtCfgRouteDistance=prvtCfgRouteDistance, prvtCfgIPv6RoutePrefix=prvtCfgIPv6RoutePrefix, prvtDynamicRouteNextHop=prvtDynamicRouteNextHop, PYSNMP_MODULE_ID=prvtRouteMIB, prvtCfgRouteRowStatus=prvtCfgRouteRowStatus, prvtDynamicRouteNextHopFlags=prvtDynamicRouteNextHopFlags, prvtCfgRouteEntry=prvtCfgRouteEntry, prvtDynamicRouteUptime=prvtDynamicRouteUptime, prvtDynamicRouteEntry=prvtDynamicRouteEntry, prvtGlobalIPv6Forwarding=prvtGlobalIPv6Forwarding, prvtDynamicRouteFlags=prvtDynamicRouteFlags)
+mibBuilder.exportSymbols("PRVT-ROUTE-MIB", PYSNMP_MODULE_ID=prvtRouteMIB, prvtDynamicRouteNextHopType=prvtDynamicRouteNextHopType, prvtDynamicRouteFlags=prvtDynamicRouteFlags, prvtDynamicRouteEntry=prvtDynamicRouteEntry, prvtRouteMIB=prvtRouteMIB, prvtRouteMIBObjects=prvtRouteMIBObjects, prvtCfgIPv6RouteTable=prvtCfgIPv6RouteTable, prvtDynamicRouteUptime=prvtDynamicRouteUptime, prvtDynamicRouteNextHop=prvtDynamicRouteNextHop, prvtDynamicRouteDistance=prvtDynamicRouteDistance, prvtCfgRouteRowStatus=prvtCfgRouteRowStatus, prvtCfgRouteDistance=prvtCfgRouteDistance, prvtCfgIPv6RouteEntry=prvtCfgIPv6RouteEntry, prvtCfgIPv6RouteNextHop=prvtCfgIPv6RouteNextHop, prvtGlobalIPv6Forwarding=prvtGlobalIPv6Forwarding, prvtDynamicRouteTable=prvtDynamicRouteTable, prvtDynamicRouteIfName=prvtDynamicRouteIfName, prvtCfgRouteEntry=prvtCfgRouteEntry, prvtDynamicRouteMetrics=prvtDynamicRouteMetrics, NetPrefix=NetPrefix, prvtCfgRouteNextHop=prvtCfgRouteNextHop, prvtCfgRouteTable=prvtCfgRouteTable, prvtCfgRoutePrefix=prvtCfgRoutePrefix, prvtDynamicRoutePrefix=prvtDynamicRoutePrefix, prvtDynamicRouteNextHopFlags=prvtDynamicRouteNextHopFlags, prvtCfgIPv6RouteDistance=prvtCfgIPv6RouteDistance, prvtCfgIPv6RouteRowStatus=prvtCfgIPv6RouteRowStatus, prvtGlobalIPv6Disable=prvtGlobalIPv6Disable, prvtDynamicRouteType=prvtDynamicRouteType, prvtCfgIPv6RoutePrefix=prvtCfgIPv6RoutePrefix)

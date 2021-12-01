@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PERFORMANCE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/PERFORMANCE-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:00:05 2021
-# On host fv-az83-424 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:01:25 2021
+# On host fv-az36-754 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 IntDateTime, = mibBuilder.importSymbols("EQUIPMENT-MIB", "IntDateTime")
 sagemDr, = mibBuilder.importSymbols("SAGEM-DR-MIB", "sagemDr")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, MibIdentifier, iso, TimeTicks, Counter32, Bits, ObjectIdentity, Unsigned32, Gauge32, ModuleIdentity, NotificationType, IpAddress, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "iso", "TimeTicks", "Counter32", "Bits", "ObjectIdentity", "Unsigned32", "Gauge32", "ModuleIdentity", "NotificationType", "IpAddress", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, iso, ObjectIdentity, Counter64, Integer32, Gauge32, Counter32, MibIdentifier, NotificationType, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "iso", "ObjectIdentity", "Counter64", "Integer32", "Gauge32", "Counter32", "MibIdentifier", "NotificationType", "Bits")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 performance = ModuleIdentity((1, 3, 6, 1, 4, 1, 1038, 102))
 if mibBuilder.loadTexts: performance.setLastUpdated('0211150000Z')
 if mibBuilder.loadTexts: performance.setOrganization('SAGEM/DR Tolbiac Centre')
@@ -89,4 +89,4 @@ if mibBuilder.loadTexts: thresholdBbe.setStatus('current')
 perfTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1038, 102, 0))
 qualityTrap = NotificationType((1, 3, 6, 1, 4, 1, 1038, 102, 0, 2)).setObjects(("PERFORMANCE-MIB", "cptObject"), ("PERFORMANCE-MIB", "cptName"), ("PERFORMANCE-MIB", "cptNearFar"), ("PERFORMANCE-MIB", "cptDuration"), ("PERFORMANCE-MIB", "cptDate"), ("PERFORMANCE-MIB", "cptUAS"), ("PERFORMANCE-MIB", "cptSES"), ("PERFORMANCE-MIB", "cptES"), ("PERFORMANCE-MIB", "cptBBE"))
 if mibBuilder.loadTexts: qualityTrap.setStatus('current')
-mibBuilder.exportSymbols("PERFORMANCE-MIB", uapTable=uapTable, thresholdSes=thresholdSes, uapEnd=uapEnd, thresholdType=thresholdType, thresholdUas=thresholdUas, thresholdEs=thresholdEs, performance=performance, thresholdTable=thresholdTable, NearFar=NearFar, uapName=uapName, cptUAS=cptUAS, uapNumber=uapNumber, cptName=cptName, thresholdBbe=thresholdBbe, cptDate=cptDate, thresholdNearFar=thresholdNearFar, thresholdName=thresholdName, cptEntry=cptEntry, cptNumber=cptNumber, cptES=cptES, uapEntry=uapEntry, uapBegin=uapBegin, thresholdNumber=thresholdNumber, perfClear=perfClear, cptDuration=cptDuration, uapNearFar=uapNearFar, cptTable=cptTable, perfTraps=perfTraps, cptSES=cptSES, PYSNMP_MODULE_ID=performance, cptNearFar=cptNearFar, uapObject=uapObject, cptObject=cptObject, thresholdObject=thresholdObject, cptBBE=cptBBE, thresholdDuration=thresholdDuration, qualityTrap=qualityTrap, thresholdEntry=thresholdEntry)
+mibBuilder.exportSymbols("PERFORMANCE-MIB", uapEnd=uapEnd, cptDuration=cptDuration, thresholdEntry=thresholdEntry, cptTable=cptTable, cptNumber=cptNumber, cptNearFar=cptNearFar, thresholdNumber=thresholdNumber, cptDate=cptDate, uapObject=uapObject, uapNearFar=uapNearFar, performance=performance, uapEntry=uapEntry, cptEntry=cptEntry, thresholdNearFar=thresholdNearFar, thresholdType=thresholdType, cptObject=cptObject, uapNumber=uapNumber, PYSNMP_MODULE_ID=performance, thresholdUas=thresholdUas, cptBBE=cptBBE, perfClear=perfClear, thresholdTable=thresholdTable, thresholdEs=thresholdEs, NearFar=NearFar, uapName=uapName, perfTraps=perfTraps, cptUAS=cptUAS, thresholdBbe=thresholdBbe, thresholdSes=thresholdSes, cptName=cptName, uapBegin=uapBegin, thresholdObject=thresholdObject, cptES=cptES, thresholdName=thresholdName, uapTable=uapTable, thresholdDuration=thresholdDuration, cptSES=cptSES, qualityTrap=qualityTrap)

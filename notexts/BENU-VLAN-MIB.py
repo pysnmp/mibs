@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BENU-VLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-VLAN-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:15:50 2021
-# On host fv-az83-424 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:19:26 2021
+# On host fv-az36-754 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
 benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
 snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Gauge32, Counter32, IpAddress, iso, Integer32, Bits, Unsigned32, NotificationType, Counter64, ModuleIdentity, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Gauge32", "Counter32", "IpAddress", "iso", "Integer32", "Bits", "Unsigned32", "NotificationType", "Counter64", "ModuleIdentity", "TimeTicks", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, Counter32, TimeTicks, Bits, Integer32, ModuleIdentity, Unsigned32, iso, NotificationType, IpAddress, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "Counter32", "TimeTicks", "Bits", "Integer32", "ModuleIdentity", "Unsigned32", "iso", "NotificationType", "IpAddress", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bVLANMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8))
 bVLANMIB.setRevisions(('2015-05-07 00:00', '2015-04-14 00:00', '2015-01-06 00:00', '2014-11-17 00:00', '2014-08-04 00:00', '2014-06-24 00:00', '2014-05-31 00:00',))
 if mibBuilder.loadTexts: bVLANMIB.setLastUpdated('201505070000Z')
@@ -93,4 +93,4 @@ bVlanCreate = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8, 0, 3)).setObje
 if mibBuilder.loadTexts: bVlanCreate.setStatus('current')
 bVlanDelete = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8, 0, 4)).setObjects(("BENU-VLAN-MIB", "bVlanPortId"), ("BENU-VLAN-MIB", "bVlanId"))
 if mibBuilder.loadTexts: bVlanDelete.setStatus('current')
-mibBuilder.exportSymbols("BENU-VLAN-MIB", bVlanAssocSub=bVlanAssocSub, bVlanActive=bVlanActive, bVlanPortTable=bVlanPortTable, bVlanCurrentNumber=bVlanCurrentNumber, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bVlanIndex=bVlanIndex, bWagVlanEntry=bWagVlanEntry, bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bVlanEncapName=bVlanEncapName, bWagVlanSubscriberCount=bWagVlanSubscriberCount, bVlanPortEntry=bVlanPortEntry, bVlanTable=bVlanTable, bVlanPortIndex=bVlanPortIndex, bWagVlanIndex=bWagVlanIndex, bVlanOperStatus=bVlanOperStatus, PYSNMP_MODULE_ID=bVLANMIB, bWagVlanStatsEntry=bWagVlanStatsEntry, bVlanEncapEnable=bVlanEncapEnable, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVLANMIBObjects=bVLANMIBObjects, bVLANNotifObjects=bVLANNotifObjects, bVlanPerPortIndex=bVlanPerPortIndex, bVlanEntry=bVlanEntry, bWagVlanPortIndex=bWagVlanPortIndex, bVLANNotifVariables=bVLANNotifVariables, bVlanAdminStatus=bVlanAdminStatus, bWagVlanStatsIndex=bWagVlanStatsIndex, bVlanEncapDisable=bVlanEncapDisable, bVlanDelete=bVlanDelete, bWagVlanTable=bWagVlanTable, bWagVlanStatsTable=bWagVlanStatsTable, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bVlanMTU=bVlanMTU, bVlanTotal=bVlanTotal, bVLANMIB=bVLANMIB, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bVlanId=bVlanId, bVlanName=bVlanName, bVlanCreate=bVlanCreate, bVlanPortId=bVlanPortId)
+mibBuilder.exportSymbols("BENU-VLAN-MIB", bVlanPortTable=bVlanPortTable, bVlanIndex=bVlanIndex, bVlanPortId=bVlanPortId, bVlanEncapEnable=bVlanEncapEnable, bWagVlanEntry=bWagVlanEntry, bVlanMTU=bVlanMTU, bVlanPortIndex=bVlanPortIndex, bVlanEncapDisable=bVlanEncapDisable, bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bVlanPortEntry=bVlanPortEntry, bVlanCreate=bVlanCreate, bVlanAdminStatus=bVlanAdminStatus, bVlanTable=bVlanTable, bWagVlanPortIndex=bWagVlanPortIndex, bVlanCurrentNumber=bVlanCurrentNumber, bVlanEncapName=bVlanEncapName, bWagVlanStatsIndex=bWagVlanStatsIndex, bWagVlanTable=bWagVlanTable, PYSNMP_MODULE_ID=bVLANMIB, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bWagVlanSubscriberCount=bWagVlanSubscriberCount, bVlanName=bVlanName, bWagVlanStatsEntry=bWagVlanStatsEntry, bVLANMIB=bVLANMIB, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bVlanPerPortIndex=bVlanPerPortIndex, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bVlanId=bVlanId, bVlanAssocSub=bVlanAssocSub, bVlanDelete=bVlanDelete, bVLANNotifVariables=bVLANNotifVariables, bVLANMIBObjects=bVLANMIBObjects, bWagVlanIndex=bWagVlanIndex, bWagVlanStatsTable=bWagVlanStatsTable, bVlanActive=bVlanActive, bVLANNotifObjects=bVLANNotifObjects, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVlanEntry=bVlanEntry, bVlanOperStatus=bVlanOperStatus, bVlanTotal=bVlanTotal)
