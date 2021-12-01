@@ -82,3 +82,6 @@ nodeSelector: {}
 tolerations: []
 
 podAntiAffinity: soft
+
+networkPolicy:
+  enabled: False
