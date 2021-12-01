@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-DRY-CONTACTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-DRY-CONTACTS-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:42:49 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:44:24 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, MibIdentifier, IpAddress, iso, Counter32, ModuleIdentity, TimeTicks, Integer32, Unsigned32, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "MibIdentifier", "IpAddress", "iso", "Counter32", "ModuleIdentity", "TimeTicks", "Integer32", "Unsigned32", "Bits", "NotificationType")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Integer32, Bits, MibIdentifier, Counter32, ModuleIdentity, iso, Gauge32, IpAddress, Counter64, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Integer32", "Bits", "MibIdentifier", "Counter32", "ModuleIdentity", "iso", "Gauge32", "IpAddress", "Counter64", "TimeTicks", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtDryContactsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 112))
 prvtDryContactsMIB.setRevisions(('2007-11-27 00:00',))
@@ -42,4 +42,4 @@ prvtLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 5, 112, 1, 1, 1, 9), 
 if mibBuilder.loadTexts: prvtLastChange.setStatus('current')
 stateChanged = NotificationType((1, 3, 6, 1, 4, 1, 738, 1, 5, 112, 0, 1)).setObjects(("PRVT-DRY-CONTACTS-MIB", "prvtAlarmID"), ("PRVT-DRY-CONTACTS-MIB", "prvtSensorType"), ("PRVT-DRY-CONTACTS-MIB", "prvtName"), ("PRVT-DRY-CONTACTS-MIB", "prvtDescription"), ("PRVT-DRY-CONTACTS-MIB", "prvtAlarmStatus"), ("PRVT-DRY-CONTACTS-MIB", "prvtAlarmSeverity"))
 if mibBuilder.loadTexts: stateChanged.setStatus('current')
-mibBuilder.exportSymbols("PRVT-DRY-CONTACTS-MIB", prvtSensorType=prvtSensorType, stateChanged=stateChanged, PYSNMP_MODULE_ID=prvtDryContactsMIB, prvtDryContactsMIB=prvtDryContactsMIB, prvtAlarmID=prvtAlarmID, dryContactsObjects=dryContactsObjects, prvtDescription=prvtDescription, cfgTable=cfgTable, prvtLastChange=prvtLastChange, prvtAlarmStatus=prvtAlarmStatus, prvtName=prvtName, cfgEntry=cfgEntry, prvtPolarity=prvtPolarity, prvtEnableStatus=prvtEnableStatus, dryContactsNotifications=dryContactsNotifications, prvtAlarmSeverity=prvtAlarmSeverity)
+mibBuilder.exportSymbols("PRVT-DRY-CONTACTS-MIB", prvtEnableStatus=prvtEnableStatus, PYSNMP_MODULE_ID=prvtDryContactsMIB, cfgEntry=cfgEntry, prvtAlarmStatus=prvtAlarmStatus, prvtPolarity=prvtPolarity, dryContactsObjects=dryContactsObjects, stateChanged=stateChanged, prvtAlarmID=prvtAlarmID, cfgTable=cfgTable, prvtLastChange=prvtLastChange, prvtName=prvtName, prvtDescription=prvtDescription, prvtDryContactsMIB=prvtDryContactsMIB, prvtAlarmSeverity=prvtAlarmSeverity, prvtSensorType=prvtSensorType, dryContactsNotifications=dryContactsNotifications)

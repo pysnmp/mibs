@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-COMMANDSERVER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-COMMANDSERVER-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:38:06 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:39:28 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Integer32, Unsigned32, Counter64, ObjectIdentity, iso, TimeTicks, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, IpAddress, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "Counter64", "ObjectIdentity", "iso", "TimeTicks", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "IpAddress", "ModuleIdentity", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, TimeTicks, Counter32, Unsigned32, ObjectIdentity, IpAddress, Bits, NotificationType, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "TimeTicks", "Counter32", "Unsigned32", "ObjectIdentity", "IpAddress", "Bits", "NotificationType", "MibIdentifier", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bcnCommandServerMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 7, 1))
 bcnCommandServerMIB.setRevisions(('2011-06-30 12:00',))
 if mibBuilder.loadTexts: bcnCommandServerMIB.setLastUpdated('201106301200Z')
@@ -48,4 +48,4 @@ bcnCommandServerStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnCommandServerStatusCompliance = bcnCommandServerStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-COMMANDSERVER-MIB", bcnCommandServer=bcnCommandServer, bcnCommandServerNotificationData=bcnCommandServerNotificationData, bcnCommandServerObjects=bcnCommandServerObjects, bcnCommandServerNotificationDataGroup=bcnCommandServerNotificationDataGroup, bcnCommandServerServiceStatus=bcnCommandServerServiceStatus, bcnCommandServerMIB=bcnCommandServerMIB, bcnCommandServerSerOperState=bcnCommandServerSerOperState, bcnCommandServerServiceStatusGroup=bcnCommandServerServiceStatusGroup, bcnCommandServerStatusCompliance=bcnCommandServerStatusCompliance, bcnCommandServerAlarmSeverity=bcnCommandServerAlarmSeverity, bcnCommandServerServiceGroups=bcnCommandServerServiceGroups, bcnCommandServerConformance=bcnCommandServerConformance, PYSNMP_MODULE_ID=bcnCommandServerMIB, bcnCommandServerNotification=bcnCommandServerNotification, bcnCommandServerNotificationEvents=bcnCommandServerNotificationEvents, bcnCommandServerAlarmInfo=bcnCommandServerAlarmInfo, bcnCommandServerServiceCompliances=bcnCommandServerServiceCompliances, bcnCommandServerAlarmNotif=bcnCommandServerAlarmNotif, bcnCommandServerNotificationEventGroup=bcnCommandServerNotificationEventGroup)
+mibBuilder.exportSymbols("BCN-COMMANDSERVER-MIB", bcnCommandServerAlarmNotif=bcnCommandServerAlarmNotif, bcnCommandServerNotificationData=bcnCommandServerNotificationData, bcnCommandServerNotification=bcnCommandServerNotification, bcnCommandServerSerOperState=bcnCommandServerSerOperState, bcnCommandServerServiceCompliances=bcnCommandServerServiceCompliances, bcnCommandServerNotificationDataGroup=bcnCommandServerNotificationDataGroup, bcnCommandServer=bcnCommandServer, bcnCommandServerNotificationEventGroup=bcnCommandServerNotificationEventGroup, bcnCommandServerServiceStatus=bcnCommandServerServiceStatus, bcnCommandServerNotificationEvents=bcnCommandServerNotificationEvents, bcnCommandServerMIB=bcnCommandServerMIB, bcnCommandServerConformance=bcnCommandServerConformance, PYSNMP_MODULE_ID=bcnCommandServerMIB, bcnCommandServerServiceGroups=bcnCommandServerServiceGroups, bcnCommandServerObjects=bcnCommandServerObjects, bcnCommandServerServiceStatusGroup=bcnCommandServerServiceStatusGroup, bcnCommandServerAlarmInfo=bcnCommandServerAlarmInfo, bcnCommandServerAlarmSeverity=bcnCommandServerAlarmSeverity, bcnCommandServerStatusCompliance=bcnCommandServerStatusCompliance)

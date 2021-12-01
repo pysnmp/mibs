@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OG-SIGNAL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SIGNAL-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:31:15 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:32:02 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
 ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Bits, ObjectIdentity, ModuleIdentity, MibIdentifier, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, IpAddress, Gauge32, NotificationType, Integer32, Counter32, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ObjectIdentity", "ModuleIdentity", "MibIdentifier", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "IpAddress", "Gauge32", "NotificationType", "Integer32", "Counter32", "iso", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+iso, Counter64, NotificationType, TimeTicks, Gauge32, Counter32, Unsigned32, MibIdentifier, Bits, ModuleIdentity, IpAddress, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "NotificationType", "TimeTicks", "Gauge32", "Counter32", "Unsigned32", "MibIdentifier", "Bits", "ModuleIdentity", "IpAddress", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ogSignalMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 11))
 ogSignalMib.setRevisions(('2013-08-11 00:00', '2010-03-22 11:27', '2008-11-27 11:40',))
 
@@ -65,4 +65,4 @@ ogsgnlNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 11, 3
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ogsgnlNotificationsGroup = ogsgnlNotificationsGroup.setStatus('current')
 if mibBuilder.loadTexts: ogsgnlNotificationsGroup.setDescription('A collection of notification(s) for signal system.')
-mibBuilder.exportSymbols("OG-SIGNAL-MIB", ogsgnlEventPortLabel=ogsgnlEventPortLabel, ogsgnlEventState=ogsgnlEventState, ogSignalMibGroup=ogSignalMibGroup, ogsgnlEventType=ogsgnlEventType, ogSignalMibNotificationPrefix=ogSignalMibNotificationPrefix, ogsgnlEventTable=ogsgnlEventTable, ogSignalMibGroups=ogSignalMibGroups, ogsgnlEventEntry=ogsgnlEventEntry, ogsgnlEvent=ogsgnlEvent, ogsgnlEventOccurred=ogsgnlEventOccurred, ogSignalMibObjects=ogSignalMibObjects, ogSignalMibCompliances=ogSignalMibCompliances, ogSignalMibConformance=ogSignalMibConformance, ogsgnlMibNotifications=ogsgnlMibNotifications, ogsgnlEventIndex=ogsgnlEventIndex, PYSNMP_MODULE_ID=ogSignalMib, ogsgnlEventPortNumber=ogsgnlEventPortNumber, ogSignalMibCompliance=ogSignalMibCompliance, ogsgnlNotificationsGroup=ogsgnlNotificationsGroup, ogSignalMib=ogSignalMib)
+mibBuilder.exportSymbols("OG-SIGNAL-MIB", ogSignalMib=ogSignalMib, ogsgnlMibNotifications=ogsgnlMibNotifications, ogSignalMibCompliance=ogSignalMibCompliance, ogsgnlEventOccurred=ogsgnlEventOccurred, ogsgnlEventPortNumber=ogsgnlEventPortNumber, ogsgnlEventEntry=ogsgnlEventEntry, ogsgnlEventTable=ogsgnlEventTable, ogsgnlNotificationsGroup=ogsgnlNotificationsGroup, ogsgnlEventIndex=ogsgnlEventIndex, ogsgnlEventType=ogsgnlEventType, ogsgnlEvent=ogsgnlEvent, PYSNMP_MODULE_ID=ogSignalMib, ogSignalMibObjects=ogSignalMibObjects, ogSignalMibNotificationPrefix=ogSignalMibNotificationPrefix, ogsgnlEventState=ogsgnlEventState, ogsgnlEventPortLabel=ogsgnlEventPortLabel, ogSignalMibGroup=ogSignalMibGroup, ogSignalMibCompliances=ogSignalMibCompliances, ogSignalMibConformance=ogSignalMibConformance, ogSignalMibGroups=ogSignalMibGroups)

@@ -1,22 +1,22 @@
 #
 # PySNMP MIB module SL-TRAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TRAP-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:46:15 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:46:48 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 tftpStatus, = mibBuilder.importSymbols("RAD-MIB", "tftpStatus")
-slAlarmIfIndex, slAlarmServiceAffect, slAlarmType, slAlarmSeverity, slAlarmActive = mibBuilder.importSymbols("SL-ALARM-MIB", "slAlarmIfIndex", "slAlarmServiceAffect", "slAlarmType", "slAlarmSeverity", "slAlarmActive")
+slAlarmType, slAlarmServiceAffect, slAlarmActive, slAlarmSeverity, slAlarmIfIndex = mibBuilder.importSymbols("SL-ALARM-MIB", "slAlarmType", "slAlarmServiceAffect", "slAlarmActive", "slAlarmSeverity", "slAlarmIfIndex")
 edfaStatus, edfaIfIndex, edfaOperControlMode = mibBuilder.importSymbols("SL-EDFA-MIB", "edfaStatus", "edfaIfIndex", "edfaOperControlMode")
-slEventUser, slEventIfIndex, slEventInventoryType, slEventInventoryPartnum, slEventVal, slEventInventoryAction, slGenEventIfIndex, slEventInventorySerial, slGenEventType, slEventInventoryIfIndex, slGenEventUser, slEventType, slGenEventVal = mibBuilder.importSymbols("SL-EVENT-MIB", "slEventUser", "slEventIfIndex", "slEventInventoryType", "slEventInventoryPartnum", "slEventVal", "slEventInventoryAction", "slGenEventIfIndex", "slEventInventorySerial", "slGenEventType", "slEventInventoryIfIndex", "slGenEventUser", "slEventType", "slGenEventVal")
+slEventInventoryIfIndex, slEventVal, slGenEventIfIndex, slEventUser, slEventIfIndex, slEventInventoryAction, slEventType, slGenEventUser, slGenEventType, slEventInventorySerial, slEventInventoryPartnum, slEventInventoryType, slGenEventVal = mibBuilder.importSymbols("SL-EVENT-MIB", "slEventInventoryIfIndex", "slEventVal", "slGenEventIfIndex", "slEventUser", "slEventIfIndex", "slEventInventoryAction", "slEventType", "slGenEventUser", "slGenEventType", "slEventInventorySerial", "slEventInventoryPartnum", "slEventInventoryType", "slGenEventVal")
 packetlight, = mibBuilder.importSymbols("SL-NE-MIB", "packetlight")
-optApsConfigUserWorkingIndex, optApsConfigActiveConnectionRx = mibBuilder.importSymbols("SL-OPT-APS-MIB", "optApsConfigUserWorkingIndex", "optApsConfigActiveConnectionRx")
+optApsConfigActiveConnectionRx, optApsConfigUserWorkingIndex = mibBuilder.importSymbols("SL-OPT-APS-MIB", "optApsConfigActiveConnectionRx", "optApsConfigUserWorkingIndex")
 slTestsIfLoopType, slTestsTrapsLoopbackActive, slTestsIfLoopIfIndex = mibBuilder.importSymbols("SL-TESTS-MIB", "slTestsIfLoopType", "slTestsTrapsLoopbackActive", "slTestsIfLoopIfIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, NotificationType, Unsigned32, Gauge32, Integer32, Counter64, TimeTicks, IpAddress, ModuleIdentity, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "Unsigned32", "Gauge32", "Integer32", "Counter64", "TimeTicks", "IpAddress", "ModuleIdentity", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, iso, Unsigned32, IpAddress, TimeTicks, Gauge32, MibIdentifier, NotificationType, ObjectIdentity, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "iso", "Unsigned32", "IpAddress", "TimeTicks", "Gauge32", "MibIdentifier", "NotificationType", "ObjectIdentity", "Integer32", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 slAlarmTrapV1 = NotificationType((1, 3, 6, 1, 4, 1, 4515) + (0,101)).setObjects(("SL-ALARM-MIB", "slAlarmIfIndex"), ("SL-ALARM-MIB", "slAlarmType"), ("SL-ALARM-MIB", "slAlarmSeverity"), ("SL-ALARM-MIB", "slAlarmServiceAffect"), ("SL-ALARM-MIB", "slAlarmActive"))
 if mibBuilder.loadTexts: slAlarmTrapV1.setDescription('SNMPv1 trap equivalent definition')
@@ -36,4 +36,4 @@ slEventInventoryTrapV1 = NotificationType((1, 3, 6, 1, 4, 1, 4515) + (0,133)).se
 if mibBuilder.loadTexts: slEventInventoryTrapV1.setDescription('SNMPv1 trap equivalent definition')
 slGenEventTrapV1 = NotificationType((1, 3, 6, 1, 4, 1, 4515) + (0,134)).setObjects(("SL-EVENT-MIB", "slGenEventIfIndex"), ("SL-EVENT-MIB", "slGenEventType"), ("SL-EVENT-MIB", "slGenEventVal"), ("SL-EVENT-MIB", "slGenEventUser"))
 if mibBuilder.loadTexts: slGenEventTrapV1.setDescription('SNMPv1 trap equivalent definition')
-mibBuilder.exportSymbols("SL-TRAP-MIB", slGenEventTrapV1=slGenEventTrapV1, slTestsTrapsLoopbackTableChangedV1=slTestsTrapsLoopbackTableChangedV1, optApsTrapSwitchoverV1=optApsTrapSwitchoverV1, edfaControlModeChangeV1=edfaControlModeChangeV1, slAlarmTrapV1=slAlarmTrapV1, slEventInventoryTrapV1=slEventInventoryTrapV1, tftpStatusChangeTrapV1=tftpStatusChangeTrapV1, slEventTrapV1=slEventTrapV1, edfaStatusChangeV1=edfaStatusChangeV1)
+mibBuilder.exportSymbols("SL-TRAP-MIB", slEventTrapV1=slEventTrapV1, slAlarmTrapV1=slAlarmTrapV1, edfaControlModeChangeV1=edfaControlModeChangeV1, optApsTrapSwitchoverV1=optApsTrapSwitchoverV1, edfaStatusChangeV1=edfaStatusChangeV1, tftpStatusChangeTrapV1=tftpStatusChangeTrapV1, slGenEventTrapV1=slGenEventTrapV1, slEventInventoryTrapV1=slEventInventoryTrapV1, slTestsTrapsLoopbackTableChangedV1=slTestsTrapsLoopbackTableChangedV1)

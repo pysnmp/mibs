@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-UPS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-UPS-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:42:49 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:44:24 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, MibIdentifier, IpAddress, iso, Counter32, ModuleIdentity, TimeTicks, Integer32, Unsigned32, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "MibIdentifier", "IpAddress", "iso", "Counter32", "ModuleIdentity", "TimeTicks", "Integer32", "Unsigned32", "Bits", "NotificationType")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Bits, Integer32, MibIdentifier, Counter32, iso, ModuleIdentity, Gauge32, IpAddress, Counter64, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Bits", "Integer32", "MibIdentifier", "Counter32", "iso", "ModuleIdentity", "Gauge32", "IpAddress", "Counter64", "TimeTicks", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtUPSMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 103))
 prvtUPSMib.setRevisions(('2008-01-01 00:00', '2005-02-16 00:00', '2003-05-08 00:00', '2002-01-28 00:00',))
@@ -33,4 +33,4 @@ prvtUPSMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 5, 103, 2, 2))
 prvtUPSNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 738, 1, 5, 103, 2, 2, 3)).setObjects(("PRVT-UPS-MIB", "upsStatusChange"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     prvtUPSNotificationGroup = prvtUPSNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("PRVT-UPS-MIB", prvtUPSNotifications=prvtUPSNotifications, prvtUPSMIBGroups=prvtUPSMIBGroups, prvtUPSMib=prvtUPSMib, upsStatusChange=upsStatusChange, upsStatus=upsStatus, upsLinePowerStatus=upsLinePowerStatus, prvtUPSNotificationGroup=prvtUPSNotificationGroup, upsInternalStatus=upsInternalStatus, upsConnectedStatus=upsConnectedStatus, PYSNMP_MODULE_ID=prvtUPSMib, prvtUPSConformance=prvtUPSConformance, upsBatteryStorageStatus=upsBatteryStorageStatus)
+mibBuilder.exportSymbols("PRVT-UPS-MIB", upsBatteryStorageStatus=upsBatteryStorageStatus, prvtUPSMIBGroups=prvtUPSMIBGroups, prvtUPSNotificationGroup=prvtUPSNotificationGroup, upsStatus=upsStatus, prvtUPSMib=prvtUPSMib, upsStatusChange=upsStatusChange, upsLinePowerStatus=upsLinePowerStatus, PYSNMP_MODULE_ID=prvtUPSMib, prvtUPSConformance=prvtUPSConformance, upsInternalStatus=upsInternalStatus, prvtUPSNotifications=prvtUPSNotifications, upsConnectedStatus=upsConnectedStatus)

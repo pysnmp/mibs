@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PRVT-NETWORK-LOOPBACK-TEST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-NETWORK-LOOPBACK-TEST-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:42:49 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:44:25 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 accessListControlListGroup, = mibBuilder.importSymbols("PRVT-SWITCH-ACCESS-LIST-MIB", "accessListControlListGroup")
 ipSwitch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "ipSwitch")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, MibIdentifier, IpAddress, iso, Counter32, ModuleIdentity, TimeTicks, Integer32, Unsigned32, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "MibIdentifier", "IpAddress", "iso", "Counter32", "ModuleIdentity", "TimeTicks", "Integer32", "Unsigned32", "Bits", "NotificationType")
-RowStatus, DisplayString, TextualConvention, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention", "TimeStamp")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Bits, Integer32, MibIdentifier, Counter32, iso, ModuleIdentity, Gauge32, IpAddress, Counter64, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Bits", "Integer32", "MibIdentifier", "Counter32", "iso", "ModuleIdentity", "Gauge32", "IpAddress", "Counter64", "TimeTicks", "Unsigned32")
+DisplayString, TimeStamp, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TextualConvention", "RowStatus")
 prvtNetworkLoopbackTestMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 6, 7))
 prvtNetworkLoopbackTestMib.setRevisions(('2010-08-31 00:00',))
 if mibBuilder.loadTexts: prvtNetworkLoopbackTestMib.setLastUpdated('201008310000Z')
@@ -47,4 +47,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 prvtNetworkLoopTestNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 738, 1, 6, 7, 2, 2, 2)).setObjects(("PRVT-NETWORK-LOOPBACK-TEST-MIB", "prvtNetworkLoopbackTestFinish"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     prvtNetworkLoopTestNotificationsGroup = prvtNetworkLoopTestNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("PRVT-NETWORK-LOOPBACK-TEST-MIB", prvtNetworkLoopbackTestEntry=prvtNetworkLoopbackTestEntry, prvtNetworkLoopTestDuration=prvtNetworkLoopTestDuration, prvtNetworkLoopbackTestNotifications=prvtNetworkLoopbackTestNotifications, PYSNMP_MODULE_ID=prvtNetworkLoopbackTestMib, prvtNetworkLoopbackTestConformance=prvtNetworkLoopbackTestConformance, prvtNetworkLoopStartDuration=prvtNetworkLoopStartDuration, prvtNetworkLoopbackTestFinish=prvtNetworkLoopbackTestFinish, prvtNetworkLoopTestGroups=prvtNetworkLoopTestGroups, prvtNetworkLoopTestCompliance=prvtNetworkLoopTestCompliance, prvtNetworkLoopTestGroup=prvtNetworkLoopTestGroup, prvtNetworkLoopbackTestMib=prvtNetworkLoopbackTestMib, prvtNetworkLoopRowStatus=prvtNetworkLoopRowStatus, prvtNetworkLoopTestNotificationsGroup=prvtNetworkLoopTestNotificationsGroup, prvtNetworkLoopbackTestObjects=prvtNetworkLoopbackTestObjects, prvtNetworkLoopEndDuration=prvtNetworkLoopEndDuration, prvtNetworkLoopbackTestTable=prvtNetworkLoopbackTestTable, prvtNetworkLoopTestCompliances=prvtNetworkLoopTestCompliances)
+mibBuilder.exportSymbols("PRVT-NETWORK-LOOPBACK-TEST-MIB", prvtNetworkLoopbackTestTable=prvtNetworkLoopbackTestTable, prvtNetworkLoopbackTestConformance=prvtNetworkLoopbackTestConformance, prvtNetworkLoopRowStatus=prvtNetworkLoopRowStatus, prvtNetworkLoopbackTestMib=prvtNetworkLoopbackTestMib, prvtNetworkLoopTestDuration=prvtNetworkLoopTestDuration, prvtNetworkLoopTestCompliances=prvtNetworkLoopTestCompliances, prvtNetworkLoopbackTestFinish=prvtNetworkLoopbackTestFinish, prvtNetworkLoopTestGroups=prvtNetworkLoopTestGroups, prvtNetworkLoopEndDuration=prvtNetworkLoopEndDuration, prvtNetworkLoopTestNotificationsGroup=prvtNetworkLoopTestNotificationsGroup, PYSNMP_MODULE_ID=prvtNetworkLoopbackTestMib, prvtNetworkLoopStartDuration=prvtNetworkLoopStartDuration, prvtNetworkLoopTestCompliance=prvtNetworkLoopTestCompliance, prvtNetworkLoopTestGroup=prvtNetworkLoopTestGroup, prvtNetworkLoopbackTestNotifications=prvtNetworkLoopbackTestNotifications, prvtNetworkLoopbackTestObjects=prvtNetworkLoopbackTestObjects, prvtNetworkLoopbackTestEntry=prvtNetworkLoopbackTestEntry)

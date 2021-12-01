@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-LINKTRAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-LINKTRAP-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:40:57 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:42:34 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
-ifOperStatus, ifDescr, ifAdminStatus, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifOperStatus", "ifDescr", "ifAdminStatus", "ifIndex")
+ifAdminStatus, ifIndex, ifOperStatus, ifDescr = mibBuilder.importSymbols("IF-MIB", "ifAdminStatus", "ifIndex", "ifOperStatus", "ifDescr")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, IpAddress, Counter32, TimeTicks, Gauge32, MibIdentifier, Counter64, Integer32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Counter32", "TimeTicks", "Gauge32", "MibIdentifier", "Counter64", "Integer32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "iso", "ModuleIdentity")
+NotificationType, TimeTicks, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits, Counter32, MibIdentifier, ModuleIdentity, Integer32, Gauge32, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "TimeTicks", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits", "Counter32", "MibIdentifier", "ModuleIdentity", "Integer32", "Gauge32", "iso", "IpAddress")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 atLinkTrap = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 25))
 atLinkTrap.setRevisions(('2014-04-04 00:00',))
@@ -28,4 +28,4 @@ if mibBuilder.loadTexts: atLinkDown.setDescription('A trap generated when an int
 atLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 25, 2)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifDescr"))
 if mibBuilder.loadTexts: atLinkUp.setStatus('current')
 if mibBuilder.loadTexts: atLinkUp.setDescription('A trap generated when an interface is linked up.')
-mibBuilder.exportSymbols("AT-LINKTRAP-MIB", PYSNMP_MODULE_ID=atLinkTrap, atLinkDown=atLinkDown, atLinkUp=atLinkUp, atLinkTrap=atLinkTrap)
+mibBuilder.exportSymbols("AT-LINKTRAP-MIB", atLinkTrap=atLinkTrap, PYSNMP_MODULE_ID=atLinkTrap, atLinkUp=atLinkUp, atLinkDown=atLinkDown)

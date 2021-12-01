@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PRVT-SWITCH-IPVLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-SWITCH-IPVLAN-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:42:49 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:44:25 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 ipSwitch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "ipSwitch")
 dot1qVlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qVlanIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, MibIdentifier, IpAddress, iso, Counter32, ModuleIdentity, TimeTicks, Integer32, Unsigned32, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "MibIdentifier", "IpAddress", "iso", "Counter32", "ModuleIdentity", "TimeTicks", "Integer32", "Unsigned32", "Bits", "NotificationType")
-DisplayString, RowStatus, TextualConvention, MacAddress, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "MacAddress", "TruthValue")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Bits, Integer32, MibIdentifier, Counter32, iso, ModuleIdentity, Gauge32, IpAddress, Counter64, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Bits", "Integer32", "MibIdentifier", "Counter32", "iso", "ModuleIdentity", "Gauge32", "IpAddress", "Counter64", "TimeTicks", "Unsigned32")
+DisplayString, MacAddress, RowStatus, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention", "TruthValue")
 prvtSwitchIpVLANMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 6, 2))
 prvtSwitchIpVLANMib.setRevisions(('2008-01-01 00:00', '2006-11-03 09:59', '2005-02-16 09:59', '2000-11-24 09:59',))
 if mibBuilder.loadTexts: prvtSwitchIpVLANMib.setLastUpdated('200801010000Z')
@@ -64,4 +64,4 @@ ipPortMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 738, 1, 6, 2, 2, 2, 1), ).se
 if mibBuilder.loadTexts: ipPortMappingEntry.setStatus('current')
 ipPortSwIface = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 2, 2, 2, 1, 1), Integer32()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: ipPortSwIface.setStatus('current')
-mibBuilder.exportSymbols("PRVT-SWITCH-IPVLAN-MIB", ipLoInterfaceType=ipLoInterfaceType, ipInterfaceIpAddress=ipInterfaceIpAddress, ipInterface=ipInterface, ipInterfaceTable=ipInterfaceTable, ipVLANTable=ipVLANTable, ipLoInterfaceRowStatus=ipLoInterfaceRowStatus, ipPortSwIface=ipPortSwIface, ipLoInterfaceIndex=ipLoInterfaceIndex, ipInterfaceType=ipInterfaceType, ipLoInterfaceTable=ipLoInterfaceTable, ipLoInterfaceEntry=ipLoInterfaceEntry, ipVLANStatus=ipVLANStatus, ipInterfaceEntry=ipInterfaceEntry, ipLoInterfaceName=ipLoInterfaceName, ipInterfaceName=ipInterfaceName, ipPortMappingTable=ipPortMappingTable, ipLoInterfaceSubnetMask=ipLoInterfaceSubnetMask, ipLoInterfaceIpAddress=ipLoInterfaceIpAddress, ipPortMappingEntry=ipPortMappingEntry, ipVLANEntry=ipVLANEntry, ipInterfaceSubnetMask=ipInterfaceSubnetMask, prvtSwitchIpVLANMib=prvtSwitchIpVLANMib, PYSNMP_MODULE_ID=prvtSwitchIpVLANMib, ipInterfaceIndex=ipInterfaceIndex, ipVLAN=ipVLAN, ipInterfaceRowStatus=ipInterfaceRowStatus)
+mibBuilder.exportSymbols("PRVT-SWITCH-IPVLAN-MIB", ipInterface=ipInterface, ipVLAN=ipVLAN, ipVLANEntry=ipVLANEntry, ipVLANTable=ipVLANTable, ipPortMappingTable=ipPortMappingTable, ipPortSwIface=ipPortSwIface, ipInterfaceIndex=ipInterfaceIndex, ipInterfaceEntry=ipInterfaceEntry, ipInterfaceSubnetMask=ipInterfaceSubnetMask, ipPortMappingEntry=ipPortMappingEntry, prvtSwitchIpVLANMib=prvtSwitchIpVLANMib, ipInterfaceName=ipInterfaceName, ipVLANStatus=ipVLANStatus, ipLoInterfaceSubnetMask=ipLoInterfaceSubnetMask, ipLoInterfaceIpAddress=ipLoInterfaceIpAddress, ipLoInterfaceType=ipLoInterfaceType, ipLoInterfaceTable=ipLoInterfaceTable, ipInterfaceType=ipInterfaceType, ipInterfaceIpAddress=ipInterfaceIpAddress, PYSNMP_MODULE_ID=prvtSwitchIpVLANMib, ipInterfaceTable=ipInterfaceTable, ipLoInterfaceIndex=ipLoInterfaceIndex, ipInterfaceRowStatus=ipInterfaceRowStatus, ipLoInterfaceRowStatus=ipLoInterfaceRowStatus, ipLoInterfaceEntry=ipLoInterfaceEntry, ipLoInterfaceName=ipLoInterfaceName)

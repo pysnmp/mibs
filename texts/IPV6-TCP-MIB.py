@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IPV6-TCP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-TCP-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:24:21 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:24:19 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-Ipv6Address, Ipv6IfIndexOrZero = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address", "Ipv6IfIndexOrZero")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-iso, mib_2, Counter32, ModuleIdentity, TimeTicks, Counter64, NotificationType, Integer32, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, experimental, Bits, ObjectIdentity, IpAddress, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "mib-2", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "NotificationType", "Integer32", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "experimental", "Bits", "ObjectIdentity", "IpAddress", "MibIdentifier")
+ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+Ipv6IfIndexOrZero, Ipv6Address = mibBuilder.importSymbols("IPV6-TC", "Ipv6IfIndexOrZero", "Ipv6Address")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+iso, Counter64, ObjectIdentity, experimental, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, NotificationType, Counter32, Gauge32, Bits, mib_2, Unsigned32, ModuleIdentity, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "ObjectIdentity", "experimental", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "NotificationType", "Counter32", "Gauge32", "Bits", "mib-2", "Unsigned32", "ModuleIdentity", "Integer32", "MibIdentifier")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ipv6TcpMIB = ModuleIdentity((1, 3, 6, 1, 3, 86))
 ipv6TcpMIB.setRevisions(('2017-02-22 00:00', '1998-01-29 00:00',))
@@ -58,4 +58,4 @@ ipv6TcpGroup = ObjectGroup((1, 3, 6, 1, 3, 86, 2, 2, 1)).setObjects(("IPV6-TCP-M
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ipv6TcpGroup = ipv6TcpGroup.setStatus('obsolete')
 if mibBuilder.loadTexts: ipv6TcpGroup.setDescription('The group of objects providing management of\n         TCP over IPv6.\n\n         This group is obsoleted by several groups in TCP-MIB.')
-mibBuilder.exportSymbols("IPV6-TCP-MIB", ipv6TcpMIB=ipv6TcpMIB, ipv6TcpConnIfIndex=ipv6TcpConnIfIndex, ipv6TcpCompliances=ipv6TcpCompliances, ipv6TcpConnRemAddress=ipv6TcpConnRemAddress, tcp=tcp, ipv6TcpGroups=ipv6TcpGroups, ipv6TcpGroup=ipv6TcpGroup, ipv6TcpConnLocalPort=ipv6TcpConnLocalPort, ipv6TcpConnTable=ipv6TcpConnTable, PYSNMP_MODULE_ID=ipv6TcpMIB, ipv6TcpConnRemPort=ipv6TcpConnRemPort, ipv6TcpConnEntry=ipv6TcpConnEntry, ipv6TcpConformance=ipv6TcpConformance, ipv6TcpCompliance=ipv6TcpCompliance, ipv6TcpConnState=ipv6TcpConnState, ipv6TcpConnLocalAddress=ipv6TcpConnLocalAddress)
+mibBuilder.exportSymbols("IPV6-TCP-MIB", PYSNMP_MODULE_ID=ipv6TcpMIB, ipv6TcpCompliance=ipv6TcpCompliance, ipv6TcpConnLocalPort=ipv6TcpConnLocalPort, ipv6TcpGroup=ipv6TcpGroup, ipv6TcpMIB=ipv6TcpMIB, ipv6TcpGroups=ipv6TcpGroups, ipv6TcpConnRemPort=ipv6TcpConnRemPort, ipv6TcpConnEntry=ipv6TcpConnEntry, ipv6TcpConformance=ipv6TcpConformance, ipv6TcpConnRemAddress=ipv6TcpConnRemAddress, ipv6TcpConnTable=ipv6TcpConnTable, ipv6TcpConnLocalAddress=ipv6TcpConnLocalAddress, ipv6TcpConnState=ipv6TcpConnState, ipv6TcpConnIfIndex=ipv6TcpConnIfIndex, tcp=tcp, ipv6TcpCompliances=ipv6TcpCompliances)

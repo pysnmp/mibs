@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-CARRIER-AGGRL1-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-CARRIER-AGGRL1-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:47:37 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:48:32 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Counter32, ObjectIdentity, MibIdentifier, Integer32, TimeTicks, NotificationType, Counter64, ModuleIdentity, Unsigned32, Bits, Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "ObjectIdentity", "MibIdentifier", "Integer32", "TimeTicks", "NotificationType", "Counter64", "ModuleIdentity", "Unsigned32", "Bits", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, IpAddress, TimeTicks, Gauge32, ObjectIdentity, iso, Unsigned32, MibIdentifier, Integer32, NotificationType, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "IpAddress", "TimeTicks", "Gauge32", "ObjectIdentity", "iso", "Unsigned32", "MibIdentifier", "Integer32", "NotificationType", "Bits", "Counter32")
+TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 carrierAggr = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 104))
 carrierAggr.setRevisions(('2016-08-23 00:00',))
 
@@ -82,4 +82,4 @@ if mibBuilder.loadTexts: carrierAggrActuatorSensorIndex.setDescription('This obj
 carrierAggrActuatorConcIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 6), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: carrierAggrActuatorConcIpAddr.setStatus('current')
 if mibBuilder.loadTexts: carrierAggrActuatorConcIpAddr.setDescription('This object is used to contain \n               the Ip address of the equipment connected with this Lan\n               (the concatenator unit)')
-mibBuilder.exportSymbols("SIAE-CARRIER-AGGRL1-MIB", carrierAggrSensorAdminStatus=carrierAggrSensorAdminStatus, PYSNMP_MODULE_ID=carrierAggr, carrierAggrActuatorAdminStatus=carrierAggrActuatorAdminStatus, carrierAggrActuatorRowStatus=carrierAggrActuatorRowStatus, carrierAggrMibVersion=carrierAggrMibVersion, carrierAggrSensorHitlessBehaviour=carrierAggrSensorHitlessBehaviour, carrierAggrSensorHitlessMode=carrierAggrSensorHitlessMode, carrierAggr=carrierAggr, carrierAggrSensorEntry=carrierAggrSensorEntry, carrierAggrActuatorIndex=carrierAggrActuatorIndex, carrierAggrSensorIfIndex=carrierAggrSensorIfIndex, carrierAggrSensorHitlessProfile=carrierAggrSensorHitlessProfile, carrierAggrSensorRowstatus=carrierAggrSensorRowstatus, carrierAggrActuatorConcIpAddr=carrierAggrActuatorConcIpAddr, carrierAggrSensorHitlessStatus=carrierAggrSensorHitlessStatus, carrierAggrSensorIndex=carrierAggrSensorIndex, carrierAggrActuatorSensorIndex=carrierAggrActuatorSensorIndex, carrierAggrActuatorEntry=carrierAggrActuatorEntry, carrierAggrSensorTable=carrierAggrSensorTable, carrierAggrSensorHitlessCapability=carrierAggrSensorHitlessCapability, carrierAggrActuatorIfIndex=carrierAggrActuatorIfIndex, carrierAggrActuatorTable=carrierAggrActuatorTable)
+mibBuilder.exportSymbols("SIAE-CARRIER-AGGRL1-MIB", carrierAggrActuatorConcIpAddr=carrierAggrActuatorConcIpAddr, carrierAggrActuatorIndex=carrierAggrActuatorIndex, carrierAggrSensorHitlessBehaviour=carrierAggrSensorHitlessBehaviour, PYSNMP_MODULE_ID=carrierAggr, carrierAggrActuatorSensorIndex=carrierAggrActuatorSensorIndex, carrierAggrSensorHitlessProfile=carrierAggrSensorHitlessProfile, carrierAggrSensorRowstatus=carrierAggrSensorRowstatus, carrierAggrSensorIfIndex=carrierAggrSensorIfIndex, carrierAggrActuatorIfIndex=carrierAggrActuatorIfIndex, carrierAggrActuatorTable=carrierAggrActuatorTable, carrierAggrSensorHitlessMode=carrierAggrSensorHitlessMode, carrierAggrMibVersion=carrierAggrMibVersion, carrierAggrSensorIndex=carrierAggrSensorIndex, carrierAggrSensorTable=carrierAggrSensorTable, carrierAggrSensorEntry=carrierAggrSensorEntry, carrierAggrActuatorAdminStatus=carrierAggrActuatorAdminStatus, carrierAggrSensorHitlessCapability=carrierAggrSensorHitlessCapability, carrierAggrSensorAdminStatus=carrierAggrSensorAdminStatus, carrierAggrActuatorEntry=carrierAggrActuatorEntry, carrierAggrSensorHitlessStatus=carrierAggrSensorHitlessStatus, carrierAggrActuatorRowStatus=carrierAggrActuatorRowStatus, carrierAggr=carrierAggr)

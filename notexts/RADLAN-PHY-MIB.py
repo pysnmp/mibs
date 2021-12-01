@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module RADLAN-PHY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-PHY-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:41:38 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:43:12 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Counter64, MibIdentifier, Integer32, Gauge32, NotificationType, iso, Unsigned32, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, TimeTicks, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Counter64", "MibIdentifier", "Integer32", "Gauge32", "NotificationType", "iso", "Unsigned32", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "TimeTicks", "ModuleIdentity")
-DisplayString, TextualConvention, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TimeStamp")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Integer32, IpAddress, Bits, Gauge32, Counter64, NotificationType, TimeTicks, Unsigned32, Counter32, MibIdentifier, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "IpAddress", "Bits", "Gauge32", "Counter64", "NotificationType", "TimeTicks", "Unsigned32", "Counter32", "MibIdentifier", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TimeStamp, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TextualConvention")
 rlPhy = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 90))
 rlPhy.setRevisions(('2002-09-30 00:24', '2003-09-21 00:24',))
 if mibBuilder.loadTexts: rlPhy.setLastUpdated('200209300024Z')
@@ -45,4 +45,4 @@ rlPhyTestGetAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 5), Integ
 if mibBuilder.loadTexts: rlPhyTestGetAlarm.setStatus('current')
 rlPhyTestGetTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlPhyTestGetTimeStamp.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-PHY-MIB", rlPhy=rlPhy, rlPhyTestGetAlarm=rlPhyTestGetAlarm, rlPhyTestGetTable=rlPhyTestGetTable, rlPhyTestGetTimeStamp=rlPhyTestGetTimeStamp, rlPhyTest=rlPhyTest, rlPhyTestGetEntry=rlPhyTestGetEntry, rlPhyTestGetStatus=rlPhyTestGetStatus, rlPhyTestSetTable=rlPhyTestSetTable, rlPhyTestSetType=rlPhyTestSetType, PYSNMP_MODULE_ID=rlPhy, rlPhyTestSetEntry=rlPhyTestSetEntry, rlPhyTestGetUnits=rlPhyTestGetUnits, RlPhyTestType=RlPhyTestType, rlPhyTestGetResult=rlPhyTestGetResult, rlPhyTestGetType=rlPhyTestGetType)
+mibBuilder.exportSymbols("RADLAN-PHY-MIB", rlPhyTestGetEntry=rlPhyTestGetEntry, rlPhyTestSetTable=rlPhyTestSetTable, rlPhy=rlPhy, rlPhyTestGetUnits=rlPhyTestGetUnits, PYSNMP_MODULE_ID=rlPhy, RlPhyTestType=RlPhyTestType, rlPhyTestGetStatus=rlPhyTestGetStatus, rlPhyTestGetAlarm=rlPhyTestGetAlarm, rlPhyTest=rlPhyTest, rlPhyTestGetTimeStamp=rlPhyTestGetTimeStamp, rlPhyTestGetType=rlPhyTestGetType, rlPhyTestGetTable=rlPhyTestGetTable, rlPhyTestSetEntry=rlPhyTestSetEntry, rlPhyTestSetType=rlPhyTestSetType, rlPhyTestGetResult=rlPhyTestGetResult)

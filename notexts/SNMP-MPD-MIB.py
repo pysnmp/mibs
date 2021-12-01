@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SNMP-MPD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-MPD-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:24:16 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:24:13 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks, MibIdentifier, ModuleIdentity, Unsigned32, Bits, snmpModules, IpAddress, NotificationType, Counter64, Counter32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks", "MibIdentifier", "ModuleIdentity", "Unsigned32", "Bits", "snmpModules", "IpAddress", "NotificationType", "Counter64", "Counter32", "Gauge32")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Counter64, snmpModules, iso, MibIdentifier, TimeTicks, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, IpAddress, ObjectIdentity, Integer32, Counter32, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "snmpModules", "iso", "MibIdentifier", "TimeTicks", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Integer32", "Counter32", "Gauge32", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 snmpMPDMIB = ModuleIdentity((1, 3, 6, 1, 6, 3, 11))
 snmpMPDMIB.setRevisions(('2002-10-14 00:00', '1999-05-04 16:36', '1997-09-30 00:00',))
@@ -34,4 +34,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 snmpMPDGroup = ObjectGroup((1, 3, 6, 1, 6, 3, 11, 3, 2, 1)).setObjects(("SNMP-MPD-MIB", "snmpUnknownSecurityModels"), ("SNMP-MPD-MIB", "snmpInvalidMsgs"), ("SNMP-MPD-MIB", "snmpUnknownPDUHandlers"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     snmpMPDGroup = snmpMPDGroup.setStatus('current')
-mibBuilder.exportSymbols("SNMP-MPD-MIB", PYSNMP_MODULE_ID=snmpMPDMIB, snmpMPDAdmin=snmpMPDAdmin, snmpMPDCompliance=snmpMPDCompliance, snmpMPDMIBConformance=snmpMPDMIBConformance, snmpUnknownSecurityModels=snmpUnknownSecurityModels, snmpInvalidMsgs=snmpInvalidMsgs, snmpMPDMIB=snmpMPDMIB, snmpUnknownPDUHandlers=snmpUnknownPDUHandlers, snmpMPDMIBCompliances=snmpMPDMIBCompliances, snmpMPDMIBGroups=snmpMPDMIBGroups, snmpMPDGroup=snmpMPDGroup, snmpMPDMIBObjects=snmpMPDMIBObjects, snmpMPDStats=snmpMPDStats)
+mibBuilder.exportSymbols("SNMP-MPD-MIB", snmpMPDMIBGroups=snmpMPDMIBGroups, snmpUnknownSecurityModels=snmpUnknownSecurityModels, snmpMPDGroup=snmpMPDGroup, snmpMPDAdmin=snmpMPDAdmin, snmpMPDMIBConformance=snmpMPDMIBConformance, snmpMPDMIBCompliances=snmpMPDMIBCompliances, snmpInvalidMsgs=snmpInvalidMsgs, snmpMPDMIB=snmpMPDMIB, PYSNMP_MODULE_ID=snmpMPDMIB, snmpMPDMIBObjects=snmpMPDMIBObjects, snmpMPDStats=snmpMPDStats, snmpMPDCompliance=snmpMPDCompliance, snmpUnknownPDUHandlers=snmpUnknownPDUHandlers)

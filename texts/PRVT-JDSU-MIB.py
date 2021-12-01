@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PRVT-JDSU-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-JDSU-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:42:52 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:44:27 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
 VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-ObjectIdentity, ModuleIdentity, Gauge32, Unsigned32, Counter64, IpAddress, NotificationType, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, MibIdentifier, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "Gauge32", "Unsigned32", "Counter64", "IpAddress", "NotificationType", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "MibIdentifier", "Counter32", "iso")
-DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ModuleIdentity, Integer32, Counter32, iso, TimeTicks, Counter64, MibIdentifier, Bits, ObjectIdentity, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ModuleIdentity", "Integer32", "Counter32", "iso", "TimeTicks", "Counter64", "MibIdentifier", "Bits", "ObjectIdentity", "Unsigned32", "Gauge32")
+TextualConvention, DisplayString, MacAddress, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "MacAddress", "RowStatus")
 prvtJdsuMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 137))
 prvtJdsuMib.setRevisions(('2011-03-15 00:00', '2011-02-08 00:00',))
 
@@ -72,4 +72,4 @@ prvtJdsuCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 738, 1, 5, 137, 2, 1, 1
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     prvtJdsuCompliance = prvtJdsuCompliance.setStatus('current')
 if mibBuilder.loadTexts: prvtJdsuCompliance.setDescription('The compliance statement for support of the private JDSU MIB module.')
-mibBuilder.exportSymbols("PRVT-JDSU-MIB", prvtJdsuCompliances=prvtJdsuCompliances, prvtJdsuLoopbackRemoteMac=prvtJdsuLoopbackRemoteMac, prvtJdsuCompliance=prvtJdsuCompliance, prvtJdsuLoopbackRemoteInnerVlan=prvtJdsuLoopbackRemoteInnerVlan, prvtJdsuOperStateChange=prvtJdsuOperStateChange, prvtJdsuLoopback=prvtJdsuLoopback, prvtJdsuMib=prvtJdsuMib, prvtJdsuGroups=prvtJdsuGroups, prvtJdsuObjects=prvtJdsuObjects, prvtJdsuLoopbackAdminStatus=prvtJdsuLoopbackAdminStatus, prvtJdsuLoopbackRemoteOuterVlan=prvtJdsuLoopbackRemoteOuterVlan, prvtJdsuLoopbackOperationalStatus=prvtJdsuLoopbackOperationalStatus, PYSNMP_MODULE_ID=prvtJdsuMib, prvtJdsuLoopbackEntry=prvtJdsuLoopbackEntry, prvtJdsuLoopbackTable=prvtJdsuLoopbackTable, prvtJdsuLoopbackNotificationsGroup=prvtJdsuLoopbackNotificationsGroup, prvtJdsuConformance=prvtJdsuConformance, prvtJdsuLoopbackGroup=prvtJdsuLoopbackGroup, prvtJdsuLoopbackRowStatus=prvtJdsuLoopbackRowStatus, prvtJdsuNotifications=prvtJdsuNotifications, prvtJdsuAdminStateChange=prvtJdsuAdminStateChange)
+mibBuilder.exportSymbols("PRVT-JDSU-MIB", prvtJdsuLoopbackRemoteInnerVlan=prvtJdsuLoopbackRemoteInnerVlan, prvtJdsuConformance=prvtJdsuConformance, PYSNMP_MODULE_ID=prvtJdsuMib, prvtJdsuGroups=prvtJdsuGroups, prvtJdsuCompliance=prvtJdsuCompliance, prvtJdsuObjects=prvtJdsuObjects, prvtJdsuMib=prvtJdsuMib, prvtJdsuLoopbackAdminStatus=prvtJdsuLoopbackAdminStatus, prvtJdsuLoopbackRemoteMac=prvtJdsuLoopbackRemoteMac, prvtJdsuLoopbackOperationalStatus=prvtJdsuLoopbackOperationalStatus, prvtJdsuLoopbackGroup=prvtJdsuLoopbackGroup, prvtJdsuLoopbackRowStatus=prvtJdsuLoopbackRowStatus, prvtJdsuLoopbackTable=prvtJdsuLoopbackTable, prvtJdsuLoopbackEntry=prvtJdsuLoopbackEntry, prvtJdsuLoopbackNotificationsGroup=prvtJdsuLoopbackNotificationsGroup, prvtJdsuNotifications=prvtJdsuNotifications, prvtJdsuCompliances=prvtJdsuCompliances, prvtJdsuLoopbackRemoteOuterVlan=prvtJdsuLoopbackRemoteOuterVlan, prvtJdsuLoopback=prvtJdsuLoopback, prvtJdsuAdminStateChange=prvtJdsuAdminStateChange, prvtJdsuOperStateChange=prvtJdsuOperStateChange)

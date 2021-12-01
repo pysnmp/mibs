@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MITEL-APPLICATION-PLATFORM-LIST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mitel/MITEL-APPLICATION-PLATFORM-LIST-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:31:40 2021
-# On host fv-az77-605 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  1 17:32:26 2021
+# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
 mitelIdentification, = mibBuilder.importSymbols("MITEL-MIB", "mitelIdentification")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, ObjectIdentity, Counter64, Counter32, NotificationType, MibIdentifier, Bits, Gauge32, TimeTicks, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "Counter64", "Counter32", "NotificationType", "MibIdentifier", "Bits", "Gauge32", "TimeTicks", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32")
+Bits, NotificationType, IpAddress, MibIdentifier, ObjectIdentity, Counter64, Gauge32, TimeTicks, iso, Unsigned32, Counter32, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "IpAddress", "MibIdentifier", "ObjectIdentity", "Counter64", "Gauge32", "TimeTicks", "iso", "Unsigned32", "Counter32", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mitelIdApplicationPlatforms = ModuleIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 6))
 mitelIdApplicationPlatforms.setRevisions(('2014-02-11 12:00', '2006-08-10 00:00', '2005-08-24 21:34',))
@@ -48,4 +48,4 @@ if mibBuilder.loadTexts: mitelIdAppPlatAXTelephonyServer.setDescription('The Mit
 mitelIdAppPlatMXTTelephonyServer = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 6, 9))
 if mibBuilder.loadTexts: mitelIdAppPlatMXTTelephonyServer.setStatus('current')
 if mibBuilder.loadTexts: mitelIdAppPlatMXTTelephonyServer.setDescription('The Mitel Networks MXT Telephony server platform.')
-mibBuilder.exportSymbols("MITEL-APPLICATION-PLATFORM-LIST-MIB", mitelIdApplicationPlatforms=mitelIdApplicationPlatforms, mitelIdAppPlatLiteTelephonyServer=mitelIdAppPlatLiteTelephonyServer, mitelIdAppPlatCXiTelephonyServer=mitelIdAppPlatCXiTelephonyServer, mitelIdAppPlatAXTelephonyServer=mitelIdAppPlatAXTelephonyServer, PYSNMP_MODULE_ID=mitelIdApplicationPlatforms, mitelIdAppPlatManagementApplicationServer=mitelIdAppPlatManagementApplicationServer, mitelIdAppPlatCXTelephonyServer=mitelIdAppPlatCXTelephonyServer, mitelIdAppPlatLXTelephonyServer=mitelIdAppPlatLXTelephonyServer, mitelIdAppPlatMXeTelephonyServer=mitelIdAppPlatMXeTelephonyServer, mitelIdAppPlatMXTelephonyServer=mitelIdAppPlatMXTelephonyServer, mitelIdAppPlatMXTTelephonyServer=mitelIdAppPlatMXTTelephonyServer)
+mibBuilder.exportSymbols("MITEL-APPLICATION-PLATFORM-LIST-MIB", mitelIdAppPlatAXTelephonyServer=mitelIdAppPlatAXTelephonyServer, mitelIdAppPlatCXiTelephonyServer=mitelIdAppPlatCXiTelephonyServer, mitelIdApplicationPlatforms=mitelIdApplicationPlatforms, mitelIdAppPlatManagementApplicationServer=mitelIdAppPlatManagementApplicationServer, mitelIdAppPlatLXTelephonyServer=mitelIdAppPlatLXTelephonyServer, mitelIdAppPlatLiteTelephonyServer=mitelIdAppPlatLiteTelephonyServer, mitelIdAppPlatCXTelephonyServer=mitelIdAppPlatCXTelephonyServer, mitelIdAppPlatMXTelephonyServer=mitelIdAppPlatMXTelephonyServer, mitelIdAppPlatMXeTelephonyServer=mitelIdAppPlatMXeTelephonyServer, PYSNMP_MODULE_ID=mitelIdApplicationPlatforms, mitelIdAppPlatMXTTelephonyServer=mitelIdAppPlatMXTTelephonyServer)
