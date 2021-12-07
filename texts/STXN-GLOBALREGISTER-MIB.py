@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STXN-GLOBALREGISTER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/STXN-GLOBALREGISTER-MIB
-# Produced by pysmi-1.1.3 at Tue Dec  7 17:09:19 2021
-# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Dec  7 17:09:21 2021
+# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, TimeTicks, IpAddress, Gauge32, Counter64, NotificationType, ObjectIdentity, MibIdentifier, ModuleIdentity, enterprises, Unsigned32, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "TimeTicks", "IpAddress", "Gauge32", "Counter64", "NotificationType", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "enterprises", "Unsigned32", "Integer32", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter32, Gauge32, IpAddress, NotificationType, MibIdentifier, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, ModuleIdentity, enterprises, Integer32, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "IpAddress", "NotificationType", "MibIdentifier", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "ModuleIdentity", "enterprises", "Integer32", "Unsigned32", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stxnGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 2509, 6, 1))
 stxnGlobalRegModule.setRevisions(('2014-01-21 03:58', '2011-11-28 00:07', '2011-03-14 01:19', '2009-07-23 04:15', '2009-04-16 23:58', '2004-02-20 00:55', '2003-01-29 03:31', '2002-11-28 23:58', '2002-10-08 19:35', '2002-09-03 23:15', '2001-11-15 01:10', '2001-03-14 20:41', '2001-02-13 20:21',))
 
@@ -125,4 +125,4 @@ if mibBuilder.loadTexts: stxnUnityIDUEvents.setDescription('Event Definition.')
 stxnEfficientSiteEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 2509, 7, 5))
 if mibBuilder.loadTexts: stxnEfficientSiteEvents.setStatus('current')
 if mibBuilder.loadTexts: stxnEfficientSiteEvents.setDescription('Event Definition.')
-mibBuilder.exportSymbols("STXN-GLOBALREGISTER-MIB", dmcSecurity=dmcSecurity, stxnGeneric=stxnGeneric, dmcNet=dmcNet, stxnUNITY=stxnUNITY, stxnOvationEvents=stxnOvationEvents, stxnUnityAOUEvents=stxnUnityAOUEvents, stxnProVision=stxnProVision, sp2Radio=sp2Radio, dmcEvents=dmcEvents, aviatAmModules=aviatAmModules, stxnEfficientSiteControllerUnit=stxnEfficientSiteControllerUnit, stxnGlobalRegModule=stxnGlobalRegModule, stxnEfficientSiteEvents=stxnEfficientSiteEvents, altium=altium, stxnModules=stxnModules, snmpRadio=snmpRadio, aviatAfModules=aviatAfModules, aviatAaModules=aviatAaModules, stxnAOU=stxnAOU, aviatModules=aviatModules, stxnLMCDR=stxnLMCDR, PYSNMP_MODULE_ID=stxnGlobalRegModule, proxyAgent=proxyAgent, dmc=dmc, stxnEfficientSite=stxnEfficientSite, stxnCTU=stxnCTU, nonsnmpRadio=nonsnmpRadio, stxnUnityCTUEvents=stxnUnityCTUEvents, stxnUnityIDUEvents=stxnUnityIDUEvents, stxnProductOIDs=stxnProductOIDs, stxnEngineering=stxnEngineering, aviatProducts=aviatProducts, stxnEvents=stxnEvents, stxnProducts=stxnProducts, aviatAlModules=aviatAlModules, dmcModules=dmcModules, aviatEvents=aviatEvents)
+mibBuilder.exportSymbols("STXN-GLOBALREGISTER-MIB", stxnEvents=stxnEvents, aviatAmModules=aviatAmModules, stxnEngineering=stxnEngineering, dmcSecurity=dmcSecurity, aviatModules=aviatModules, aviatAaModules=aviatAaModules, dmcNet=dmcNet, stxnLMCDR=stxnLMCDR, dmcEvents=dmcEvents, dmc=dmc, proxyAgent=proxyAgent, stxnGeneric=stxnGeneric, aviatProducts=aviatProducts, stxnUnityIDUEvents=stxnUnityIDUEvents, stxnEfficientSiteEvents=stxnEfficientSiteEvents, aviatAfModules=aviatAfModules, stxnAOU=stxnAOU, aviatEvents=aviatEvents, stxnEfficientSiteControllerUnit=stxnEfficientSiteControllerUnit, dmcModules=dmcModules, stxnGlobalRegModule=stxnGlobalRegModule, PYSNMP_MODULE_ID=stxnGlobalRegModule, aviatAlModules=aviatAlModules, stxnUnityAOUEvents=stxnUnityAOUEvents, stxnProductOIDs=stxnProductOIDs, stxnModules=stxnModules, nonsnmpRadio=nonsnmpRadio, stxnProducts=stxnProducts, stxnOvationEvents=stxnOvationEvents, altium=altium, stxnEfficientSite=stxnEfficientSite, stxnCTU=stxnCTU, sp2Radio=sp2Radio, stxnUNITY=stxnUNITY, stxnUnityCTUEvents=stxnUnityCTUEvents, snmpRadio=snmpRadio, stxnProVision=stxnProVision)

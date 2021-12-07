@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-LMGR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-LMGR-MIB
-# Produced by pysmi-1.1.3 at Tue Dec  7 17:25:02 2021
-# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Dec  7 17:28:22 2021
+# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
 InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
 mpls, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "mpls")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, TimeTicks, ObjectIdentity, Counter32, Integer32, iso, IpAddress, Counter64, Bits, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "TimeTicks", "ObjectIdentity", "Counter32", "Integer32", "iso", "IpAddress", "Counter64", "Bits", "Unsigned32", "MibIdentifier")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, IpAddress, Gauge32, ModuleIdentity, ObjectIdentity, Counter32, Counter64, iso, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Gauge32", "ModuleIdentity", "ObjectIdentity", "Counter32", "Counter64", "iso", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "Unsigned32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 prvtLmgrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 4))
 prvtLmgrMIB.setRevisions(('2006-06-11 00:00',))
 if mibBuilder.loadTexts: prvtLmgrMIB.setLastUpdated('200606110000Z')
@@ -82,4 +82,4 @@ prvtLmgrLsrLspOutSegLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 4, 
 if mibBuilder.loadTexts: prvtLmgrLsrLspOutSegLabel.setStatus('current')
 prvtLmgrLsrLspOutSegNextHopAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 4, 1, 3, 1, 9), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: prvtLmgrLsrLspOutSegNextHopAddr.setStatus('current')
-mibBuilder.exportSymbols("PRVT-LMGR-MIB", prvtLmgrLsrLspOutSegLabel=prvtLmgrLsrLspOutSegLabel, prvtlmgrLsrEntityLsrIndex=prvtlmgrLsrEntityLsrIndex, PrvtLmgrIndex=PrvtLmgrIndex, prvtLmgrLsrLspInSegLabel=prvtLmgrLsrLspInSegLabel, PrvtLmgrControlModes=PrvtLmgrControlModes, prvtLmgrLsrLspInSegIndex=prvtLmgrLsrLspInSegIndex, PrvtLmgrAdminStatus=PrvtLmgrAdminStatus, prvtLmgrLsrEntityTable=prvtLmgrLsrEntityTable, prvtLmgrLsrLspXcIndex=prvtLmgrLsrLspXcIndex, prvtLmgrLsrEntityTranAddr=prvtLmgrLsrEntityTranAddr, prvtLmgrLsrLspOutSegIndex=prvtLmgrLsrLspOutSegIndex, prvtLmgrMIB=prvtLmgrMIB, PrvtLmgrPartnerStatus=PrvtLmgrPartnerStatus, prvtLmgrLsrEntityTranAddrType=prvtLmgrLsrEntityTranAddrType, prvtLmgrLsrLspOutSegIfIndex=prvtLmgrLsrLspOutSegIfIndex, prvtLmgrObjects=prvtLmgrObjects, prvtLmgrLsrEntityRowStatus=prvtLmgrLsrEntityRowStatus, prvtLmgrLsrEntityAdminStatus=prvtLmgrLsrEntityAdminStatus, prvtLmgrLsrEntityLsrId=prvtLmgrLsrEntityLsrId, prvtLmgrLsrEntityTranAddrLen=prvtLmgrLsrEntityTranAddrLen, PYSNMP_MODULE_ID=prvtLmgrMIB, prvtLmgrLsrLspXcTable=prvtLmgrLsrLspXcTable, PrvtLmgrOperStatus=PrvtLmgrOperStatus, prvtLmgrLsrLspOutSegNextHopAddr=prvtLmgrLsrLspOutSegNextHopAddr, prvtLmgrLsrEntityOperStatus=prvtLmgrLsrEntityOperStatus, prvtLmgrLsrLspInSegIfIndex=prvtLmgrLsrLspInSegIfIndex, prvtLmgrLsrEntityEntry=prvtLmgrLsrEntityEntry, prvtLmgrLsrLspXcEntry=prvtLmgrLsrLspXcEntry)
+mibBuilder.exportSymbols("PRVT-LMGR-MIB", prvtlmgrLsrEntityLsrIndex=prvtlmgrLsrEntityLsrIndex, prvtLmgrLsrEntityRowStatus=prvtLmgrLsrEntityRowStatus, prvtLmgrLsrEntityTranAddr=prvtLmgrLsrEntityTranAddr, prvtLmgrLsrLspXcIndex=prvtLmgrLsrLspXcIndex, prvtLmgrLsrLspOutSegIndex=prvtLmgrLsrLspOutSegIndex, PYSNMP_MODULE_ID=prvtLmgrMIB, prvtLmgrLsrEntityTable=prvtLmgrLsrEntityTable, prvtLmgrLsrEntityTranAddrType=prvtLmgrLsrEntityTranAddrType, PrvtLmgrIndex=PrvtLmgrIndex, PrvtLmgrAdminStatus=PrvtLmgrAdminStatus, PrvtLmgrPartnerStatus=PrvtLmgrPartnerStatus, prvtLmgrMIB=prvtLmgrMIB, prvtLmgrLsrEntityAdminStatus=prvtLmgrLsrEntityAdminStatus, prvtLmgrLsrEntityLsrId=prvtLmgrLsrEntityLsrId, prvtLmgrObjects=prvtLmgrObjects, PrvtLmgrOperStatus=PrvtLmgrOperStatus, prvtLmgrLsrLspOutSegLabel=prvtLmgrLsrLspOutSegLabel, prvtLmgrLsrLspOutSegIfIndex=prvtLmgrLsrLspOutSegIfIndex, prvtLmgrLsrLspInSegIndex=prvtLmgrLsrLspInSegIndex, prvtLmgrLsrLspInSegLabel=prvtLmgrLsrLspInSegLabel, prvtLmgrLsrEntityOperStatus=prvtLmgrLsrEntityOperStatus, prvtLmgrLsrLspXcEntry=prvtLmgrLsrLspXcEntry, prvtLmgrLsrLspOutSegNextHopAddr=prvtLmgrLsrLspOutSegNextHopAddr, prvtLmgrLsrEntityEntry=prvtLmgrLsrEntityEntry, prvtLmgrLsrEntityTranAddrLen=prvtLmgrLsrEntityTranAddrLen, prvtLmgrLsrLspInSegIfIndex=prvtLmgrLsrLspInSegIfIndex, prvtLmgrLsrLspXcTable=prvtLmgrLsrLspXcTable, PrvtLmgrControlModes=PrvtLmgrControlModes)
