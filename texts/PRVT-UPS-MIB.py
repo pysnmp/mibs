@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-UPS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-UPS-MIB
-# Produced by pysmi-1.1.3 at Tue Dec  7 14:18:00 2021
-# On host fv-az33-388 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Dec  7 14:20:42 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Counter64, Gauge32, Integer32, Unsigned32, ObjectIdentity, iso, MibIdentifier, Counter32, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter64", "Gauge32", "Integer32", "Unsigned32", "ObjectIdentity", "iso", "MibIdentifier", "Counter32", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Bits")
+IpAddress, ModuleIdentity, Bits, Gauge32, ObjectIdentity, NotificationType, iso, Counter32, Integer32, Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "Bits", "Gauge32", "ObjectIdentity", "NotificationType", "iso", "Counter32", "Integer32", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "MibIdentifier")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 prvtUPSMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 103))
 prvtUPSMib.setRevisions(('2008-01-01 00:00', '2005-02-16 00:00', '2003-05-08 00:00', '2002-01-28 00:00',))
@@ -44,4 +44,4 @@ prvtUPSNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 738, 1, 5, 103, 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     prvtUPSNotificationGroup = prvtUPSNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: prvtUPSNotificationGroup.setDescription('Private Notification Group.')
-mibBuilder.exportSymbols("PRVT-UPS-MIB", upsConnectedStatus=upsConnectedStatus, upsStatusChange=upsStatusChange, prvtUPSMib=prvtUPSMib, upsBatteryStorageStatus=upsBatteryStorageStatus, prvtUPSConformance=prvtUPSConformance, upsStatus=upsStatus, prvtUPSNotificationGroup=prvtUPSNotificationGroup, PYSNMP_MODULE_ID=prvtUPSMib, prvtUPSMIBGroups=prvtUPSMIBGroups, upsInternalStatus=upsInternalStatus, upsLinePowerStatus=upsLinePowerStatus, prvtUPSNotifications=prvtUPSNotifications)
+mibBuilder.exportSymbols("PRVT-UPS-MIB", upsBatteryStorageStatus=upsBatteryStorageStatus, upsInternalStatus=upsInternalStatus, prvtUPSConformance=prvtUPSConformance, PYSNMP_MODULE_ID=prvtUPSMib, upsStatus=upsStatus, prvtUPSNotificationGroup=prvtUPSNotificationGroup, prvtUPSNotifications=prvtUPSNotifications, prvtUPSMib=prvtUPSMib, upsLinePowerStatus=upsLinePowerStatus, upsStatusChange=upsStatusChange, prvtUPSMIBGroups=prvtUPSMIBGroups, upsConnectedStatus=upsConnectedStatus)

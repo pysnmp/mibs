@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-TEMIB-ENTITY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-TEMIB-ENTITY-MIB
-# Produced by pysmi-1.1.3 at Tue Dec  7 14:17:50 2021
-# On host fv-az33-388 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Dec  7 14:20:35 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 mpls, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "mpls")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, NotificationType, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Counter32, Counter64, ModuleIdentity, Bits, ObjectIdentity, iso, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "NotificationType", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Counter32", "Counter64", "ModuleIdentity", "Bits", "ObjectIdentity", "iso", "Integer32", "Gauge32")
-DisplayString, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, ObjectIdentity, IpAddress, Counter32, NotificationType, ModuleIdentity, Counter64, Bits, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "ObjectIdentity", "IpAddress", "Counter32", "NotificationType", "ModuleIdentity", "Counter64", "Bits", "Gauge32")
+DisplayString, TextualConvention, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "TruthValue")
 prvtTeMibEntityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 8))
 prvtTeMibEntityMIB.setRevisions(('2007-12-06 00:00',))
 if mibBuilder.loadTexts: prvtTeMibEntityMIB.setLastUpdated('200712060000Z')
@@ -56,4 +56,4 @@ mplsTunnelConfigured = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 8, 1, 3,
 if mibBuilder.loadTexts: mplsTunnelConfigured.setStatus('current')
 mplsTunnelActive = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 8, 1, 3, 1, 2), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mplsTunnelActive.setStatus('current')
-mibBuilder.exportSymbols("PRVT-TEMIB-ENTITY-MIB", prvtMplsTeMibDynFacilityBypass=prvtMplsTeMibDynFacilityBypass, prvtMplsTeMibEntityIndex=prvtMplsTeMibEntityIndex, PrvtTeMibPartnerStatus=PrvtTeMibPartnerStatus, PrvtTeMibAdminStatus=PrvtTeMibAdminStatus, prvtMplsTeMibEntityScalarTable=prvtMplsTeMibEntityScalarTable, prvtMplsTeMibEntityTable=prvtMplsTeMibEntityTable, mplsTunnelConfigured=mplsTunnelConfigured, prvtMplsTeMibEntityScalarEntry=prvtMplsTeMibEntityScalarEntry, PYSNMP_MODULE_ID=prvtTeMibEntityMIB, PrvtTeMibEntityIndex=PrvtTeMibEntityIndex, mplsTunnelHoldTimer=mplsTunnelHoldTimer, prvtTeMibEntityMIBObjects=prvtTeMibEntityMIBObjects, mplsTunnelActive=mplsTunnelActive, PrvtTeMibOperStatus=PrvtTeMibOperStatus, prvtMplsTeMibEntityEntry=prvtMplsTeMibEntityEntry, prvtTeMibEntityMIB=prvtTeMibEntityMIB, prvtMplsTeMibEntityRowStatus=prvtMplsTeMibEntityRowStatus)
+mibBuilder.exportSymbols("PRVT-TEMIB-ENTITY-MIB", prvtMplsTeMibEntityIndex=prvtMplsTeMibEntityIndex, PrvtTeMibAdminStatus=PrvtTeMibAdminStatus, mplsTunnelConfigured=mplsTunnelConfigured, PrvtTeMibEntityIndex=PrvtTeMibEntityIndex, PrvtTeMibOperStatus=PrvtTeMibOperStatus, PrvtTeMibPartnerStatus=PrvtTeMibPartnerStatus, prvtTeMibEntityMIB=prvtTeMibEntityMIB, prvtMplsTeMibEntityRowStatus=prvtMplsTeMibEntityRowStatus, prvtMplsTeMibDynFacilityBypass=prvtMplsTeMibDynFacilityBypass, prvtMplsTeMibEntityScalarEntry=prvtMplsTeMibEntityScalarEntry, PYSNMP_MODULE_ID=prvtTeMibEntityMIB, prvtTeMibEntityMIBObjects=prvtTeMibEntityMIBObjects, mplsTunnelHoldTimer=mplsTunnelHoldTimer, prvtMplsTeMibEntityScalarTable=prvtMplsTeMibEntityScalarTable, prvtMplsTeMibEntityEntry=prvtMplsTeMibEntityEntry, mplsTunnelActive=mplsTunnelActive, prvtMplsTeMibEntityTable=prvtMplsTeMibEntityTable)

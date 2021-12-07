@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-MPLS-IF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-MPLS-IF-MIB
-# Produced by pysmi-1.1.3 at Tue Dec  7 14:17:53 2021
-# On host fv-az33-388 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Dec  7 14:20:37 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 mpls, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "mpls")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, Counter32, NotificationType, Unsigned32, ObjectIdentity, MibIdentifier, TimeTicks, Bits, ModuleIdentity, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "Counter32", "NotificationType", "Unsigned32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Bits", "ModuleIdentity", "Integer32", "Gauge32")
-TruthValue, DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention", "RowStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Bits, TimeTicks, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, NotificationType, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "TimeTicks", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "NotificationType", "iso", "IpAddress")
+TextualConvention, RowStatus, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "TruthValue")
 prvtMplsIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 6))
 prvtMplsIfMIB.setRevisions(('2011-08-05 00:00', '2010-04-28 00:00',))
 
@@ -95,4 +95,4 @@ if mibBuilder.loadTexts: prvtMplsRouteAddressIpAddrMask.setDescription('The IP p
 prvtMplsRouteAddressRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 6, 1, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: prvtMplsRouteAddressRowStatus.setStatus('current')
 if mibBuilder.loadTexts: prvtMplsRouteAddressRowStatus.setDescription('This is object is used to create an entry in the table.')
-mibBuilder.exportSymbols("PRVT-MPLS-IF-MIB", EgressLabelUsageType=EgressLabelUsageType, prvtMplsRouteProtocolRowStatus=prvtMplsRouteProtocolRowStatus, prvtMplsRouteAddressTable=prvtMplsRouteAddressTable, ifaceMplsRsvpEgrLabelUsage=ifaceMplsRsvpEgrLabelUsage, prvtMplsRouteProtocolType=prvtMplsRouteProtocolType, ifaceMplsLdpEgrLabelUsage=ifaceMplsLdpEgrLabelUsage, prvtMplsRouteProtocolTable=prvtMplsRouteProtocolTable, ifaceMplsRowStatus=ifaceMplsRowStatus, PrvtMplsIpAddressMask=PrvtMplsIpAddressMask, prvtMplsRouteAddressEntry=prvtMplsRouteAddressEntry, prvtMplsIfaceObjs=prvtMplsIfaceObjs, prvtMplsIfMIBObjects=prvtMplsIfMIBObjects, prvtMplsRouteAddressIpAddrMask=prvtMplsRouteAddressIpAddrMask, PYSNMP_MODULE_ID=prvtMplsIfMIB, prvtMplsIfaceTable=prvtMplsIfaceTable, ifaceMplsSignalCapabilities=ifaceMplsSignalCapabilities, prvtMplsRouteProtocolEntry=prvtMplsRouteProtocolEntry, prvtMplsIfMIB=prvtMplsIfMIB, prvtMplsRouteObjs=prvtMplsRouteObjs, prvtMplsRouteProtocolDirection=prvtMplsRouteProtocolDirection, prvtMplsIfaceEntry=prvtMplsIfaceEntry, ifaceMplsLdpHelloHoldTimer=ifaceMplsLdpHelloHoldTimer, ifaceMplsPHPEnable=ifaceMplsPHPEnable, ifaceMplsLdpKeepaliveHoldTimer=ifaceMplsLdpKeepaliveHoldTimer, prvtMplsRouteAddressRowStatus=prvtMplsRouteAddressRowStatus, ifaceMplsEnable=ifaceMplsEnable)
+mibBuilder.exportSymbols("PRVT-MPLS-IF-MIB", prvtMplsRouteProtocolDirection=prvtMplsRouteProtocolDirection, prvtMplsIfMIB=prvtMplsIfMIB, prvtMplsRouteAddressIpAddrMask=prvtMplsRouteAddressIpAddrMask, ifaceMplsLdpKeepaliveHoldTimer=ifaceMplsLdpKeepaliveHoldTimer, ifaceMplsPHPEnable=ifaceMplsPHPEnable, ifaceMplsLdpEgrLabelUsage=ifaceMplsLdpEgrLabelUsage, prvtMplsRouteProtocolType=prvtMplsRouteProtocolType, ifaceMplsSignalCapabilities=ifaceMplsSignalCapabilities, prvtMplsIfMIBObjects=prvtMplsIfMIBObjects, prvtMplsIfaceObjs=prvtMplsIfaceObjs, prvtMplsRouteAddressRowStatus=prvtMplsRouteAddressRowStatus, prvtMplsRouteAddressTable=prvtMplsRouteAddressTable, prvtMplsRouteAddressEntry=prvtMplsRouteAddressEntry, PYSNMP_MODULE_ID=prvtMplsIfMIB, prvtMplsIfaceTable=prvtMplsIfaceTable, ifaceMplsRowStatus=ifaceMplsRowStatus, PrvtMplsIpAddressMask=PrvtMplsIpAddressMask, ifaceMplsLdpHelloHoldTimer=ifaceMplsLdpHelloHoldTimer, prvtMplsRouteObjs=prvtMplsRouteObjs, prvtMplsRouteProtocolRowStatus=prvtMplsRouteProtocolRowStatus, prvtMplsIfaceEntry=prvtMplsIfaceEntry, EgressLabelUsageType=EgressLabelUsageType, ifaceMplsEnable=ifaceMplsEnable, ifaceMplsRsvpEgrLabelUsage=ifaceMplsRsvpEgrLabelUsage, prvtMplsRouteProtocolTable=prvtMplsRouteProtocolTable, prvtMplsRouteProtocolEntry=prvtMplsRouteProtocolEntry)

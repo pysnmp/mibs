@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-OSPF-EXTENSION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-OSPF-EXTENSION-MIB
-# Produced by pysmi-1.1.3 at Tue Dec  7 14:18:00 2021
-# On host fv-az33-388 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Dec  7 14:20:42 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ipSwitch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "ipSwitch")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, NotificationType, Gauge32, Integer32, Unsigned32, ObjectIdentity, iso, MibIdentifier, Counter32, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "NotificationType", "Gauge32", "Integer32", "Unsigned32", "ObjectIdentity", "iso", "MibIdentifier", "Counter32", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Bits")
-TruthValue, TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "RowStatus")
+IpAddress, ModuleIdentity, Bits, Gauge32, ObjectIdentity, iso, NotificationType, Counter32, Integer32, Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "Bits", "Gauge32", "ObjectIdentity", "iso", "NotificationType", "Counter32", "Integer32", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "MibIdentifier")
+TextualConvention, RowStatus, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "TruthValue", "DisplayString")
 prvtOSPFExtensionMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 6, 4, 2))
 prvtOSPFExtensionMib.setRevisions(('2008-01-01 00:00', '2005-02-16 00:00', '2002-11-11 00:00',))
 
@@ -47,4 +47,4 @@ if mibBuilder.loadTexts: ospfRedistributeRouteMap.setDescription('The route map 
 ospfRedistributeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 1, 6, 4, 2, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: ospfRedistributeRowStatus.setStatus('current')
 if mibBuilder.loadTexts: ospfRedistributeRowStatus.setDescription('Indicates the status of the row. Setting of this field to active enables the \n        redistribution of the protocol.\n        \n        Setting this field to destroy disables the redistribution of the protocol.')
-mibBuilder.exportSymbols("PRVT-OSPF-EXTENSION-MIB", ospfEnable=ospfEnable, ospfRedistributeRouteMap=ospfRedistributeRouteMap, ospfRedistributeEntry=ospfRedistributeEntry, ospfRedistributeTable=ospfRedistributeTable, routingProtocols=routingProtocols, ospfRedistributeRowStatus=ospfRedistributeRowStatus, ospfRedistributeMetricType=ospfRedistributeMetricType, ospfExtension=ospfExtension, prvtOSPFExtensionMib=prvtOSPFExtensionMib, ospfRedistributeProtocol=ospfRedistributeProtocol, PYSNMP_MODULE_ID=prvtOSPFExtensionMib, ospfRedistributeMetric=ospfRedistributeMetric)
+mibBuilder.exportSymbols("PRVT-OSPF-EXTENSION-MIB", ospfRedistributeMetricType=ospfRedistributeMetricType, ospfRedistributeRowStatus=ospfRedistributeRowStatus, ospfRedistributeProtocol=ospfRedistributeProtocol, PYSNMP_MODULE_ID=prvtOSPFExtensionMib, ospfRedistributeRouteMap=ospfRedistributeRouteMap, ospfRedistributeTable=ospfRedistributeTable, ospfRedistributeMetric=ospfRedistributeMetric, routingProtocols=routingProtocols, ospfRedistributeEntry=ospfRedistributeEntry, ospfEnable=ospfEnable, ospfExtension=ospfExtension, prvtOSPFExtensionMib=prvtOSPFExtensionMib)
