@@ -2,7 +2,7 @@ ALCATEL-IND1-VRRP3-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
         MODULE-IDENTITY, OBJECT-TYPE,
-        NOTIFICATION-TYPE, Counter32,
+        NOTIFICATION-TYPE, Counter32, 
         Integer32                           FROM SNMPv2-SMI
 
         RowStatus, MacAddress,
@@ -10,11 +10,11 @@ IMPORTS
 
         MODULE-COMPLIANCE, OBJECT-GROUP,
         NOTIFICATION-GROUP                  FROM SNMPv2-CONF
-        softentIND1Vrrp                     FROM ALCATEL-IND1-BASE
+	softentIND1Vrrp                     FROM ALCATEL-IND1-BASE
         ifIndex                             FROM IF-MIB
         InetAddressType, InetAddress        FROM INET-ADDRESS-MIB
 
-        VrId                                FROM VRRP-MIB;
+	VrId                                FROM VRRP-MIB;
 
 
 alcatelIND1VRRP3MIB MODULE-IDENTITY
@@ -44,14 +44,14 @@ alcatelIND1VRRP3MIB MODULE-IDENTITY
         "This module describes an authoritative enterprise-specific Simple
          Network Management Protocol (SNMP) Management Information Base (MIB):
 
-             Proprietary VRRP MIB definitions for simultaneous
+             Proprietary VRRP MIB definitions for simultaneous 
              support of IPv4 and IPv6 protocols.
 
          The right to make changes in specification and other information
          contained in this document without prior notice is reserved.
 
          No liability shall be assumed for any incidental, indirect, special,
-               or consequential damages whatsoever arising from or related to this
+	       or consequential damages whatsoever arising from or related to this
          document or the information contained herein.
 
          Vendors, end-users, and other interested parties are granted
@@ -127,7 +127,7 @@ alaVrrp3OperEntry OBJECT-TYPE
          'alaVrrp3OperState' has transitioned to
          'initialize'"
 
-    INDEX    { alaVrrp3OperIpVersion, alaVrrp3OperVrId,
+    INDEX    { alaVrrp3OperIpVersion, alaVrrp3OperVrId, 
                ifIndex }
     ::= { alaVrrp3OperTable 1 }
 
@@ -296,7 +296,7 @@ alaVrrp3OperIpAddrCount OBJECT-TYPE
         "The number of IP addresses associated with this
          virtual router. This number is equal to the number
          of rows in the alaVrrp3AssoIpAddrTable that
-         correspond to a given combination of IP version,
+         correspond to a given combination of IP version, 
          VRID, and ifIndex."
     ::= { alaVrrp3OperEntry 8 }
 
@@ -334,8 +334,8 @@ alaVrrp3OperPrimaryIpAddr OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "For VRRP over IPv6 this is the link local address
-         for a given ifIndex.  For VRRP over IPv4, in the
+        "For VRRP over IPv6 this is the link local address 
+         for a given ifIndex.  For VRRP over IPv4, in the 
          case where there is more than one IP address for
          a given `ifIndex', this object is used to
          specify the IP address that will become the
@@ -372,8 +372,8 @@ alaVrrp3OperAcceptMode OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Controls whether a virtual router in the master state
-         will accept packets addressed to the address owner's
-         IPv6 address as its own it it is not the IP address
+         will accept packets addressed to the address owner's 
+         IPv6 address as its own it it is not the IP address 
          owner.
          This is required only for rows indicating VRRP over IPv6.
          This object can be sparse and should not be implemented
@@ -433,7 +433,7 @@ alaVrrp3AssoIpAddrTable OBJECT-TYPE
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
-        "The table of addresses associated with this
+        "The table of addresses associated with this 
          virtual router."
     ::= { alaVrrp3Operations 3 }
 
@@ -444,7 +444,7 @@ alaVrrp3AssoIpAddrEntry OBJECT-TYPE
     DESCRIPTION
         "An entry in the table contains an IP address that is
          associated with a virtual router. The number of rows
-         for a given IP version, VrId, and ifIndex will equal
+         for a given IP version, VrId, and ifIndex will equal 
          the number of IP addresses associated (e.g., backed
          up) by the virtual router (equivalent to
          'alaVrrp3OperIpAddrCount').
@@ -453,7 +453,7 @@ alaVrrp3AssoIpAddrEntry OBJECT-TYPE
          of `alaVrrp3OperAdminState' is `disabled' and the
          `alaVrrp3OperState' has transitioned to`initialize'."
 
-    INDEX    { alaVrrp3OperIpVersion, alaVrrp3OperVrId, ifIndex,
+    INDEX    { alaVrrp3OperIpVersion, alaVrrp3OperVrId, ifIndex, 
                alaVrrp3AssoIpAddrType, alaVrrp3AssoIpAddr }
     ::= { alaVrrp3AssoIpAddrTable 1 }
 
@@ -477,7 +477,7 @@ alaVrrp3AssoIpAddrType OBJECT-TYPE
     ::= { alaVrrp3AssoIpAddrEntry 1 }
 
 alaVrrp3AssoIpAddr OBJECT-TYPE
-    SYNTAX       InetAddress(SIZE(4..16))
+    SYNTAX       InetAddress(SIZE(4|16))
     MAX-ACCESS   not-accessible
     STATUS       current
     DESCRIPTION
@@ -551,7 +551,7 @@ alaVrrp3RouterStatsEntry OBJECT-TYPE
     DESCRIPTION
         "An entry in the table, containing statistics
          information about a given virtual router."
-    INDEX    { alaVrrp3OperIpVersion, alaVrrp3OperVrId,
+    INDEX    { alaVrrp3OperIpVersion, alaVrrp3OperVrId, 
                ifIndex }
     ::= { alaVrrp3RouterStatsTable 1 }
 
@@ -738,6 +738,7 @@ alaVrrp3TrapProtoError NOTIFICATION-TYPE
          ErrorReason."
     ::= { alaVrrp3Notifications 2 }
 
+
 --
 --  Conformance Information
 --
@@ -753,8 +754,8 @@ alaVrrp3MIBGroups       OBJECT IDENTIFIER ::= { alaVrrp3Conformance 2 }
 alaVrrp3MIBCompliance MODULE-COMPLIANCE
     STATUS current
     DESCRIPTION
-        "The compliance statement for switches with Alcatel VRRP and
-        implementing ALCATEL-IND1-VRRP3-MIB."
+	"The compliance statement for switches with Alcatel VRRP and
+	implementing ALCATEL-IND1-VRRP3-MIB."
 
     MODULE -- this module
     MANDATORY-GROUPS  {
@@ -795,7 +796,7 @@ alaVrrp3OperGroup   OBJECT-GROUP
     }
     STATUS current
     DESCRIPTION
-        "A collection of objects to support management of Alcatel VRRP."
+	"A collection of objects to support management of Alcatel VRRP."
     ::= { alaVrrp3MIBGroups 1 }
 
 alaVrrp3StatsGroup  OBJECT-GROUP
@@ -816,7 +817,7 @@ alaVrrp3StatsGroup  OBJECT-GROUP
     }
     STATUS current
     DESCRIPTION
-        "A collection of objects to support management of Alcatel VRRP."
+	"A collection of objects to support management of Alcatel VRRP."
     ::= { alaVrrp3MIBGroups 2 }
 
 alaVrrp3TrapInfoGroup  OBJECT-GROUP
@@ -826,7 +827,7 @@ alaVrrp3TrapInfoGroup  OBJECT-GROUP
     }
     STATUS current
     DESCRIPTION
-        "A collection of objects to support management of Alcatel VRRP."
+	"A collection of objects to support management of Alcatel VRRP."
     ::= { alaVrrp3MIBGroups 3 }
 
 alaVrrp3NotificationsGroup NOTIFICATION-GROUP
@@ -836,7 +837,7 @@ alaVrrp3NotificationsGroup NOTIFICATION-GROUP
     }
     STATUS current
     DESCRIPTION
-        "A collection of objects to support management of Alcatel VRRP."
+	"A collection of objects to support management of Alcatel VRRP."
     ::= { alaVrrp3MIBGroups 4 }
 
 END

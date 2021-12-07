@@ -4,10 +4,8 @@ IMPORTS
     MODULE-IDENTITY, OBJECT-TYPE,
     IpAddress, Integer32, Unsigned32
         FROM SNMPv2-SMI
-    RowStatus
+	DisplayString, RowStatus
         FROM SNMPv2-TC
-    SnmpAdminString
-        FROM SNMP-FRAMEWORK-MIB
     MODULE-COMPLIANCE, OBJECT-GROUP
         FROM SNMPv2-CONF
     routingIND1RDP
@@ -71,13 +69,13 @@ alaRDPConfig    OBJECT IDENTIFIER ::= { alcatelIND1RDPMIBObjects 1 }
 
 alaRDPStatus     OBJECT-TYPE
     SYNTAX     INTEGER {
-                enabled     (1),
-                disabled    (2)
+         	enabled     (1),
+         	disabled    (2)
                }
     MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION
-                "Controls the status of Routing Discovery Protocol"
+		"Controls the status of Routing Discovery Protocol"
     DEFVAL     { disabled }
     ::= {alaRDPConfig 1 }
 
@@ -109,10 +107,10 @@ AlaRDPIfEntry ::= SEQUENCE {
         alaRDPIfMinAdvtInterval     Unsigned32,
         alaRDPIfAdvLifeTime     Unsigned32,
         alaRDPIfPrefLevel     Integer32,
-        alaRDPIfRowStatus       RowStatus,
-                alaRDPIfName       SnmpAdminString,
-                alaRDPIPIfStatus                        INTEGER,
-                alaRDPVrrpStatus                        INTEGER
+        alaRDPIfRowStatus	RowStatus,
+		alaRDPIfName       DisplayString,
+		alaRDPIPIfStatus			INTEGER, 
+		alaRDPVrrpStatus			INTEGER
     }
 
 
@@ -123,102 +121,102 @@ alaRDPIfAddr    OBJECT-TYPE
     DESCRIPTION
                 "Interface IP Address of this Router."
     ::= {alaRDPIfEntry 1 }
-
+    
 alaRDPIfStatus       OBJECT-TYPE
     SYNTAX     INTEGER {
-                enabled     (1),
-                disabled    (2)
+         	enabled     (1),
+         	disabled    (2)
                }
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-                "Indicates the status of the RDP interface"
+		"Indicates the status of the RDP interface"
     DEFVAL     { disabled }
     ::= {alaRDPIfEntry 2 }
-
+ 
  alaRDPIfAdvtAddress    OBJECT-TYPE
     SYNTAX      IpAddress
-    MAX-ACCESS  read-create
+    MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION
                 "Default advertisement Address is 224.0.0.1"
-    ::= {alaRDPIfEntry 3 }
+    ::= {alaRDPIfEntry 3 }   
 
  alaRDPIfMaxAdvtInterval       OBJECT-TYPE
     SYNTAX     Unsigned32
-    MAX-ACCESS read-create
+    MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION
-                "Maximum advertisement interval is in seconds"
+		"Maximum advertisement interval is in seconds"
     DEFVAL     { 600 }
     ::= {alaRDPIfEntry 4 }
-
+   
 alaRDPIfMinAdvtInterval       OBJECT-TYPE
     SYNTAX     Unsigned32
-    MAX-ACCESS read-create
+    MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION
-                "Minimum advertisement interval in seconds: 0.75 * alaRDPIfMaxAdvtInterval"
+		"Minimum advertisement interval in seconds: 0.75 * alaRDPIfMaxAdvtInterval"
     ::= {alaRDPIfEntry 5 }
 
 alaRDPIfAdvLifeTime       OBJECT-TYPE
     SYNTAX     Unsigned32
-    MAX-ACCESS read-create
+    MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION
-                "Advertisement Lifetime in seconds: 3 * alaRDPIfMaxAdvtInterval"
+		"Advertisement Lifetime in seconds: 3 * alaRDPIfMaxAdvtInterval"
     ::= {alaRDPIfEntry 6 }
-
+        
 alaRDPIfPrefLevel       OBJECT-TYPE
     SYNTAX     Integer32
-    MAX-ACCESS read-create
+    MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION
-                "Preference level for each IP address advertised on the interface: 0"
+		"Preference level for each IP address advertised on the interface: 0"
     DEFVAL     { 0 }
-    ::= {alaRDPIfEntry  7}
+    ::= {alaRDPIfEntry  7}    
 
 alaRDPIfRowStatus OBJECT-TYPE
     SYNTAX        RowStatus
-    MAX-ACCESS    read-create
+    MAX-ACCESS    read-write
     STATUS        current
     DESCRIPTION
           "The status of this table entry."
     DEFVAL        { notInService }
-    ::= { alaRDPIfEntry 8}
-
+    ::= { alaRDPIfEntry 8}            
+	
 alaRDPIfName OBJECT-TYPE
-        SYNTAX                  SnmpAdminString
-        MAX-ACCESS      read-only
-        STATUS                  current
-        DESCRIPTION
-                "The user defined name used to identify the IP interface"
-        ::= { alaRDPIfEntry 9 }
+	SYNTAX  		DisplayString	
+	MAX-ACCESS   	read-only
+	STATUS   		current
+	DESCRIPTION
+		"The user defined name used to identify the IP interface"
+	::= { alaRDPIfEntry 9 }
 
 alaRDPIPIfStatus       OBJECT-TYPE
     SYNTAX     INTEGER {
-                enabled     (1),
-                disabled    (2)
+         	enabled     (1),
+         	disabled    (2)
                }
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-                "Indicates the status of the IP interface"
+		"Indicates the status of the IP interface"
     DEFVAL     { disabled }
     ::= {alaRDPIfEntry 10 }
-
+ 
 alaRDPVrrpStatus       OBJECT-TYPE
     SYNTAX     INTEGER {
-                enabled     (1),
-                disabled    (2)
+         	enabled     (1),
+         	disabled    (2)
                }
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-                "Indicates the status of the VRRP interface"
+		"Indicates the status of the VRRP interface"
     DEFVAL     { disabled }
     ::= {alaRDPIfEntry 11 }
-
+	
 
 -- conformance information
 
@@ -243,19 +241,19 @@ alcatelIND1RDPMIBCompliance MODULE-COMPLIANCE
 -- units of conformance
 
 alaRDPConfigMIBGroup OBJECT-GROUP
-    OBJECTS {
-        alaRDPStatus,
-        alaRDPIfAddr,
-        alaRDPIfStatus,
+    OBJECTS {        
+    	alaRDPStatus,
+    	alaRDPIfAddr,
+    	alaRDPIfStatus,
         alaRDPIfAdvtAddress,
         alaRDPIfMaxAdvtInterval,
         alaRDPIfMinAdvtInterval,
         alaRDPIfAdvLifeTime,
         alaRDPIfPrefLevel,
         alaRDPIfRowStatus,
-                alaRDPIfName,
-                alaRDPIPIfStatus,
-                alaRDPVrrpStatus
+		alaRDPIfName,  
+		alaRDPIPIfStatus, 
+		alaRDPVrrpStatus
             }
     STATUS  current
     DESCRIPTION

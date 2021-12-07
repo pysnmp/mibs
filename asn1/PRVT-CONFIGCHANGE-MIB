@@ -1,102 +1,158 @@
 -- *********************************************************************
--- **
--- ** BATM Advanced Communications.
--- **
 -- *********************************************************************
--- ** Filename: PRVT-CONFIGCHANGE-MIB.mib
--- ** Project: T-Metro Switches.
+-- ** Filename: PRVT-CONFIGCHANGE-MIB
+-- ** Project: T - Ethernet and Fast Ethernet IP Switches.
 -- ** Purpose: Private MIB
 -- *********************************************************************
--- (c) Copyright, 2009, BATM Advanced Communications. All rights reserved.
+-- (c) Copyright, 2001, BATM Advanced Communications. All rights reserved.
 -- WARNING:
 --
 -- BY UTILIZING THIS FILE, YOU AGREE TO THE FOLLOWING:
 --
--- This file is the property of BATM Advanced Communications and contains
--- proprietary and confidential information. This file is made
--- available to authorized BATM customers on the express
--- condition that neither it, nor any of the information contained
--- therein, shall be disclosed to third parties or be used for any
--- purpose other than to replace, modify or upgrade firmware and/or
--- software components of BATM manufactured equipment within the
--- authorized customer's network, and that such transfer be
--- completed in accordance with the instructions provided by
--- BATM. Any other use is strictly prohibited.
+-- This file is the property of BATM Advanced Communications.
+-- BATM Advanced Communications retains all title and
+-- ownership in the Specification, including any revisions.
+
+-- BATM Advanced Communications grants all interested parties a non-exclusive
+-- license to use and distribute an unmodified copy of this
+-- Specification in connection with management of BATM Advanced Communications
+-- and Telco Systems products, and without fee, provided that the following
+-- conditions are met:
+-- 1. Redistributions of this specification must retain the above copyright
+-- notice, this list of conditions and the following disclaimer.
+-- 2. Redistributions in binary form must reproduce the above copyright
+-- notice, this list of conditions and the following disclaimer in the
+-- documentation and/or other materials provided with the distribution.
+-- 3. The name of the BATM Advanced Communications MAY NOT be used to endorse
+-- or promote products derived from this specification without specific prior written
+-- permission.
 --
 -- EXCEPT AS RESTRICTED BY LAW, OR AS PROVIDED IN BATM'S LIMITED
--- WARRANTY, THE SOFTWARE PROGRAMS CONTAINED IN THIS FILE ARE
+-- WARRANTY, THE SPECIFICATIONS CONTAINED IN THIS FILE ARE
 -- PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
 -- OR IMPLIED, INCLUDING BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES
 -- OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
---
 -- IN NO EVENT SHALL BATM BE LIABLE FOR ANY DAMAGES WHATSOEVER
--- INCLUDING WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS
+-- INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS
 -- PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION OR
 -- OTHER CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE, OR INABILITY
--- TO USE, THE SOFTWARE CONTAINED IN THIS FILE.
---
--- ----------------------------------------------------------------------------
+-- TO USE, THE SPECIFICATION CONTAINED IN THIS FILE.
 
 PRVT-CONFIGCHANGE-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
-    switch
-        FROM PRVT-SWITCH-MIB
-    MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-TYPE
-        FROM SNMPv2-SMI;
+MODULE-IDENTITY,
+OBJECT-TYPE,
+NOTIFICATION-TYPE
+FROM SNMPv2-SMI
+
+RowPointer,
+DisplayString
+FROM SNMPv2-TC
+
+switch
+FROM PRVT-SWITCH-MIB;
 
 prvtConfigChangeMIB MODULE-IDENTITY
-    LAST-UPDATED "201009010000Z"
-    ORGANIZATION 
-        "BATM Advanced Communication"
-    CONTACT-INFO 
-        "BATM/Telco Systems Support team
-         Email:
-         For North America: techsupport@telco.com
-         For North Europe: support@batm.de, info@batm.de
-         For the rest of the world: techsupport@telco.com"
-    DESCRIPTION 
-        "Initial version. This MIB will provied traps for change"
-    REVISION    "201009010000Z"
-    DESCRIPTION 
-        "Initial release"
-    ::= { switch 150 }
+LAST-UPDATED "200907130000Z"
+ORGANIZATION "BATM Advanced Communication"
+CONTACT-INFO
 
+"BATM/Telco Systems Support team
+Email:
+For North America: techsupport@telco.com
+For North Europe: support@batm.de, info@batm.de
+For the rest of the world: techsupport@telco.com"
 
-prvtConfigChangeNotifications OBJECT IDENTIFIER
-    ::= { prvtConfigChangeMIB 0 }
+DESCRIPTION
+"Initial version. This MIB will provied traps for change"
 
-prvtConfigChangeObjects OBJECT IDENTIFIER
-    ::= { prvtConfigChangeMIB 1 }
+-- Revision history.
+REVISION "200907130000Z"
+DESCRIPTION
+"Add object snmpServerStatus and notification snmpServerStatusChange"
+REVISION "200611200000Z"
+DESCRIPTION
+"Initial release"
 
-prvtConfigChangeAlarmNamespace OBJECT-TYPE
-    SYNTAX      OCTET STRING
-    MAX-ACCESS  accessible-for-notify
-    STATUS      current
-    DESCRIPTION 
-        "The configChangeAlarmNamespace specifies the Namespace
-         of an object whose value has been changed."
-    ::= { prvtConfigChangeObjects 1 }
+::= { switch 150 }
 
-prvtConfigChangeAlarmKeypath OBJECT-TYPE
-    SYNTAX      OCTET STRING
-    MAX-ACCESS  accessible-for-notify
-    STATUS      current
-    DESCRIPTION 
-        "The configChangeAlarmKeypath specifies the Keypath
-         of an object whose entry has been changed."
-    ::= { prvtConfigChangeObjects 2 }
+prvtConfigChangeAlarmOID OBJECT-TYPE
+SYNTAX OBJECT IDENTIFIER
+MAX-ACCESS accessible-for-notify
+STATUS current
+DESCRIPTION
+"The configChangeAlarmOID specifies the OID of an object whose value has been changed."
+::= {prvtConfigChangeObjects 1}
+
+prvtConfigChangeAlarmRow OBJECT-TYPE
+SYNTAX RowPointer
+MAX-ACCESS accessible-for-notify
+STATUS current
+DESCRIPTION
+"The configChangeAlarmRow specifies the OID of the row from table, whose entry has been changed."
+::= {prvtConfigChangeObjects 2}
+
+cliConfigChangeNodePrompt OBJECT-TYPE
+SYNTAX DisplayString
+MAX-ACCESS accessible-for-notify
+STATUS current
+DESCRIPTION
+"Shows the CLI prompt."
+::= {prvtConfigChangeObjects 3}
+
+cliConfigChangeCommand OBJECT-TYPE
+SYNTAX DisplayString
+MAX-ACCESS accessible-for-notify
+STATUS current
+DESCRIPTION
+"Shows executed command."
+::= {prvtConfigChangeObjects 4}
+
+snmpServerStatus OBJECT-TYPE
+SYNTAX INTEGER {
+enabled(1),
+disabled(2)
+}
+MAX-ACCESS accessible-for-notify
+STATUS current
+DESCRIPTION
+"Shows the enabled/disabled status of the SNMP server."
+::= {prvtConfigChangeObjects 5}
 
 prvtConfigChangeAlarm NOTIFICATION-TYPE
-    OBJECTS     { prvtConfigChangeAlarmNamespace, 
-                  prvtConfigChangeAlarmKeypath }
-    STATUS      current
-    DESCRIPTION 
-        "This notification is generated when the value of configurable
-         attribute has been changed. The notification can be used
-         to trigger maintenance polling of the running configuration
-         on the device. There is flood prevention that notification
-         with same varbinds will not be sent for certain time - i.e. 1 min"
-    ::= { prvtConfigChangeNotifications 1 }
+OBJECTS {prvtConfigChangeAlarmOID, prvtConfigChangeAlarmRow}
+STATUS current
+DESCRIPTION
+"This notification is generated when the value of configurable
+attribute has been changed. The notification can be used
+to trigger maintenance polling of the running configuration
+on the device. One of the varbinds will point either to entry
+of the modified table (configChangeAlarmRow) or the
+OID of the modified scalar object "
+::= { prvtConfigChangeNotifications 1}
 
-END -- end of module PRVT-CONFIGCHANGE-MIB.
+cliConfigurationChange NOTIFICATION-TYPE
+OBJECTS {cliConfigChangeNodePrompt,cliConfigChangeCommand}
+STATUS current
+DESCRIPTION
+"This notification is generated when command in configuration node is executed."
+::= { prvtConfigChangeNotifications 2}
+
+snmpServerStatusChange NOTIFICATION-TYPE
+OBJECTS {
+snmpServerStatus
+}
+STATUS current
+DESCRIPTION
+"The notification shall be sent whenever the enabled/disabled status
+of the SNMP server changes. If the status is changed
+from enabled to disabled, the notification shall be sent
+prior to disabling the SNMP server."
+::= {prvtConfigChangeNotifications 3}
+
+prvtConfigChangeNotifications OBJECT IDENTIFIER ::= { prvtConfigChangeMIB 0 }
+prvtConfigChangeObjects OBJECT IDENTIFIER ::= { prvtConfigChangeMIB 1 }
+prvtConfigChangeConformance OBJECT IDENTIFIER ::= { prvtConfigChangeMIB 3 }
+
+END

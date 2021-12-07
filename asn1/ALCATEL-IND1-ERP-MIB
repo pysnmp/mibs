@@ -4,20 +4,17 @@ ALCATEL-IND1-ERP-MIB DEFINITIONS ::= BEGIN
                 Counter32, Unsigned32, MODULE-IDENTITY, OBJECT-IDENTITY,
                 NOTIFICATION-TYPE, OBJECT-TYPE, TimeTicks, Integer32
                                         FROM SNMPv2-SMI
-		InterfaceIndexOrZero, InterfaceIndex
-                                        FROM IF-MIB
+                InterfaceIndex          FROM IF-MIB
                 VlanId                  FROM Q-BRIDGE-MIB
                 MODULE-COMPLIANCE, NOTIFICATION-GROUP, OBJECT-GROUP
                                         FROM SNMPv2-CONF
                 TimeStamp, RowStatus, TEXTUAL-CONVENTION, TruthValue
                                         FROM SNMPv2-TC
-                softentIND1Erp          FROM ALCATEL-IND1-BASE
-                SnmpAdminString         FROM SNMP-FRAMEWORK-MIB;
-
+                softentIND1Erp          FROM ALCATEL-IND1-BASE;
 
 
         alcatelIND1ERPMIB MODULE-IDENTITY
-                LAST-UPDATED "201106150000Z"    --      06/15/2011 00:00 GMT
+                LAST-UPDATED "200807100000Z"    --      07/10/2008 00:00 GMT
                 ORGANIZATION "Alcatel-Lucent"
                 CONTACT-INFO
                 "Please consult with Customer Service to insure the most appropriate
@@ -61,12 +58,9 @@ ALCATEL-IND1-ERP-MIB DEFINITIONS ::= BEGIN
                         Copyright (C) 1995-2008 Alcatel-Lucent, Incorporated
                         ALL RIGHTS RESERVED WORLDWIDE"
 
-            REVISION      "201005130000Z"
-            DESCRIPTION
-                "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+                REVISION      "200807100000Z"
 
-            REVISION      "200807100000Z"
-            DESCRIPTION
+                DESCRIPTION
                         "The ERP MIB defines a set of ERP related management objects for ports
                         that support Ethernet Ring Protection (ERP) Switching Protocol for ETH
                         Layer Ring Topologies. With this, rapid protection switching of 50ms can
@@ -76,15 +70,7 @@ ALCATEL-IND1-ERP-MIB DEFINITIONS ::= BEGIN
                         for conforming to the protocol."
        ::= { softentIND1Erp 1}
 
-
 -- This MIB contains the following groups
-
-alcatelIND1ErpMIBNotifications OBJECT-IDENTITY
-        STATUS current
-        DESCRIPTION
-            "Branch For ERP MIB Subsystem Notifications."
-        ::= { alcatelIND1ERPMIB 0 }
-
 alcatelIND1ERPMIBObjects OBJECT-IDENTITY
            STATUS current
            DESCRIPTION
@@ -92,7 +78,8 @@ alcatelIND1ERPMIBObjects OBJECT-IDENTITY
                 Subsystem Managed Objects."
        ::= { alcatelIND1ERPMIB 1 }
 
-alcatelIND1ERPMIBConformance OBJECT IDENTIFIER ::= { alcatelIND1ERPMIB 2 }
+alaErpNotifications OBJECT IDENTIFIER   ::= { alcatelIND1ERPMIB 2 }
+alcatelIND1ERPMIBConformance OBJECT IDENTIFIER ::= { alcatelIND1ERPMIB 3 }
 
 -- alcatelIND1ERPMIBObjects contains following groups
        alaErpGlobal            OBJECT IDENTIFIER ::= {alcatelIND1ERPMIBObjects 1}
@@ -197,11 +184,11 @@ alaErpRingEntry OBJECT-TYPE
     ::= { alaErpRingTable 1 }
 
 AlaErpRingEntry ::= SEQUENCE {
-      alaErpRingId                      Integer32,
+      alaErpRingId                      INTEGER,
       alaErpRingServiceVid              VlanId,
       alaErpRingMEGLevel                AlaErpRingMEGLevel,
       alaErpRingPort1                   InterfaceIndex,
-      alaErpRingPort2                   InterfaceIndexOrZero,
+      alaErpRingPort2                   InterfaceIndex,
       alaErpRingStatus                  INTEGER,
       alaErpRingState                   INTEGER,
       alaErpRingWaitToRestoreTimer      Unsigned32,
@@ -209,17 +196,11 @@ AlaErpRingEntry ::= SEQUENCE {
       alaErpRingClearStats              INTEGER,
       alaErpRingLastStateChange         TimeStamp,
       alaErpRingTimeToRevert            TimeTicks,
-      alaErpRingRowStatus               RowStatus,
-      alaErpRingVirtualChannel          INTEGER,
-      alaErpRingRevertive               INTEGER,
-      alaErpRingClearAction             INTEGER,
-      alaErpRingActiveVersion		Unsigned32,
-      alaErpRingResetVersionFallback	INTEGER,
-      alaErpRingLastStateChangeStr      SnmpAdminString
+      alaErpRingRowStatus               RowStatus
     }
 
 alaErpRingId OBJECT-TYPE
-    SYNTAX      Integer32 (1 .. 2147483647)
+    SYNTAX      INTEGER (1 .. 2147483647)
     MAX-ACCESS  accessible-for-notify
     STATUS      current
     DESCRIPTION
@@ -234,7 +215,7 @@ alaErpRingServiceVid OBJECT-TYPE
        "An integer indicating the VID of Service VLAN. All the ERP
        control traffic will flow with Service VLAN tag across the
        ring. This object must be specified while creating a row in
-       this table. Once the row has been created, the value of
+       this table. Once the row has been created, the value of 
        this object cannot be changed."
     ::= { alaErpRingEntry 2 }
 
@@ -245,7 +226,7 @@ alaErpRingMEGLevel OBJECT-TYPE
     DESCRIPTION
        "MEG level of the R-APS PDU to be inserted for this Ring.
        This object must be specified while creating a row in
-       this table. Once the row has been created, the value of
+       this table. Once the row has been created, the value of 
        this object cannot be changed."
     ::= { alaErpRingEntry 3 }
 
@@ -259,22 +240,21 @@ alaErpRingPort1 OBJECT-TYPE
        on which ring is configured.
        There can be only two ring ports per ring in a bridge.
        This object must be specified while creating a row in
-       this table. Once the row has been created, the value of
+       this table. Once the row has been created, the value of 
        this object cannot be changed."
     ::= { alaErpRingEntry 4 }
 
 alaErpRingPort2 OBJECT-TYPE
-    SYNTAX      InterfaceIndexOrZero
+    SYNTAX      InterfaceIndex
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
        "This object is the interface index of the ring port,which is
        either a bridge port, or an aggregated link within a bridge,
        on which ring is configured.
-       In case of sub-ring, this will be zero. And that is the
- indicator of sub-ring.
+       There can be only two ring ports per ring in a bridge.
        This object must be specified while creating a row in
-       this table. Once the row has been created, the value of
+       this table. Once the row has been created, the value of 
        this object cannot be changed."
     ::= { alaErpRingEntry 5 }
 
@@ -298,11 +278,7 @@ alaErpRingState OBJECT-TYPE
     SYNTAX      INTEGER
                 {
                   idle (0),
-                  protection (1),
-                  init (2),
-                  manualSwitch (3),
-                  forcedSwitch (4),
-                  pending      (5)
+                  protection (1)
                 }
     MAX-ACCESS  read-only
     STATUS              current
@@ -363,9 +339,8 @@ alaErpRingLastStateChange OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-       "The time (SysUpTime) at which the ethernet ring last
-        entered new state. : This object has been deprecated Please refer
-        alaErpRingLastStateChangeStr. "
+       "The time (SysUpTime) at which the ethernet ring last 
+        entered either the IDLE or PROTECTION state."
     ::= { alaErpRingEntry 11 }
 
 alaErpRingTimeToRevert OBJECT-TYPE
@@ -373,7 +348,7 @@ alaErpRingTimeToRevert OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-        "Defines the time left to revert from Pending State to Idle State."
+        "Defines the time left to revert from Protection State to Idle State."
     ::= {alaErpRingEntry 12}
 
 alaErpRingRowStatus OBJECT-TYPE
@@ -387,81 +362,6 @@ alaErpRingRowStatus OBJECT-TYPE
         is active. All columns must have a valid value before a row
         can be activated."
     ::= { alaErpRingEntry 13 }
-
-alaErpRingVirtualChannel OBJECT-TYPE
-    SYNTAX      INTEGER {
-                    enabled(1),
-                    disabled(2)
-                }
-    MAX-ACCESS  read-create
-    STATUS      current
-    DESCRIPTION
-       "A Integer value indicating whether the ring is operating with the
-        Virtual channel enabled or not."
-    DEFVAL      { enabled } 
-    ::= { alaErpRingEntry 14 }
-
-alaErpRingRevertive OBJECT-TYPE
-    SYNTAX      INTEGER {
-                    enabled(1),
-                    disabled(2)
-                }
-    MAX-ACCESS  read-create
-    STATUS      current
-    DESCRIPTION
-       "A Integer value indicating whether the ring is operating with the
-        revertive mode enabled or not "
-    DEFVAL      { enabled } 
-    ::= { alaErpRingEntry 15 }
-
-alaErpRingClearAction OBJECT-TYPE
-    SYNTAX      INTEGER {
-                    default(0),
-                    reset(1)
-                }
-    MAX-ACCESS  read-create
-    STATUS      current
-    DESCRIPTION
-       "Defines clear action for ERP ring
-        The value reset(1) will give CLEAR action to ERP state machine"
-    DEFVAL      { default } 
-    ::= { alaErpRingEntry 16 }
-
-
-alaErpRingActiveVersion OBJECT-TYPE
-    SYNTAX      Unsigned32 ( 1 .. 2)
-    MAX-ACCESS  read-only
-    STATUS      current
-    DESCRIPTION
-       "This object indicates active ERP Ring protocol version."
-    ::= { alaErpRingEntry 17 }
-
-
-alaErpRingResetVersionFallback OBJECT-TYPE
-    SYNTAX      INTEGER
-                {
-                  default(0),
-                  reset(1)
-                }
-    MAX-ACCESS  read-create
-    STATUS      current
-    DESCRIPTION
-       "Resets ERP running protocol"
-    DEFVAL  { default }
-    ::= { alaErpRingEntry 18 }
-
-
-alaErpRingLastStateChangeStr OBJECT-TYPE
-    SYNTAX     SnmpAdminString (SIZE (0..255)) 
-         MAX-ACCESS  read-only
-            STATUS      current
-                DESCRIPTION
-                    "The time (SysUpTime) at which the ethernet ring last
-                    entered new state."
-                    ::= { alaErpRingEntry 19 }
-
-
-
 
 -- ******************************************************************
 -- The ERP RING Port Table
@@ -491,13 +391,12 @@ AlaErpRingPortEntry ::= SEQUENCE {
       alaErpRingPortType        AlaErpRingPortType,
       alaErpRingPortEthOAMEvent TruthValue,
       alaErpRingPortClearStats  INTEGER,
-      alaErpRingPortRmepId      AlaErpRingMepId,
-      alaErpRingPortVirtualSfMonitor TruthValue
+      alaErpRingPortRmepId      AlaErpRingMepId
     }
 
 alaErpRingPortIfIndex OBJECT-TYPE
     SYNTAX      InterfaceIndex
-    MAX-ACCESS  not-accessible
+    MAX-ACCESS  accessible-for-notify
     STATUS      current
     DESCRIPTION
        "This object is the interface index of the interface either a
@@ -563,20 +462,6 @@ alaErpRingPortRmepId OBJECT-TYPE
     DESCRIPTION
        "Identifier of Remote Endpoint."
     ::= { alaErpRingPortEntry 6 }
-
-alaErpRingPortVirtualSfMonitor OBJECT-TYPE
-    SYNTAX      TruthValue
-    MAX-ACCESS  read-write
-    STATUS      current
-    DESCRIPTION
-       "A Boolean indicating whether ERP Ring Port shall take loss of
-       connectivity event from Virtual SF monitor protocol.
-
-       True indicates that the Ring Port is to take events from
-       Virtual SF monitor."
-    DEFVAL { false }
-    ::= { alaErpRingPortEntry 7 }
-
 
 -- ******************************************************************
 -- The ERP VLAN Table
@@ -753,6 +638,8 @@ alaErpStatsPDUErr OBJECT-TYPE
 -- NOTIFICATIONS (TRAPS)
 -- ******************************************************************
 
+alaErpNotificationsRoot OBJECT IDENTIFIER   ::= { alaErpNotifications 0 }
+
         alaErpRingStateChanged NOTIFICATION-TYPE
         OBJECTS  {
                         alaErpRingId,
@@ -762,7 +649,7 @@ alaErpStatsPDUErr OBJECT-TYPE
         DESCRIPTION
                 "The ERP Ring State has changed to Protection from Idle. Notify the user by
                  raising the Trap. "
-        ::= { alcatelIND1ErpMIBNotifications 1 }
+        ::= { alaErpNotificationsRoot 1 }
 
         alaErpRingMultipleRpl NOTIFICATION-TYPE
         OBJECTS {
@@ -772,7 +659,7 @@ alaErpStatsPDUErr OBJECT-TYPE
         DESCRIPTION
                 "The trap shall be raised on RPL if there are multiple RPLs detected in the
                 ring. When the RPL node receives the NR (RB) message, this trap is raised."
-        ::= { alcatelIND1ErpMIBNotifications 2}
+        ::= { alaErpNotificationsRoot 2}
 
         alaErpRingRemoved NOTIFICATION-TYPE
         OBJECTS {
@@ -782,7 +669,18 @@ alaErpStatsPDUErr OBJECT-TYPE
         DESCRIPTION
                 "The trap shall be raised whenever the ring is removed dynamically in
                 Unlike NI Scenario only."
-        ::= { alcatelIND1ErpMIBNotifications 3 }
+        ::= { alaErpNotificationsRoot 3 }
+
+        alaErpRingPortStatusChanged NOTIFICATION-TYPE
+        OBJECTS {
+                          alaErpRingId,
+       			alaErpRingPortIfIndex,
+       			alaErpRingPortStatus
+                }
+        STATUS  current
+        DESCRIPTION
+                "The trap shall be raised whenever the ring port status is changed."
+        ::= { alaErpNotificationsRoot 4 }
 
 
 -- ******************************************************************
@@ -827,7 +725,6 @@ alaErpGlobalGroup OBJECT-GROUP
 alaErpRingAttributesGroup OBJECT-GROUP
    OBJECTS
    {
-        alaErpRingId,
         alaErpRingServiceVid,
         alaErpRingMEGLevel,
         alaErpRingPort1,
@@ -840,9 +737,6 @@ alaErpRingAttributesGroup OBJECT-GROUP
         alaErpRingLastStateChange,
         alaErpRingTimeToRevert,
         alaErpRingRowStatus,
-        alaErpRingVirtualChannel,
-        alaErpRingRevertive,
-        alaErpRingClearAction,
         alaErpRingPortStatus,
         alaErpRingPortType,
         alaErpRingPortEthOAMEvent,
@@ -858,10 +752,7 @@ alaErpRingAttributesGroup OBJECT-GROUP
         alaErpStatsRPLBlockPDUTx,
         alaErpStatsRPLBlockPDURx,
         alaErpStatsRPLBlockPDUDrop,
-        alaErpStatsPDUErr,
-        alaErpRingPortVirtualSfMonitor,
-	alaErpRingActiveVersion,
-	alaErpRingResetVersionFallback
+        alaErpStatsPDUErr
    }
    STATUS      current
    DESCRIPTION
@@ -873,7 +764,8 @@ alaErpNotificationGroup NOTIFICATION-GROUP
    {
         alaErpRingStateChanged,
         alaErpRingMultipleRpl,
-        alaErpRingRemoved
+        alaErpRingRemoved,
+        alaErpRingPortStatusChanged
    }
    STATUS  current
    DESCRIPTION

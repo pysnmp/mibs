@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-ALARM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-ALARM-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  1 17:44:32 2021
-# On host fv-az135-680 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Tue Dec  7 14:17:53 2021
+# On host fv-az33-388 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 software, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "software")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, iso, NotificationType, Unsigned32, MibIdentifier, Integer32, Gauge32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32, ObjectIdentity, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "NotificationType", "Unsigned32", "MibIdentifier", "Integer32", "Gauge32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32", "ObjectIdentity", "Bits", "TimeTicks")
+IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, NotificationType, Unsigned32, ObjectIdentity, MibIdentifier, ModuleIdentity, TimeTicks, Bits, Counter32, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "NotificationType", "Unsigned32", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "TimeTicks", "Bits", "Counter32", "Integer32", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 111, 4))
 prvtAlarmMIB.setRevisions(('2013-03-25 00:00',))
@@ -43,4 +43,4 @@ if mibBuilder.loadTexts: prvtAlarmCurrentSeverity.setDescription('The current al
 prvtAlarmCurrentDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 111, 4, 1, 2, 1, 4), OctetString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: prvtAlarmCurrentDescription.setStatus('current')
 if mibBuilder.loadTexts: prvtAlarmCurrentDescription.setDescription('The alarm description.')
-mibBuilder.exportSymbols("PRVT-ALARM-MIB", prvtUpdatedCurrentAlarmCounter=prvtUpdatedCurrentAlarmCounter, prvtAlarmMIB=prvtAlarmMIB, prvtAlarmCurrentRaisedTime=prvtAlarmCurrentRaisedTime, PYSNMP_MODULE_ID=prvtAlarmMIB, prvtAlarmCurrentDescription=prvtAlarmCurrentDescription, prvtAlarmCurrentSeverity=prvtAlarmCurrentSeverity, prvtAlarmMIBObjects=prvtAlarmMIBObjects, prvtAlarmCurrentCounter=prvtAlarmCurrentCounter, prvtAlarmCurrentEntry=prvtAlarmCurrentEntry, prvtAlarmCurrentTable=prvtAlarmCurrentTable)
+mibBuilder.exportSymbols("PRVT-ALARM-MIB", prvtAlarmCurrentCounter=prvtAlarmCurrentCounter, prvtUpdatedCurrentAlarmCounter=prvtUpdatedCurrentAlarmCounter, prvtAlarmMIB=prvtAlarmMIB, PYSNMP_MODULE_ID=prvtAlarmMIB, prvtAlarmCurrentDescription=prvtAlarmCurrentDescription, prvtAlarmMIBObjects=prvtAlarmMIBObjects, prvtAlarmCurrentEntry=prvtAlarmCurrentEntry, prvtAlarmCurrentTable=prvtAlarmCurrentTable, prvtAlarmCurrentRaisedTime=prvtAlarmCurrentRaisedTime, prvtAlarmCurrentSeverity=prvtAlarmCurrentSeverity)

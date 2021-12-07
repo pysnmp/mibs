@@ -1,3 +1,11 @@
+-- *****************************************************************************
+-- eso-consortium-mib
+--
+-- Copyright (c) 2003 The ESO Consortium
+-- All rights reserved.
+--
+-- *****************************************************************************
+
 ESO-CONSORTIUM-MIB DEFINITIONS ::= BEGIN
 
       IMPORTS

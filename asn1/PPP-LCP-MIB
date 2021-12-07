@@ -1,3 +1,5 @@
+--  Version:  19 11 2002
+
           PPP-LCP-MIB DEFINITIONS ::= BEGIN
 
           IMPORTS
@@ -13,6 +15,12 @@
                ppp  OBJECT IDENTIFIER ::= { transmission 23 }
 
                pppLcp OBJECT IDENTIFIER ::= { ppp 1 }
+
+
+
+
+
+
                -- The individual groups within the PPP-LCP-MIB
 
                pppLink      OBJECT IDENTIFIER ::= { pppLcp 1 }
@@ -61,6 +69,7 @@
                          for this PPP implementation."
                ::= { pppLink 1 }
 
+
           pppLinkStatusEntry   OBJECT-TYPE
                SYNTAX    PppLinkStatusEntry
                ACCESS    not-accessible
@@ -91,9 +100,11 @@
                     OCTET STRING,
                pppLinkStatusPeerToLocalACCMap
                     OCTET STRING,
-               pppLinkStatusLocalToRemoteProtocolCompression
+               --pppLinkStatusLocalToRemoteProtocolCompression
+               pppLinkStatusLocalToRemoteProtoComp
                     INTEGER,
-               pppLinkStatusRemoteToLocalProtocolCompression
+               --pppLinkStatusRemoteToLocalProtocolCompression
+               pppLinkStatusRemoteToLocalProtoComp
                     INTEGER,
                pppLinkStatusLocalToRemoteACCompression
                     INTEGER,
@@ -104,7 +115,6 @@
                pppLinkStatusReceiveFcsSize
                     INTEGER
                }
-
           pppLinkStatusPhysicalIndex   OBJECT-TYPE
                SYNTAX    INTEGER(0..2147483647)
                ACCESS    read-only
@@ -191,7 +201,9 @@
 
 
           pppLinkStatusLocalMRU   OBJECT-TYPE
-               SYNTAX    INTEGER(1..2147483647)
+-- FRK MODIDF              SYNTAX    INTEGER(1..2147483648)
+		   SYNTAX    INTEGER(1..2147483647)
+	
                ACCESS    read-only
                STATUS    mandatory
                DESCRIPTION
@@ -205,6 +217,7 @@
 
 
           pppLinkStatusRemoteMRU   OBJECT-TYPE
+-- FRK MODIDF              SYNTAX    INTEGER(1..2147483648)
                SYNTAX    INTEGER(1..2147483647)
                ACCESS    read-only
                STATUS    mandatory
@@ -244,7 +257,8 @@
                ::= { pppLinkStatusEntry 9 }
 
 
-          pppLinkStatusLocalToRemoteProtocolCompression
+          --pppLinkStatusLocalToRemoteProtocolCompression
+          pppLinkStatusLocalToRemoteProtoComp
                OBJECT-TYPE
                SYNTAX    INTEGER {
                          enabled(1),
@@ -262,7 +276,8 @@
                ::= { pppLinkStatusEntry 10 }
 
 
-          pppLinkStatusRemoteToLocalProtocolCompression
+          --pppLinkStatusRemoteToLocalProtocolCompression
+          pppLinkStatusRemoteToLocalProtoComp
                OBJECT-TYPE
                SYNTAX    INTEGER {
                          enabled(1),
@@ -302,6 +317,11 @@
                          enabled(1),
                          disabled(2)
                     }
+
+
+
+
+
                ACCESS    read-only
                STATUS    mandatory
                DESCRIPTION
@@ -397,6 +417,12 @@
                DEFVAL    { 1500 }
                ::= { pppLinkConfigEntry 1 }
 
+
+
+
+
+
+
           pppLinkConfigReceiveACCMap   OBJECT-TYPE
                SYNTAX    OCTET STRING (SIZE (4))
                ACCESS    read-write
@@ -443,6 +469,8 @@
                          Map of RFC1331."
                DEFVAL    { 'ffffffff'h }
                ::= { pppLinkConfigEntry 3 }
+
+
 
           pppLinkConfigMagicNumber   OBJECT-TYPE
                SYNTAX    INTEGER {false (1), true (2)}
@@ -492,6 +520,11 @@
           pppLqrTable   OBJECT-TYPE
                SYNTAX    SEQUENCE OF PppLqrEntry
                ACCESS    not-accessible
+
+
+
+
+
                STATUS    mandatory
                DESCRIPTION
                          "Table containing the LQR parameters and
@@ -561,6 +594,7 @@
 
 
           pppLqrLocalPeriod   OBJECT-TYPE
+-- FRK MODIDF              SYNTAX    INTEGER(1..2147483648)
                SYNTAX    INTEGER(1..2147483647)
                ACCESS    read-only
                STATUS    mandatory
@@ -575,6 +609,7 @@
 
 
           pppLqrRemotePeriod   OBJECT-TYPE
+-- FRK MODIDF              SYNTAX    INTEGER(1..2147483648)
                SYNTAX    INTEGER(1..2147483647)
                ACCESS    read-only
                STATUS    mandatory
@@ -586,6 +621,7 @@
                          "Section 2.5, Configuration Option Format, of
                          RFC1333."
                ::= { pppLqrEntry 4 }
+
 
           pppLqrOutLQRs   OBJECT-TYPE
                SYNTAX    Counter
@@ -634,6 +670,11 @@
                          PPP link."
                INDEX     { ifIndex }
                ::= { pppLqrConfigTable 1 }
+
+
+
+
+
 
           PppLqrConfigEntry ::= SEQUENCE {
                pppLqrConfigPeriod
@@ -706,7 +747,7 @@
           -- must all be taken at the same instant in time.
           --
 
-          pppLqrExtnsTable   OBJECT-TYPE
+         pppLqrExtnsTable   OBJECT-TYPE
                SYNTAX    SEQUENCE OF PppLqrExtnsEntry
                ACCESS    not-accessible
                STATUS    mandatory
@@ -731,8 +772,8 @@
                ::= { pppLqrExtnsTable 1 }
 
           PppLqrExtnsEntry ::= SEQUENCE {
-               pppLqrExtnsLastReceivedLqrPacket
-                    OCTET STRING(SIZE(68))
+-- FRK MODIDF              pppLqrExtnsLastReceivedLqrPacket OCTET STRING(SIZE(68))
+               pppLqrExtnsLastReceivedLqrPacket OCTET STRING
           }
 
           pppLqrExtnsLastReceivedLqrPacket   OBJECT-TYPE
@@ -746,7 +787,6 @@
                          specificiation. All fields of the packet,
                          including the `save' fields, are stored in this
                          object.
-
                          The LQR packet is stored in network byte order.
                          The LAP-B and PPP headers are not stored in
                          this object; the first four octets of this
