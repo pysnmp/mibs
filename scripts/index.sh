@@ -24,3 +24,5 @@ while IFS=, read -r one two; do
     echo $d, $one
     echo $one,$two>>output/index.csv
 done <list.csv
+
+grep -Po ' enterprises +(\d+)' asn1/* | sort | uniq | sed 's|asn1\/||g' | sed 's|: enterprises |,|g' >output/enterprises.csv
