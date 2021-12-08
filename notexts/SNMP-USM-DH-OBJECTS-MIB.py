@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SNMP-USM-DH-OBJECTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-USM-DH-OBJECTS-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 20:18:55 2021
-# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 20:56:16 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
 usmUserEntry, = mibBuilder.importSymbols("SNMP-USER-BASED-SM-MIB", "usmUserEntry")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Integer32, Unsigned32, Counter64, iso, Bits, experimental, Counter32, Gauge32, ObjectIdentity, MibIdentifier, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Integer32", "Unsigned32", "Counter64", "iso", "Bits", "experimental", "Counter32", "Gauge32", "ObjectIdentity", "MibIdentifier", "NotificationType", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+NotificationType, Bits, Counter32, experimental, Counter64, Gauge32, ObjectIdentity, IpAddress, ModuleIdentity, MibIdentifier, Integer32, Unsigned32, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "Counter32", "experimental", "Counter64", "Gauge32", "ObjectIdentity", "IpAddress", "ModuleIdentity", "MibIdentifier", "Integer32", "Unsigned32", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 snmpUsmDHObjectsMIB = ModuleIdentity((1, 3, 6, 1, 3, 101))
 snmpUsmDHObjectsMIB.setRevisions(('2000-03-06 00:00',))
 if mibBuilder.loadTexts: snmpUsmDHObjectsMIB.setLastUpdated('200003060000Z')
@@ -68,4 +68,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 usmDHKeyKickstartGroup = ObjectGroup((1, 3, 6, 1, 3, 101, 2, 2, 3)).setObjects(("SNMP-USM-DH-OBJECTS-MIB", "usmDHKickstartMyPublic"), ("SNMP-USM-DH-OBJECTS-MIB", "usmDHKickstartMgrPublic"), ("SNMP-USM-DH-OBJECTS-MIB", "usmDHKickstartSecurityName"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     usmDHKeyKickstartGroup = usmDHKeyKickstartGroup.setStatus('current')
-mibBuilder.exportSymbols("SNMP-USM-DH-OBJECTS-MIB", usmDHKeyMIBBasicGroup=usmDHKeyMIBBasicGroup, usmDHKickstartIndex=usmDHKickstartIndex, usmDHUserKeyTable=usmDHUserKeyTable, usmDHUserOwnPrivKeyChange=usmDHUserOwnPrivKeyChange, PYSNMP_MODULE_ID=snmpUsmDHObjectsMIB, usmDHKeyMIBGroups=usmDHKeyMIBGroups, usmDHKickstartMgrPublic=usmDHKickstartMgrPublic, usmDHKeyParamGroup=usmDHKeyParamGroup, usmDHUserKeyEntry=usmDHUserKeyEntry, usmDHKickstartGroup=usmDHKickstartGroup, usmDHKeyMIBCompliance=usmDHKeyMIBCompliance, usmDHUserOwnAuthKeyChange=usmDHUserOwnAuthKeyChange, usmDHKeyMIBCompliances=usmDHKeyMIBCompliances, usmDHPublicObjects=usmDHPublicObjects, usmDHKickstartEntry=usmDHKickstartEntry, usmDHUserPrivKeyChange=usmDHUserPrivKeyChange, usmDHKickstartSecurityName=usmDHKickstartSecurityName, usmDHKeyKickstartGroup=usmDHKeyKickstartGroup, usmDHKickstartMyPublic=usmDHKickstartMyPublic, usmDHKeyObjects=usmDHKeyObjects, usmDHParameters=usmDHParameters, snmpUsmDHObjectsMIB=snmpUsmDHObjectsMIB, usmDHKeyConformance=usmDHKeyConformance, DHKeyChange=DHKeyChange, usmDHUserAuthKeyChange=usmDHUserAuthKeyChange, usmDHKickstartTable=usmDHKickstartTable)
+mibBuilder.exportSymbols("SNMP-USM-DH-OBJECTS-MIB", usmDHKeyParamGroup=usmDHKeyParamGroup, usmDHKeyMIBCompliances=usmDHKeyMIBCompliances, usmDHUserKeyTable=usmDHUserKeyTable, usmDHKeyMIBGroups=usmDHKeyMIBGroups, usmDHKickstartEntry=usmDHKickstartEntry, usmDHUserPrivKeyChange=usmDHUserPrivKeyChange, usmDHKickstartTable=usmDHKickstartTable, usmDHUserAuthKeyChange=usmDHUserAuthKeyChange, usmDHKickstartIndex=usmDHKickstartIndex, usmDHKeyObjects=usmDHKeyObjects, usmDHPublicObjects=usmDHPublicObjects, usmDHKickstartMgrPublic=usmDHKickstartMgrPublic, usmDHKeyConformance=usmDHKeyConformance, usmDHKeyMIBBasicGroup=usmDHKeyMIBBasicGroup, PYSNMP_MODULE_ID=snmpUsmDHObjectsMIB, DHKeyChange=DHKeyChange, usmDHUserKeyEntry=usmDHUserKeyEntry, usmDHKickstartGroup=usmDHKickstartGroup, usmDHKeyMIBCompliance=usmDHKeyMIBCompliance, usmDHKickstartMyPublic=usmDHKickstartMyPublic, usmDHParameters=usmDHParameters, usmDHUserOwnAuthKeyChange=usmDHUserOwnAuthKeyChange, snmpUsmDHObjectsMIB=snmpUsmDHObjectsMIB, usmDHKickstartSecurityName=usmDHKickstartSecurityName, usmDHKeyKickstartGroup=usmDHKeyKickstartGroup, usmDHUserOwnPrivKeyChange=usmDHUserOwnPrivKeyChange)

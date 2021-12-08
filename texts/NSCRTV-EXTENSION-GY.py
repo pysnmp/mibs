@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NSCRTV-EXTENSION-GY (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/glassway/NSCRTV-EXTENSION-GY
-# Produced by pysmi-1.1.3 at Wed Dec  8 20:21:04 2021
-# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 20:58:20 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-sysObjectID, system, sysName, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysObjectID", "system", "sysName", "sysLocation")
-MibIdentifier, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, iso, ObjectIdentity, NotificationType, ModuleIdentity, Unsigned32, NotificationType, Bits, IpAddress, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "iso", "ObjectIdentity", "NotificationType", "ModuleIdentity", "Unsigned32", "NotificationType", "Bits", "IpAddress", "TimeTicks", "Gauge32")
+sysName, sysObjectID, sysLocation, system = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysObjectID", "sysLocation", "system")
+Bits, iso, NotificationType, IpAddress, Integer32, TimeTicks, Counter32, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, MibIdentifier, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "NotificationType", "IpAddress", "Integer32", "TimeTicks", "Counter32", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "MibIdentifier", "Counter64", "Unsigned32")
 PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
 gyEntry = MibIdentifier((1, 3, 6, 1, 2, 1, 1, 1000))
 gyCommon = MibIdentifier((1, 3, 6, 1, 2, 1, 1, 1000, 1))
@@ -47,4 +47,4 @@ if mibBuilder.loadTexts: gyhbRWCommunity.setStatus('mandatory')
 if mibBuilder.loadTexts: gyhbRWCommunity.setDescription('豸Ķд')
 gyHeartBeat = NotificationType((1, 3, 6, 1, 2, 1, 1, 1000) + (0,0)).setObjects(("NSCRTV-EXTENSION-GY", "gyhbMacAddress"), ("NSCRTV-EXTENSION-GY", "gyhbIpAddress"), ("NSCRTV-EXTENSION-GY", "gyhbLogicalID"), ("NSCRTV-EXTENSION-GY", "gyhbModelNumber"), ("NSCRTV-EXTENSION-GY", "gyhbSerialNumber"), ("NSCRTV-EXTENSION-GY", "gyhbROCommunity"), ("NSCRTV-EXTENSION-GY", "gyhbRWCommunity"), ("SNMPv2-MIB", "sysObjectID"), ("SNMPv2-MIB", "sysLocation"), ("SNMPv2-MIB", "sysName"))
 if mibBuilder.loadTexts: gyHeartBeat.setDescription('ӦЯӦı')
-mibBuilder.exportSymbols("NSCRTV-EXTENSION-GY", gyCommon=gyCommon, gyhbRWCommunity=gyhbRWCommunity, gyTrapVersion=gyTrapVersion, gyhbIpAddress=gyhbIpAddress, gyhbROCommunity=gyhbROCommunity, gyEntry=gyEntry, gyhbLogicalID=gyhbLogicalID, gyAgentStpVersion=gyAgentStpVersion, gyUpdateIdentifier=gyUpdateIdentifier, gyhbSerialNumber=gyhbSerialNumber, gyhbMacAddress=gyhbMacAddress, gyTrapVariables=gyTrapVariables, gyHeartBeat=gyHeartBeat, gyhbModelNumber=gyhbModelNumber)
+mibBuilder.exportSymbols("NSCRTV-EXTENSION-GY", gyTrapVersion=gyTrapVersion, gyhbRWCommunity=gyhbRWCommunity, gyCommon=gyCommon, gyTrapVariables=gyTrapVariables, gyhbSerialNumber=gyhbSerialNumber, gyHeartBeat=gyHeartBeat, gyhbIpAddress=gyhbIpAddress, gyhbLogicalID=gyhbLogicalID, gyhbMacAddress=gyhbMacAddress, gyhbModelNumber=gyhbModelNumber, gyEntry=gyEntry, gyhbROCommunity=gyhbROCommunity, gyUpdateIdentifier=gyUpdateIdentifier, gyAgentStpVersion=gyAgentStpVersion)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-CONFIGCHANGE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-CONFIGCHANGE-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 20:48:08 2021
-# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 21:19:51 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Gauge32, Unsigned32, ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, TimeTicks, NotificationType, iso, Counter64, Bits, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Gauge32", "Unsigned32", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "TimeTicks", "NotificationType", "iso", "Counter64", "Bits", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, iso, TimeTicks, NotificationType, Integer32, Unsigned32, Bits, MibIdentifier, Gauge32, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "iso", "TimeTicks", "NotificationType", "Integer32", "Unsigned32", "Bits", "MibIdentifier", "Gauge32", "ModuleIdentity", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 prvtConfigChangeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 5, 150))
 prvtConfigChangeMIB.setRevisions(('2010-09-01 00:00',))
 
@@ -32,4 +32,4 @@ if mibBuilder.loadTexts: prvtConfigChangeAlarmKeypath.setDescription('The config
 prvtConfigChangeAlarm = NotificationType((1, 3, 6, 1, 4, 1, 738, 10, 5, 150, 0, 1)).setObjects(("PRVT-CONFIGCHANGE-MIB", "prvtConfigChangeAlarmNamespace"), ("PRVT-CONFIGCHANGE-MIB", "prvtConfigChangeAlarmKeypath"))
 if mibBuilder.loadTexts: prvtConfigChangeAlarm.setStatus('current')
 if mibBuilder.loadTexts: prvtConfigChangeAlarm.setDescription('This notification is generated when the value of configurable\n         attribute has been changed. The notification can be used\n         to trigger maintenance polling of the running configuration\n         on the device. There is flood prevention that notification\n         with same varbinds will not be sent for certain time - i.e. 1 min')
-mibBuilder.exportSymbols("PRVT-CONFIGCHANGE-MIB", prvtConfigChangeMIB=prvtConfigChangeMIB, prvtConfigChangeObjects=prvtConfigChangeObjects, prvtConfigChangeAlarm=prvtConfigChangeAlarm, PYSNMP_MODULE_ID=prvtConfigChangeMIB, prvtConfigChangeAlarmNamespace=prvtConfigChangeAlarmNamespace, prvtConfigChangeAlarmKeypath=prvtConfigChangeAlarmKeypath, prvtConfigChangeNotifications=prvtConfigChangeNotifications)
+mibBuilder.exportSymbols("PRVT-CONFIGCHANGE-MIB", PYSNMP_MODULE_ID=prvtConfigChangeMIB, prvtConfigChangeAlarmNamespace=prvtConfigChangeAlarmNamespace, prvtConfigChangeMIB=prvtConfigChangeMIB, prvtConfigChangeAlarm=prvtConfigChangeAlarm, prvtConfigChangeAlarmKeypath=prvtConfigChangeAlarmKeypath, prvtConfigChangeNotifications=prvtConfigChangeNotifications, prvtConfigChangeObjects=prvtConfigChangeObjects)
