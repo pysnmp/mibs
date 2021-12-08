@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module CTRON-ROUTERS-INTERNAL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ROUTERS-INTERNAL-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:04:17 2021
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:41:51 2021
 # On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, NotificationType, TimeTicks, ObjectIdentity, Bits, enterprises, Unsigned32, Gauge32, Counter32, MibIdentifier, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "NotificationType", "TimeTicks", "ObjectIdentity", "Bits", "enterprises", "Unsigned32", "Gauge32", "Counter32", "MibIdentifier", "Counter64")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, MibIdentifier, ModuleIdentity, ObjectIdentity, NotificationType, IpAddress, Counter32, Gauge32, iso, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "NotificationType", "IpAddress", "Counter32", "Gauge32", "iso", "enterprises")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cabletron = MibIdentifier((1, 3, 6, 1, 4, 1, 52))
 mibs = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4))
@@ -24,4 +24,4 @@ nwRtrTemp2 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 99, 2, 2))
 nwRtrSoftReset = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 99, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("reset", 0)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nwRtrSoftReset.setStatus('mandatory')
 if mibBuilder.loadTexts: nwRtrSoftReset.setDescription('Executes a software reset of the device when reset(0)\n                        is written to this object. This reset does not reload \n                        software from Flash EPROM.')
-mibBuilder.exportSymbols("CTRON-ROUTERS-INTERNAL-MIB", ctNetwork=ctNetwork, ctronRouterExp=ctronRouterExp, nwRtrTemp2=nwRtrTemp2, ctron=ctron, nwRtrSoftReset=nwRtrSoftReset, cabletron=cabletron, nwRouter=nwRouter, nwRtrTemp1=nwRtrTemp1, nwRtrTemp=nwRtrTemp, mibs=mibs, ctronExp=ctronExp)
+mibBuilder.exportSymbols("CTRON-ROUTERS-INTERNAL-MIB", mibs=mibs, ctronRouterExp=ctronRouterExp, cabletron=cabletron, nwRtrTemp1=nwRtrTemp1, ctronExp=ctronExp, nwRtrSoftReset=nwRtrSoftReset, nwRtrTemp2=nwRtrTemp2, nwRouter=nwRouter, ctNetwork=ctNetwork, ctron=ctron, nwRtrTemp=nwRtrTemp)

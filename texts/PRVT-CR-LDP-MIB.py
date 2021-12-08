@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-CR-LDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-CR-LDP-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:22:11 2021
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:57:22 2021
 # On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 mpls, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "mpls")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32, IpAddress, NotificationType, MibIdentifier, Integer32, Counter32, Counter64, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32", "IpAddress", "NotificationType", "MibIdentifier", "Integer32", "Counter32", "Counter64", "Bits", "ModuleIdentity")
+MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter64, Bits, Gauge32, Integer32, MibIdentifier, TimeTicks, ModuleIdentity, ObjectIdentity, Unsigned32, IpAddress, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter64", "Bits", "Gauge32", "Integer32", "MibIdentifier", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "IpAddress", "Counter32", "iso")
 TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
 prvtCrLdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 3))
 prvtCrLdpMIB.setRevisions(('2008-01-01 00:00',))
@@ -51,4 +51,4 @@ if mibBuilder.loadTexts: prvtcrldpPmIndex.setDescription('The index of this prvt
 prvtcrldpPmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 3, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: prvtcrldpPmRowStatus.setStatus('current')
 if mibBuilder.loadTexts: prvtcrldpPmRowStatus.setDescription("Used to create and delete a PRVT-CR-LDP Path Manager Table entry.\n         When this object is set to 'active', only the\n         prvtcrldpPmAdminStatus object in the row may be modified.")
-mibBuilder.exportSymbols("PRVT-CR-LDP-MIB", PrvtCrldpIndex=PrvtCrldpIndex, prvtcrldpSigTable=prvtcrldpSigTable, prvtcrldpSigIndex=prvtcrldpSigIndex, prvtcrldpPmRowStatus=prvtcrldpPmRowStatus, prvtcrldpPmTable=prvtcrldpPmTable, prvtcrldpPmIndex=prvtcrldpPmIndex, PYSNMP_MODULE_ID=prvtCrLdpMIB, prvtcrldpSigRowStatus=prvtcrldpSigRowStatus, prvtcrldpPmEntry=prvtcrldpPmEntry, prvtcrldpSigEntry=prvtcrldpSigEntry, prvtCrLdpObjects=prvtCrLdpObjects, prvtCrLdpMIB=prvtCrLdpMIB)
+mibBuilder.exportSymbols("PRVT-CR-LDP-MIB", prvtcrldpSigIndex=prvtcrldpSigIndex, prvtcrldpSigRowStatus=prvtcrldpSigRowStatus, prvtcrldpPmIndex=prvtcrldpPmIndex, prvtcrldpPmRowStatus=prvtcrldpPmRowStatus, prvtCrLdpMIB=prvtCrLdpMIB, PYSNMP_MODULE_ID=prvtCrLdpMIB, PrvtCrldpIndex=PrvtCrldpIndex, prvtcrldpPmEntry=prvtcrldpPmEntry, prvtcrldpPmTable=prvtcrldpPmTable, prvtCrLdpObjects=prvtCrLdpObjects, prvtcrldpSigEntry=prvtcrldpSigEntry, prvtcrldpSigTable=prvtcrldpSigTable)

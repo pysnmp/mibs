@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SPRIF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/SPRIF-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:25:21 2021
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:59:56 2021
 # On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
 SagemBoolean, = mibBuilder.importSymbols("EQUIPMENT-MIB", "SagemBoolean")
 sagemDr, = mibBuilder.importSymbols("SAGEM-DR-MIB", "sagemDr")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Gauge32, iso, TimeTicks, NotificationType, ObjectIdentity, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, IpAddress, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Gauge32", "iso", "TimeTicks", "NotificationType", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "IpAddress", "Bits", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Unsigned32, ObjectIdentity, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress, TimeTicks, Gauge32, MibIdentifier, Counter32, Counter64, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ObjectIdentity", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress", "TimeTicks", "Gauge32", "MibIdentifier", "Counter32", "Counter64", "ModuleIdentity", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 sprif = ModuleIdentity((1, 3, 6, 1, 4, 1, 1038, 180))
 if mibBuilder.loadTexts: sprif.setLastUpdated('0012120000Z')
 if mibBuilder.loadTexts: sprif.setOrganization('SAGEM-Tolbiac drd/ddp/tmhd')
@@ -140,4 +140,4 @@ debug3mms = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 180, 30, 2, 1, 27), SagemBoo
 if mibBuilder.loadTexts: debug3mms.setStatus('current')
 debug3exr = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 180, 30, 2, 1, 28), SagemBoolean()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: debug3exr.setStatus('current')
-mibBuilder.exportSymbols("SPRIF-MIB", debugTxK1Ask=debugTxK1Ask, debugEntry=debugEntry, debugRxK1Dst=debugRxK1Dst, debugLine=debugLine, debugActivated=debugActivated, debugNodeState=debugNodeState, debugTxK2Path=debugTxK2Path, debugIndex=debugIndex, debugRxK2Path=debugRxK2Path, debug3aun=debug3aun, LOGTYPE=LOGTYPE, STATE=STATE, debugLogType=debugLogType, debug3exr=debug3exr, sprif=sprif, K2STAT=K2STAT, K2PATH=K2PATH, TrafficStatus=TrafficStatus, K1ASK=K1ASK, debugRxK2Stat=debugRxK2Stat, debugSwitchingState=debugSwitchingState, debug3=debug3, debug3Line=debug3Line, debugTxK2Src=debugTxK2Src, PYSNMP_MODULE_ID=sprif, debugTimerAction=debugTimerAction, debugLastDistantCommand=debugLastDistantCommand, debugTxK2Stat=debugTxK2Stat, debugRxK1Ask=debugRxK1Ask, debugLastLocalCommand=debugLastLocalCommand, LOCALCOMMAND=LOCALCOMMAND, debugTable=debugTable, debug3Entry=debug3Entry, debug3Date=debug3Date, debugNumber=debugNumber, SWITCHSTATUS=SWITCHSTATUS, LOCALFAIL=LOCALFAIL, debugWtr=debugWtr, NodeId=NodeId, debugRxK2Src=debugRxK2Src, debug3ato=debug3ato, debugDate=debugDate, LINE=LINE, TIMER=TIMER, debugNodeID=debugNodeID, debug3Table=debug3Table, debug3mms=debug3mms, debug=debug, debugTxK1Dst=debugTxK1Dst, debugTrafficStatus=debugTrafficStatus, debug3ptm=debug3ptm, debug3arv=debug3arv, debugLastDetectedFailure=debugLastDetectedFailure)
+mibBuilder.exportSymbols("SPRIF-MIB", debug3Table=debug3Table, debugNodeState=debugNodeState, LINE=LINE, debug3ato=debug3ato, debugRxK2Path=debugRxK2Path, K2STAT=K2STAT, NodeId=NodeId, debugTxK2Src=debugTxK2Src, debug3mms=debug3mms, debugEntry=debugEntry, debug3Line=debug3Line, STATE=STATE, debugTxK1Ask=debugTxK1Ask, debugTxK2Path=debugTxK2Path, K2PATH=K2PATH, debug3=debug3, TIMER=TIMER, debug=debug, debugLogType=debugLogType, debugRxK2Src=debugRxK2Src, debugLastDistantCommand=debugLastDistantCommand, debug3Date=debug3Date, sprif=sprif, debugSwitchingState=debugSwitchingState, debugNodeID=debugNodeID, debugNumber=debugNumber, debugTimerAction=debugTimerAction, debugRxK1Dst=debugRxK1Dst, debugTxK2Stat=debugTxK2Stat, debugLine=debugLine, debugTrafficStatus=debugTrafficStatus, debugWtr=debugWtr, debugLastDetectedFailure=debugLastDetectedFailure, PYSNMP_MODULE_ID=sprif, debugTxK1Dst=debugTxK1Dst, debugTable=debugTable, LOCALFAIL=LOCALFAIL, K1ASK=K1ASK, debug3arv=debug3arv, SWITCHSTATUS=SWITCHSTATUS, TrafficStatus=TrafficStatus, debugLastLocalCommand=debugLastLocalCommand, debugDate=debugDate, debug3Entry=debug3Entry, debug3ptm=debug3ptm, debug3exr=debug3exr, debugActivated=debugActivated, debug3aun=debug3aun, debugRxK1Ask=debugRxK1Ask, LOCALCOMMAND=LOCALCOMMAND, debugRxK2Stat=debugRxK2Stat, debugIndex=debugIndex, LOGTYPE=LOGTYPE)
