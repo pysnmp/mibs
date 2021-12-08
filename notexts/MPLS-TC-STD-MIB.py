@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MPLS-TC-STD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-TC-STD-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 17:56:22 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 17:56:32 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, MibIdentifier, Unsigned32, iso, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, Counter32, transmission, TimeTicks, NotificationType, Bits, ObjectIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "Unsigned32", "iso", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "Counter32", "transmission", "TimeTicks", "NotificationType", "Bits", "ObjectIdentity", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, ModuleIdentity, NotificationType, TimeTicks, iso, Unsigned32, Counter32, ObjectIdentity, Counter64, Bits, IpAddress, Integer32, Gauge32, transmission, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "NotificationType", "TimeTicks", "iso", "Unsigned32", "Counter32", "ObjectIdentity", "Counter64", "Bits", "IpAddress", "Integer32", "Gauge32", "transmission", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mplsTCStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 1))
 mplsTCStdMIB.setRevisions(('2004-06-03 00:00',))
 if mibBuilder.loadTexts: mplsTCStdMIB.setLastUpdated('200406030000Z')
@@ -124,4 +124,4 @@ class TeHopAddressUnnum(TextualConvention, OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
     fixedLength = 4
 
-mibBuilder.exportSymbols("MPLS-TC-STD-MIB", MplsLabelDistributionMethod=MplsLabelDistributionMethod, MplsPathIndex=MplsPathIndex, MplsTunnelAffinity=MplsTunnelAffinity, TeHopAddressAS=TeHopAddressAS, mplsStdMIB=mplsStdMIB, MplsTunnelIndex=MplsTunnelIndex, MplsBitRate=MplsBitRate, MplsLsrIdentifier=MplsLsrIdentifier, PYSNMP_MODULE_ID=mplsTCStdMIB, MplsPathIndexOrZero=MplsPathIndexOrZero, TeHopAddressType=TeHopAddressType, MplsAtmVcIdentifier=MplsAtmVcIdentifier, MplsLspType=MplsLspType, MplsLdpIdentifier=MplsLdpIdentifier, TeHopAddressUnnum=TeHopAddressUnnum, mplsTCStdMIB=mplsTCStdMIB, MplsLabel=MplsLabel, MplsLdpLabelType=MplsLdpLabelType, MplsBurstSize=MplsBurstSize, MplsRetentionMode=MplsRetentionMode, MplsExtendedTunnelId=MplsExtendedTunnelId, TeHopAddress=TeHopAddress, MplsOwner=MplsOwner, MplsTunnelInstanceIndex=MplsTunnelInstanceIndex, MplsLSPID=MplsLSPID)
+mibBuilder.exportSymbols("MPLS-TC-STD-MIB", MplsBurstSize=MplsBurstSize, MplsLSPID=MplsLSPID, MplsAtmVcIdentifier=MplsAtmVcIdentifier, TeHopAddressUnnum=TeHopAddressUnnum, MplsBitRate=MplsBitRate, PYSNMP_MODULE_ID=mplsTCStdMIB, mplsTCStdMIB=mplsTCStdMIB, MplsTunnelInstanceIndex=MplsTunnelInstanceIndex, mplsStdMIB=mplsStdMIB, MplsLspType=MplsLspType, MplsTunnelIndex=MplsTunnelIndex, MplsLdpLabelType=MplsLdpLabelType, MplsPathIndex=MplsPathIndex, TeHopAddressType=TeHopAddressType, MplsOwner=MplsOwner, TeHopAddressAS=TeHopAddressAS, MplsLabel=MplsLabel, MplsPathIndexOrZero=MplsPathIndexOrZero, MplsLabelDistributionMethod=MplsLabelDistributionMethod, MplsRetentionMode=MplsRetentionMode, MplsLsrIdentifier=MplsLsrIdentifier, MplsTunnelAffinity=MplsTunnelAffinity, MplsExtendedTunnelId=MplsExtendedTunnelId, TeHopAddress=TeHopAddress, MplsLdpIdentifier=MplsLdpIdentifier)

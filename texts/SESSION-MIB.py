@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SESSION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/SESSION-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:23:55 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:25:23 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 SagemBoolean, = mibBuilder.importSymbols("EQUIPMENT-MIB", "SagemBoolean")
 sagemDr, = mibBuilder.importSymbols("SAGEM-DR-MIB", "sagemDr")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, Integer32, MibIdentifier, TimeTicks, iso, ModuleIdentity, NotificationType, Unsigned32, Bits, Counter32, IpAddress, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "Integer32", "MibIdentifier", "TimeTicks", "iso", "ModuleIdentity", "NotificationType", "Unsigned32", "Bits", "Counter32", "IpAddress", "Gauge32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Gauge32, ModuleIdentity, NotificationType, Integer32, Counter64, Bits, MibIdentifier, iso, ObjectIdentity, IpAddress, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "ModuleIdentity", "NotificationType", "Integer32", "Counter64", "Bits", "MibIdentifier", "iso", "ObjectIdentity", "IpAddress", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 session = ModuleIdentity((1, 3, 6, 1, 4, 1, 1038, 201))
 if mibBuilder.loadTexts: session.setLastUpdated('0206110000Z')
@@ -36,4 +36,4 @@ if mibBuilder.loadTexts: tInactivity.setDescription('\n\tThe normal configuratio
 savePending = MibScalar((1, 3, 6, 1, 4, 1, 1038, 201, 20), SagemBoolean()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: savePending.setStatus('current')
 if mibBuilder.loadTexts: savePending.setDescription('\n\t  Return TRUE if the write session is unlocked for more than 30 seconds\n\t  ')
-mibBuilder.exportSymbols("SESSION-MIB", sessionIp=sessionIp, sessionType=sessionType, tLock=tLock, tInactivity=tInactivity, savePending=savePending, session=session, PYSNMP_MODULE_ID=session, tLockDefault=tLockDefault)
+mibBuilder.exportSymbols("SESSION-MIB", savePending=savePending, session=session, PYSNMP_MODULE_ID=session, tLock=tLock, sessionIp=sessionIp, tLockDefault=tLockDefault, tInactivity=tInactivity, sessionType=sessionType)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRIV-LSL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRIV-LSL-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:20:56 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:22:18 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-NotificationType, IpAddress, Counter32, Unsigned32, Integer32, ModuleIdentity, TimeTicks, MibIdentifier, Bits, iso, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Counter32", "Unsigned32", "Integer32", "ModuleIdentity", "TimeTicks", "MibIdentifier", "Bits", "iso", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64")
-TextualConvention, DisplayString, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "MacAddress")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter64, iso, TimeTicks, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32, ObjectIdentity, MibIdentifier, ModuleIdentity, IpAddress, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "iso", "TimeTicks", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "IpAddress", "Bits", "Unsigned32")
+MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
 privLsl = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 113))
 privLsl.setRevisions(('2008-03-21 00:00',))
 
@@ -64,4 +64,4 @@ privLevel1Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 738, 1, 5, 113, 1, 3,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     privLevel1Compliance = privLevel1Compliance.setStatus('current')
 if mibBuilder.loadTexts: privLevel1Compliance.setDescription('The compliance statement. It will be extended if new\nfunctionality is added')
-mibBuilder.exportSymbols("PRIV-LSL-MIB", privLslConformance=privLslConformance, privLslStatus=privLslStatus, privLslManagementTable=privLslManagementTable, privLslObjects=privLslObjects, PrivLslStates=PrivLslStates, privLevel1ObjectsGroup=privLevel1ObjectsGroup, privIometrixStatus=privIometrixStatus, privLslGlobalMacAddress=privLslGlobalMacAddress, privLslNotifications=privLslNotifications, privLevel1Compliance=privLevel1Compliance, privIometrixManagementEntry=privIometrixManagementEntry, PYSNMP_MODULE_ID=privLsl, privLslGroups=privLslGroups, privLsl=privLsl, privLslManagementEntry=privLslManagementEntry, privLslLevel1=privLslLevel1, privLslCompliances=privLslCompliances, privIometrixManagementTable=privIometrixManagementTable)
+mibBuilder.exportSymbols("PRIV-LSL-MIB", privLevel1Compliance=privLevel1Compliance, privLslNotifications=privLslNotifications, privLslManagementTable=privLslManagementTable, privLslGroups=privLslGroups, privIometrixManagementEntry=privIometrixManagementEntry, privLslLevel1=privLslLevel1, privLslStatus=privLslStatus, privLslObjects=privLslObjects, privLsl=privLsl, privLslConformance=privLslConformance, privLslCompliances=privLslCompliances, privLevel1ObjectsGroup=privLevel1ObjectsGroup, PrivLslStates=PrivLslStates, privIometrixStatus=privIometrixStatus, privLslManagementEntry=privLslManagementEntry, privLslGlobalMacAddress=privLslGlobalMacAddress, privIometrixManagementTable=privIometrixManagementTable, PYSNMP_MODULE_ID=privLsl)

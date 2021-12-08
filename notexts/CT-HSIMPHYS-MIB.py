@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CT-HSIMPHYS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-HSIMPHYS-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:02:57 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:04:10 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 ctHSIMPhysMib, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctHSIMPhysMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Unsigned32, IpAddress, NotificationType, Integer32, Counter64, ObjectIdentity, MibIdentifier, Bits, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "IpAddress", "NotificationType", "Integer32", "Counter64", "ObjectIdentity", "MibIdentifier", "Bits", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationType, ModuleIdentity, ObjectIdentity, iso, Unsigned32, MibIdentifier, Integer32, Counter64, Bits, TimeTicks, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ModuleIdentity", "ObjectIdentity", "iso", "Unsigned32", "MibIdentifier", "Integer32", "Counter64", "Bits", "TimeTicks", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hsimInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 17, 1))
 hsimBoardRev = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 17, 1, 1), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hsimBoardRev.setStatus('mandatory')
@@ -66,4 +66,4 @@ localHwDeviceOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 17, 1, 
 if mibBuilder.loadTexts: localHwDeviceOperStatus.setStatus('mandatory')
 localHwDeviceAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 17, 1, 10, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: localHwDeviceAdminStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("CT-HSIMPHYS-MIB", localHwDevicesEntry=localHwDevicesEntry, hsimFsbRev=hsimFsbRev, hsimBoardRev=hsimBoardRev, mBusBoardOIDPointer=mBusBoardOIDPointer, wpimBoardID=wpimBoardID, wpimBoardTable=wpimBoardTable, hsimBoardId=hsimBoardId, localHwDeviceID=localHwDeviceID, mBusBoardID=mBusBoardID, localHwDeviceAdminStatus=localHwDeviceAdminStatus, wpimBoardEntry=wpimBoardEntry, hsimInfo=hsimInfo, wpimBoardEntryType=wpimBoardEntryType, mBusBoardEntry=mBusBoardEntry, hsimEpldRev=hsimEpldRev, hsimEpldId=hsimEpldId, wpimNumberBoardsInstalled=wpimNumberBoardsInstalled, mBusNumberBoardsInstalled=mBusNumberBoardsInstalled, mBusBoardTable=mBusBoardTable, hsimLocalHwDevicesInfo=hsimLocalHwDevicesInfo, hsimPeripheralWpimInfo=hsimPeripheralWpimInfo, localHwDevicesTable=localHwDevicesTable, mBusBoardEntryType=mBusBoardEntryType, hsimSsbRev=hsimSsbRev, localHwDeviceType=localHwDeviceType, hsimPeripheralMBusInfo=hsimPeripheralMBusInfo, wpimBoardOIDPointer=wpimBoardOIDPointer, localHwDeviceOperStatus=localHwDeviceOperStatus, hsimFwRev=hsimFwRev)
+mibBuilder.exportSymbols("CT-HSIMPHYS-MIB", hsimEpldId=hsimEpldId, mBusBoardEntry=mBusBoardEntry, wpimNumberBoardsInstalled=wpimNumberBoardsInstalled, localHwDevicesTable=localHwDevicesTable, mBusBoardID=mBusBoardID, hsimFwRev=hsimFwRev, hsimBoardId=hsimBoardId, wpimBoardEntry=wpimBoardEntry, localHwDeviceAdminStatus=localHwDeviceAdminStatus, mBusBoardEntryType=mBusBoardEntryType, localHwDeviceType=localHwDeviceType, hsimPeripheralWpimInfo=hsimPeripheralWpimInfo, hsimEpldRev=hsimEpldRev, localHwDeviceID=localHwDeviceID, hsimPeripheralMBusInfo=hsimPeripheralMBusInfo, localHwDevicesEntry=localHwDevicesEntry, mBusBoardOIDPointer=mBusBoardOIDPointer, hsimSsbRev=hsimSsbRev, hsimBoardRev=hsimBoardRev, mBusBoardTable=mBusBoardTable, wpimBoardID=wpimBoardID, wpimBoardEntryType=wpimBoardEntryType, localHwDeviceOperStatus=localHwDeviceOperStatus, wpimBoardOIDPointer=wpimBoardOIDPointer, mBusNumberBoardsInstalled=mBusNumberBoardsInstalled, hsimInfo=hsimInfo, wpimBoardTable=wpimBoardTable, hsimLocalHwDevicesInfo=hsimLocalHwDevicesInfo, hsimFsbRev=hsimFsbRev)

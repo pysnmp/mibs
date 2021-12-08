@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NET-SNMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 17:59:41 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:00:22 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Counter64, ObjectIdentity, NotificationType, Gauge32, Unsigned32, iso, TimeTicks, ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Integer32, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "ObjectIdentity", "NotificationType", "Gauge32", "Unsigned32", "iso", "TimeTicks", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Integer32", "IpAddress", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, enterprises, Unsigned32, Bits, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, TimeTicks, Integer32, Gauge32, ModuleIdentity, Counter64, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "enterprises", "Unsigned32", "Bits", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Integer32", "Gauge32", "ModuleIdentity", "Counter64", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 netSnmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 8072))
 netSnmp.setRevisions(('2002-01-30 00:00',))
 
@@ -33,4 +33,4 @@ netSnmpNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 4, 1))
 netSnmpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 5))
 netSnmpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 5, 1))
 netSnmpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 5, 2))
-mibBuilder.exportSymbols("NET-SNMP-MIB", netSnmp=netSnmp, netSnmpCompliances=netSnmpCompliances, netSnmpGroups=netSnmpGroups, netSnmpAgentOIDs=netSnmpAgentOIDs, netSnmpPlaypen=netSnmpPlaypen, netSnmpObjects=netSnmpObjects, netSnmpNotificationObjects=netSnmpNotificationObjects, PYSNMP_MODULE_ID=netSnmp, netSnmpNotificationPrefix=netSnmpNotificationPrefix, netSnmpEnumerations=netSnmpEnumerations, netSnmpNotifications=netSnmpNotifications, netSnmpConformance=netSnmpConformance, netSnmpDomains=netSnmpDomains, netSnmpExperimental=netSnmpExperimental, netSnmpModuleIDs=netSnmpModuleIDs)
+mibBuilder.exportSymbols("NET-SNMP-MIB", netSnmpNotificationObjects=netSnmpNotificationObjects, netSnmp=netSnmp, netSnmpPlaypen=netSnmpPlaypen, netSnmpNotificationPrefix=netSnmpNotificationPrefix, netSnmpExperimental=netSnmpExperimental, netSnmpConformance=netSnmpConformance, netSnmpNotifications=netSnmpNotifications, netSnmpCompliances=netSnmpCompliances, netSnmpAgentOIDs=netSnmpAgentOIDs, netSnmpObjects=netSnmpObjects, netSnmpEnumerations=netSnmpEnumerations, netSnmpGroups=netSnmpGroups, netSnmpModuleIDs=netSnmpModuleIDs, netSnmpDomains=netSnmpDomains, PYSNMP_MODULE_ID=netSnmp)

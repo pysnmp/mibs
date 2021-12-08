@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module EIP-STATS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/efficientip/EIP-STATS-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:04:37 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:05:53 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Integer32, ModuleIdentity, iso, MibIdentifier, Counter32, Unsigned32, NotificationType, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, IpAddress, Counter64, enterprises, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "ModuleIdentity", "iso", "MibIdentifier", "Counter32", "Unsigned32", "NotificationType", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "IpAddress", "Counter64", "enterprises", "NotificationType")
-TextualConvention, DisplayString, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "PhysAddress")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter64, MibIdentifier, TimeTicks, ModuleIdentity, Counter32, enterprises, iso, Bits, Unsigned32, Gauge32, NotificationType, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "TimeTicks", "ModuleIdentity", "Counter32", "enterprises", "iso", "Bits", "Unsigned32", "Gauge32", "NotificationType", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ObjectIdentity", "IpAddress")
+DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
 eip = MibIdentifier((1, 3, 6, 1, 4, 1, 2440))
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 2440, 1))
 eipDns = MibIdentifier((1, 3, 6, 1, 4, 1, 2440, 1, 4))
@@ -49,4 +49,4 @@ eipDhcp6StatName = MibTableColumn((1, 3, 6, 1, 4, 1, 2440, 1, 7, 1, 1, 1, 2), Di
 if mibBuilder.loadTexts: eipDhcp6StatName.setStatus('mandatory')
 eipDhcp6StatValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2440, 1, 7, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eipDhcp6StatValue.setStatus('mandatory')
-mibBuilder.exportSymbols("EIP-STATS-MIB", eipDhcp6=eipDhcp6, eipDhcpStatValue=eipDhcpStatValue, eipDnsStat=eipDnsStat, eipDhcpStatTable=eipDhcpStatTable, eipDnsStatName=eipDnsStatName, eipDhcp6StatEntry=eipDhcp6StatEntry, eipDhcp6StatValue=eipDhcp6StatValue, eipDns=eipDns, eipDhcp6Stat=eipDhcp6Stat, eipDhcpStatIndex=eipDhcpStatIndex, eipDnsStatValue=eipDnsStatValue, products=products, eipDhcp6StatIndex=eipDhcp6StatIndex, eipDhcpStatEntry=eipDhcpStatEntry, eipDnsStatTable=eipDnsStatTable, eipDhcp6StatTable=eipDhcp6StatTable, eipDhcpStat=eipDhcpStat, eipDnsStatIndex=eipDnsStatIndex, eipDhcp=eipDhcp, eipDhcp6StatName=eipDhcp6StatName, eip=eip, eipDnsStatEntry=eipDnsStatEntry, eipDhcpStatName=eipDhcpStatName)
+mibBuilder.exportSymbols("EIP-STATS-MIB", eipDnsStat=eipDnsStat, eipDnsStatIndex=eipDnsStatIndex, eipDns=eipDns, eipDhcpStat=eipDhcpStat, products=products, eipDhcp6StatTable=eipDhcp6StatTable, eipDhcp6StatIndex=eipDhcp6StatIndex, eipDhcpStatTable=eipDhcpStatTable, eipDhcp6=eipDhcp6, eipDhcpStatEntry=eipDhcpStatEntry, eipDhcpStatValue=eipDhcpStatValue, eipDhcp6StatValue=eipDhcp6StatValue, eipDhcp6Stat=eipDhcp6Stat, eipDhcp6StatEntry=eipDhcp6StatEntry, eipDnsStatEntry=eipDnsStatEntry, eipDhcpStatName=eipDhcpStatName, eipDnsStatValue=eipDnsStatValue, eipDhcp=eipDhcp, eip=eip, eipDnsStatTable=eipDnsStatTable, eipDhcp6StatName=eipDhcp6StatName, eipDnsStatName=eipDnsStatName, eipDhcpStatIndex=eipDhcpStatIndex)

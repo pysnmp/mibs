@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module CTRON-SSR-TRAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-TRAP-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 18:02:57 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 18:04:10 2021
+# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 capCPUCurrentUtilization, = mibBuilder.importSymbols("CTRON-SSR-CAPACITY-MIB", "capCPUCurrentUtilization")
-sysHwFan, sysHwTemperature, sysHwModuleSlotNumber, sysHwPowerSupply = mibBuilder.importSymbols("CTRON-SSR-HARDWARE-MIB", "sysHwFan", "sysHwTemperature", "sysHwModuleSlotNumber", "sysHwPowerSupply")
-polAclItem, polAclName = mibBuilder.importSymbols("CTRON-SSR-POLICY-MIB", "polAclItem", "polAclName")
-ssrMibs, ssrTraps = mibBuilder.importSymbols("CTRON-SSR-SMI-MIB", "ssrMibs", "ssrTraps")
+sysHwModuleSlotNumber, sysHwTemperature, sysHwPowerSupply, sysHwFan = mibBuilder.importSymbols("CTRON-SSR-HARDWARE-MIB", "sysHwModuleSlotNumber", "sysHwTemperature", "sysHwPowerSupply", "sysHwFan")
+polAclName, polAclItem = mibBuilder.importSymbols("CTRON-SSR-POLICY-MIB", "polAclName", "polAclItem")
+ssrTraps, ssrMibs = mibBuilder.importSymbols("CTRON-SSR-SMI-MIB", "ssrTraps", "ssrMibs")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Unsigned32, IpAddress, NotificationType, Integer32, Counter64, ObjectIdentity, MibIdentifier, Bits, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "IpAddress", "NotificationType", "Integer32", "Counter64", "ObjectIdentity", "MibIdentifier", "Bits", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, ObjectIdentity, iso, Unsigned32, MibIdentifier, Integer32, Counter64, Bits, TimeTicks, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "ObjectIdentity", "iso", "Unsigned32", "MibIdentifier", "Integer32", "Counter64", "Bits", "TimeTicks", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ssrTrapsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 2501, 1, 300))
 ssrTrapsMIB.setRevisions(('2002-07-23 17:20', '2001-02-16 00:00',))
 if mibBuilder.loadTexts: ssrTrapsMIB.setLastUpdated('200207231720Z')
@@ -88,4 +88,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ssrTrapsConfGroupV50 = NotificationGroup((1, 3, 6, 1, 4, 1, 52, 2501, 1, 300, 2, 2, 5)).setObjects(("CTRON-SSR-TRAP-MIB", "envPowerSupplyFailed"), ("CTRON-SSR-TRAP-MIB", "envPowerSupplyRecovered"), ("CTRON-SSR-TRAP-MIB", "envFanFailed"), ("CTRON-SSR-TRAP-MIB", "envFanRecovered"), ("CTRON-SSR-TRAP-MIB", "envTempExceeded"), ("CTRON-SSR-TRAP-MIB", "envTempNormal"), ("CTRON-SSR-TRAP-MIB", "envHotSwapIn"), ("CTRON-SSR-TRAP-MIB", "envHotSwapOut"), ("CTRON-SSR-TRAP-MIB", "envBackupControlModuleOnline"), ("CTRON-SSR-TRAP-MIB", "envBackupControlModuleFailure"), ("CTRON-SSR-TRAP-MIB", "envLineModuleFailure"), ("CTRON-SSR-TRAP-MIB", "envCPUThresholdExceeded"), ("CTRON-SSR-TRAP-MIB", "polAclDenied"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ssrTrapsConfGroupV50 = ssrTrapsConfGroupV50.setStatus('current')
-mibBuilder.exportSymbols("CTRON-SSR-TRAP-MIB", ssrTrapsConfGroupV10=ssrTrapsConfGroupV10, ssrTrapsConfGroupV40=ssrTrapsConfGroupV40, polAclDenied=polAclDenied, envBackupControlModuleFailure=envBackupControlModuleFailure, polNotifications=polNotifications, ssrTrapsConformance=ssrTrapsConformance, envPowerSupplyRecovered=envPowerSupplyRecovered, envLineModuleFailure=envLineModuleFailure, envTempExceeded=envTempExceeded, ssrTrapsComplianceV50=ssrTrapsComplianceV50, ssrTrapsCompliances=ssrTrapsCompliances, PYSNMP_MODULE_ID=ssrTrapsMIB, envPowerSupplyFailed=envPowerSupplyFailed, polTrapGroup=polTrapGroup, envBackupControlModuleOnline=envBackupControlModuleOnline, ssrTrapsComplianceV20=ssrTrapsComplianceV20, ssrTrapsMIB=ssrTrapsMIB, envHotSwapIn=envHotSwapIn, ssrTrapsConfGroupV30=ssrTrapsConfGroupV30, envCPUThresholdExceeded=envCPUThresholdExceeded, ssrTrapsGroups=ssrTrapsGroups, envTempNormal=envTempNormal, ssrTrapsConfGroupV20=ssrTrapsConfGroupV20, trapControl=trapControl, ssrTrapsComplianceV30=ssrTrapsComplianceV30, ssrTrapsComplianceV40=ssrTrapsComplianceV40, envTrapGroup=envTrapGroup, ssrTrapsComplianceV10=ssrTrapsComplianceV10, envFanFailed=envFanFailed, envHotSwapOut=envHotSwapOut, envFanRecovered=envFanRecovered, ssrTrapsConfGroupV50=ssrTrapsConfGroupV50)
+mibBuilder.exportSymbols("CTRON-SSR-TRAP-MIB", polNotifications=polNotifications, envHotSwapOut=envHotSwapOut, ssrTrapsCompliances=ssrTrapsCompliances, polTrapGroup=polTrapGroup, envFanFailed=envFanFailed, ssrTrapsComplianceV20=ssrTrapsComplianceV20, ssrTrapsGroups=ssrTrapsGroups, ssrTrapsComplianceV50=ssrTrapsComplianceV50, envTempExceeded=envTempExceeded, envFanRecovered=envFanRecovered, envHotSwapIn=envHotSwapIn, envTrapGroup=envTrapGroup, ssrTrapsConformance=ssrTrapsConformance, ssrTrapsComplianceV30=ssrTrapsComplianceV30, ssrTrapsConfGroupV30=ssrTrapsConfGroupV30, trapControl=trapControl, PYSNMP_MODULE_ID=ssrTrapsMIB, envTempNormal=envTempNormal, ssrTrapsMIB=ssrTrapsMIB, envPowerSupplyRecovered=envPowerSupplyRecovered, envBackupControlModuleFailure=envBackupControlModuleFailure, envPowerSupplyFailed=envPowerSupplyFailed, envCPUThresholdExceeded=envCPUThresholdExceeded, ssrTrapsConfGroupV20=ssrTrapsConfGroupV20, ssrTrapsConfGroupV40=ssrTrapsConfGroupV40, ssrTrapsConfGroupV50=ssrTrapsConfGroupV50, envLineModuleFailure=envLineModuleFailure, ssrTrapsConfGroupV10=ssrTrapsConfGroupV10, ssrTrapsComplianceV40=ssrTrapsComplianceV40, ssrTrapsComplianceV10=ssrTrapsComplianceV10, envBackupControlModuleOnline=envBackupControlModuleOnline, polAclDenied=polAclDenied)
