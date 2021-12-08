@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ARISTA-VRF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-VRF-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 20:13:56 2021
+# Produced by pysmi-1.1.3 at Wed Dec  8 20:48:33 2021
 # On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Bits, Counter32, Integer32, Unsigned32, iso, Gauge32, IpAddress, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Bits", "Counter32", "Integer32", "Unsigned32", "iso", "Gauge32", "IpAddress", "ObjectIdentity", "Counter64")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ModuleIdentity, Unsigned32, Bits, Gauge32, ObjectIdentity, Counter32, NotificationType, TimeTicks, IpAddress, MibIdentifier, iso, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "Bits", "Gauge32", "ObjectIdentity", "Counter32", "NotificationType", "TimeTicks", "IpAddress", "MibIdentifier", "iso", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 aristaVrfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 18))
 aristaVrfMIB.setRevisions(('2015-01-11 00:00',))
@@ -62,4 +62,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 aristaVrfInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 18, 2, 2, 1)).setObjects(("ARISTA-VRF-MIB", "aristaVrfRoutingStatus"), ("ARISTA-VRF-MIB", "aristaVrfRouteDistinguisher"), ("ARISTA-VRF-MIB", "aristaVrfState"), ("ARISTA-VRF-MIB", "aristaVrfIfMembership"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaVrfInformationGroup = aristaVrfInformationGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-VRF-MIB", aristaVrfRouteDistinguisher=aristaVrfRouteDistinguisher, aristaVrfMibObjects=aristaVrfMibObjects, aristaVrfMibCompliances=aristaVrfMibCompliances, VrfState=VrfState, aristaVrfInformationGroup=aristaVrfInformationGroup, aristaVrfMIB=aristaVrfMIB, aristaVrfEntry=aristaVrfEntry, aristaVrfName=aristaVrfName, aristaVrfRoutingStatus=aristaVrfRoutingStatus, aristaVrfIfMembership=aristaVrfIfMembership, aristaVrfIfEntry=aristaVrfIfEntry, aristaVrfMibCompliance=aristaVrfMibCompliance, aristaVrfState=aristaVrfState, aristaVrfMibConformance=aristaVrfMibConformance, VrfRouteDistinguisher=VrfRouteDistinguisher, aristaVrfIfTable=aristaVrfIfTable, PYSNMP_MODULE_ID=aristaVrfMIB, aristaVrfTable=aristaVrfTable, VrfName=VrfName, aristaVrfMibGroups=aristaVrfMibGroups)
+mibBuilder.exportSymbols("ARISTA-VRF-MIB", aristaVrfState=aristaVrfState, VrfRouteDistinguisher=VrfRouteDistinguisher, aristaVrfMibCompliance=aristaVrfMibCompliance, aristaVrfIfEntry=aristaVrfIfEntry, aristaVrfIfMembership=aristaVrfIfMembership, aristaVrfInformationGroup=aristaVrfInformationGroup, VrfName=VrfName, aristaVrfMibObjects=aristaVrfMibObjects, PYSNMP_MODULE_ID=aristaVrfMIB, aristaVrfRouteDistinguisher=aristaVrfRouteDistinguisher, aristaVrfMibCompliances=aristaVrfMibCompliances, VrfState=VrfState, aristaVrfTable=aristaVrfTable, aristaVrfMIB=aristaVrfMIB, aristaVrfMibConformance=aristaVrfMibConformance, aristaVrfRoutingStatus=aristaVrfRoutingStatus, aristaVrfName=aristaVrfName, aristaVrfMibGroups=aristaVrfMibGroups, aristaVrfEntry=aristaVrfEntry, aristaVrfIfTable=aristaVrfIfTable)
