@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SNMP-PROXY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-PROXY-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 20:56:16 2021
-# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 20:56:21 2021
+# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-SnmpAdminString, SnmpEngineID = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString", "SnmpEngineID")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+SnmpEngineID, SnmpAdminString = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpEngineID", "SnmpAdminString")
 SnmpTagValue, = mibBuilder.importSymbols("SNMP-TARGET-MIB", "SnmpTagValue")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-NotificationType, Bits, Counter32, Counter64, Gauge32, ObjectIdentity, IpAddress, MibIdentifier, ModuleIdentity, snmpModules, Integer32, Unsigned32, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "Counter32", "Counter64", "Gauge32", "ObjectIdentity", "IpAddress", "MibIdentifier", "ModuleIdentity", "snmpModules", "Integer32", "Unsigned32", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, StorageType, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "StorageType", "TextualConvention", "RowStatus")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+snmpModules, iso, TimeTicks, Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Gauge32, ObjectIdentity, Bits, MibIdentifier, ModuleIdentity, IpAddress, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "snmpModules", "iso", "TimeTicks", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Gauge32", "ObjectIdentity", "Bits", "MibIdentifier", "ModuleIdentity", "IpAddress", "Counter64", "NotificationType")
+TextualConvention, DisplayString, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus", "StorageType")
 snmpProxyMIB = ModuleIdentity((1, 3, 6, 1, 6, 3, 14))
 snmpProxyMIB.setRevisions(('2002-10-14 00:00', '1998-08-04 00:00', '1997-07-14 00:00',))
 if mibBuilder.loadTexts: snmpProxyMIB.setLastUpdated('200210140000Z')
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 snmpProxyGroup = ObjectGroup((1, 3, 6, 1, 6, 3, 14, 3, 2, 3)).setObjects(("SNMP-PROXY-MIB", "snmpProxyType"), ("SNMP-PROXY-MIB", "snmpProxyContextEngineID"), ("SNMP-PROXY-MIB", "snmpProxyContextName"), ("SNMP-PROXY-MIB", "snmpProxyTargetParamsIn"), ("SNMP-PROXY-MIB", "snmpProxySingleTargetOut"), ("SNMP-PROXY-MIB", "snmpProxyMultipleTargetOut"), ("SNMP-PROXY-MIB", "snmpProxyStorageType"), ("SNMP-PROXY-MIB", "snmpProxyRowStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     snmpProxyGroup = snmpProxyGroup.setStatus('current')
-mibBuilder.exportSymbols("SNMP-PROXY-MIB", snmpProxyType=snmpProxyType, snmpProxyCompliances=snmpProxyCompliances, snmpProxyTable=snmpProxyTable, snmpProxyRowStatus=snmpProxyRowStatus, snmpProxyTargetParamsIn=snmpProxyTargetParamsIn, snmpProxyContextEngineID=snmpProxyContextEngineID, PYSNMP_MODULE_ID=snmpProxyMIB, snmpProxyObjects=snmpProxyObjects, snmpProxyStorageType=snmpProxyStorageType, snmpProxyName=snmpProxyName, snmpProxyMultipleTargetOut=snmpProxyMultipleTargetOut, snmpProxyContextName=snmpProxyContextName, snmpProxySingleTargetOut=snmpProxySingleTargetOut, snmpProxyGroups=snmpProxyGroups, snmpProxyCompliance=snmpProxyCompliance, snmpProxyEntry=snmpProxyEntry, snmpProxyMIB=snmpProxyMIB, snmpProxyConformance=snmpProxyConformance, snmpProxyGroup=snmpProxyGroup)
+mibBuilder.exportSymbols("SNMP-PROXY-MIB", snmpProxyEntry=snmpProxyEntry, snmpProxyMIB=snmpProxyMIB, snmpProxyConformance=snmpProxyConformance, snmpProxyStorageType=snmpProxyStorageType, snmpProxyName=snmpProxyName, snmpProxyRowStatus=snmpProxyRowStatus, snmpProxyGroups=snmpProxyGroups, snmpProxyCompliance=snmpProxyCompliance, snmpProxyCompliances=snmpProxyCompliances, snmpProxyTable=snmpProxyTable, snmpProxyContextEngineID=snmpProxyContextEngineID, snmpProxyTargetParamsIn=snmpProxyTargetParamsIn, snmpProxyType=snmpProxyType, snmpProxyContextName=snmpProxyContextName, snmpProxyMultipleTargetOut=snmpProxyMultipleTargetOut, PYSNMP_MODULE_ID=snmpProxyMIB, snmpProxyGroup=snmpProxyGroup, snmpProxyObjects=snmpProxyObjects, snmpProxySingleTargetOut=snmpProxySingleTargetOut)

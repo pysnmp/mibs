@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-MONITOR-SESSION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-MONITOR-SESSION-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 21:19:56 2021
-# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 21:25:28 2021
+# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
 PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-iso, Integer32, NotificationType, TimeTicks, ModuleIdentity, Bits, ObjectIdentity, Gauge32, Unsigned32, IpAddress, Counter64, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "NotificationType", "TimeTicks", "ModuleIdentity", "Bits", "ObjectIdentity", "Gauge32", "Unsigned32", "IpAddress", "Counter64", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32, ModuleIdentity, NotificationType, TimeTicks, Gauge32, Counter64, MibIdentifier, Counter32, IpAddress, ObjectIdentity, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32", "ModuleIdentity", "NotificationType", "TimeTicks", "Gauge32", "Counter64", "MibIdentifier", "Counter32", "IpAddress", "ObjectIdentity", "iso", "Bits")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 prvtMonitorSessionMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000))
 prvtMonitorSessionMib.setRevisions(('2011-05-23 00:00',))
 
@@ -82,4 +82,4 @@ prvtMonitorSessionAnalyzerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 738, 1, 5, 1000
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     prvtMonitorSessionAnalyzerGroup = prvtMonitorSessionAnalyzerGroup.setStatus('current')
 if mibBuilder.loadTexts: prvtMonitorSessionAnalyzerGroup.setDescription('The group of objects dedicated to analyzer.')
-mibBuilder.exportSymbols("PRVT-MONITOR-SESSION-MIB", prvtAnalyzerVLANTagEntry=prvtAnalyzerVLANTagEntry, prvtMonitorSessionCompliances=prvtMonitorSessionCompliances, Direction=Direction, prvtMonitorSessionTable=prvtMonitorSessionTable, prvtMonitorSessionConformance=prvtMonitorSessionConformance, prvtMonitorSessionSource=prvtMonitorSessionSource, prvtAnalyzerVLANTagVPT=prvtAnalyzerVLANTagVPT, prvtMonitorSessionObjects=prvtMonitorSessionObjects, prvtAnalyzerVLANTagEnable=prvtAnalyzerVLANTagEnable, prvtMonitorSessionEntry=prvtMonitorSessionEntry, prvtAnalyzerVLANTagEtherType=prvtAnalyzerVLANTagEtherType, prvtAnalyzerVLANTagTable=prvtAnalyzerVLANTagTable, prvtMonitorSessionGroups=prvtMonitorSessionGroups, prvtAnalyzerVLANTagCFI=prvtAnalyzerVLANTagCFI, prvtMonitorSessionMib=prvtMonitorSessionMib, prvtMonitorSessionDestination=prvtMonitorSessionDestination, prvtAnalyzerVLANTagVID=prvtAnalyzerVLANTagVID, prvtMonitorSessionDirection=prvtMonitorSessionDirection, prvtMonitorSessionMirroredGroup=prvtMonitorSessionMirroredGroup, prvtMonitorSessionNotification=prvtMonitorSessionNotification, PYSNMP_MODULE_ID=prvtMonitorSessionMib, prvtMonitorSessionAnalyzerGroup=prvtMonitorSessionAnalyzerGroup, prvtMonitorSessionCompliance=prvtMonitorSessionCompliance)
+mibBuilder.exportSymbols("PRVT-MONITOR-SESSION-MIB", PYSNMP_MODULE_ID=prvtMonitorSessionMib, prvtAnalyzerVLANTagEtherType=prvtAnalyzerVLANTagEtherType, prvtMonitorSessionCompliances=prvtMonitorSessionCompliances, prvtMonitorSessionDirection=prvtMonitorSessionDirection, prvtMonitorSessionObjects=prvtMonitorSessionObjects, prvtMonitorSessionSource=prvtMonitorSessionSource, prvtAnalyzerVLANTagEnable=prvtAnalyzerVLANTagEnable, prvtAnalyzerVLANTagEntry=prvtAnalyzerVLANTagEntry, prvtMonitorSessionGroups=prvtMonitorSessionGroups, prvtMonitorSessionAnalyzerGroup=prvtMonitorSessionAnalyzerGroup, prvtAnalyzerVLANTagTable=prvtAnalyzerVLANTagTable, prvtAnalyzerVLANTagVID=prvtAnalyzerVLANTagVID, Direction=Direction, prvtMonitorSessionTable=prvtMonitorSessionTable, prvtAnalyzerVLANTagCFI=prvtAnalyzerVLANTagCFI, prvtMonitorSessionCompliance=prvtMonitorSessionCompliance, prvtMonitorSessionEntry=prvtMonitorSessionEntry, prvtMonitorSessionMirroredGroup=prvtMonitorSessionMirroredGroup, prvtMonitorSessionDestination=prvtMonitorSessionDestination, prvtMonitorSessionNotification=prvtMonitorSessionNotification, prvtMonitorSessionConformance=prvtMonitorSessionConformance, prvtAnalyzerVLANTagVPT=prvtAnalyzerVLANTagVPT, prvtMonitorSessionMib=prvtMonitorSessionMib)

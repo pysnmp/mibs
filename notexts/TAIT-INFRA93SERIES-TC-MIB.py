@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TAIT-INFRA93SERIES-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-INFRA93SERIES-TC-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 21:18:04 2021
-# On host fv-az121-73 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 21:23:09 2021
+# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Counter32, IpAddress, Unsigned32, TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ModuleIdentity, Integer32, Counter64, Gauge32, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "IpAddress", "Unsigned32", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ModuleIdentity", "Integer32", "Counter64", "Gauge32", "Bits", "iso")
+Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, iso, IpAddress, MibIdentifier, Gauge32, NotificationType, Counter64, Integer32, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "iso", "IpAddress", "MibIdentifier", "Gauge32", "NotificationType", "Counter64", "Integer32", "Counter32", "ObjectIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 infra93_94TC, = mibBuilder.importSymbols("TAIT-INFRA93-94SERIES-TC-MIB", "infra93-94TC")
 infra93TC = ModuleIdentity((1, 3, 6, 1, 4, 1, 3570, 1, 1, 10, 1, 1))
@@ -103,4 +103,4 @@ class StandaloneNodeStatus(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 4, 5, 6))
     namedValues = NamedValues(("offline", 0), ("standby", 1), ("active", 2), ("disabled", 4), ("running", 5), ("master", 6))
 
-mibBuilder.exportSymbols("TAIT-INFRA93SERIES-TC-MIB", ColourCode=ColourCode, SubAudibleType=SubAudibleType, StandaloneNodeStatus=StandaloneNodeStatus, ControlProtocolStatus=ControlProtocolStatus, TransmitterSyncStatus=TransmitterSyncStatus, RxFrequencyResponse=RxFrequencyResponse, infra93TC=infra93TC, SINADLevel=SINADLevel, LeveldBm=LeveldBm, PYSNMP_MODULE_ID=infra93TC, LogicalChannelState=LogicalChannelState, DcsCode=DcsCode, FrequencydHz=FrequencydHz, MPTControlProtocolStatus=MPTControlProtocolStatus, OperationalMode=OperationalMode, Temperature=Temperature, FallbackNodeStatus=FallbackNodeStatus, ReceiverSyncStatus=ReceiverSyncStatus, TxFrequencyResponse=TxFrequencyResponse, Ratio=Ratio)
+mibBuilder.exportSymbols("TAIT-INFRA93SERIES-TC-MIB", DcsCode=DcsCode, Ratio=Ratio, ReceiverSyncStatus=ReceiverSyncStatus, RxFrequencyResponse=RxFrequencyResponse, TransmitterSyncStatus=TransmitterSyncStatus, Temperature=Temperature, SubAudibleType=SubAudibleType, infra93TC=infra93TC, LogicalChannelState=LogicalChannelState, ColourCode=ColourCode, FrequencydHz=FrequencydHz, MPTControlProtocolStatus=MPTControlProtocolStatus, TxFrequencyResponse=TxFrequencyResponse, OperationalMode=OperationalMode, PYSNMP_MODULE_ID=infra93TC, StandaloneNodeStatus=StandaloneNodeStatus, SINADLevel=SINADLevel, ControlProtocolStatus=ControlProtocolStatus, LeveldBm=LeveldBm, FallbackNodeStatus=FallbackNodeStatus)
