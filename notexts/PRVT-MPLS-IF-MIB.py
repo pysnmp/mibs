@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-MPLS-IF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-MPLS-IF-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 19:07:12 2021
-# On host fv-az39-899 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 20:13:31 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 mpls, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "mpls")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Counter32, Gauge32, MibIdentifier, TimeTicks, Integer32, IpAddress, NotificationType, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "Gauge32", "MibIdentifier", "TimeTicks", "Integer32", "IpAddress", "NotificationType", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "iso", "Bits")
-TextualConvention, DisplayString, TruthValue, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue", "RowStatus")
+ModuleIdentity, IpAddress, Integer32, Counter64, NotificationType, Counter32, ObjectIdentity, Bits, Unsigned32, TimeTicks, iso, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "Integer32", "Counter64", "NotificationType", "Counter32", "ObjectIdentity", "Bits", "Unsigned32", "TimeTicks", "iso", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, TruthValue, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString", "RowStatus")
 prvtMplsIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 6))
 prvtMplsIfMIB.setRevisions(('2011-08-05 00:00', '2010-04-28 00:00',))
 if mibBuilder.loadTexts: prvtMplsIfMIB.setLastUpdated('201108050000Z')
@@ -69,4 +69,4 @@ prvtMplsRouteAddressIpAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3
 if mibBuilder.loadTexts: prvtMplsRouteAddressIpAddrMask.setStatus('current')
 prvtMplsRouteAddressRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 6, 1, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: prvtMplsRouteAddressRowStatus.setStatus('current')
-mibBuilder.exportSymbols("PRVT-MPLS-IF-MIB", ifaceMplsSignalCapabilities=ifaceMplsSignalCapabilities, prvtMplsIfMIB=prvtMplsIfMIB, PYSNMP_MODULE_ID=prvtMplsIfMIB, ifaceMplsRowStatus=ifaceMplsRowStatus, ifaceMplsLdpEgrLabelUsage=ifaceMplsLdpEgrLabelUsage, prvtMplsRouteAddressIpAddrMask=prvtMplsRouteAddressIpAddrMask, prvtMplsIfMIBObjects=prvtMplsIfMIBObjects, prvtMplsRouteAddressRowStatus=prvtMplsRouteAddressRowStatus, prvtMplsIfaceEntry=prvtMplsIfaceEntry, prvtMplsIfaceObjs=prvtMplsIfaceObjs, ifaceMplsRsvpEgrLabelUsage=ifaceMplsRsvpEgrLabelUsage, prvtMplsRouteProtocolRowStatus=prvtMplsRouteProtocolRowStatus, prvtMplsRouteProtocolType=prvtMplsRouteProtocolType, prvtMplsRouteAddressEntry=prvtMplsRouteAddressEntry, PrvtMplsIpAddressMask=PrvtMplsIpAddressMask, prvtMplsRouteProtocolTable=prvtMplsRouteProtocolTable, ifaceMplsPHPEnable=ifaceMplsPHPEnable, ifaceMplsEnable=ifaceMplsEnable, prvtMplsRouteAddressTable=prvtMplsRouteAddressTable, prvtMplsRouteObjs=prvtMplsRouteObjs, ifaceMplsLdpHelloHoldTimer=ifaceMplsLdpHelloHoldTimer, EgressLabelUsageType=EgressLabelUsageType, prvtMplsRouteProtocolDirection=prvtMplsRouteProtocolDirection, ifaceMplsLdpKeepaliveHoldTimer=ifaceMplsLdpKeepaliveHoldTimer, prvtMplsIfaceTable=prvtMplsIfaceTable, prvtMplsRouteProtocolEntry=prvtMplsRouteProtocolEntry)
+mibBuilder.exportSymbols("PRVT-MPLS-IF-MIB", ifaceMplsRsvpEgrLabelUsage=ifaceMplsRsvpEgrLabelUsage, prvtMplsRouteProtocolDirection=prvtMplsRouteProtocolDirection, prvtMplsIfaceObjs=prvtMplsIfaceObjs, PYSNMP_MODULE_ID=prvtMplsIfMIB, prvtMplsIfaceEntry=prvtMplsIfaceEntry, ifaceMplsSignalCapabilities=ifaceMplsSignalCapabilities, PrvtMplsIpAddressMask=PrvtMplsIpAddressMask, prvtMplsIfaceTable=prvtMplsIfaceTable, prvtMplsIfMIBObjects=prvtMplsIfMIBObjects, prvtMplsRouteProtocolRowStatus=prvtMplsRouteProtocolRowStatus, prvtMplsRouteAddressTable=prvtMplsRouteAddressTable, EgressLabelUsageType=EgressLabelUsageType, ifaceMplsPHPEnable=ifaceMplsPHPEnable, ifaceMplsLdpKeepaliveHoldTimer=ifaceMplsLdpKeepaliveHoldTimer, prvtMplsRouteProtocolTable=prvtMplsRouteProtocolTable, prvtMplsRouteObjs=prvtMplsRouteObjs, prvtMplsRouteProtocolType=prvtMplsRouteProtocolType, prvtMplsRouteProtocolEntry=prvtMplsRouteProtocolEntry, prvtMplsRouteAddressIpAddrMask=prvtMplsRouteAddressIpAddrMask, ifaceMplsEnable=ifaceMplsEnable, ifaceMplsRowStatus=ifaceMplsRowStatus, prvtMplsIfMIB=prvtMplsIfMIB, prvtMplsRouteAddressRowStatus=prvtMplsRouteAddressRowStatus, ifaceMplsLdpHelloHoldTimer=ifaceMplsLdpHelloHoldTimer, prvtMplsRouteAddressEntry=prvtMplsRouteAddressEntry, ifaceMplsLdpEgrLabelUsage=ifaceMplsLdpEgrLabelUsage)

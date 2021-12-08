@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-SYS-INFO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-SYS-INFO-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 19:07:20 2021
-# On host fv-az39-899 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Wed Dec  8 20:13:38 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 ipSwitch, prvt_products = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "ipSwitch", "prvt-products")
 ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, Gauge32, TimeTicks, ModuleIdentity, IpAddress, Unsigned32, Counter64, NotificationType, Counter32, Bits, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "Gauge32", "TimeTicks", "ModuleIdentity", "IpAddress", "Unsigned32", "Counter64", "NotificationType", "Counter32", "Bits", "Integer32", "MibIdentifier")
+MibIdentifier, iso, Counter64, Unsigned32, TimeTicks, ObjectIdentity, NotificationType, IpAddress, Gauge32, ModuleIdentity, Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "Counter64", "Unsigned32", "TimeTicks", "ObjectIdentity", "NotificationType", "IpAddress", "Gauge32", "ModuleIdentity", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 prvtSysInfMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 111, 2))
 prvtSysInfMib.setRevisions(('2008-01-01 00:00', '2005-10-05 00:00', '2005-02-16 00:00', '2003-12-09 00:00', '2003-05-13 00:00',))
@@ -76,4 +76,4 @@ sysInfMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 111, 2, 2, 2))
 sysInfNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 738, 1, 111, 2, 2, 2, 3)).setObjects(("PRVT-SYS-INFO-MIB", "taskSuspended"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     sysInfNotificationGroup = sysInfNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("PRVT-SYS-INFO-MIB", taskStackSize=taskStackSize, taskEntry=taskEntry, PYSNMP_MODULE_ID=prvtSysInfMib, taskStackMaxUsed=taskStackMaxUsed, prvtSysInfConformance=prvtSysInfConformance, prvtSysInfNotifications=prvtSysInfNotifications, taskOptions=taskOptions, software=software, taskPriority=taskPriority, sysInfMIBGroups=sysInfMIBGroups, taskSuspended=taskSuspended, numBlocksFree=numBlocksFree, sysMemory=sysMemory, prvtSysInfObjects=prvtSysInfObjects, avgBlockSizeFree=avgBlockSizeFree, taskStackSizeUsage=taskStackSizeUsage, taskId=taskId, taskErrorStatus=taskErrorStatus, taskStatus=taskStatus, taskName=taskName, numBytesFree=numBytesFree, numBytesAlloc=numBytesAlloc, taskStackEnd=taskStackEnd, sysInfNotificationGroup=sysInfNotificationGroup, prvtSysInfMib=prvtSysInfMib, taskMain=taskMain, taskStackPos=taskStackPos, sysTask=sysTask, maxBlockSizeFree=maxBlockSizeFree, taskTable=taskTable, taskStackPtr=taskStackPtr, taskStackFree=taskStackFree, avgBlockSizeAlloc=avgBlockSizeAlloc, taskStackBase=taskStackBase, numBlocksAlloc=numBlocksAlloc)
+mibBuilder.exportSymbols("PRVT-SYS-INFO-MIB", sysInfMIBGroups=sysInfMIBGroups, numBlocksFree=numBlocksFree, taskPriority=taskPriority, taskStackSizeUsage=taskStackSizeUsage, sysInfNotificationGroup=sysInfNotificationGroup, taskEntry=taskEntry, taskName=taskName, numBlocksAlloc=numBlocksAlloc, avgBlockSizeFree=avgBlockSizeFree, prvtSysInfNotifications=prvtSysInfNotifications, prvtSysInfMib=prvtSysInfMib, prvtSysInfObjects=prvtSysInfObjects, taskOptions=taskOptions, taskStatus=taskStatus, taskMain=taskMain, taskStackPtr=taskStackPtr, avgBlockSizeAlloc=avgBlockSizeAlloc, maxBlockSizeFree=maxBlockSizeFree, sysTask=sysTask, taskStackBase=taskStackBase, taskTable=taskTable, taskId=taskId, prvtSysInfConformance=prvtSysInfConformance, numBytesAlloc=numBytesAlloc, taskStackSize=taskStackSize, taskStackMaxUsed=taskStackMaxUsed, taskStackFree=taskStackFree, PYSNMP_MODULE_ID=prvtSysInfMib, taskStackPos=taskStackPos, taskSuspended=taskSuspended, taskStackEnd=taskStackEnd, numBytesFree=numBytesFree, sysMemory=sysMemory, software=software, taskErrorStatus=taskErrorStatus)
