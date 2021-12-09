@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PRVT-RSVP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-RSVP-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 14:56:14 2021
-# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Thu Dec  9 15:31:39 2021
+# On host fv-az39-899 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
 mpls, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "mpls")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Gauge32, ModuleIdentity, Bits, iso, Unsigned32, TimeTicks, Counter32, NotificationType, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Gauge32", "ModuleIdentity", "Bits", "iso", "Unsigned32", "TimeTicks", "Counter32", "NotificationType", "ObjectIdentity")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, ObjectIdentity, Counter64, Integer32, Counter32, IpAddress, MibIdentifier, Gauge32, ModuleIdentity, Bits, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "ObjectIdentity", "Counter64", "Integer32", "Counter32", "IpAddress", "MibIdentifier", "Gauge32", "ModuleIdentity", "Bits", "iso", "NotificationType")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 prvtRsvpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 7))
 prvtRsvpMIB.setRevisions(('2011-03-21 00:00', '2009-02-10 00:00',))
 
@@ -63,4 +63,4 @@ if mibBuilder.loadTexts: prvtRsvpProductProtocolExtensions.setDescription('Speci
 prvtRsvpProductFastRerouteCaps = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 7, 1, 1, 1, 6), Bits().clone(namedValues=NamedValues(("fastReroutePLR", 0), ("fastRerouteMP", 1)))).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: prvtRsvpProductFastRerouteCaps.setStatus('current')
 if mibBuilder.loadTexts: prvtRsvpProductFastRerouteCaps.setDescription('Specifies what fast reroute capabilities are enabled\n         on this node.\n         This field is only valid when the fast reroute extension\n         is enabled (i.e. prvtRsvpProductProtocolExtensions has\n         either of the bypassFastReroute, or detourFastReroute\n         bits set or both).\n         When the fast reroute extension is not enabled, this\n         field should be cleared (no bits set).\n         \n         - PLR: Node provides fast reroute point of local repair\n         capability.\n         \n         - MP: Node provides fast reroute merge point capability.')
-mibBuilder.exportSymbols("PRVT-RSVP-MIB", prvtRsvpProductRowStatus=prvtRsvpProductRowStatus, PrvtRsvpIndex=PrvtRsvpIndex, prvtRsvpProductAdminStatus=prvtRsvpProductAdminStatus, prvtRsvpProductProtocolExtensions=prvtRsvpProductProtocolExtensions, prvtRsvpMIB=prvtRsvpMIB, prvtRsvpProductEntry=prvtRsvpProductEntry, PYSNMP_MODULE_ID=prvtRsvpMIB, PrvtRsvpAdminStatus=PrvtRsvpAdminStatus, PrvtRsvpOperStatus=PrvtRsvpOperStatus, prvtRsvpProductTable=prvtRsvpProductTable, prvtRsvpProductIndex=prvtRsvpProductIndex, prvtRsvpProductOperStatus=prvtRsvpProductOperStatus, prvtRsvpObjects=prvtRsvpObjects, prvtRsvpProductFastRerouteCaps=prvtRsvpProductFastRerouteCaps)
+mibBuilder.exportSymbols("PRVT-RSVP-MIB", PYSNMP_MODULE_ID=prvtRsvpMIB, prvtRsvpProductAdminStatus=prvtRsvpProductAdminStatus, prvtRsvpObjects=prvtRsvpObjects, prvtRsvpMIB=prvtRsvpMIB, prvtRsvpProductRowStatus=prvtRsvpProductRowStatus, PrvtRsvpOperStatus=PrvtRsvpOperStatus, PrvtRsvpAdminStatus=PrvtRsvpAdminStatus, PrvtRsvpIndex=PrvtRsvpIndex, prvtRsvpProductIndex=prvtRsvpProductIndex, prvtRsvpProductEntry=prvtRsvpProductEntry, prvtRsvpProductOperStatus=prvtRsvpProductOperStatus, prvtRsvpProductFastRerouteCaps=prvtRsvpProductFastRerouteCaps, prvtRsvpProductProtocolExtensions=prvtRsvpProductProtocolExtensions, prvtRsvpProductTable=prvtRsvpProductTable)

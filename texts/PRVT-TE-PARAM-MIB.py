@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-TE-PARAM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-TE-PARAM-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 14:56:14 2021
-# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Thu Dec  9 15:31:39 2021
+# On host fv-az39-899 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 mpls, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "mpls")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Gauge32, ModuleIdentity, Bits, iso, Unsigned32, TimeTicks, Counter32, NotificationType, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Gauge32", "ModuleIdentity", "Bits", "iso", "Unsigned32", "TimeTicks", "Counter32", "NotificationType", "ObjectIdentity")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, ObjectIdentity, Counter64, Integer32, Counter32, IpAddress, MibIdentifier, Gauge32, ModuleIdentity, Bits, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "ObjectIdentity", "Counter64", "Integer32", "Counter32", "IpAddress", "MibIdentifier", "Gauge32", "ModuleIdentity", "Bits", "iso", "NotificationType")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 prvtTeParamMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 9))
 prvtTeParamMIB.setRevisions(('2010-04-28 00:00',))
 
@@ -86,4 +86,4 @@ if mibBuilder.loadTexts: prvtTeParamAdminGroupRowStatus.setDescription('The RowS
 prvtTeParamAdminGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 738, 10, 6, 3, 9, 1, 5, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 15))).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: prvtTeParamAdminGroupName.setStatus('current')
 if mibBuilder.loadTexts: prvtTeParamAdminGroupName.setDescription('The name of the administrative group.')
-mibBuilder.exportSymbols("PRVT-TE-PARAM-MIB", prvtTeParamLinkPhyBandwidthSpeed=prvtTeParamLinkPhyBandwidthSpeed, prvtTeParamLinkMetric=prvtTeParamLinkMetric, prvtTeParamAdminGroupTable=prvtTeParamAdminGroupTable, prvtTeParamLinkTable=prvtTeParamLinkTable, prvtTeParamLinkRowStatus=prvtTeParamLinkRowStatus, prvtTeParamLinkAdminGrpTable=prvtTeParamLinkAdminGrpTable, PrvtTeLinkBandwidthSpeed=PrvtTeLinkBandwidthSpeed, prvtTeParamLinkMaxRsvBwUnits=prvtTeParamLinkMaxRsvBwUnits, prvtTeParamLinkMaxRsvBwSpeed=prvtTeParamLinkMaxRsvBwSpeed, prvtTeParamLinkEntry=prvtTeParamLinkEntry, PYSNMP_MODULE_ID=prvtTeParamMIB, PrvtTeLinkBandwidthUnits=PrvtTeLinkBandwidthUnits, prvtTeParamMIBObjects=prvtTeParamMIBObjects, prvtTeParamLinkPhyBandwidthUnits=prvtTeParamLinkPhyBandwidthUnits, prvtTeParamMIB=prvtTeParamMIB, prvtTeParamAdminGroupName=prvtTeParamAdminGroupName, prvtTeParamLinkAdminGrpRowStatus=prvtTeParamLinkAdminGrpRowStatus, prvtTeParamLinkAdminGrpId=prvtTeParamLinkAdminGrpId, prvtTeParamAdminGroupEntry=prvtTeParamAdminGroupEntry, prvtTeParamLinkAdminGrpEntry=prvtTeParamLinkAdminGrpEntry, prvtTeParamAdminGroupId=prvtTeParamAdminGroupId, prvtTeParamAdminGroupRowStatus=prvtTeParamAdminGroupRowStatus)
+mibBuilder.exportSymbols("PRVT-TE-PARAM-MIB", prvtTeParamLinkMaxRsvBwSpeed=prvtTeParamLinkMaxRsvBwSpeed, prvtTeParamLinkAdminGrpRowStatus=prvtTeParamLinkAdminGrpRowStatus, prvtTeParamLinkPhyBandwidthUnits=prvtTeParamLinkPhyBandwidthUnits, prvtTeParamAdminGroupRowStatus=prvtTeParamAdminGroupRowStatus, prvtTeParamAdminGroupTable=prvtTeParamAdminGroupTable, prvtTeParamLinkMetric=prvtTeParamLinkMetric, prvtTeParamAdminGroupId=prvtTeParamAdminGroupId, prvtTeParamLinkAdminGrpEntry=prvtTeParamLinkAdminGrpEntry, prvtTeParamAdminGroupName=prvtTeParamAdminGroupName, prvtTeParamLinkRowStatus=prvtTeParamLinkRowStatus, prvtTeParamLinkEntry=prvtTeParamLinkEntry, PrvtTeLinkBandwidthSpeed=PrvtTeLinkBandwidthSpeed, prvtTeParamMIB=prvtTeParamMIB, prvtTeParamLinkPhyBandwidthSpeed=prvtTeParamLinkPhyBandwidthSpeed, prvtTeParamAdminGroupEntry=prvtTeParamAdminGroupEntry, PrvtTeLinkBandwidthUnits=PrvtTeLinkBandwidthUnits, PYSNMP_MODULE_ID=prvtTeParamMIB, prvtTeParamMIBObjects=prvtTeParamMIBObjects, prvtTeParamLinkAdminGrpTable=prvtTeParamLinkAdminGrpTable, prvtTeParamLinkMaxRsvBwUnits=prvtTeParamLinkMaxRsvBwUnits, prvtTeParamLinkTable=prvtTeParamLinkTable, prvtTeParamLinkAdminGrpId=prvtTeParamLinkAdminGrpId)

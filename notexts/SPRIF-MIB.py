@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SPRIF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/SPRIF-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 14:59:30 2021
-# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Thu Dec  9 15:35:03 2021
+# On host fv-az39-899 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 SagemBoolean, = mibBuilder.importSymbols("EQUIPMENT-MIB", "SagemBoolean")
 sagemDr, = mibBuilder.importSymbols("SAGEM-DR-MIB", "sagemDr")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Gauge32, ObjectIdentity, ModuleIdentity, Bits, MibIdentifier, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, Integer32, IpAddress, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "ObjectIdentity", "ModuleIdentity", "Bits", "MibIdentifier", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "Integer32", "IpAddress", "iso", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, Bits, Counter64, Integer32, Unsigned32, iso, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, ModuleIdentity, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "Counter64", "Integer32", "Unsigned32", "iso", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 sprif = ModuleIdentity((1, 3, 6, 1, 4, 1, 1038, 180))
 if mibBuilder.loadTexts: sprif.setLastUpdated('0012120000Z')
 if mibBuilder.loadTexts: sprif.setOrganization('SAGEM-Tolbiac drd/ddp/tmhd')
@@ -140,4 +140,4 @@ debug3mms = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 180, 30, 2, 1, 27), SagemBoo
 if mibBuilder.loadTexts: debug3mms.setStatus('current')
 debug3exr = MibTableColumn((1, 3, 6, 1, 4, 1, 1038, 180, 30, 2, 1, 28), SagemBoolean()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: debug3exr.setStatus('current')
-mibBuilder.exportSymbols("SPRIF-MIB", debugSwitchingState=debugSwitchingState, debugDate=debugDate, debugTxK1Ask=debugTxK1Ask, debugActivated=debugActivated, debug3aun=debug3aun, debugNodeState=debugNodeState, debug3Entry=debug3Entry, K1ASK=K1ASK, debug3arv=debug3arv, debugTimerAction=debugTimerAction, debugTable=debugTable, debugTrafficStatus=debugTrafficStatus, TrafficStatus=TrafficStatus, debug3Line=debug3Line, debug3Table=debug3Table, debugLine=debugLine, debug3exr=debug3exr, TIMER=TIMER, LOCALFAIL=LOCALFAIL, K2PATH=K2PATH, STATE=STATE, LINE=LINE, LOCALCOMMAND=LOCALCOMMAND, debugNumber=debugNumber, debugIndex=debugIndex, debugRxK1Ask=debugRxK1Ask, debugWtr=debugWtr, debugTxK1Dst=debugTxK1Dst, debugTxK2Stat=debugTxK2Stat, SWITCHSTATUS=SWITCHSTATUS, debugRxK2Src=debugRxK2Src, debugLastDetectedFailure=debugLastDetectedFailure, debugLastDistantCommand=debugLastDistantCommand, debugTxK2Path=debugTxK2Path, debugRxK1Dst=debugRxK1Dst, debugRxK2Path=debugRxK2Path, debug3Date=debug3Date, debug3ato=debug3ato, debugLogType=debugLogType, debug=debug, NodeId=NodeId, debugNodeID=debugNodeID, debugLastLocalCommand=debugLastLocalCommand, PYSNMP_MODULE_ID=sprif, debug3=debug3, debugTxK2Src=debugTxK2Src, sprif=sprif, K2STAT=K2STAT, debugEntry=debugEntry, debug3ptm=debug3ptm, debugRxK2Stat=debugRxK2Stat, debug3mms=debug3mms, LOGTYPE=LOGTYPE)
+mibBuilder.exportSymbols("SPRIF-MIB", debugLine=debugLine, debug3Entry=debug3Entry, TrafficStatus=TrafficStatus, debugDate=debugDate, debugTxK2Src=debugTxK2Src, LOCALCOMMAND=LOCALCOMMAND, debug=debug, debugLogType=debugLogType, debugRxK1Dst=debugRxK1Dst, debug3exr=debug3exr, debug3ptm=debug3ptm, debugTrafficStatus=debugTrafficStatus, PYSNMP_MODULE_ID=sprif, debug3ato=debug3ato, debug3Date=debug3Date, debug3Table=debug3Table, LOGTYPE=LOGTYPE, SWITCHSTATUS=SWITCHSTATUS, debugNumber=debugNumber, K2PATH=K2PATH, debugIndex=debugIndex, debug3Line=debug3Line, debugLastDetectedFailure=debugLastDetectedFailure, debugNodeID=debugNodeID, debugRxK2Stat=debugRxK2Stat, LOCALFAIL=LOCALFAIL, debugWtr=debugWtr, debugActivated=debugActivated, debugTimerAction=debugTimerAction, TIMER=TIMER, debug3mms=debug3mms, debug3=debug3, debugEntry=debugEntry, debugTxK2Stat=debugTxK2Stat, debugNodeState=debugNodeState, debugSwitchingState=debugSwitchingState, debugLastLocalCommand=debugLastLocalCommand, debugLastDistantCommand=debugLastDistantCommand, debugRxK2Path=debugRxK2Path, K2STAT=K2STAT, debugTxK1Dst=debugTxK1Dst, debugTxK1Ask=debugTxK1Ask, K1ASK=K1ASK, debugTxK2Path=debugTxK2Path, debugTable=debugTable, debug3arv=debug3arv, NodeId=NodeId, LINE=LINE, debugRxK1Ask=debugRxK1Ask, sprif=sprif, debug3aun=debug3aun, debugRxK2Src=debugRxK2Src, STATE=STATE)

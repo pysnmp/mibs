@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-WEBVIEW-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-WEBVIEW-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 14:36:15 2021
-# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Thu Dec  9 15:11:49 2021
+# On host fv-az39-899 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
 ctApplication, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctApplication")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, MibIdentifier, TimeTicks, NotificationType, IpAddress, Gauge32, iso, Integer32, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "TimeTicks", "NotificationType", "IpAddress", "Gauge32", "iso", "Integer32", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "ModuleIdentity", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Integer32, ObjectIdentity, iso, ModuleIdentity, TimeTicks, IpAddress, Counter32, NotificationType, Gauge32, Counter64, Bits, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "iso", "ModuleIdentity", "TimeTicks", "IpAddress", "Counter32", "NotificationType", "Gauge32", "Counter64", "Bits", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctWebView = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4))
 ctEwvConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4, 1))
 ctEwvStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4, 2))
@@ -38,4 +38,4 @@ if mibBuilder.loadTexts: ctEwvAuthScheme.setDescription('Selects the type of HTT
 ctEwvAuthNonceValidCount = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4, 1, 2, 2), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctEwvAuthNonceValidCount.setStatus('mandatory')
 if mibBuilder.loadTexts: ctEwvAuthNonceValidCount.setDescription('The number of times a server calculated nonce value will be\n                 reused before recalculating a new nonce value')
-mibBuilder.exportSymbols("CTRON-WEBVIEW-MIB", ctEwvDocSupportAdminUID=ctEwvDocSupportAdminUID, ctEwvDocSupportLocation=ctEwvDocSupportLocation, ctEwvDocSupportPassword=ctEwvDocSupportPassword, ctEwvDocSupportUsername=ctEwvDocSupportUsername, ctEwvSystemParameters=ctEwvSystemParameters, ctWebView=ctWebView, ctEwvAuthNonceValidCount=ctEwvAuthNonceValidCount, ctEwvDocSupport=ctEwvDocSupport, ctEwvDocSupportAdmin=ctEwvDocSupportAdmin, ctEwvConfiguration=ctEwvConfiguration, ctEwvStatus=ctEwvStatus, ctEwvAuthScheme=ctEwvAuthScheme)
+mibBuilder.exportSymbols("CTRON-WEBVIEW-MIB", ctEwvAuthNonceValidCount=ctEwvAuthNonceValidCount, ctEwvDocSupportAdminUID=ctEwvDocSupportAdminUID, ctEwvStatus=ctEwvStatus, ctEwvSystemParameters=ctEwvSystemParameters, ctEwvDocSupportAdmin=ctEwvDocSupportAdmin, ctWebView=ctWebView, ctEwvDocSupportPassword=ctEwvDocSupportPassword, ctEwvDocSupportLocation=ctEwvDocSupportLocation, ctEwvDocSupport=ctEwvDocSupport, ctEwvConfiguration=ctEwvConfiguration, ctEwvDocSupportUsername=ctEwvDocSupportUsername, ctEwvAuthScheme=ctEwvAuthScheme)
