@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-VLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-VLAN-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 21:26:45 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Thu Dec  9 14:57:33 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Integer32, ModuleIdentity, Counter32, iso, Gauge32, Bits, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "ModuleIdentity", "Counter32", "iso", "Gauge32", "Bits", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "Counter64", "Unsigned32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, IpAddress, Gauge32, Counter64, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, TimeTicks, iso, ObjectIdentity, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "Gauge32", "Counter64", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "TimeTicks", "iso", "ObjectIdentity", "Bits", "MibIdentifier")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 atVlanInfo = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16))
 atVlanInfo.setRevisions(('2010-09-07 00:00', '2010-06-15 00:15', '2009-06-30 00:00',))
 if mibBuilder.loadTexts: atVlanInfo.setLastUpdated('201009070000Z')
@@ -35,4 +35,4 @@ atVlanStatCollectionIngressOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4,
 if mibBuilder.loadTexts: atVlanStatCollectionIngressOctets.setStatus('current')
 atVlanStatCollectionResetStats = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 6), TruthValue()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: atVlanStatCollectionResetStats.setStatus('current')
-mibBuilder.exportSymbols("AT-VLAN-MIB", atVlanStatNumCollections=atVlanStatNumCollections, atVlanStatCollectionEntry=atVlanStatCollectionEntry, atVlanStatCollectionVlanId=atVlanStatCollectionVlanId, atVlanInfo=atVlanInfo, atVlanStatCollectionName=atVlanStatCollectionName, atVlanStatCollectionTable=atVlanStatCollectionTable, atVlanStatCollectionPortMap=atVlanStatCollectionPortMap, atVlanStatCollectionResetStats=atVlanStatCollectionResetStats, atVlanStatistics=atVlanStatistics, atVlanStatCollectionIngressOctets=atVlanStatCollectionIngressOctets, PYSNMP_MODULE_ID=atVlanInfo, atVlanStatCollectionIngressPkts=atVlanStatCollectionIngressPkts)
+mibBuilder.exportSymbols("AT-VLAN-MIB", atVlanStatCollectionIngressOctets=atVlanStatCollectionIngressOctets, atVlanStatCollectionVlanId=atVlanStatCollectionVlanId, atVlanStatCollectionName=atVlanStatCollectionName, atVlanStatistics=atVlanStatistics, atVlanStatCollectionTable=atVlanStatCollectionTable, atVlanStatCollectionPortMap=atVlanStatCollectionPortMap, atVlanStatCollectionResetStats=atVlanStatCollectionResetStats, atVlanStatCollectionIngressPkts=atVlanStatCollectionIngressPkts, atVlanInfo=atVlanInfo, atVlanStatCollectionEntry=atVlanStatCollectionEntry, PYSNMP_MODULE_ID=atVlanInfo, atVlanStatNumCollections=atVlanStatNumCollections)

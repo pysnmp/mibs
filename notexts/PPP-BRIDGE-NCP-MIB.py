@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PPP-BRIDGE-NCP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sagemcom/PPP-BRIDGE-NCP-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 21:28:51 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Thu Dec  9 14:59:30 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 ppp, = mibBuilder.importSymbols("PPP-LCP-MIB", "ppp")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, IpAddress, Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, Counter64, ModuleIdentity, iso, NotificationType, ObjectIdentity, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "Counter64", "ModuleIdentity", "iso", "NotificationType", "ObjectIdentity", "Bits", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter32, Gauge32, ObjectIdentity, ModuleIdentity, Bits, MibIdentifier, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, Integer32, IpAddress, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "ObjectIdentity", "ModuleIdentity", "Bits", "MibIdentifier", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "Integer32", "IpAddress", "iso", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 pppBridge = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 23, 4))
 pppBridgeTable = MibTable((1, 3, 6, 1, 2, 1, 10, 23, 4, 1), )
 if mibBuilder.loadTexts: pppBridgeTable.setStatus('mandatory')
@@ -60,4 +60,4 @@ pppBridgeMediaConfigMacType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 4, 1,
 if mibBuilder.loadTexts: pppBridgeMediaConfigMacType.setStatus('mandatory')
 pppBridgeMediaConfigLocalStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("accept", 1), ("dont-accept", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: pppBridgeMediaConfigLocalStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("PPP-BRIDGE-NCP-MIB", pppBridgeConfigLineId=pppBridgeConfigLineId, pppBridgeLocalToRemoteTinygramCompression=pppBridgeLocalToRemoteTinygramCompression, pppBridgeConfigTable=pppBridgeConfigTable, pppBridgeMediaMacType=pppBridgeMediaMacType, pppBridgeTable=pppBridgeTable, pppBridgeMediaEntry=pppBridgeMediaEntry, pppBridgeConfigTinygram=pppBridgeConfigTinygram, pppBridgeMediaRemoteStatus=pppBridgeMediaRemoteStatus, pppBridgeRemoteToLocalTinygramCompression=pppBridgeRemoteToLocalTinygramCompression, pppBridgeMediaLocalStatus=pppBridgeMediaLocalStatus, pppBridgeEntry=pppBridgeEntry, pppBridgeMediaConfigMacType=pppBridgeMediaConfigMacType, pppBridge=pppBridge, pppBridgeRemoteToLocalLanId=pppBridgeRemoteToLocalLanId, pppBridgeMediaConfigTable=pppBridgeMediaConfigTable, pppBridgeConfigAdminStatus=pppBridgeConfigAdminStatus, pppBridgeMediaConfigEntry=pppBridgeMediaConfigEntry, pppBridgeConfigRingId=pppBridgeConfigRingId, pppBridgeConfigLanId=pppBridgeConfigLanId, pppBridgeLocalToRemoteLanId=pppBridgeLocalToRemoteLanId, pppBridgeMediaConfigLocalStatus=pppBridgeMediaConfigLocalStatus, pppBridgeOperStatus=pppBridgeOperStatus, pppBridgeConfigEntry=pppBridgeConfigEntry, pppBridgeMediaTable=pppBridgeMediaTable)
+mibBuilder.exportSymbols("PPP-BRIDGE-NCP-MIB", pppBridgeMediaRemoteStatus=pppBridgeMediaRemoteStatus, pppBridgeTable=pppBridgeTable, pppBridgeMediaMacType=pppBridgeMediaMacType, pppBridgeMediaConfigLocalStatus=pppBridgeMediaConfigLocalStatus, pppBridgeMediaLocalStatus=pppBridgeMediaLocalStatus, pppBridgeLocalToRemoteTinygramCompression=pppBridgeLocalToRemoteTinygramCompression, pppBridge=pppBridge, pppBridgeLocalToRemoteLanId=pppBridgeLocalToRemoteLanId, pppBridgeConfigLineId=pppBridgeConfigLineId, pppBridgeMediaConfigEntry=pppBridgeMediaConfigEntry, pppBridgeMediaConfigTable=pppBridgeMediaConfigTable, pppBridgeConfigTinygram=pppBridgeConfigTinygram, pppBridgeRemoteToLocalTinygramCompression=pppBridgeRemoteToLocalTinygramCompression, pppBridgeRemoteToLocalLanId=pppBridgeRemoteToLocalLanId, pppBridgeConfigLanId=pppBridgeConfigLanId, pppBridgeMediaTable=pppBridgeMediaTable, pppBridgeConfigEntry=pppBridgeConfigEntry, pppBridgeMediaEntry=pppBridgeMediaEntry, pppBridgeConfigAdminStatus=pppBridgeConfigAdminStatus, pppBridgeOperStatus=pppBridgeOperStatus, pppBridgeMediaConfigMacType=pppBridgeMediaConfigMacType, pppBridgeConfigRingId=pppBridgeConfigRingId, pppBridgeConfigTable=pppBridgeConfigTable, pppBridgeEntry=pppBridgeEntry)

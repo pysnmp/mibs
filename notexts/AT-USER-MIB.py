@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-USER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-USER-MIB
-# Produced by pysmi-1.1.3 at Wed Dec  8 21:26:45 2021
-# On host fv-az74-115 platform Linux version 5.11.0-1021-azure by user runner
+# Produced by pysmi-1.1.3 at Thu Dec  9 14:57:33 2021
+# On host fv-az42-142 platform Linux version 5.11.0-1021-azure by user runner
 # Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Integer32, ModuleIdentity, Counter32, iso, Gauge32, Bits, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "ModuleIdentity", "Counter32", "iso", "Gauge32", "Bits", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "Counter64", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, IpAddress, Gauge32, Counter64, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, TimeTicks, iso, ObjectIdentity, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "Gauge32", "Counter64", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "TimeTicks", "iso", "ObjectIdentity", "Bits", "MibIdentifier")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 user = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20))
 user.setRevisions(('2012-09-21 00:00', '2010-09-07 00:00', '2010-06-15 00:15', '2010-06-08 00:00', '2008-10-16 12:00', '2008-08-26 00:00',))
 if mibBuilder.loadTexts: user.setLastUpdated('201209210000Z')
@@ -61,4 +61,4 @@ userSecurityPasswordForced = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 3
 if mibBuilder.loadTexts: userSecurityPasswordForced.setStatus('current')
 userSecurityPasswordReject = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 3, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: userSecurityPasswordReject.setStatus('current')
-mibBuilder.exportSymbols("AT-USER-MIB", userSecurityPasswordReject=userSecurityPasswordReject, PYSNMP_MODULE_ID=user, userSecurityPasswordMinLength=userSecurityPasswordMinLength, userSecurityPasswordLifetime=userSecurityPasswordLifetime, userSecurityPasswordWarning=userSecurityPasswordWarning, userInfoPasswordLifetime=userInfoPasswordLifetime, userInfoLocation=userInfoLocation, userConfigIndex=userConfigIndex, userSecurityPasswordHistory=userSecurityPasswordHistory, userInfoIndex=userInfoIndex, userConfigUsername=userConfigUsername, userConfigPrivilegeLevel=userConfigPrivilegeLevel, userInfoType=userInfoType, userInfoPrivilegeLevel=userInfoPrivilegeLevel, user=user, userInfoPasswordLastChange=userInfoPasswordLastChange, userSecurityPasswordMinCategory=userSecurityPasswordMinCategory, userInfoEntry=userInfoEntry, userSecurityPasswordRules=userSecurityPasswordRules, userSecurityPasswordForced=userSecurityPasswordForced, userInfoTable=userInfoTable, userConfigTable=userConfigTable, userInfoIdleTime=userInfoIdleTime, userConfigEntry=userConfigEntry, userInfoUserName=userInfoUserName)
+mibBuilder.exportSymbols("AT-USER-MIB", userInfoPasswordLastChange=userInfoPasswordLastChange, userSecurityPasswordLifetime=userSecurityPasswordLifetime, userInfoPrivilegeLevel=userInfoPrivilegeLevel, userSecurityPasswordRules=userSecurityPasswordRules, userInfoIndex=userInfoIndex, userInfoEntry=userInfoEntry, userSecurityPasswordMinCategory=userSecurityPasswordMinCategory, userSecurityPasswordWarning=userSecurityPasswordWarning, userConfigPrivilegeLevel=userConfigPrivilegeLevel, userConfigEntry=userConfigEntry, PYSNMP_MODULE_ID=user, userConfigIndex=userConfigIndex, userInfoType=userInfoType, userInfoPasswordLifetime=userInfoPasswordLifetime, userInfoUserName=userInfoUserName, userConfigUsername=userConfigUsername, userConfigTable=userConfigTable, userInfoTable=userInfoTable, userSecurityPasswordHistory=userSecurityPasswordHistory, userInfoLocation=userInfoLocation, userSecurityPasswordMinLength=userSecurityPasswordMinLength, user=user, userInfoIdleTime=userInfoIdleTime, userSecurityPasswordReject=userSecurityPasswordReject, userSecurityPasswordForced=userSecurityPasswordForced)
