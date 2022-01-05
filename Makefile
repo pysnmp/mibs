@@ -38,7 +38,7 @@ compilerfc: dirs $(RFC)
 vendor:
 	./scripts/vendor.sh
 
-index: #compilerfc vendor ##generate index
+index: compilerfc vendor ##generate index
 	touch output/.nojekyll
 	./scripts/index.sh
 
