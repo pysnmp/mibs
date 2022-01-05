@@ -51,28 +51,28 @@ jobs:
       - run: make index
       - uses: actions/upload-artifact@v2
         with:
-          name: log
+          path: log/
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
           version: v3.6.3
-#      - name: Upload
-#        run: |
-#          mkdir /tmp/package
-#          mkdir /tmp/index
-#          mkdir /tmp/origin
-#          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-#          VERSION="$(echo "$GITHUB_REF" | cut -d / -f 3)"
-#          helm package mibserver -d /tmp/package
-#          gh release upload "$VERSION" /tmp/package/*
-#          helm repo index /tmp/package --url https://github.com/pysnmp/mibs/releases/download/"$VERSION"
-#          cp /tmp/package/index.yaml ./output
+      #      - name: Upload
+      #        run: |
+      #          mkdir /tmp/package
+      #          mkdir /tmp/index
+      #          mkdir /tmp/origin
+      #          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+      #          VERSION="$(echo "$GITHUB_REF" | cut -d / -f 3)"
+      #          helm package mibserver -d /tmp/package
+      #          gh release upload "$VERSION" /tmp/package/*
+      #          helm repo index /tmp/package --url https://github.com/pysnmp/mibs/releases/download/"$VERSION"
+      #          cp /tmp/package/index.yaml ./output
       - name: Deploy - GH-PAGES
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
-          keep_files: true          
+          keep_files: true
       #Build docker images
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
