@@ -22,7 +22,7 @@ while IFS=, read -r one two; do
     echo $d, $one
     echo $one,$two>>output/index.csv
 done <list.csv
-grep -Po ' enterprises +(\d+)' asn1/* | sort | uniq | sed 's|asn1\/||g' | sed 's|: enterprises |,|g' >output/enterprises.csv
+grep -Po ' enterprises +(\d+)' output/asn1/* | sort | uniq | sed 's|asn1\/||g' | sed 's|: enterprises |,|g' >output/enterprises.csv
 
 poetry run mibdump --cache-directory=./pycache \
     --ignore-errors \
