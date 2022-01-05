@@ -130,3 +130,5 @@ dmypy.json
 output
 .DS_Store
 list.tmp
+log/*
+.pycache/**
