@@ -13,6 +13,7 @@ dirs:
 	mkdir -p output/texts/ || true
 	mkdir -p output/notexts/ || true
 	mkdir -p output/json/ || true
+	mkdir -p log || true
 
 compilerfc: dirs $(RFC)
 	@# Compile mibs

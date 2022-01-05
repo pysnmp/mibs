@@ -49,6 +49,9 @@ jobs:
       #Build and index
       - run: mkdir -p output/asn1
       - run: make index
+      - uses: actions/upload-artifact@v2
+        with:
+          name: log
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
