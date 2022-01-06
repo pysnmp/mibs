@@ -35,14 +35,21 @@ compilerfc: dirs $(RFC)
 	--destination-directory=./output/texts \
 	--generate-mib-texts --keep-texts-layout \
 	$(notdir $(RFC))
-	
+
+	poetry run mibdump \
+	--ignore-errors \
+ 	--cache-directory=.pycache \
+	--mib-source=file://$$(pwd)/src/standard --mib-source=https://pysnmp.github.io:443/mibs/asn1/@mib@ \
+	--destination-directory=./output/json --destination-format=json \
+	$(notdir $(RFC))
+
 
 vendor:
 	./scripts/vendor.sh
 
 index: compilerfc vendor ##generate index
 	touch output/.nojekyll
-	./scripts/index.sh
+	poetry run python index.py
 
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
