@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "MibIdentifier",
       "enterprises",
-      "iso",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "Gauge32",
       "Counter32",
       "Bits",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
+      "DateAndTime",
       "TruthValue",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "RowStatus"
     ]
   },
   "groove": {
@@ -27258,7 +27258,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infinera/CORIANT-GROOVE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:08 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:20:17 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

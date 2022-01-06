@@ -5,33 +5,33 @@
       "InterfaceIndex"
     ],
     "NBS-MIB": [
-      "Unsigned16TC",
-      "nbs"
+      "nbs",
+      "Unsigned16TC"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nbsEfmMib": {
@@ -1029,7 +1029,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-EFM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:23:07 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

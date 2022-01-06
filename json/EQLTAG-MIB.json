@@ -18,28 +18,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "enterprises",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
       "iso",
-      "Bits",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "Counter64",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
+      "RowStatus",
+      "RowPointer",
       "TEXTUAL-CONVENTION",
-      "RowPointer"
+      "DisplayString"
     ]
   },
   "eqltagModule": {
@@ -381,7 +381,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLTAG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:12:51 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

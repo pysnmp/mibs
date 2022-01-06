@@ -5,20 +5,20 @@
       "d5QamExtServingGroup"
     ],
     "ARRIS-D5-VIDEO-MIB": [
-      "d5vStreamProgIndex",
-      "d5vStreamEsPidIndex",
       "d5vIpUdpIndex",
+      "d5vStreamEsPidIndex",
       "d5vIpSrcIndex",
+      "d5vStreamProgIndex",
       "d5vIpDestIndex"
     ],
     "ARRIS-MIB": [
       "arrisD5UEQam"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvId",
-      "docsDevEventEntry",
+      "docsDevEvText",
       "docsDevEvLevel",
-      "docsDevEvText"
+      "docsDevEventEntry",
+      "docsDevEvId"
     ],
     "ENTITY-MIB": [
       "entPhysicalIndex",
@@ -28,32 +28,32 @@
       "entPhySensorValue"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "Gauge32",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
       "Bits",
-      "enterprises"
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Counter32",
+      "iso",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "d5AlarmMIB": {
@@ -2429,7 +2429,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:19 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:02:33 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

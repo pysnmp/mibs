@@ -8,32 +8,32 @@
       "mplsVpnVrfName"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Bits",
-      "Unsigned32"
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "hwMACBIND": {
@@ -173,7 +173,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MACBIND-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:18:46 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

@@ -5,8 +5,8 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "SecondaryState",
       "OperationalState",
+      "SecondaryState",
       "AdminState"
     ],
     "CM-ENTITY-MIB": [
@@ -18,33 +18,33 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Bits",
-      "Unsigned32"
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "DisplayString",
       "StorageType",
+      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "VariablePointer"
+      "VariablePointer",
+      "RowStatus"
     ]
   },
   "f3EOTDMMIB": {
@@ -736,7 +736,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOTDM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:01:05 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

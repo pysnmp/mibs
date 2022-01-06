@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "Timeout",
-      "BridgeId"
+      "BridgeId",
+      "Timeout"
     ],
     "NSCRTV-EPONEOC-EPON-MIB": [
       "EponDeviceIndex",
-      "EponCardIndex",
-      "EponStats24HourRecordType",
-      "TAddress",
-      "EponStatsThresholdType",
-      "AutoNegotiationTechAbility",
-      "EponPortIndex",
-      "EponSeverityType",
-      "EponStats15MinRecordType",
       "stpManagementObjects",
+      "EponCardIndex",
+      "AutoNegotiationTechAbility",
+      "EponStatsThresholdType",
       "EponAlarmCode",
-      "EponAlarmInstance"
+      "EponStats15MinRecordType",
+      "EponPortIndex",
+      "TAddress",
+      "EponAlarmInstance",
+      "EponSeverityType",
+      "EponStats24HourRecordType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Gauge32"
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowStatus",
-      "TruthValue",
       "MacAddress",
       "DisplayString",
+      "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DateAndTime",
+      "TimeStamp"
     ]
   },
   "stpGlobalSetTable": {
@@ -624,7 +624,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/NSCRTV-EPON-STP-MGM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:31:23 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:14:22 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

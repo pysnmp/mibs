@@ -5,25 +5,25 @@
       "routingIND1RDP"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
+      "Unsigned32",
+      "Counter32",
       "Counter64",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -365,7 +365,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-RDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:24:37 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

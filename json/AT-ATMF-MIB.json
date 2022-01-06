@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "AT-SMI-MIB": [
-      "DisplayStringUnsized",
-      "modules"
+      "modules",
+      "DisplayStringUnsized"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Bits",
       "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "iso",
-      "Unsigned32"
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "atmf": {
@@ -929,7 +929,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-ATMF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:03:18 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

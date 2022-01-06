@@ -5,25 +5,25 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "Bits",
+      "iso",
       "TimeTicks",
+      "MibIdentifier",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Counter32",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64",
-      "iso"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -77,7 +77,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-Interfaces-CONF",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:21:30 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

@@ -8,46 +8,46 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlQosProtocol",
-      "MwlAdmissionControl",
       "MwlDropPolicy",
-      "MwlQosCodecProtocol",
-      "MwlDscpType",
-      "MwlQosCodec",
       "MwlQosRulesMatchClass",
-      "MwlQosRulesMatchClassBits",
+      "MwlAdmissionControl",
       "MwlQosAction",
-      "MwlOnOffSwitch"
+      "MwlOnOffSwitch",
+      "MwlQosRulesMatchClassBits",
+      "MwlQosProtocol",
+      "MwlQosCodec",
+      "MwlQosCodecProtocol",
+      "MwlDscpType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "Gauge32",
       "iso",
-      "Unsigned32",
-      "enterprises",
-      "Bits",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Gauge32"
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "MacAddress",
-      "DateAndTime",
-      "TruthValue",
       "TimeInterval",
       "DisplayString",
+      "MacAddress",
       "TimeStamp",
+      "TruthValue",
+      "DateAndTime",
+      "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -991,7 +991,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:13:43 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

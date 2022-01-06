@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "BFD-TC-STD-MIB": [
-      "BfdSessIndexTC",
-      "BfdCtrlDestPortNumberTC",
       "BfdIntervalTC",
+      "BfdMultiplierTC",
+      "BfdSessIndexTC",
       "BfdCtrlSourcePortNumberTC",
-      "BfdMultiplierTC"
+      "BfdCtrlDestPortNumberTC"
     ],
     "DIFFSERV-DSCP-TC": [
       "IndexIntegerNextFree"
     ],
     "IANA-BFD-TC-STD-MIB": [
-      "IANAbfdSessAuthenticationTypeTC",
       "IANAbfdSessAuthenticationKeyTC",
       "IANAbfdDiagTC",
       "IANAbfdSessTypeTC",
-      "IANAbfdSessOperModeTC",
-      "IANAbfdSessStateTC"
+      "IANAbfdSessAuthenticationTypeTC",
+      "IANAbfdSessStateTC",
+      "IANAbfdSessOperModeTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -33,29 +33,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32",
+      "Bits",
+      "Integer32",
+      "Unsigned32",
+      "mib-2",
       "iso",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
-      "mib-2",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "TruthValue",
-      "RowStatus",
-      "StorageType"
+      "StorageType",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "bfdMIB": {
@@ -1498,7 +1498,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/BFD-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:06 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],

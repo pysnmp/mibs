@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
+      "dot1agCfmMdIndex",
       "dot1agCfmMepIdentifier",
-      "Dot1afCfmIndexIntegerNextFree",
+      "Dot1agCfmMepIdOrZero",
       "dot1agCfmMepEntry",
       "dot1agCfmMaIndex",
-      "Dot1agCfmMepIdOrZero",
-      "dot1agCfmMdIndex"
+      "Dot1afCfmIndexIntegerNextFree"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021PriorityValue"
     ],
     "MEF-SOAM-TC-MIB": [
-      "MefSoamTcMeasurementPeriodType",
-      "MefSoamTcDelayMeasurementBinType",
-      "MefSoamTcStatusType",
-      "MefSoamTcAvailabilityType",
       "MefSoamTcSessionType",
+      "MefSoamTcAvailabilityType",
       "MefSoamTcTestPatternType",
+      "MefSoamTcOperationTimeType",
       "MefSoamTcDataPatternType",
-      "MefSoamTcOperationTimeType"
+      "MefSoamTcStatusType",
+      "MefSoamTcMeasurementPeriodType",
+      "MefSoamTcDelayMeasurementBinType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -28,30 +28,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Bits",
       "IpAddress",
-      "Integer32",
       "Counter32",
-      "Gauge32",
+      "Bits",
+      "Integer32",
       "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "enterprises",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
-      "TimeInterval",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "TruthValue",
-      "RowStatus"
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "mefSoamPmMib": {
@@ -6835,7 +6835,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MEF-SOAM-PM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:07 2022",
       "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
