@@ -22,13 +22,15 @@ compilerfc: dirs $(RFC)
 
 #Compile with notexts	
 	poetry run mibdump \
+	--ignore-errors \
 	--cache-directory=.pycache \
 	--mib-source=file://$$(pwd)/src/standard --mib-source=https://pysnmp.github.io:443/mibs/asn1/@mib@ \
 	--destination-directory=./output/notexts \
 	$(notdir $(RFC))
 #Compile with notext	
 	poetry run mibdump \
-	--cache-directory=.pycache \
+	--ignore-errors \
+ 	--cache-directory=.pycache \
 	--mib-source=file://$$(pwd)/src/standard --mib-source=https://pysnmp.github.io:443/mibs/asn1/@mib@ \
 	--destination-directory=./output/texts \
 	--generate-mib-texts --keep-texts-layout \
