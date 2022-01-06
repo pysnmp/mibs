@@ -3,7 +3,7 @@
 --
 -- March 2002, Suresh Basavarajappa, Mickey Spiegel and Sameer Merchant
 --
--- Copyright (c) 2001-2002, 2004 by cisco Systems, Inc.
+-- Copyright (c) 2001, 2002 by cisco Systems, Inc.
 -- All rights reserved.
 --
 -- *****************************************************************
@@ -164,8 +164,8 @@ cOPatchEventType OBJECT-TYPE
                     delete(2),
                     modify(3)
                  }
-    MAX-ACCESS  accessible-for-notify
---  MAX-ACCESS  read-only
+--  MAX-ACCESS  accessible-for-notify
+    MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
         "The event type of the patch.  The use is as follows:

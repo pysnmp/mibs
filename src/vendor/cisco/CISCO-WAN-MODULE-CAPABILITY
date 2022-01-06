@@ -1,8 +1,7 @@
-
 -- *****************************************************************
 -- ciscoWanModuleCapabilities MIB
 --
--- AGENT-CAPABILITIES mib for CISCO-WAN-MODULE-MIB
+-- AGENT-CAPABILITIES mib for CISCO-WAN-MODULE-MIB 
 --
 -- March 2002, Subra Hegde
 --
@@ -15,9 +14,9 @@ CISCO-WAN-MODULE-CAPABILITY DEFINITIONS ::= BEGIN
 IMPORTS
         MODULE-IDENTITY
             FROM SNMPv2-SMI
-        AGENT-CAPABILITIES
+        AGENT-CAPABILITIES 
             FROM SNMPv2-CONF
-        ciscoWanAgentCapability
+        ciscoAgentCapability
             FROM CISCOWAN-SMI;
 
 ciscoWanModuleCapability MODULE-IDENTITY
@@ -46,7 +45,7 @@ ciscoWanModuleCapability MODULE-IDENTITY
     REVISION "200203060000Z"
     DESCRIPTION
         "Initial version of this MIB module."
-    ::= { ciscoWanAgentCapability 99999 }
+    ::= { ciscoAgentCapability 99999 }
 
 ciscoWanModuleCapabilityV2R00 AGENT-CAPABILITIES
     PRODUCT-RELEASE  "MGX8850 Release 2.0.00"

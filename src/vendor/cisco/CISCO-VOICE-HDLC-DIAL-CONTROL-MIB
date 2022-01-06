@@ -20,7 +20,7 @@ IMPORTS
         OBJECT-GROUP
                 FROM SNMPv2-CONF
         CvcGUid
-                FROM  CISCO-VOICE-COMMON-DIAL-CONTROL-MIB
+                FROM  CISCO-VOICE-DIAL-CONTROL-MIB
         cCallHistoryIndex
                 FROM CISCO-DIAL-CONTROL-MIB
         ciscoExperiment
